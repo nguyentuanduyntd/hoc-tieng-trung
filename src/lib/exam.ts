@@ -24,7 +24,14 @@ export interface ExamSpec {
   standard: Exam["standard"];
   level: number;
   title: string;
-  parts: Record<string, QuestionSpec[]>;
+  /** Mỗi phần: danh sách câu, hoặc { bank, items } khi phần dùng bảng phương án chung A–F. */
+  parts: Record<string, QuestionSpec[] | SharedPartSpec>;
+}
+
+/** Phần dùng chung một bảng phương án (hình hoặc chữ); `answer` của từng câu là chỉ số trong bảng. */
+export interface SharedPartSpec {
+  bank: string[];
+  items: QuestionSpec[];
 }
 
 export const JUDGE_OPTIONS: ExamOption[] = [{ label: "✓ Đúng" }, { label: "✗ Sai" }];
@@ -51,15 +58,19 @@ export function buildExam(
   const sections = config.sections.map((sec) => ({
     id: sec.id,
     parts: sec.parts.map((pc) => {
-      const qs = spec.parts[pc.id] ?? [];
+      const raw = spec.parts[pc.id] ?? [];
+      const bank = Array.isArray(raw) ? undefined : raw.bank;
+      const qs = Array.isArray(raw) ? raw : raw.items;
+      if (pc.shared && !bank) errors.push(`${spec.id} ${pc.id}: phần này cần bảng phương án chung { bank, items }`);
+      if (!pc.shared && bank) errors.push(`${spec.id} ${pc.id}: phần này không dùng bảng chung`);
+      const toOption = (o: string, where: string): ExamOption => (pc.kind === "choose-picture" ? { picture: o } : { text: sentence(o, where) });
+      const bankOptions = bank?.map((o) => toOption(o, `${spec.id} ${pc.id} (bảng)`));
       return {
         id: pc.id,
         questions: qs.map((q, i): ExamQuestion => {
           const where = `${spec.id} ${pc.id}#${i + 1}`;
           const options: ExamOption[] =
-            pc.kind === "judge-picture"
-              ? JUDGE_OPTIONS
-              : (q.options ?? []).map((o) => (pc.kind === "choose-picture" ? { picture: o } : { text: sentence(o, where) }));
+            pc.kind === "judge-picture" ? JUDGE_OPTIONS : bankOptions ?? (q.options ?? []).map((o) => toOption(o, where));
           const keyWordIds = q.keyWords.map((h) => {
             const w = byHanzi.get(h);
             if (!w) errors.push(`${where}: từ khóa "${h}" không có trong từ điển`);
@@ -109,6 +120,16 @@ export function validateExam(exam: Exam, config: ExamConfig): string[] {
       if (pc.kind === "judge-picture") {
         const answers = new Set(p.questions.map((q) => q.answer));
         if (answers.size < 2) e.push(`${exam.id} ${pc.id}: phần Đúng/Sai cần có cả câu đúng và câu sai`);
+      }
+      if (pc.shared) {
+        // bảng chung: mọi câu cùng một bảng, mỗi phương án dùng tối đa một lần
+        const key = (q: ExamQuestion) => q.options.map((o) => o.picture ?? o.text?.zh ?? o.label).join("|");
+        if (new Set(p.questions.map(key)).size > 1) e.push(`${exam.id} ${pc.id}: các câu phải dùng chung một bảng phương án`);
+        const answers = p.questions.map((q) => q.answer);
+        if (new Set(answers).size !== answers.length) e.push(`${exam.id} ${pc.id}: hai câu trùng đáp án trong bảng chung`);
+      } else if (pc.optionCount === 3 && p.questions.length >= 5) {
+        const pos = new Set(p.questions.map((q) => q.answer));
+        if (pos.size < 2) e.push(`${exam.id} ${pc.id}: đáp án dồn vào một vị trí`);
       }
     });
   });

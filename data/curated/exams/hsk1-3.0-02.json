@@ -1,0 +1,77 @@
+{
+  "$comment": "Đề thi thử HSK 1 (chuẩn 3.0) số 2 — dự án tự soạn theo cấu trúc chính thức của CTI, chỉ dùng từ HSK 1, không trùng câu với đề 1. Định dạng như hsk1-3.0-01.json.",
+  "id": "hsk1-3.0-02",
+  "standard": "3.0",
+  "level": 1,
+  "title": "Đề thi thử HSK 1 · Số 2",
+  "parts": {
+    "L1": [
+      { "audio": ["喝牛奶"], "options": ["☕", "🥛", "🍵"], "answer": 1, "keyWords": ["喝", "牛奶"], "explanationVi": "喝牛奶 = uống sữa (🍵 là 茶)." },
+      { "audio": ["我的小狗"], "options": ["🐱", "🐶", "🐦"], "answer": 1, "keyWords": ["狗"], "explanationVi": "狗 = con chó (🐱 là 猫)." },
+      { "audio": ["写汉字"], "options": ["✍️", "📖", "🎤"], "answer": 0, "keyWords": ["写", "汉字"], "explanationVi": "写汉字 = viết chữ Hán." },
+      { "audio": ["吃饺子"], "options": ["🍜", "🍚", "🥟"], "answer": 2, "keyWords": ["饺子", "吃"], "explanationVi": "饺子 = sủi cảo (🍜 là 面条儿, 🍚 là 米饭)." },
+      { "audio": ["下雪了"], "options": ["🌧️", "❄️", "☀️"], "answer": 1, "keyWords": ["雪", "下"], "explanationVi": "下雪 = tuyết rơi (🌧️ là 下雨)." }
+    ],
+    "L2": [
+      { "audio": ["你叫什么名字？"], "options": ["我叫小雨。", "我是中国人。", "我很好。"], "answer": 0, "keyWords": ["叫", "名字"], "explanationVi": "Hỏi tên → 我叫…" },
+      { "audio": ["你什么时候回家？"], "options": ["在学校。", "下午五点。", "坐火车。"], "answer": 1, "keyWords": ["时候", "回"], "explanationVi": "什么时候 hỏi thời điểm → 下午五点." },
+      { "audio": ["你认识他吗？"], "options": ["他在家。", "认识，他是我同学。", "我不去。"], "answer": 1, "keyWords": ["认识", "同学"], "explanationVi": "认识…吗 → 认识，他是我同学." },
+      { "audio": ["今天天气怎么样？"], "options": ["是星期四。", "在北京。", "很热。"], "answer": 2, "keyWords": ["天气", "怎么样", "热"], "explanationVi": "Hỏi thời tiết → 很热." },
+      { "audio": ["你明天能来吗？"], "options": ["能，我明天来。", "我昨天来了。", "我去商店。"], "answer": 0, "keyWords": ["能", "明天"], "explanationVi": "能…吗 → 能，我明天来." }
+    ],
+    "L3": {
+      "bank": ["🛏️", "🍎", "📱", "🏫", "🎬", "🐶"],
+      "items": [
+        { "audio": [{ "speaker": "女", "zh": "你今天上课吗？" }, { "speaker": "男", "zh": "上，我现在去学校。" }], "answer": 3, "keyWords": ["上课", "学校"], "explanationVi": "Người nam đang đến trường → 🏫." },
+        { "audio": [{ "speaker": "男", "zh": "你想买什么？" }, { "speaker": "女", "zh": "我想买一个新手机。" }], "answer": 2, "keyWords": ["手机", "买"], "explanationVi": "手机 = điện thoại di động → 📱." },
+        { "audio": [{ "speaker": "女", "zh": "你怎么还不睡觉？" }, { "speaker": "男", "zh": "我十一点睡。" }], "answer": 0, "keyWords": ["睡觉"], "explanationVi": "Nói về chuyện đi ngủ → 🛏️." },
+        { "audio": [{ "speaker": "男", "zh": "晚上我们去看电影，好吗？" }, { "speaker": "女", "zh": "好，几点去？" }], "answer": 4, "keyWords": ["电影", "晚上"], "explanationVi": "看电影 = xem phim → 🎬." },
+        { "audio": [{ "speaker": "女", "zh": "这是你家的狗吗？" }, { "speaker": "男", "zh": "是的，它很好玩儿。" }], "answer": 5, "keyWords": ["狗", "好玩儿"], "explanationVi": "狗 = con chó → 🐶." }
+      ]
+    },
+    "L4": [
+      { "audio": ["我姐姐在医院工作，她是医生。"], "question": "姐姐做什么工作？", "options": ["老师", "医生", "学生"], "answer": 1, "keyWords": ["姐姐", "医生"], "explanationVi": "她是医生 — chị gái là bác sĩ." },
+      { "audio": ["现在是上午十点，我在公司上班。"], "question": "现在几点？", "options": ["十点", "十一点", "四点"], "answer": 0, "keyWords": ["上午", "点", "上班"], "explanationVi": "上午十点 — mười giờ sáng." },
+      { "audio": ["这个杯子太贵了，我不买。"], "question": "说话人觉得杯子怎么样？", "options": ["很便宜", "很漂亮", "太贵了"], "answer": 2, "keyWords": ["杯子", "贵", "太"], "explanationVi": "太贵了 — đắt quá." },
+      { "audio": ["我有两个孩子，一个儿子，一个女儿。"], "question": "说话人有几个孩子？", "options": ["一个", "两个", "三个"], "answer": 1, "keyWords": ["孩子", "两", "儿子", "女儿"], "explanationVi": "两个孩子 — hai đứa con." },
+      { "audio": ["昨天我没去上班，我生病了。"], "question": "说话人昨天怎么了？", "options": ["生病了", "去上班了", "去商店了"], "answer": 0, "keyWords": ["生病", "昨天", "没"], "explanationVi": "我生病了 — tôi bị ốm." }
+    ],
+    "R1": {
+      "bank": ["🚆", "🍚", "📱", "🐱", "☀️", "✍️"],
+      "items": [
+        { "text": "我们坐火车去北京。", "answer": 0, "keyWords": ["火车", "坐"], "explanationVi": "火车 = tàu hỏa → 🚆." },
+        { "text": "我喜欢吃米饭。", "answer": 1, "keyWords": ["米饭"], "explanationVi": "米饭 = cơm → 🍚." },
+        { "text": "我的猫很漂亮。", "answer": 3, "keyWords": ["猫", "漂亮"], "explanationVi": "猫 = con mèo → 🐱." },
+        { "text": "今天天气很好，不冷也不热。", "answer": 4, "keyWords": ["天气", "冷", "热"], "explanationVi": "Trời đẹp, không lạnh không nóng → ☀️." },
+        { "text": "他在写汉字。", "answer": 5, "keyWords": ["写", "汉字"], "explanationVi": "写汉字 = viết chữ Hán → ✍️." }
+      ]
+    },
+    "R2": {
+      "bank": ["没关系。", "我今年二十岁。", "好的，明天见。", "她是我妈妈。", "坐出租车。", "在书店。"],
+      "items": [
+        { "text": "对不起！", "answer": 0, "keyWords": ["对不起", "没关系"], "explanationVi": "对不起 → đáp 没关系 (không sao)." },
+        { "text": "那个人是谁？", "answer": 3, "keyWords": ["谁", "那"], "explanationVi": "谁 hỏi người → 她是我妈妈." },
+        { "text": "明天下午三点来我家吧。", "answer": 2, "keyWords": ["明天", "吧"], "explanationVi": "Lời mời → 好的，明天见." },
+        { "text": "你怎么去医院？", "answer": 4, "keyWords": ["怎么", "出租车"], "explanationVi": "怎么去 hỏi cách đi → 坐出租车." },
+        { "text": "你在哪儿买的书？", "answer": 5, "keyWords": ["哪儿", "书店"], "explanationVi": "Hỏi mua ở đâu → 在书店." }
+      ]
+    },
+    "R3": {
+      "bank": ["叫", "去", "太", "喜欢", "岁", "能"],
+      "items": [
+        { "text": "你＿什么名字？", "answer": 0, "keyWords": ["叫", "名字"], "explanationVi": "叫什么名字 = tên là gì." },
+        { "text": "我想＿商店买东西。", "answer": 1, "keyWords": ["去", "商店"], "explanationVi": "去商店 = đi cửa hàng." },
+        { "text": "这件衣服＿贵了。", "answer": 2, "keyWords": ["太"], "explanationVi": "太…了 = quá…" },
+        { "text": "我很＿看电影。", "answer": 3, "keyWords": ["喜欢"], "explanationVi": "很喜欢 = rất thích." },
+        { "text": "我女儿今年六＿。", "answer": 4, "keyWords": ["岁", "女儿"], "explanationVi": "六岁 = sáu tuổi." }
+      ]
+    },
+    "R4": [
+      { "text": "我家有四口人：爸爸、妈妈、哥哥和我。", "question": "他家有几口人？", "options": ["三口", "四口", "五口"], "answer": 1, "keyWords": ["口", "家"], "explanationVi": "我家有四口人 — nhà có bốn người." },
+      { "text": "我早上七点起床，八点去学校。", "question": "他几点去学校？", "options": ["八点", "七点", "九点"], "answer": 0, "keyWords": ["起床", "早上", "点"], "explanationVi": "八点去学校 — tám giờ đi học (bảy giờ là giờ dậy)." },
+      { "text": "这些水果很好吃，也很便宜。", "question": "这些水果怎么样？", "options": ["很贵", "不好吃", "很便宜"], "answer": 2, "keyWords": ["水果", "便宜"], "explanationVi": "也很便宜 — cũng rất rẻ." },
+      { "text": "我朋友今年去中国了，他明年回来。", "question": "朋友什么时候回来？", "options": ["今年", "去年", "明年"], "answer": 2, "keyWords": ["明年", "回"], "explanationVi": "他明年回来 — năm sau anh ấy về." },
+      { "text": "今天是星期天，我不上学，在家休息。", "question": "今天他在哪儿？", "options": ["学校", "家里", "公司"], "answer": 1, "keyWords": ["休息", "星期天"], "explanationVi": "在家休息 — nghỉ ở nhà." }
+    ]
+  }
+}

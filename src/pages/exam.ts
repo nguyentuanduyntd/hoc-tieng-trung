@@ -2,7 +2,7 @@
 // Luật phần Nghe: mỗi câu tự phát `playsPerItem` lần, KHÔNG nghe lại, tự chuyển câu; hết phần Nghe có
 // `reviewSeconds` để sửa đáp án (không có âm thanh). Phần Đọc đếm ngược, hết giờ tự nộp.
 
-import { getExamConfig, isListening, type ExamConfig, type ListeningTiming } from "../config/exams.ts";
+import { fullyVerified, getExamConfig, isListening, type ExamConfig, type ListeningTiming } from "../config/exams.ts";
 import { allQuestions, applyWrongToSrs, formatClock, scoreExam, wrongWordIds, type ExamResult } from "../lib/exam.ts";
 import { localDate } from "../lib/srs.ts";
 import { setProgress, state } from "../state.ts";
@@ -19,7 +19,7 @@ export function loadExams(): Promise<ExamsFile | null> {
   return examsPromise;
 }
 
-const LETTERS = ["A", "B", "C", "D"];
+const LETTERS = ["A", "B", "C", "D", "E", "F"];
 
 // ---------- Danh sách đề & cấu trúc ----------
 export function examListPage(): string {
@@ -45,6 +45,28 @@ function structureTable(c: ExamConfig): string {
     <p class="small">Tổng điểm <strong>${c.totalScore}</strong> · Đạt từ <strong>${c.passScore}</strong> điểm.</p>`;
 }
 
+const VERIFY_LABELS: Record<keyof ExamConfig["verified"], string> = {
+  structure: "Cấu trúc phần & số câu",
+  timing: "Thời lượng",
+  scoring: "Thang điểm & điểm đạt",
+  audioPlays: "Số lần phát âm thanh",
+};
+
+function verificationHtml(c: ExamConfig): string {
+  const ok = fullyVerified(c);
+  return `<div class="${ok ? "verify-box" : "notice"} small">
+    <strong>${ok ? "Đã đối chiếu với nguồn chính thức." : "Một số mục chưa xác minh được từ nguồn chính thức."}</strong>
+    <ul class="verify-list">${(Object.keys(VERIFY_LABELS) as (keyof ExamConfig["verified"])[])
+      .map((k) => `<li>${c.verified[k] ? "✅" : "⚠️"} ${VERIFY_LABELS[k]}${c.verified[k] ? "" : " — <em>chưa xác minh</em>"}</li>`)
+      .join("")}</ul>
+    ${c.notes.map((n) => `<p>${esc(n)}</p>`).join("")}
+    <p>Nguồn đã đối chiếu:</p>
+    <ul>${c.sources
+      .map((x) => `<li><a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.label)} ↗</a> — ${esc(x.covers)} <span class="muted">(kiểm tra ${esc(x.checkedAt.split("-").reverse().join("/"))})</span></li>`)
+      .join("")}</ul>
+  </div>`;
+}
+
 export async function mountExamList() {
   const file = await loadExams();
   const el = document.getElementById("exam-list");
@@ -61,7 +83,7 @@ export async function mountExamList() {
         ? `<section class="card section">
             <h2>Cấu trúc đề HSK 1 — chuẩn ${esc(std)}</h2>
             ${structureTable(config)}
-            ${config.verified ? "" : `<div class="notice small"><strong>Chưa đối chiếu với đề chính thức.</strong> ${config.notes.map(esc).join(" ")}</div>`}
+            ${verificationHtml(config)}
           </section>`
         : `<div class="notice">Chưa có cấu trúc đề cho chuẩn ${esc(std)}.</div>`
     }
@@ -210,7 +232,8 @@ function renderIntro(r: HTMLElement) {
         ${lt?.reviewSeconds ? `<li>Hết phần Nghe có ${Math.round(lt.reviewSeconds / 60)} phút để xem lại đáp án phần Nghe (không có âm thanh).</li>` : ""}
         <li>Phần Đọc có đồng hồ đếm ngược; hết giờ bài tự nộp.</li>
         <li>Câu bỏ trống tính là sai. Nộp bài xong có điểm ngay và xem lại từng câu.</li>
-        <li>Phím tắt: <kbd>1</kbd>–<kbd>3</kbd> hoặc <kbd>A</kbd>–<kbd>C</kbd> để chọn đáp án ở phần Nghe.</li>
+        <li>Phím tắt ở phần Nghe: <kbd>1</kbd>–<kbd>6</kbd> hoặc <kbd>A</kbd>–<kbd>F</kbd> để chọn đáp án.</li>
+        <li>Phần có bảng A–F: các câu cùng chọn trong một bảng, mỗi phương án dùng tối đa một lần.</li>
       </ul>
       ${
         ttsSupported()
@@ -255,9 +278,39 @@ function transcriptHtml(q: ExamQuestion, clickable = false): string {
   return `<div class="transcript">${lines.join("")}</div>`;
 }
 
+const isShared = (q: ExamQuestion) => !!partCfg(q.partId).shared;
+
+/** Bảng phương án chung A–F, hiện một lần ở đầu phần. */
+function bankHtml(q: ExamQuestion): string {
+  return `<div class="exam-bank ${q.options.some((o) => o.picture) ? "pics" : ""}" aria-label="Bảng phương án">${q.options
+    .map((o, i) => `<div class="bank-item"><span class="opt-letter">${LETTERS[i]}</span>${o.picture ? `<span class="pic-emoji" aria-hidden="true">${o.picture}</span>` : o.text ? sentenceHtml(o.text) : ""}</div>`)
+    .join("")}</div>`;
+}
+
+function letterButtons(q: ExamQuestion, sel: number | undefined): string {
+  return `<div class="exam-options letters">${q.options
+    .map((_, i) => `<button class="btn option exam-opt letter ${sel === i ? "selected" : ""}" data-q="${esc(q.id)}" data-a="${i}" aria-pressed="${sel === i}" aria-label="Chọn ${LETTERS[i]}">${LETTERS[i]}</button>`)
+    .join("")}</div>`;
+}
+
+/** Nhóm câu theo phần; phần dùng bảng chung có bảng ở đầu. */
+function partBlock(partId: string, qs: ExamQuestion[], one: (q: ExamQuestion) => string, withHeading = true): string {
+  const pc = partCfg(partId);
+  return `<section class="section">
+    ${withHeading ? `<h2>${esc(pc.title)} <span class="muted small">${esc(pc.instructionsVi)}</span></h2>` : ""}
+    ${pc.shared && qs[0] ? bankHtml(qs[0]) : ""}
+    ${qs.map(one).join("")}
+  </section>`;
+}
+
 function questionBody(q: ExamQuestion, mode: "listen" | "read" | "review"): string {
   const sel = S!.answers[q.id];
   const reveal = mode === "review";
+  if (mode === "read" && isShared(q)) {
+    return `
+    ${q.text ? `<div class="exam-text">${sentenceHtml(q.text)}</div>` : ""}
+    ${letterButtons(q, sel)}`;
+  }
   const opts = q.options.map((o, i) => optionHtml(q, o, i, { selected: sel === i, reveal, disabled: reveal })).join("");
   const showTranscript = mode === "listen" && !ttsSupported();
   return `
@@ -265,7 +318,7 @@ function questionBody(q: ExamQuestion, mode: "listen" | "read" | "review"): stri
     ${q.text ? `<div class="exam-text">${sentenceHtml(q.text, reveal)}</div>` : ""}
     ${q.question && q.text ? `<div class="exam-question">${sentenceHtml(q.question, reveal)}</div>` : ""}
     ${showTranscript ? transcriptHtml(q) : ""}
-    <div class="exam-options ${q.options.some((o) => o.picture) ? "pics" : ""} ${q.kind === "judge-picture" ? "judge" : ""}">${opts}</div>`;
+    <div class="exam-options ${q.options.some((o) => o.picture) ? "pics" : ""} ${q.options.length > 3 ? "six" : ""} ${q.kind === "judge-picture" ? "judge" : ""}">${opts}</div>`;
 }
 
 function startListening() {
@@ -366,11 +419,19 @@ function nextListening() {
   } else startReading();
 }
 
+function groupByPart(qs: ExamQuestion[]): [string, ExamQuestion[]][] {
+  const m = new Map<string, ExamQuestion[]>();
+  for (const q of qs) m.set(q.partId, [...(m.get(q.partId) ?? []), q]);
+  return [...m];
+}
+
 function renderListeningReview(r: HTMLElement) {
   const qs = listeningQs();
   r.innerHTML = `${clockBar("Xem lại phần Nghe")}
     <div class="notice small">Hết phần Nghe. Bạn có thể sửa đáp án phần Nghe (không có âm thanh). Hết giờ sẽ tự sang phần Đọc.</div>
-    ${qs.map((q) => `<div class="card exam-q compact"><div class="q-num">${q.number}.</div>${questionBody(q, "read")}</div>`).join("")}
+    ${groupByPart(qs)
+      .map(([pid, list]) => partBlock(pid, list, (q) => `<div class="card exam-q compact"><div class="q-num">${q.number}.</div>${questionBody(q, "read")}</div>`))
+      .join("")}
     <p class="center"><button class="btn primary" data-ex="to-reading">Sang phần Đọc →</button></p>`;
 }
 
@@ -402,12 +463,7 @@ function renderReading(r: HTMLElement) {
       .map((q) => `<a href="#q-${esc(q.id)}" class="${S!.answers[q.id] !== undefined ? "done" : ""}" data-jump="${esc(q.id)}">${q.number}</a>`)
       .join("")}</nav>
     ${sec.parts
-      .map(
-        (p) => `<section class="section">
-          <h2>${esc(partCfg(p.id).title)} <span class="muted small">${esc(partCfg(p.id).instructionsVi)}</span></h2>
-          ${p.questions.map((q) => `<div class="card exam-q" id="q-${esc(q.id)}"><div class="q-num">${q.number}.</div>${questionBody(q, "read")}</div>`).join("")}
-        </section>`,
-      )
+      .map((p) => partBlock(p.id, p.questions, (q) => `<div class="card exam-q ${isShared(q) ? "compact" : ""}" id="q-${esc(q.id)}"><div class="q-num">${q.number}.</div>${questionBody(q, "read")}</div>`))
       .join("")}
     <div class="center section">
       ${
@@ -551,7 +607,7 @@ export function installExamHandlers() {
   });
   document.addEventListener("keydown", (e) => {
     if (!S || !root() || S.phase !== "listening" || document.querySelector("dialog[open]")) return;
-    const map: Record<string, number> = { "1": 0, "2": 1, "3": 2, a: 0, b: 1, c: 2 };
+    const map: Record<string, number> = { "1": 0, "2": 1, "3": 2, "4": 3, "5": 4, "6": 5, a: 0, b: 1, c: 2, d: 3, e: 4, f: 5 };
     const i = map[e.key.toLowerCase()];
     if (i === undefined) return;
     const btn = document.querySelectorAll<HTMLElement>(".exam-q .exam-opt")[i];

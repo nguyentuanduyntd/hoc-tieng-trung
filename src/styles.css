@@ -1443,6 +1443,67 @@ a.reading-card:hover {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.exam-options.pics.six {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.exam-options.letters {
+  grid-template-columns: repeat(6, minmax(0, 56px));
+  gap: 8px;
+}
+
+.exam-opt.letter {
+  justify-content: center;
+  font-weight: 700;
+  padding: 8px 0;
+}
+
+.exam-bank {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.exam-bank.pics {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.bank-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.15rem;
+}
+
+.exam-bank.pics .bank-item {
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .exam-bank.pics {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .exam-options.letters {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.verify-box {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.verify-list {
+  list-style: none;
+  padding-left: 0;
+}
+
 .exam-options.judge {
   grid-template-columns: repeat(2, minmax(0, 200px));
   justify-content: center;

@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.11.0] — 2026-11-13 — Bước C: cấu trúc đề HSK 1 (3.0) theo tài liệu chính thức + 3 đề thi thử
+
+### Thay đổi
+- **C1 – Đối chiếu cấu trúc đề** với tài liệu chính thức của 汉考国际 (CTI) “新版HSK（1-6级）考试结构与样题示例” (12/2025, áp dụng 07/2026) và trang HSK 1 trên chinesetest.cn, kiểm tra ngày 13/11/2026. Cấu trúc cũ (tổng hợp từ nguồn bên thứ ba) sai ở nhiều phần, nay theo đúng tài liệu:
+  - Nghe 20 câu (~12 phút): P1 nghe cụm từ chọn 1/3 hình · P2 nghe câu hỏi chọn câu trả lời · P3 nghe hội thoại chọn hình trong **bảng chung A–F** · P4 nghe câu + câu hỏi chọn 1/3.
+  - Đọc 20 câu (20 phút): P1 đọc câu chọn hình trong bảng A–F · P2 ghép câu hỏi ↔ câu trả lời (A–F) · P3 chọn từ (A–F) điền chỗ trống · P4 đọc câu + câu hỏi ★ chọn 1/3. Không còn dạng Đúng/Sai.
+  - `ExamConfig.verified` tách theo mục (`structure`, `timing`, `scoring`, `audioPlays`) + `sources` (nguồn, phạm vi, ngày kiểm tra). Tài liệu mới **không nêu** thang điểm và số lần phát âm thanh → vẫn dùng 200/120 và 2 lần như đề hiện hành, đánh dấu ⚠️ *chưa xác minh* trên trang Thi thử.
+- Engine đề: dạng phần **bảng phương án chung** (`shared`, spec `{ bank, items }`); kiểm tra mỗi câu cùng bảng, không trùng đáp án; phần 3 phương án không được dồn đáp án vào một vị trí.
+- Phòng thi: phần Nghe có bảng chung hiện cả 6 hình để chọn (phím 1–6 / A–F); phần Đọc và lúc xem lại phần Nghe hiện bảng một lần ở đầu phần, mỗi câu chỉ có nút A–F; màn kết quả hiện đủ bảng và tô đáp án đúng.
+
+### Thêm
+- **C2 – 2 đề mới** (`hsk1-3.0-02`, `hsk1-3.0-03`) — tổng 3 đề, đề 1 viết lại theo cấu trúc mới. Chỉ dùng từ HSK 1; test bảo đảm không câu nào (và không câu nghe/đọc nào) lặp giữa các đề.
+- Test: 248.
+
 ## [0.10.0] — 2026-11-13 — Bước B3–B6: ví dụ, từ loại, quy trình duyệt, 12 bài đọc
 
 ### Thêm

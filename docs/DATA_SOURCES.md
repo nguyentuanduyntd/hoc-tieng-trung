@@ -10,8 +10,8 @@
 | Từ loại (`pos`) | Dự án tự soạn (`data/curated/pos-hsk1.tsv`) — không dùng nhãn từ loại của dữ liệu gốc (quá nhiễu) | Thuộc dự án | 301 từ | Bản nháp, cần duyệt |
 | Bài học HSK 1 (ngữ pháp, câu luyện tập) | Dự án tự soạn (`data/curated/lessons/hsk1-u01…u10.json`) | Thuộc dự án | 43 bài, 172 câu luyện + 129 ví dụ ngữ pháp | Bản nháp, cần duyệt |
 | Bài đọc HSK 1 (12 bài + câu hỏi) | Dự án tự soạn (`data/curated/readings-hsk1.json`) | Thuộc dự án | Thư viện bài đọc, chế độ nghe | Bản nháp, cần duyệt |
-| Đề thi thử HSK 1 (3.0) số 1 | Dự án tự soạn (`data/curated/exams/`), hình = emoji | Thuộc dự án | Thi thử | Bản nháp, cần duyệt |
-| Cấu trúc đề HSK 3.0 cấp 1 | Tổng hợp bên thứ ba: hsklord.com, khanjischool.com, hskmock.com (13/11/2026); thời lượng & thang điểm theo HSK 2.0 cấp 1 (chinesetest.cn) | — | `src/config/exams.ts` | **Chưa xác minh** |
+| Đề thi thử HSK 1 (3.0) số 1–3 | Dự án tự soạn (`data/curated/exams/`), hình = emoji; chỉ theo *cấu trúc* của CTI, không chép câu mẫu | Thuộc dự án | Thi thử | Bản nháp, cần duyệt |
+| Cấu trúc đề HSK 3.0 cấp 1 | 汉考国际 (CTI) “新版HSK（1-6级）考试结构与样题示例” (12/2025) + chinesetest.cn/HSK/1 — kiểm tra 13/11/2026 | — | `src/config/exams.ts` | Cấu trúc & thời lượng: đã xác minh · thang điểm, số lần phát: **chưa xác minh** |
 | Thứ tự nét | [Hanzi Writer](https://github.com/chanind/hanzi-writer) 3.7 + [hanzi-writer-data](https://github.com/chanind/hanzi-writer-data) 2.0.1 (từ Make Me a Hanzi) | Hanzi Writer: **MIT**; dữ liệu nét: **Arphic Public License** — bản giấy phép đi kèm ở `public/data/strokes/ARPHICPL.TXT` | Pop-up từ điển, thẻ viết tay | Đang dùng (252 chữ, copy lúc build) |
 | Thuật toán SRS | FSRS-4.5 (open-spaced-repetition), tham số mặc định | MIT (thuật toán/tham số công khai; code tự viết) | `src/lib/srs.ts` | Đang dùng |
 

@@ -1,4 +1,4 @@
-# Hiện trạng dự án (cập nhật sau Bước B vòng 2 — v0.10.0, 13/11/2026)
+# Hiện trạng dự án (cập nhật sau Bước C vòng 2 — v0.11.0, 13/11/2026)
 
 > SPEC trong repo đã được thay bằng **v2.1** (có Mục 1b, 3.12–3.19).
 
@@ -83,7 +83,7 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 | 3.6 Phát âm & thanh điệu | **Đã có** | TTS zh-CN, chấm nói (SpeechRecognition, cần đồng ý) + fallback ghi âm, luyện thanh đơn/cặp thanh, trang biến điệu |
 | 3.7 Bài đọc phân cấp | **Đã có** | 12 bài HSK 1 (gắn theo unit), ruby pinyin, dịch từng câu, tô màu từ, đọc hiểu |
 | 3.8 Nghe & shadowing | **Đã có** | Tốc độ 0.5–1.25x, lặp câu, trước/sau, shadowing + ghi âm, phụ đề 3 lớp. Video ngoài: chỉ dẫn link |
-| 3.9 Thi thử | **Đã có (1 đề HSK 1 chuẩn 3.0)** | Engine đọc cấu trúc từ config; cấu trúc HSK 3.0 **chưa xác minh** với đề mẫu chính thức |
+| 3.9 Thi thử | **Đã có (3 đề HSK 1 chuẩn 3.0)** | Cấu trúc, dạng câu, thời lượng đã đối chiếu tài liệu chính thức CTI (13/11/2026); thang điểm 200/120 và số lần phát âm thanh **chưa xác minh** (tài liệu chưa nêu) |
 | 3.10 Dashboard | **Đã có** | Streak, phút học/mục tiêu, việc hôm nay, từ theo cấp, lịch sử thi thử |
 | 3.11 Nguồn miễn phí | **Đã có** | 8 card + “Dùng khi nào”, cấp, “Nên dùng ngay”; gợi ý theo ngữ cảnh sau bài học / đọc / nghe / thi / ôn |
 
@@ -91,7 +91,7 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 
 - Âm Hán Việt và nghĩa tiếng Việt của 301 từ là **bản nháp** (`reviewStatus: "draft"`), cần người biết chữ Hán duyệt.
 - Số liệu HSK trong `src/config/hsk.ts` có `verified: false` — cần đối chiếu với chinesetest.cn.
-- Cấu trúc đề HSK 3.0 cấp 1 (`src/config/exams.ts`) tổng hợp từ nguồn bên thứ ba vì chưa tìm được đề mẫu chính thức: số câu 40 (nghe 20, đọc 20) khá thống nhất, nhưng thứ tự/dạng từng phần, thời lượng và thang điểm 200/120 (lấy theo HSK 2.0) cần đối chiếu chinesetest.cn.
+- Đề HSK 3.0 cấp 1: tài liệu chính thức của CTI chưa nêu thang điểm và số lần phát âm thanh — đang dùng 200/120 và 2 lần như đề hiện hành (ghi rõ trên trang Thi thử). Kiểm tra lại khi CTI công bố đề mẫu đầy đủ / sau kỳ thi 13/12/2026.
 - Chấm nói tự động chỉ được thử bằng bộ nhận dạng giả lập (khung trình duyệt của Claude chặn micro) — cần thử với micro thật trên Chrome/Edge. Quyền riêng tư: bật chấm tự động nghĩa là âm thanh được gửi tới máy chủ của nhà cung cấp trình duyệt; web hỏi ý người học trước.
 - Giọng đọc TTS phụ thuộc máy (Windows có Huihui/Kangkang/Yaoyao). Chữ đa âm đọc riêng lẻ có thể sai âm.
 - Xuất Anki mới được kiểm tra bằng unit test theo đặc tả header của Anki — **chưa thử nhập vào Anki thật**.
@@ -112,7 +112,8 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 | B4 Từ loại + tách nghĩa | **Xong** (hiển thị trong thẻ từ & pop-up; trang chi tiết chữ của 3.14 chưa làm) |
 | B5 File duyệt + nhập lại | **Xong** — `npm run review:export` / `review:import` |
 | B6 +6 bài đọc | **Xong** — 12 bài, gắn unit |
-| C Thi thử (rà config, +2 đề) | Chưa làm |
+| C1 Rà cấu trúc đề | **Xong** — theo tài liệu CTI 12/2025; 2 mục chưa xác minh được ghi rõ |
+| C2 +2 đề | **Xong** — 3 đề, không trùng câu |
 | D Tính năng 3.12–3.19 | Chưa làm |
 
 Việc người dùng cần tự kiểm tra: nhập file xuất vào Anki thật; chấm nói bằng micro thật trên Chrome và Edge; nghe thử giọng sau Bước A trên Edge, Chrome và điện thoại.

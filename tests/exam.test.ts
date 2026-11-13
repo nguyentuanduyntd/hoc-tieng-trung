@@ -1,14 +1,15 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { EXAM_CONFIGS, getExamConfig } from "../src/config/exams.ts";
+import { EXAM_CONFIGS, fullyVerified, getExamConfig } from "../src/config/exams.ts";
 import { allQuestions, applyWrongToSrs, buildExam, formatClock, scoreExam, validateExam, wrongWordIds } from "../src/lib/exam.ts";
 import { createSegmenter } from "../src/lib/segment.ts";
 import { applyReview } from "../src/lib/srs.ts";
-import type { Exam, ExamsFile, VocabFile } from "../src/types.ts";
+import type { Exam, ExamQuestion, ExamsFile, VocabFile } from "../src/types.ts";
 
 const vocab: VocabFile = JSON.parse(readFileSync(new URL("../public/data/vocab/hsk1.json", import.meta.url), "utf8"));
 const file: ExamsFile = JSON.parse(readFileSync(new URL("../public/data/exams/hsk1.json", import.meta.url), "utf8"));
-const exam = file.exams.find((e) => e.standard === "3.0" && e.level === 1)!;
+const exams3 = file.exams.filter((e) => e.standard === "3.0" && e.level === 1);
+const exam = exams3[0];
 const config = getExamConfig("3.0", 1)!;
 const byId = new Map(vocab.words.map((w) => [w.id, w]));
 const byHanzi = new Map(vocab.words.map((w) => [w.hanzi, w]));
@@ -25,27 +26,71 @@ describe("config cấu trúc đề", () => {
       for (const s of c.sections) for (const p of s.parts) expect(p.count).toBeGreaterThan(0);
     }
   });
-  it("HSK 3.0 cấp 1: 40 câu (nghe 20, đọc 20), chưa xác minh chính thức", () => {
+  it("HSK 3.0 cấp 1: 40 câu (nghe 20, đọc 20) theo cấu trúc CTI; thang điểm & số lần phát chưa xác minh", () => {
     const counts = config.sections.map((s) => s.parts.reduce((n, p) => n + p.count, 0));
     expect(counts).toEqual([20, 20]);
-    expect(config.verified).toBe(false);
+    expect(config.verified).toEqual({ structure: true, timing: true, scoring: false, audioPlays: false });
+    expect(fullyVerified(config)).toBe(false);
+    const shared = config.sections.flatMap((s) => s.parts).filter((p) => p.shared);
+    expect(shared.map((p) => p.id)).toEqual(["L3", "R1", "R2", "R3"]);
+    for (const p of shared) expect(p.optionCount).toBe(6);
+  });
+  it("mọi cấu trúc đều ghi nguồn đối chiếu kèm ngày kiểm tra", () => {
+    for (const c of EXAM_CONFIGS) {
+      expect(c.sources.length).toBeGreaterThan(0);
+      for (const x of c.sources) {
+        expect(x.url).toMatch(/^https:\/\//);
+        expect(x.checkedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      }
+    }
   });
   it("không có cấu trúc cho cấp chưa cấu hình", () => expect(getExamConfig("3.0", 9)).toBeUndefined());
 });
 
 describe("đề HSK 1 chuẩn 3.0 đã build", () => {
-  it("hợp lệ theo config", () => expect(validateExam(exam, config)).toEqual([]));
-  it("đủ 40 câu, đánh số 1..40", () => {
-    const qs = allQuestions(exam);
-    expect(qs).toHaveLength(40);
-    expect(qs.map((q) => q.number)).toEqual(Array.from({ length: 40 }, (_, i) => i + 1));
+  it("có 3 đề", () => expect(exams3.map((e) => e.id)).toEqual(["hsk1-3.0-01", "hsk1-3.0-02", "hsk1-3.0-03"]));
+  describe.each(exams3.map((e) => [e.id, e] as const))("%s", (_id, x) => {
+    it("hợp lệ theo config", () => expect(validateExam(x, config)).toEqual([]));
+    it("đủ 40 câu, đánh số 1..40", () => {
+      const qs = allQuestions(x);
+      expect(qs).toHaveLength(40);
+      expect(qs.map((q) => q.number)).toEqual(Array.from({ length: 40 }, (_, i) => i + 1));
+    });
+    it("từ khóa của mọi câu đều có trong từ điển", () => {
+      for (const q of allQuestions(x)) for (const id of q.keyWordIds) expect(byId.has(id), id).toBe(true);
+    });
+    it("đáp án 3 phương án không dồn vào một vị trí", () => {
+      const pos = new Set(allQuestions(x).filter((q) => q.options.length === 3).map((q) => q.answer));
+      expect(pos.size).toBe(3);
+    });
+    it("phần bảng chung: 6 phương án, 5 câu khác đáp án, còn 1 phương án nhiễu", () => {
+      for (const sec of x.sections)
+        for (const p of sec.parts) {
+          if (p.questions[0].options.length !== 6) continue;
+          expect(new Set(p.questions.map((q) => q.answer)).size).toBe(p.questions.length);
+        }
+    });
   });
-  it("từ khóa của mọi câu đều có trong từ điển", () => {
-    for (const q of allQuestions(exam)) for (const id of q.keyWordIds) expect(byId.has(id), id).toBe(true);
+  it("không có câu nào trùng giữa các đề", () => {
+    const stem = (q: ExamQuestion) =>
+      [...(q.audio ?? []).map((a) => a.line.zh), q.text?.zh ?? "", q.picture ?? "", q.question?.zh ?? ""].join("|");
+    const seen = new Map<string, string>();
+    for (const x of exams3)
+      for (const q of allQuestions(x)) {
+        const k = stem(q);
+        expect(seen.get(k), `${x.id}#${q.number} trùng ${seen.get(k)}`).toBeUndefined();
+        seen.set(k, `${x.id}#${q.number}`);
+      }
   });
-  it("đáp án không dồn vào một vị trí", () => {
-    const pos = new Set(allQuestions(exam).filter((q) => q.options.length === 3).map((q) => q.answer));
-    expect(pos.size).toBe(3);
+  it("không có câu nghe/câu đọc nào lặp nguyên văn giữa các đề", () => {
+    const owner = new Map<string, string>();
+    for (const x of exams3)
+      for (const q of allQuestions(x))
+        for (const zh of [...(q.audio ?? []).map((a) => a.line.zh), q.text?.zh].filter((z): z is string => !!z)) {
+          const o = owner.get(zh);
+          if (o && o !== x.id) throw new Error(`"${zh}" có ở cả ${o} và ${x.id}`);
+          owner.set(zh, x.id);
+        }
   });
 });
 
@@ -60,18 +105,35 @@ describe("kiểm tra đề sai cấu trúc", () => {
     const spec = structuredClone(baseSpec);
     spec.parts.L2[0].options = ["🥛", "🍵"];
     spec.parts.R4[0].answer = 7;
-    spec.parts.R2[0].text = "我爱龙。";
-    spec.parts.R3[0].keyWords = ["龙"];
+    spec.parts.R2.items[0].text = "我爱龙。";
+    spec.parts.R3.items[0].keyWords = ["龙"];
     const errs = buildExam(spec, config, seg, byId, byHanzi).errors.join("\n");
     expect(errs).toMatch(/cần 3 phương án/);
     expect(errs).toMatch(/đáp án ngoài phạm vi/);
     expect(errs).toMatch(/龙/);
     expect(errs).toMatch(/từ khóa "龙"/);
   });
-  it("phần Đúng/Sai toàn một đáp án bị cảnh báo", () => {
+  it("bảng chung: hai câu trùng đáp án bị báo lỗi", () => {
     const spec = structuredClone(baseSpec);
-    for (const q of spec.parts.R1) q.answer = true;
-    expect(buildExam(spec, config, seg, byId, byHanzi).errors.some((e) => e.includes("cả câu đúng và câu sai"))).toBe(true);
+    spec.parts.R1.items[1].answer = spec.parts.R1.items[0].answer;
+    expect(buildExam(spec, config, seg, byId, byHanzi).errors.some((e) => e.includes("R1") && e.includes("trùng đáp án"))).toBe(true);
+  });
+  it("phần bảng chung viết dạng danh sách (hoặc ngược lại) bị báo lỗi", () => {
+    const spec = structuredClone(baseSpec);
+    spec.parts.R3 = spec.parts.R3.items;
+    spec.parts.L1 = { bank: ["🍎", "🍉", "🥚"], items: spec.parts.L1 };
+    const errs = buildExam(spec, config, seg, byId, byHanzi).errors.join("\n");
+    expect(errs).toMatch(/R3: phần này cần bảng phương án chung/);
+    expect(errs).toMatch(/L1: phần này không dùng bảng chung/);
+  });
+  it("phần 3 phương án có đáp án dồn một vị trí bị báo lỗi", () => {
+    const spec = structuredClone(baseSpec);
+    for (const q of spec.parts.R4) {
+      const right = q.options[q.answer];
+      q.options = [right, ...q.options.filter((_: string, i: number) => i !== q.answer)];
+      q.answer = 0;
+    }
+    expect(buildExam(spec, config, seg, byId, byHanzi).errors.some((e) => e.includes("R4") && e.includes("dồn"))).toBe(true);
   });
   it("phần không có trong cấu trúc", () => {
     const spec = structuredClone(baseSpec);
