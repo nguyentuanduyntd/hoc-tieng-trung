@@ -21,6 +21,8 @@ export function defaultProgress(): UserProgress {
     examAttempts: [],
     readingResults: {},
     studyLog: {},
+    gameRecords: {},
+    wordMisses: {},
   };
 }
 
@@ -49,7 +51,27 @@ export function sanitizeProgress(input: unknown): UserProgress {
     examAttempts: Array.isArray(o.examAttempts) ? (o.examAttempts as UserProgress["examAttempts"]) : [],
     readingResults: sanitizeResults(o.readingResults),
     studyLog: sanitizeStudyLog(o.studyLog),
+    // thêm ở v0.12.0 — dữ liệu cũ không có: mặc định rỗng
+    gameRecords: sanitizeResultsBy(o.gameRecords, (x) => typeof x.score === "number" && Number.isFinite(x.score) && x.score >= 0),
+    wordMisses: sanitizeCounts(o.wordMisses),
   };
+}
+
+function sanitizeResultsBy(v: unknown, ok: (x: { score: number }) => boolean): Record<string, { score: number; date: string }> {
+  if (!v || typeof v !== "object" || Array.isArray(v)) return {};
+  const out: Record<string, { score: number; date: string }> = {};
+  for (const [k, r] of Object.entries(v as Record<string, unknown>)) {
+    const x = r as { score?: unknown; date?: unknown };
+    if (x && typeof x.date === "string" && typeof x.score === "number" && ok(x as { score: number })) out[k] = { score: x.score, date: x.date };
+  }
+  return out;
+}
+
+function sanitizeCounts(v: unknown): Record<string, number> {
+  if (!v || typeof v !== "object" || Array.isArray(v)) return {};
+  return Object.fromEntries(
+    Object.entries(v as Record<string, unknown>).filter((e): e is [string, number] => typeof e[1] === "number" && Number.isInteger(e[1]) && e[1] > 0),
+  );
 }
 
 function sanitizeResults(v: unknown): UserProgress["readingResults"] {

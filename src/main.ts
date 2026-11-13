@@ -12,6 +12,7 @@ import { installPlayerHandlers, lessonPlayerPage, lessonsListPage, mountLessonPl
 import { mountPronunciation, pronunciationPage } from "./pages/pronunciation.ts";
 import { examListPage, examRunPage, installExamHandlers, mountExamList, mountExamRun } from "./pages/exam.ts";
 import { homePage } from "./pages/home.ts";
+import { mountPractice, practicePage } from "./pages/practice.ts";
 import { mountSettings, setVoiceFallbackNotice, settingsPage } from "./pages/settings.ts";
 import { onVoicesChanged, savedVoiceMissing } from "./ui/speech.ts";
 import { toast } from "./ui/toast.ts";
@@ -272,6 +273,7 @@ const routes: Record<string, Route> = {
     stateful: (param) => !!param,
   },
   "phat-am": { render: pronunciationPage, mount: mountPronunciation, stateful: () => true },
+  "luyen-tap": { render: practicePage, mount: mountPractice, stateful: (param) => !!param },
   "thi-thu": {
     render: (param) => (param ? examRunPage() : examListPage()),
     mount: (param) => void (param ? mountExamRun(param) : mountExamList()),

@@ -1,4 +1,4 @@
-# Hiện trạng dự án (cập nhật sau Bước C vòng 2 — v0.11.0, 13/11/2026)
+# Hiện trạng dự án (cập nhật sau Bước D1 vòng 2 — v0.12.0, 13/11/2026)
 
 > SPEC trong repo đã được thay bằng **v2.1** (có Mục 1b, 3.12–3.19).
 
@@ -42,6 +42,8 @@ src/pages/review.ts                 trang Ôn tập
 src/pages/lessons.ts                lộ trình + trình chạy bài + thi vượt
 src/pages/pronunciation.ts          luyện phát âm & thanh điệu
 src/pages/reading.ts                thư viện bài đọc + trình đọc/nghe/shadowing
+src/pages/practice.ts               trang Luyện tập + game Mưa từ vựng
+src/lib/pinyinGame.ts               logic game gõ pinyin (chấm, vòng chơi, tổng kết)
 src/pages/exam.ts                   danh sách đề, phòng thi, kết quả
 src/pages/home.ts                   dashboard trang chủ
 src/pages/settings.ts               trang Cài đặt (giọng đọc, giao diện, cỡ chữ Hán, học tập, quyền riêng tư)
@@ -114,6 +116,10 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 | B6 +6 bài đọc | **Xong** — 12 bài, gắn unit |
 | C1 Rà cấu trúc đề | **Xong** — theo tài liệu CTI 12/2025; 2 mục chưa xác minh được ghi rõ |
 | C2 +2 đề | **Xong** — 3 đề, không trùng câu |
-| D Tính năng 3.12–3.19 | Chưa làm |
+| D1 3.12 Game gõ pinyin | **Xong** — `#/luyen-tap/go-pinyin`, 2 chế độ, boss, từ yếu → SRS, kỷ lục |
+| D2 3.13 Chép chính tả | Chưa làm |
+| D3 3.16 Mễ tự cách + In PDF | Chưa làm |
+| D4 3.19 Audio dựng sẵn (Azure) | Chưa làm |
+| D5 3.15 Bộ thủ · 3.17 Khóa Pinyin · 3.18 XP & huy hiệu | Chưa làm |
 
 Việc người dùng cần tự kiểm tra: nhập file xuất vào Anki thật; chấm nói bằng micro thật trên Chrome và Edge; nghe thử giọng sau Bước A trên Edge, Chrome và điện thoại.

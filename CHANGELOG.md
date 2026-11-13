@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.12.0] — 2026-11-13 — Bước D1: game gõ pinyin “Mưa từ vựng” (SPEC 3.12)
+
+### Thêm
+- Trang **Luyện tập** (`#/luyen-tap`, có trong menu và mục “Thêm” trên điện thoại) và game **Mưa từ vựng** (`#/luyen-tap/go-pinyin`):
+  - Thẻ rơi xuống, hiện **nghĩa tiếng Việt** (chế độ chữ) hoặc **phát âm** (chế độ nghe; Enter khi ô trống / nút 🔊 để nghe lại). Gõ pinyin + Enter để bắn; trúng thì thẻ nổ, hiện Hán tự + pinyin và đọc to.
+  - Chấp nhận pinyin không dấu, có/không cách, `ü` = `v` = `u:`. Gõ kèm thanh đúng (số `ni3hao3` hoặc dấu `nǐ hǎo`; thanh nhẹ gõ 5 hay bỏ trống đều được) → **×2 điểm**. Thẻ có nhiều từ cùng nghĩa (哪儿/哪里, 星期日/星期天…) chấp nhận từ nào cũng được.
+  - Nhanh dần theo số từ đã bắn; chế độ chữ tăng dần tới 3 thẻ cùng lúc. Cứ 5 thẻ có 1 **boss** (từ nhiều âm tiết nhất, ×3 điểm). 3 mạng; thẻ chạm đáy mất 1 mạng. Hết mạng hiện điểm + bảng từ gõ sai.
+  - Chọn nhóm từ: cả HSK 1 / từng bài học / **chỉ từ yếu** (từng gõ sai trong game hoặc từng quên khi ôn tập).
+  - Từ sai (chạm đáy hoặc gõ sai) tích lũy **≥ 2 lần** tự vào ôn tập SRS. Kỷ lục cá nhân lưu riêng cho từng chế độ.
+  - `requestAnimationFrame`, tự tạm dừng khi tab bị ẩn; `Esc` / nút ⏸ để tạm dừng.
+- Logic game thuần trong `src/lib/pinyinGame.ts` (chấm pinyin, vòng chơi, tổng kết) — 17 test.
+
+### Thay đổi
+- Tiến độ thêm `gameRecords` và `wordMisses`. **Migration**: dữ liệu cũ không có hai trường này được gán rỗng khi đọc; giá trị sai kiểu bị bỏ.
+- Menu desktop ở màn hình 768–1099px xuống dòng thay vì cuộn ngang làm khuất mục cuối.
+- Test: 265.
+
 ## [0.11.0] — 2026-11-13 — Bước C: cấu trúc đề HSK 1 (3.0) theo tài liệu chính thức + 3 đề thi thử
 
 ### Thay đổi

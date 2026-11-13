@@ -252,6 +252,10 @@ export interface UserProgress {
   readingResults: Record<string, { score: number; date: string }>;
   /** Nhật ký học theo ngày (YYYY-MM-DD) — giữ 120 ngày gần nhất. */
   studyLog: Record<string, DayLog>;
+  /** Kỷ lục cá nhân các trò chơi (khóa vd "pinyin-text"). */
+  gameRecords: Record<string, { score: number; date: string }>;
+  /** Số lần gõ sai tích lũy trong trò chơi theo wordId (đủ 2 lần thì từ vào ôn tập và bộ đếm về 0). */
+  wordMisses: Record<string, number>;
 }
 
 export interface DayLog {
