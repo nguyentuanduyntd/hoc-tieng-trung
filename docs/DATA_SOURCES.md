@@ -50,6 +50,13 @@ Số từ thực tế của HSK 1 so với config:
 | Bộ thủ của từng chữ | complete-hsk-vocabulary (`radical` của mục chữ đơn) + `data/curated/char-radicals-hsk1.tsv` (46 chữ HSK 1, dự án tự điền theo cách xếp bộ của từ điển giản thể) | MIT / thuộc dự án | Chữ ví dụ, bài luyện | Đối chiếu số nét với `radStrokes`; 习 xếp bộ 乙 (từ điển khác nhau) |
 | Nét của bộ trong chữ (`radStrokes`) | hanzi-writer-data (Make Me a Hanzi) | Arphic Public License | Tô đỏ bộ trong chữ, bài “ghép bộ” | — |
 
+## Lộ trình Pinyin
+
+| Dữ liệu | Nguồn | Giấy phép | Trạng thái |
+|---|---|---|---|
+| Bài giảng, so sánh với âm tiếng Việt, nhóm âm dễ nhầm, câu chọn cách viết (`data/curated/pinyin-course.json`) | Dự án tự soạn | Thuộc dự án | Bản nháp, cần duyệt |
+| Chữ dùng để phát âm từng âm tiết | Chọn tự động từ complete-hsk-vocabulary (MIT) + từ vựng HSK 1 (chữ chỉ một cách đọc), 11 chữ chỉ định tay | MIT / thuộc dự án | Có test đối chiếu |
+
 ## Audio dựng sẵn
 
 | Dữ liệu | Nguồn | Giấy phép / điều khoản | Ghi chú |

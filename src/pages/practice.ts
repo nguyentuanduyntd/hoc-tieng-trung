@@ -59,6 +59,11 @@ export function practicePage(param: string): string {
         <a class="btn primary" href="#/luyen-tap/bo-thu">Học bộ thủ</a>
       </div>
       <div class="card">
+        <h2>🔤 Lộ trình Pinyin</h2>
+        <p>9 bài trước HSK 1: thanh điệu, thanh mẫu, vận mẫu, biến điệu, quy tắc viết — có so sánh với âm tiếng Việt và bài nghe-chọn.</p>
+        <a class="btn primary" href="#/pinyin">Học Pinyin</a>
+      </div>
+      <div class="card">
         <h2>🗣 Phát âm & thanh điệu</h2>
         <p>Nghe phân biệt thanh, cặp thanh, biến điệu và nói theo câu.</p>
         <a class="btn" href="#/phat-am">Mở</a>

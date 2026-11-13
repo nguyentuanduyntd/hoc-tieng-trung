@@ -1,4 +1,4 @@
-# Hiện trạng dự án (cập nhật sau Bước D5a vòng 2 — v0.16.0, 13/11/2026)
+# Hiện trạng dự án (cập nhật sau Bước D5b vòng 2 — v0.17.0, 13/11/2026)
 
 > SPEC trong repo đã được thay bằng **v2.1** (có Mục 1b, 3.12–3.19).
 
@@ -45,6 +45,9 @@ src/pages/reading.ts                thư viện bài đọc + trình đọc/nghe
 src/pages/practice.ts               trang Luyện tập + game Mưa từ vựng
 scripts/build-audio.ts              dựng MP3 giọng Microsoft Neural (Azure F0)
 src/config/audio.ts, src/lib/audio.ts  cấu hình giọng; gom văn bản, SSML, tính ký tự, manifest
+src/pages/pinyinCourse.ts           Lộ trình Pinyin: danh sách, bài học, bài luyện
+src/lib/pinyinCourse.ts             tạo bài luyện Pinyin + tiến độ
+scripts/build-pinyin.ts             sinh public/data/pinyin-course.json
 src/pages/radicals.ts               bộ thủ: tổng quan, chi tiết, bài luyện
 src/lib/radicals.ts                 bài luyện bộ thủ + tiến độ
 scripts/build-radicals.ts           sinh public/data/radicals.json
@@ -130,7 +133,7 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 | D3 3.16 Mễ tự cách + In PDF | **Xong** — `#/luyen-tap/viet`, 3 chế độ, báo sai thứ tự/hướng; phiếu in `#/luyen-tap/in/<bài>`. Chưa có danh sách chữ viết tay chính thức HSK 3.0 (đang dùng chữ của từ HSK 1) |
 | D4 3.19 Audio dựng sẵn (Azure) | **Code xong, chưa chạy thật** — `npm run audio`; dry-run HSK 1: 1.722 file ≈ 21.948 ký tự (4,4% F0/tháng). Cài đặt có Nguồn giọng + giọng Neural. Xem `docs/AUDIO.md` |
 | D5a 3.15 Bộ thủ | **Xong** — `#/luyen-tap/bo-thu`, 78 bộ / 7 nhóm, nhận diện + ghép bộ, tiến độ theo nhóm. 3 bộ (父, 气, 夕) chỉ có 3–4 chữ ví dụ |
-| D5b 3.17 Khóa Pinyin | Chưa làm |
+| D5b 3.17 Khóa Pinyin | **Xong** — `#/pinyin`, 9 bài, nghe-chọn theo nhóm âm dễ nhầm + chọn cách viết. Khóa Lượng từ / Mẫu câu giao tiếp của 3.17 **chưa làm** |
 | D5c 3.18 XP & huy hiệu | Chưa làm |
 
 Việc người dùng cần tự kiểm tra: nhập file xuất vào Anki thật; chấm nói bằng micro thật trên Chrome và Edge; nghe thử giọng sau Bước A trên Edge, Chrome và điện thoại.

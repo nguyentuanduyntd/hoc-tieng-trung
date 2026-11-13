@@ -25,6 +25,7 @@ export function defaultProgress(): UserProgress {
     wordMisses: {},
     dictation: {},
     radicals: {},
+    pinyinCourse: {},
   };
 }
 
@@ -60,6 +61,8 @@ export function sanitizeProgress(input: unknown): UserProgress {
     dictation: sanitizeDictation(o.dictation),
     // thêm ở v0.16.0
     radicals: sanitizeResultsBy(o.radicals, (x) => x.score >= 0 && x.score <= 1, "best"),
+    // thêm ở v0.17.0
+    pinyinCourse: sanitizeResultsBy(o.pinyinCourse, (x) => x.score >= 0 && x.score <= 1, "best"),
   };
 }
 

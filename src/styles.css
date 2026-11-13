@@ -2960,3 +2960,72 @@ hr.soft {
   flex-wrap: wrap;
   margin-top: 14px;
 }
+
+/* ---------- Lộ trình Pinyin ---------- */
+.py-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.py-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  text-decoration: none;
+}
+.py-item:hover {
+  border-color: var(--accent);
+}
+.py-item.done {
+  border-color: var(--ok);
+}
+.py-no {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-weight: 700;
+}
+.py-item.done .py-no {
+  background: rgba(63, 185, 80, 0.18);
+  color: var(--ok);
+}
+.py-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+.py-card p {
+  margin: 6px 0 8px;
+}
+.py-sym {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.py-say {
+  margin: 2px;
+}
+.py-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.py-opt {
+  font-size: 1.4rem;
+}
+.py-spell-q {
+  font-size: 1.15rem;
+}
+.py-feedback {
+  margin-top: 14px;
+}
+.py-hint {
+  border-color: var(--accent);
+}

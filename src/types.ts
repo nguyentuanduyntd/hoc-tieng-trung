@@ -260,6 +260,8 @@ export interface UserProgress {
   dictation: Record<string, Record<string, number>>;
   /** Bộ thủ: điểm bài luyện tốt nhất (0..1) theo id bộ; ≥ 0.8 = đã thuộc. */
   radicals: Record<string, { best: number; date: string }>;
+  /** Lộ trình Pinyin: điểm tốt nhất (0..1) theo id bài; ≥ 0.8 = xong. */
+  pinyinCourse: Record<string, { best: number; date: string }>;
 }
 
 export interface DayLog {
@@ -303,4 +305,41 @@ export interface RadicalsFile {
   radicals: RadicalEntry[];
   /** Chữ HSK 1 có bộ thủ thuộc danh mục: bộ (id), dạng xuất hiện trong chữ, chỉ số các nét của bộ. */
   chars: Record<string, { radical: string; form: string; radStrokes?: number[] }>;
+}
+
+// ---------- Lộ trình Pinyin (SPEC 3.17) ----------
+export interface PinyinItem {
+  /** Ký hiệu hiển thị (b, ian, ā…). */
+  py: string;
+  name?: string;
+  note: string;
+  /** Âm tiết ví dụ, dạng số (ba1). */
+  examples: string[];
+  /** Từ ví dụ phát nguyên từ (thanh nhẹ, biến điệu). */
+  words?: string[];
+}
+
+export interface PinyinSpelling {
+  q: string;
+  options: string[];
+  answer: number;
+  explain: string;
+}
+
+export interface PinyinLesson {
+  id: string;
+  order: number;
+  title: string;
+  intro: string[];
+  groups: { title: string; items: PinyinItem[] }[];
+  /** Nhóm âm tiết dễ nhầm — bài nghe-chọn: nghe một âm, chọn trong nhóm. */
+  drills: string[][];
+  spelling?: PinyinSpelling[];
+}
+
+export interface PinyinCourseFile {
+  meta: { generatedAt: string; description: string };
+  lessons: PinyinLesson[];
+  /** Âm tiết dạng số -> chữ Hán dùng để phát âm. */
+  sounds: Record<string, string>;
 }

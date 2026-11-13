@@ -1,0 +1,1211 @@
+{
+  "$comment": "Lộ trình Pinyin (SPEC 3.17) — dự án tự soạn, so sánh với âm tiếng Việt để người Việt dễ hình dung (chỉ là gần đúng; nghe audio là chuẩn). Âm tiết viết dạng số (ma1); build tìm chữ Hán chỉ có một cách đọc để phát âm thanh, `chars` ghi đè khi cần. Bản nháp, cần duyệt.",
+  "chars": {
+    "ma1": "妈",
+    "ma2": "麻",
+    "ma3": "马",
+    "ma4": "骂",
+    "hu1": "呼",
+    "hu3": "虎",
+    "he1": "喝",
+    "fa1": "发",
+    "da4": "大",
+    "tang1": "汤",
+    "pi3": "匹",
+    "cao3": "草",
+    "ha1": "哈",
+    "hao3": "好",
+    "bie2": "别",
+    "shua1": "刷",
+    "gei3": "给",
+    "guo4": "过",
+    "kan4": "看"
+  },
+  "lessons": [
+    {
+      "id": "py1",
+      "title": "Pinyin là gì · Bốn thanh điệu",
+      "intro": [
+        "Pinyin (拼音) là cách viết âm tiếng Trung bằng chữ cái La-tinh. Mỗi âm tiết gồm: thanh mẫu (phụ âm đầu, có thể không có) + vận mẫu (phần vần) + thanh điệu (dấu).",
+        "Tiếng Trung phổ thông có 4 thanh và 1 thanh nhẹ. Đổi thanh là đổi nghĩa: mā 妈 (mẹ) – má 麻 (cây gai) – mǎ 马 (ngựa) – mà 骂 (mắng). So sánh với thanh tiếng Việt chỉ để hình dung — hãy nghe và bắt chước audio."
+      ],
+      "groups": [
+        {
+          "title": "Bốn thanh",
+          "items": [
+            {
+              "py": "ā",
+              "name": "Thanh 1",
+              "note": "Cao và ngang, giữ đều từ đầu đến cuối — như thanh ngang tiếng Việt nhưng cao hơn hẳn.",
+              "examples": [
+                "ma1",
+                "ba1",
+                "yi1"
+              ]
+            },
+            {
+              "py": "á",
+              "name": "Thanh 2",
+              "note": "Đi lên từ giữa lên cao, như khi hỏi lại “Hả?” — gần dấu sắc nhưng kéo dài, không gắt.",
+              "examples": [
+                "ma2",
+                "ba2",
+                "yi2"
+              ]
+            },
+            {
+              "py": "ǎ",
+              "name": "Thanh 3",
+              "note": "Xuống thấp rồi mới lên, gần dấu hỏi. Khi nói nhanh thường chỉ hạ thấp giọng mà không lên lại (“nửa thanh 3”).",
+              "examples": [
+                "ma3",
+                "ba3",
+                "yi3"
+              ]
+            },
+            {
+              "py": "à",
+              "name": "Thanh 4",
+              "note": "Rơi mạnh và dứt khoát từ cao xuống thấp, như khi ra lệnh “Đi!”. Không giống dấu huyền (huyền thấp và đều).",
+              "examples": [
+                "ma4",
+                "ba4",
+                "yi4"
+              ]
+            },
+            {
+              "py": "a",
+              "name": "Thanh nhẹ",
+              "note": "Ngắn, nhẹ, không viết dấu — thường ở âm tiết sau: 妈妈 māma, 爸爸 bàba, 吗 ma.",
+              "examples": [],
+              "words": [
+                "妈妈",
+                "爸爸",
+                "谢谢"
+              ]
+            }
+          ]
+        }
+      ],
+      "drills": [
+        [
+          "ma1",
+          "ma2",
+          "ma3",
+          "ma4"
+        ],
+        [
+          "ba1",
+          "ba2",
+          "ba3",
+          "ba4"
+        ],
+        [
+          "yi1",
+          "yi2",
+          "yi3",
+          "yi4"
+        ],
+        [
+          "da1",
+          "da2",
+          "da4",
+          "ta1"
+        ],
+        [
+          "shi1",
+          "shi2",
+          "shi3",
+          "shi4"
+        ],
+        [
+          "tang1",
+          "tang2",
+          "tang3",
+          "tang4"
+        ]
+      ]
+    },
+    {
+      "id": "py2",
+      "title": "Thanh mẫu (1): b p m f · d t n l",
+      "intro": [
+        "Điểm quan trọng nhất với người Việt: tiếng Trung phân biệt âm KHÔNG bật hơi (b, d, g…) và âm BẬT HƠI (p, t, k…). Đặt tờ giấy trước miệng: âm bật hơi làm tờ giấy lay mạnh.",
+        "b, d, g của tiếng Trung không rung dây thanh như b, đ tiếng Việt — nghe gần p, t nhẹ."
+      ],
+      "groups": [
+        {
+          "title": "Âm môi",
+          "items": [
+            {
+              "py": "b",
+              "note": "Không bật hơi, nghe gần “p” nhẹ (như “p” trong “pin”).",
+              "examples": [
+                "ba1",
+                "bo1",
+                "bi3"
+              ]
+            },
+            {
+              "py": "p",
+              "note": "Như b nhưng bật mạnh luồng hơi — KHÔNG đọc thành “ph”.",
+              "examples": [
+                "pa4",
+                "po2",
+                "pi2"
+              ]
+            },
+            {
+              "py": "m",
+              "note": "Như “m” tiếng Việt.",
+              "examples": [
+                "mo2",
+                "mi3",
+                "mu4"
+              ]
+            },
+            {
+              "py": "f",
+              "note": "Như “ph” tiếng Việt.",
+              "examples": [
+                "fa2",
+                "fu4",
+                "fei1"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Âm đầu lưỡi",
+          "items": [
+            {
+              "py": "d",
+              "note": "Không bật hơi, gần “t” tiếng Việt (không phải “đ”).",
+              "examples": [
+                "da1",
+                "de2",
+                "di4"
+              ]
+            },
+            {
+              "py": "t",
+              "note": "Bật hơi, gần “th” tiếng Việt.",
+              "examples": [
+                "ta1",
+                "te4",
+                "ti2"
+              ]
+            },
+            {
+              "py": "n",
+              "note": "Như “n” tiếng Việt.",
+              "examples": [
+                "na4",
+                "ni3",
+                "nu3"
+              ]
+            },
+            {
+              "py": "l",
+              "note": "Như “l” tiếng Việt.",
+              "examples": [
+                "la1",
+                "li3",
+                "lu4"
+              ]
+            }
+          ]
+        }
+      ],
+      "drills": [
+        [
+          "ba1",
+          "pa1",
+          "ma1",
+          "fa1"
+        ],
+        [
+          "bu4",
+          "pu4",
+          "mu4",
+          "fu4"
+        ],
+        [
+          "bi3",
+          "pi3",
+          "mi3",
+          "di3"
+        ],
+        [
+          "da1",
+          "ta1",
+          "la1",
+          "na4"
+        ],
+        [
+          "di4",
+          "ti4",
+          "ni4",
+          "li4"
+        ],
+        [
+          "du4",
+          "tu4",
+          "nu4",
+          "lu4"
+        ]
+      ]
+    },
+    {
+      "id": "py3",
+      "title": "Thanh mẫu (2): g k h · j q x",
+      "intro": [
+        "g/k là cặp không bật hơi / bật hơi giống b/p, d/t. h xát ở cuống họng, gần “kh” tiếng Việt hơn là “h”.",
+        "j, q, x đọc với mặt lưỡi áp lên vòm miệng, môi dẹt như đang cười, và chỉ đi với i hoặc ü."
+      ],
+      "groups": [
+        {
+          "title": "Âm cuống lưỡi",
+          "items": [
+            {
+              "py": "g",
+              "note": "Không bật hơi, gần “c/k” tiếng Việt.",
+              "examples": [
+                "ge1",
+                "gu3",
+                "gai3"
+              ]
+            },
+            {
+              "py": "k",
+              "note": "Bật hơi mạnh — KHÔNG đọc thành “kh”.",
+              "examples": [
+                "ke1",
+                "ku3",
+                "kai1"
+              ]
+            },
+            {
+              "py": "h",
+              "note": "Xát ở cuống họng, gần “kh” tiếng Việt.",
+              "examples": [
+                "he2",
+                "hu3",
+                "hai3"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Âm mặt lưỡi",
+          "items": [
+            {
+              "py": "j",
+              "note": "Không bật hơi, gần “ch” tiếng Việt (như “chi”).",
+              "examples": [
+                "ji1",
+                "jia1",
+                "jiu3"
+              ]
+            },
+            {
+              "py": "q",
+              "note": "Như j nhưng bật hơi mạnh — gần “ch” bật hơi; KHÔNG đọc như “q” tiếng Việt.",
+              "examples": [
+                "qi1",
+                "qu4",
+                "qing3"
+              ]
+            },
+            {
+              "py": "x",
+              "note": "Gần “x” tiếng Việt nhưng mặt lưỡi nâng sát vòm, môi dẹt.",
+              "examples": [
+                "xi1",
+                "xue2",
+                "xie4"
+              ]
+            }
+          ]
+        }
+      ],
+      "drills": [
+        [
+          "ge1",
+          "ke1",
+          "he2",
+          "de2"
+        ],
+        [
+          "gu3",
+          "ku3",
+          "hu3",
+          "du3"
+        ],
+        [
+          "gai3",
+          "kai3",
+          "hai3",
+          "dai3"
+        ],
+        [
+          "ji1",
+          "qi1",
+          "xi1",
+          "zhi1"
+        ],
+        [
+          "jia1",
+          "qia4",
+          "xia4",
+          "jiao1"
+        ],
+        [
+          "ju2",
+          "qu2",
+          "xu2",
+          "zhu2"
+        ]
+      ]
+    },
+    {
+      "id": "py4",
+      "title": "Thanh mẫu (3): zh ch sh r · z c s",
+      "intro": [
+        "zh, ch, sh, r là âm uốn lưỡi: đầu lưỡi cong lên chạm phía sau lợi trên. z, c, s đọc với đầu lưỡi thẳng, chạm sau răng cửa trên.",
+        "Trong zhi chi shi ri zi ci si, chữ “i” không đọc là “i” — chỉ kéo dài phụ âm đầu thành tiếng ù ù."
+      ],
+      "groups": [
+        {
+          "title": "Uốn lưỡi",
+          "items": [
+            {
+              "py": "zh",
+              "note": "Không bật hơi, gần “tr” tiếng Việt (giọng phân biệt tr/ch).",
+              "examples": [
+                "zhi1",
+                "zhu1",
+                "zhong1"
+              ]
+            },
+            {
+              "py": "ch",
+              "note": "Như zh nhưng bật hơi.",
+              "examples": [
+                "chi1",
+                "chu1",
+                "cha2"
+              ]
+            },
+            {
+              "py": "sh",
+              "note": "Uốn lưỡi, gần “s” tiếng Việt khi đọc uốn lưỡi.",
+              "examples": [
+                "shi1",
+                "shu1",
+                "shan1"
+              ]
+            },
+            {
+              "py": "r",
+              "note": "Uốn lưỡi như sh nhưng có rung dây thanh; gần “r” nhẹ, không rung lưỡi.",
+              "examples": [
+                "ri4",
+                "re4",
+                "ren2"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Đầu lưỡi thẳng",
+          "items": [
+            {
+              "py": "z",
+              "note": "Không bật hơi, như “ts” nhẹ (gần “ch” + “x” ghép).",
+              "examples": [
+                "zi4",
+                "zu1",
+                "zao3"
+              ]
+            },
+            {
+              "py": "c",
+              "note": "Như z nhưng bật hơi mạnh (“ts” bật hơi).",
+              "examples": [
+                "ci2",
+                "cu1",
+                "cai4"
+              ]
+            },
+            {
+              "py": "s",
+              "note": "Như “x” tiếng Việt.",
+              "examples": [
+                "si1",
+                "su1",
+                "san1"
+              ]
+            }
+          ]
+        }
+      ],
+      "drills": [
+        [
+          "zhi1",
+          "chi1",
+          "shi1",
+          "zi1"
+        ],
+        [
+          "zhu1",
+          "chu1",
+          "shu1",
+          "zu1"
+        ],
+        [
+          "zi4",
+          "ci4",
+          "si4",
+          "zhi4"
+        ],
+        [
+          "shan1",
+          "san1",
+          "chan2",
+          "zhan4"
+        ],
+        [
+          "ri4",
+          "re4",
+          "shi4",
+          "ru4"
+        ],
+        [
+          "zao3",
+          "cao3",
+          "sao3",
+          "zhao3"
+        ]
+      ]
+    },
+    {
+      "id": "py5",
+      "title": "Vận mẫu đơn: a o e i u ü",
+      "intro": [
+        "Sáu nguyên âm đơn. Hai âm dễ sai nhất với người Việt: e (không đọc là “e”) và ü (tiếng Việt không có)."
+      ],
+      "groups": [
+        {
+          "title": "Nguyên âm đơn",
+          "items": [
+            {
+              "py": "a",
+              "note": "Như “a” tiếng Việt, miệng mở to.",
+              "examples": [
+                "ba1",
+                "ta1",
+                "la1"
+              ]
+            },
+            {
+              "py": "o",
+              "note": "Tròn môi, gần “ua/uô” khi đi sau b p m f: bo ≈ “bua”.",
+              "examples": [
+                "bo1",
+                "po1",
+                "mo2"
+              ]
+            },
+            {
+              "py": "e",
+              "note": "Gần “ưa/ơ” tiếng Việt, môi không tròn: he ≈ “hưa”. KHÔNG đọc là “e”.",
+              "examples": [
+                "he2",
+                "ke1",
+                "de2"
+              ]
+            },
+            {
+              "py": "i",
+              "note": "Như “i” tiếng Việt (trừ sau zh ch sh r z c s).",
+              "examples": [
+                "bi3",
+                "ji1",
+                "li3"
+              ]
+            },
+            {
+              "py": "u",
+              "note": "Như “u” tiếng Việt.",
+              "examples": [
+                "bu4",
+                "gu3",
+                "lu4"
+              ]
+            },
+            {
+              "py": "ü",
+              "note": "Môi tròn như “u” nhưng lưỡi đặt như “i” — gần “uy” đọc liền một âm. Sau j q x viết là u.",
+              "examples": [
+                "lv4",
+                "ju2",
+                "xu1"
+              ]
+            }
+          ]
+        }
+      ],
+      "drills": [
+        [
+          "he2",
+          "hu2",
+          "ha1",
+          "huo2"
+        ],
+        [
+          "ke1",
+          "ku1",
+          "ka1",
+          "kuo4"
+        ],
+        [
+          "bo1",
+          "bu4",
+          "ba1",
+          "bi1"
+        ],
+        [
+          "lu4",
+          "lv4",
+          "li4",
+          "lie4"
+        ],
+        [
+          "ju2",
+          "ji2",
+          "zhu2",
+          "jie2"
+        ],
+        [
+          "de2",
+          "du2",
+          "da2",
+          "di2"
+        ]
+      ]
+    },
+    {
+      "id": "py6",
+      "title": "Vận mẫu kép: ai ei ao ou · ia ie ua uo üe · iao iu uai ui",
+      "intro": [
+        "Vận mẫu kép là hai, ba nguyên âm lướt liền thành một âm tiết. Nhiều vần gần với vần tiếng Việt, nhưng có vài vần viết một đằng đọc một nẻo."
+      ],
+      "groups": [
+        {
+          "title": "Vần đôi",
+          "items": [
+            {
+              "py": "ai",
+              "note": "Như “ai”.",
+              "examples": [
+                "kai1",
+                "hai3",
+                "lai2"
+              ]
+            },
+            {
+              "py": "ei",
+              "note": "Gần “ây”: bei ≈ “bây”.",
+              "examples": [
+                "bei3",
+                "fei1",
+                "hei1"
+              ]
+            },
+            {
+              "py": "ao",
+              "note": "Như “ao”.",
+              "examples": [
+                "hao3",
+                "bao3",
+                "zao3"
+              ]
+            },
+            {
+              "py": "ou",
+              "note": "Gần “âu”: gou ≈ “câu”.",
+              "examples": [
+                "gou3",
+                "dou1",
+                "shou3"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Vần có i / u / ü đứng trước",
+          "items": [
+            {
+              "py": "ia",
+              "note": "Lướt “i-a”: jia ≈ “chi-a” đọc liền.",
+              "examples": [
+                "jia1",
+                "xia4",
+                "qia4"
+              ]
+            },
+            {
+              "py": "ie",
+              "note": "Gần “iê”: xie ≈ “xiê”.",
+              "examples": [
+                "xie4",
+                "jie3",
+                "bie2"
+              ]
+            },
+            {
+              "py": "ua",
+              "note": "Gần “oa”: hua ≈ “hoa”.",
+              "examples": [
+                "gua1",
+                "kua1",
+                "shua1"
+              ]
+            },
+            {
+              "py": "uo",
+              "note": "Gần “uô/ua”: duo ≈ “tua”.",
+              "examples": [
+                "duo1",
+                "guo2",
+                "zuo4"
+              ]
+            },
+            {
+              "py": "üe",
+              "note": "Gần “uê” tròn môi: xue ≈ “xuê”.",
+              "examples": [
+                "xue2",
+                "jue2",
+                "yue4"
+              ]
+            },
+            {
+              "py": "iao",
+              "note": "Gần “eo/iêu”: jiao ≈ “chieo”.",
+              "examples": [
+                "jiao4",
+                "xiao3",
+                "piao4"
+              ]
+            },
+            {
+              "py": "iu (iou)",
+              "note": "Đọc gần “iêu/iâu”: jiu ≈ “chiêu” — viết gọn là iu.",
+              "examples": [
+                "jiu3",
+                "liu4",
+                "niu2"
+              ]
+            },
+            {
+              "py": "uai",
+              "note": "Gần “oai”: kuai ≈ “khoai” (k bật hơi).",
+              "examples": [
+                "kuai4",
+                "guai4",
+                "huai4"
+              ]
+            },
+            {
+              "py": "ui (uei)",
+              "note": "Đọc gần “uây”: gui ≈ “cuây” — viết gọn là ui.",
+              "examples": [
+                "gui4",
+                "dui4",
+                "shui3"
+              ]
+            }
+          ]
+        }
+      ],
+      "drills": [
+        [
+          "bei3",
+          "bai3",
+          "bao3",
+          "bie2"
+        ],
+        [
+          "gou3",
+          "gao3",
+          "gai3",
+          "gei3"
+        ],
+        [
+          "xie4",
+          "xia4",
+          "xue2",
+          "xiao4"
+        ],
+        [
+          "duo1",
+          "dou1",
+          "dui4",
+          "diu1"
+        ],
+        [
+          "jiu3",
+          "jiao3",
+          "jia3",
+          "jue2"
+        ],
+        [
+          "gui4",
+          "guai4",
+          "gua4",
+          "guo4"
+        ]
+      ]
+    },
+    {
+      "id": "py7",
+      "title": "Vận mẫu mũi: -n và -ng",
+      "intro": [
+        "Vần mũi kết thúc bằng -n (đầu lưỡi chạm lợi) hoặc -ng (cuống lưỡi chạm vòm mềm). Phân biệt -n / -ng là chìa khóa để nghe đúng.",
+        "Chú ý: ian đọc là “iên” (không phải “ian”), eng đọc là “âng”, ong đọc là “ung”."
+      ],
+      "groups": [
+        {
+          "title": "Vần -n",
+          "items": [
+            {
+              "py": "an",
+              "note": "Như “an”.",
+              "examples": [
+                "shan1",
+                "lan2",
+                "kan4"
+              ]
+            },
+            {
+              "py": "en",
+              "note": "Gần “ân”: men ≈ “mân”.",
+              "examples": [
+                "men2",
+                "fen1",
+                "ren2"
+              ]
+            },
+            {
+              "py": "in",
+              "note": "Như “in”.",
+              "examples": [
+                "jin1",
+                "xin1",
+                "lin2"
+              ]
+            },
+            {
+              "py": "ian",
+              "note": "Đọc gần “iên”: tian ≈ “thiên”.",
+              "examples": [
+                "tian1",
+                "xian1",
+                "bian1"
+              ]
+            },
+            {
+              "py": "uan",
+              "note": "Gần “oan”: duan ≈ “toan”.",
+              "examples": [
+                "duan3",
+                "suan4",
+                "chuan2"
+              ]
+            },
+            {
+              "py": "üan",
+              "note": "Gần “uyên”: yuan ≈ “duyên”.",
+              "examples": [
+                "yuan2",
+                "quan2",
+                "xuan3"
+              ]
+            },
+            {
+              "py": "un (uen)",
+              "note": "Gần “uân”: lun ≈ “luân”.",
+              "examples": [
+                "lun4",
+                "chun1",
+                "kun4"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Vần -ng",
+          "items": [
+            {
+              "py": "ang",
+              "note": "Như “ang”.",
+              "examples": [
+                "shang1",
+                "lang2",
+                "kang4"
+              ]
+            },
+            {
+              "py": "eng",
+              "note": "Gần “âng”: deng ≈ “tâng”.",
+              "examples": [
+                "deng3",
+                "feng1",
+                "meng4"
+              ]
+            },
+            {
+              "py": "ing",
+              "note": "Gần “inh”: ming ≈ “minh”.",
+              "examples": [
+                "ming2",
+                "jing1",
+                "ting1"
+              ]
+            },
+            {
+              "py": "ong",
+              "note": "Gần “ung”: dong ≈ “tung”.",
+              "examples": [
+                "dong1",
+                "zhong1",
+                "hong2"
+              ]
+            },
+            {
+              "py": "iang",
+              "note": "Gần “i-ang” lướt: xiang ≈ “xi-ang”.",
+              "examples": [
+                "xiang1",
+                "jiang3",
+                "liang3"
+              ]
+            },
+            {
+              "py": "iong",
+              "note": "Gần “i-ung”: xiong ≈ “xi-ung”.",
+              "examples": [
+                "xiong2",
+                "qiong2",
+                "yong4"
+              ]
+            },
+            {
+              "py": "uang",
+              "note": "Gần “oang”: huang ≈ “hoang”.",
+              "examples": [
+                "huang2",
+                "chuang2",
+                "guang1"
+              ]
+            }
+          ]
+        }
+      ],
+      "drills": [
+        [
+          "shan1",
+          "shang1",
+          "shen1",
+          "sheng1"
+        ],
+        [
+          "men2",
+          "meng2",
+          "man2",
+          "mang2"
+        ],
+        [
+          "jin1",
+          "jing1",
+          "jian1",
+          "jiang1"
+        ],
+        [
+          "xian1",
+          "xiang1",
+          "xin1",
+          "xing1"
+        ],
+        [
+          "chuan2",
+          "chuang2",
+          "chun2",
+          "chong2"
+        ],
+        [
+          "fen1",
+          "feng1",
+          "fan1",
+          "fang1"
+        ]
+      ]
+    },
+    {
+      "id": "py8",
+      "title": "Biến điệu: thanh 3, 一 và 不",
+      "intro": [
+        "Khi nói, một số thanh tự đổi theo âm tiết đứng sau. Pinyin trong từ điển vẫn ghi thanh gốc (riêng 一 và 不 nhiều sách ghi luôn thanh đã đổi).",
+        "Luyện nghe kỹ hơn ở trang Phát âm → Biến điệu."
+      ],
+      "groups": [
+        {
+          "title": "Quy tắc",
+          "items": [
+            {
+              "py": "3 + 3 → 2 + 3",
+              "note": "Hai thanh 3 liền nhau: thanh 3 đầu đọc thành thanh 2. 你好 nǐ hǎo → đọc ní hǎo.",
+              "examples": [],
+              "words": [
+                "你好",
+                "很好",
+                "可以"
+              ]
+            },
+            {
+              "py": "一 yī",
+              "note": "Đứng một mình, cuối câu hoặc chỉ số thứ tự: yī. Trước thanh 4: yí (一个 yí gè). Trước thanh 1, 2, 3: yì (一天 yì tiān).",
+              "examples": [],
+              "words": [
+                "一",
+                "一个",
+                "一天"
+              ]
+            },
+            {
+              "py": "不 bù",
+              "note": "Bình thường bù; trước thanh 4 đọc bú: 不是 bú shì, 不去 bú qù.",
+              "examples": [],
+              "words": [
+                "不",
+                "不是",
+                "不好"
+              ]
+            }
+          ]
+        }
+      ],
+      "drills": [],
+      "spelling": [
+        {
+          "q": "你好 (nǐ + hǎo) khi nói đọc là?",
+          "options": [
+            "ní hǎo",
+            "nǐ hǎo",
+            "nǐ háo"
+          ],
+          "answer": 0,
+          "explain": "Hai thanh 3 liền nhau: thanh 3 đầu thành thanh 2."
+        },
+        {
+          "q": "很好 (hěn + hǎo) khi nói đọc là?",
+          "options": [
+            "hěn hǎo",
+            "hén hǎo",
+            "hèn hǎo"
+          ],
+          "answer": 1,
+          "explain": "3 + 3 → 2 + 3."
+        },
+        {
+          "q": "一个 đọc là?",
+          "options": [
+            "yī gè",
+            "yì gè",
+            "yí gè"
+          ],
+          "answer": 2,
+          "explain": "一 trước thanh 4 đọc thanh 2: yí."
+        },
+        {
+          "q": "一天 đọc là?",
+          "options": [
+            "yì tiān",
+            "yí tiān",
+            "yī tiān"
+          ],
+          "answer": 0,
+          "explain": "一 trước thanh 1, 2, 3 đọc thanh 4: yì."
+        },
+        {
+          "q": "不是 đọc là?",
+          "options": [
+            "bù shì",
+            "bú shì",
+            "bǔ shì"
+          ],
+          "answer": 1,
+          "explain": "不 trước thanh 4 đọc thanh 2: bú."
+        },
+        {
+          "q": "不好 đọc là?",
+          "options": [
+            "bù hǎo",
+            "bú hǎo",
+            "bū hǎo"
+          ],
+          "answer": 0,
+          "explain": "不 trước thanh 1, 2, 3 giữ thanh 4: bù."
+        },
+        {
+          "q": "Số thứ tự 第一 đọc là?",
+          "options": [
+            "dì yí",
+            "dì yì",
+            "dì yī"
+          ],
+          "answer": 2,
+          "explain": "一 chỉ số thứ tự hoặc đứng cuối giữ thanh 1: yī."
+        }
+      ]
+    },
+    {
+      "id": "py9",
+      "title": "Quy tắc viết pinyin",
+      "intro": [
+        "Phần này giúp đọc đúng pinyin trong sách và gõ pinyin trên máy. Âm không đổi — chỉ cách viết đổi."
+      ],
+      "groups": [
+        {
+          "title": "Quy tắc",
+          "items": [
+            {
+              "py": "y, w",
+              "note": "Âm tiết bắt đầu bằng i, u, ü thì viết y, w: i → yi, ia → ya, ie → ye, iou → you; u → wu, uo → wo, uei → wei; ü → yu, üe → yue.",
+              "examples": [
+                "yi1",
+                "ya2",
+                "wu3",
+                "wo3",
+                "yu2"
+              ]
+            },
+            {
+              "py": "j q x + ü",
+              "note": "Sau j, q, x chữ ü viết là u (bỏ hai chấm) nhưng vẫn đọc ü: ju, qu, xu, xue. Sau n, l vẫn giữ ü để phân biệt: nǚ (nữ) ≠ nǔ, lǜ ≠ lù.",
+              "examples": [
+                "ju2",
+                "qu4",
+                "lv4"
+              ]
+            },
+            {
+              "py": "iu, ui, un",
+              "note": "Sau phụ âm, iou → iu, uei → ui, uen → un: liù, guì, lùn.",
+              "examples": [
+                "liu4",
+                "gui4",
+                "lun4"
+              ]
+            },
+            {
+              "py": "Dấu thanh",
+              "note": "Đặt trên a nếu có; không có a thì trên o hoặc e; với iu / ui đặt trên chữ đứng sau: liù, guì. Dấu trên i thì bỏ chấm: nǐ.",
+              "examples": []
+            },
+            {
+              "py": "Dấu nháy ’",
+              "note": "Khi âm tiết sau bắt đầu bằng a, o, e mà dễ đọc nhầm ranh giới: Xī’ān (西安, 2 âm tiết) ≠ xiān (先, 1 âm tiết).",
+              "examples": []
+            }
+          ]
+        }
+      ],
+      "drills": [],
+      "spelling": [
+        {
+          "q": "j + ü + thanh 2 viết là?",
+          "options": [
+            "jü",
+            "jú",
+            "jǘ"
+          ],
+          "answer": 1,
+          "explain": "Sau j q x bỏ hai chấm của ü: jú."
+        },
+        {
+          "q": "n + ü + thanh 3 (女) viết là?",
+          "options": [
+            "nǔ",
+            "nǚ",
+            "nyǔ"
+          ],
+          "answer": 1,
+          "explain": "Sau n, l giữ ü để phân biệt với u: nǚ."
+        },
+        {
+          "q": "i + ou + thanh 3 (âm tiết không có phụ âm đầu, 有) viết là?",
+          "options": [
+            "iǒu",
+            "yǒu",
+            "yiǒu"
+          ],
+          "answer": 1,
+          "explain": "iou đứng đầu âm tiết viết you."
+        },
+        {
+          "q": "l + iou + thanh 4 (六) viết là?",
+          "options": [
+            "liòu",
+            "liù",
+            "lìu"
+          ],
+          "answer": 1,
+          "explain": "Sau phụ âm iou → iu, dấu đặt trên chữ sau: liù."
+        },
+        {
+          "q": "g + uei + thanh 4 (贵) viết là?",
+          "options": [
+            "guèi",
+            "gùi",
+            "guì"
+          ],
+          "answer": 2,
+          "explain": "uei → ui, dấu trên chữ sau: guì."
+        },
+        {
+          "q": "u + o + thanh 3 (我) viết là?",
+          "options": [
+            "uǒ",
+            "wǒ",
+            "wuǒ"
+          ],
+          "answer": 1,
+          "explain": "uo đứng đầu âm tiết viết wo."
+        },
+        {
+          "q": "Dấu thanh của hao3 đặt ở đâu?",
+          "options": [
+            "hǎo",
+            "haǒ",
+            "hǎǒ"
+          ],
+          "answer": 0,
+          "explain": "Có a thì đặt dấu trên a."
+        },
+        {
+          "q": "西安 (Tây An) viết pinyin thế nào cho khỏi nhầm với 先 xiān?",
+          "options": [
+            "Xīān",
+            "Xī’ān",
+            "Xiān"
+          ],
+          "answer": 1,
+          "explain": "Dùng dấu nháy để tách âm tiết bắt đầu bằng a."
+        }
+      ]
+    }
+  ]
+}

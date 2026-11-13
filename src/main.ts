@@ -13,6 +13,7 @@ import { mountPronunciation, pronunciationPage } from "./pages/pronunciation.ts"
 import { examListPage, examRunPage, installExamHandlers, mountExamList, mountExamRun } from "./pages/exam.ts";
 import { homePage } from "./pages/home.ts";
 import { mountPractice, practicePage } from "./pages/practice.ts";
+import { mountPinyinCourse, pinyinCoursePage } from "./pages/pinyinCourse.ts";
 import { mountSettings, setVoiceFallbackNotice, settingsPage } from "./pages/settings.ts";
 import { onVoicesChanged, savedVoiceMissing } from "./ui/speech.ts";
 import { toast } from "./ui/toast.ts";
@@ -274,6 +275,7 @@ const routes: Record<string, Route> = {
   },
   "phat-am": { render: pronunciationPage, mount: mountPronunciation, stateful: () => true },
   "luyen-tap": { render: practicePage, mount: mountPractice, stateful: (param) => !!param },
+  pinyin: { render: pinyinCoursePage, mount: (param) => void mountPinyinCourse(param), stateful: () => true },
   "thi-thu": {
     render: (param) => (param ? examRunPage() : examListPage()),
     mount: (param) => void (param ? mountExamRun(param) : mountExamList()),

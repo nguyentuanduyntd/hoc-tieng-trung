@@ -1,5 +1,34 @@
 # Changelog
 
+## [0.17.0] — 2026-11-13 — Bước D5b: Lộ trình Pinyin (SPEC 3.17, phần khóa Pinyin)
+
+### Thêm
+- **Lộ trình Pinyin** (`#/pinyin`, `#/pinyin/<bài>`) — 9 bài học trước HSK 1:
+  1. Pinyin là gì · Bốn thanh điệu (+ thanh nhẹ).
+  2. Thanh mẫu b p m f · d t n l.
+  3. Thanh mẫu g k h · j q x.
+  4. Thanh mẫu zh ch sh r · z c s.
+  5. Vận mẫu đơn.
+  6. Vận mẫu kép.
+  7. Vận mẫu mũi -n / -ng.
+  8. Biến điệu 3-3, 一, 不.
+  9. Quy tắc viết pinyin (y/w, ü sau j q x, iu/ui/un, vị trí dấu, dấu nháy).
+- Mỗi bài có giải thích **so sánh với âm tiếng Việt** (dự án tự soạn, ví dụ: “p bật hơi — không đọc thành ph”, “ian đọc gần iên”, “ong gần ung”) và nút 🔊 cho từng âm tiết / từ ví dụ.
+- **Bài nghe-chọn**: nghe một âm tiết, chọn pinyin trong nhóm âm dễ nhầm (b/p/m/f, zh/z/j, -n/-ng, 4 thanh…). Có 🐢 nghe chậm; phím 1–9, Space, Enter.
+- Bài biến điệu và quy tắc viết: câu **chọn cách đọc / cách viết đúng**, có giải thích. Đạt ≥ 80% là xong bài; danh sách hiện bài tiếp theo.
+- Âm thanh: mỗi âm tiết phát bằng một chữ Hán **chỉ có một cách đọc** trong dữ liệu (complete-hsk-vocabulary + từ HSK 1, ưu tiên chữ HSK 1).
+  - 11 chữ thông dụng có cách đọc phụ được chỉ định tay (好, 看, 给, 过, 大…); đã loại 乐 vì lè / yuè đều phổ biến.
+  - Build báo lỗi khi âm tiết không có chữ, hoặc một chữ dùng cho hai âm tiết. Test kiểm tra mọi chữ đều đọc được âm tiết được gán.
+- Đường vào: thẻ trong trang Bài học (người mới: “Học Pinyin trước”; đã học xa: một dòng link nhỏ) và thẻ trong Luyện tập.
+- `scripts/build-pinyin.ts` (nằm trong `npm run data`) → `public/data/pinyin-course.json` (223 âm tiết có chữ phát âm). Nội dung ở `data/curated/pinyin-course.json`.
+- Test: 326.
+
+### Thay đổi
+- Tiến độ thêm `pinyinCourse` (điểm tốt nhất từng bài). **Migration**: dữ liệu cũ → rỗng.
+
+### Chưa làm (phần còn lại của 3.17)
+- Khóa Lượng từ; Mẫu câu giao tiếp và từ vựng theo chủ đề.
+
 ## [0.16.0] — 2026-11-13 — Bước D5a: Bộ thủ (SPEC 3.15)
 
 ### Thêm

@@ -8,7 +8,7 @@ import { setProgress } from "../state.ts";
 const TICK_SECONDS = 15;
 const IDLE_MS = 60_000;
 /** Các trang tính là "đang học". */
-const STUDY_ROUTES = new Set(["bai-hoc", "on-tap", "doc", "phat-am", "thi-thu", "tu-vung", "luyen-tap"]);
+const STUDY_ROUTES = new Set(["bai-hoc", "on-tap", "doc", "phat-am", "thi-thu", "tu-vung", "luyen-tap", "pinyin"]);
 
 let lastInteraction = Date.now();
 

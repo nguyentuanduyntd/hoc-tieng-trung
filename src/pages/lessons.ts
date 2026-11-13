@@ -54,6 +54,7 @@ export async function mountLessonsList() {
   root.innerHTML = `
     <h1>Lộ trình ${esc(getLevelInfo(state.progress.hskStandard, 1)?.label ?? "HSK 1")}</h1>
     <p class="lead">${file.units.length} unit · ${file.lessons.length} bài · ${(file.checkpoints ?? []).length} checkpoint. Mỗi bài 5–10 phút: từ mới → ngữ pháp → bài tập trộn → tổng kết (từ mới tự vào ôn tập). Cứ 3 bài có một checkpoint ôn tập. Bài mở lần lượt; đã biết rồi thì “thi vượt” cả unit.</p>
+    ${pinyinHint()}
     ${file.units
       .map((u) => {
         const pr = unitProgress(u, done);
@@ -220,6 +221,18 @@ function render() {
     case "summary":
       return renderSummary(r);
   }
+}
+
+/** Gợi ý Lộ trình Pinyin cho người mới (chưa xong bài nào của HSK 1). */
+function pinyinHint(): string {
+  const p = state.progress;
+  const pyDone = Object.values(p.pinyinCourse).filter((x) => x.best >= 0.8).length;
+  // đã học khá xa mà chưa học Pinyin: chỉ một dòng nhỏ, không chiếm chỗ
+  if (p.completedLessonIds.length > 3 && pyDone === 0)
+    return `<p class="small muted">🔤 Cần ôn phát âm? <a href="#/pinyin">Lộ trình Pinyin</a> — thanh điệu, thanh mẫu, vận mẫu.</p>`;
+  return `<div class="card section py-hint"><strong>🔤 Lộ trình Pinyin${pyDone ? ` — đã xong ${pyDone} bài` : ""}</strong>
+    <p class="small">${pyDone ? "Ôn lại thanh điệu, thanh mẫu, vận mẫu khi cần." : "Mới bắt đầu? Học pinyin trước (9 bài ngắn: thanh điệu, thanh mẫu, vận mẫu, biến điệu, quy tắc viết) rồi vào bài 1."}</p>
+    <a class="btn small ${pyDone ? "" : "primary"}" href="#/pinyin">${pyDone ? "Mở Lộ trình Pinyin" : "Học Pinyin trước"}</a></div>`;
 }
 
 function renderWords(r: HTMLElement) {
