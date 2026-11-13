@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.15.0] — 2026-11-13 — Bước D4: audio dựng sẵn giọng Microsoft Neural (SPEC 3.19, nguồn A)
+
+### Thêm
+- `scripts/build-audio.ts` (`npm run audio`): gọi **Azure AI Speech REST, gói Free F0** để tạo MP3 cho 2 giọng (nữ `zh-CN-XiaoxiaoNeural`, nam `zh-CN-YunxiNeural` — cấu hình ở `src/config/audio.ts`). Nội dung:
+  - Văn bản lấy từ: từ vựng, câu ví dụ, câu luyện nói và ngữ pháp, bài đọc / chính tả, phần Nghe của đề thi, câu nghe thử. Văn bản trùng chỉ tạo một lần.
+  - File `public/audio/<giọng>/<hash>.mp3` + `public/audio/manifest.json`. Tên file băm theo giọng + nội dung, chỉ tạo file mới hoặc file đã đổi. Có `--dry-run`, `--level`, `--voice`, `--limit`, `--prune`.
+  - SSML tối thiểu: không dùng `<prosody>`; chỉ dùng `<phoneme alphabet="sapi">` cho từ một chữ đa âm (了, 还, 都…) theo pinyin trong dữ liệu.
+  - In số ký tự tính phí: chữ Hán = 2, thẻ phụ cũng tính, theo tài liệu Azure.
+  - Tự giãn nhịp theo giới hạn F0 (20 yêu cầu/phút); thử lại khi gặp 429/5xx; dừng ngay khi key sai.
+  - Key **chỉ** lấy từ biến môi trường `AZURE_SPEECH_KEY` / `AZURE_SPEECH_REGION` hoặc `.env` (đã gitignore). Có `.env.example`. Hướng dẫn: `docs/AUDIO.md`.
+- Cài đặt → Giọng đọc:
+  - **Nguồn giọng:** Tự động / Microsoft Neural (dựng sẵn) / Chỉ giọng trình duyệt.
+  - Chọn **Giọng Microsoft Neural** (晓晓 Nữ / 云希 Nam) + ▶ Nghe thử.
+  - Dòng trạng thái cho biết có bao nhiêu từ / câu dựng sẵn.
+- Module `speech.ts`: `speak` / `speakAsync` phát file dựng sẵn nếu có, tốc độ bằng `playbackRate` (giữ cao độ). Hội thoại: người thứ hai dùng giọng còn lại; đề thi 男/女 theo giới tính. File lỗi hoặc thiếu → giọng trình duyệt (chỉ một lần).
+
+### Thay đổi
+- Cài đặt thiết bị thêm `voiceSource`, `neuralVoice`. **Migration**: cài đặt cũ → Tự động, giọng nữ.
+- Test: 302 (gồm kiểm tra `src/` không chứa key / endpoint Azure, `.env` bị gitignore, không dùng `edge-tts`).
+
+### Chưa chạy
+- Chưa gọi Azure lần nào. `--dry-run` HSK 1: 861 văn bản → 1.722 file (2 giọng) ≈ **21.948 ký tự tính phí ≈ 4,4% hạn mức F0/tháng**, khoảng 91 phút. Chờ duyệt rồi mới chạy thật.
+
 ## [0.14.0] — 2026-11-13 — Bước D3: bảng luyện viết Mễ tự cách + In PDF luyện viết (SPEC 3.16, 3.14)
 
 ### Thêm

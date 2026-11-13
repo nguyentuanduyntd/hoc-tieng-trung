@@ -1,4 +1,4 @@
-# Hiện trạng dự án (cập nhật sau Bước D3 vòng 2 — v0.14.0, 13/11/2026)
+# Hiện trạng dự án (cập nhật sau Bước D4 vòng 2 — v0.15.0, 13/11/2026)
 
 > SPEC trong repo đã được thay bằng **v2.1** (có Mục 1b, 3.12–3.19).
 
@@ -43,6 +43,8 @@ src/pages/lessons.ts                lộ trình + trình chạy bài + thi vư�
 src/pages/pronunciation.ts          luyện phát âm & thanh điệu
 src/pages/reading.ts                thư viện bài đọc + trình đọc/nghe/shadowing
 src/pages/practice.ts               trang Luyện tập + game Mưa từ vựng
+scripts/build-audio.ts              dựng MP3 giọng Microsoft Neural (Azure F0)
+src/config/audio.ts, src/lib/audio.ts  cấu hình giọng; gom văn bản, SSML, tính ký tự, manifest
 src/pages/writing.ts                luyện viết Mễ tự cách + phiếu in
 src/lib/writing.ts                  chẩn đoán nét sai, SVG chữ/lưới, bố cục phiếu
 src/pages/dictation.ts              chép chính tả (danh sách + làm bài)
@@ -123,7 +125,7 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 | D1 3.12 Game gõ pinyin | **Xong** — `#/luyen-tap/go-pinyin`, 2 chế độ, boss, từ yếu → SRS, kỷ lục |
 | D2 3.13 Chép chính tả | **Xong** — `#/luyen-tap/chinh-ta`, 12 bài HSK 1, gõ pinyin/chữ Hán, tô đúng/sai thanh/đồng âm/sai/thiếu |
 | D3 3.16 Mễ tự cách + In PDF | **Xong** — `#/luyen-tap/viet`, 3 chế độ, báo sai thứ tự/hướng; phiếu in `#/luyen-tap/in/<bài>`. Chưa có danh sách chữ viết tay chính thức HSK 3.0 (đang dùng chữ của từ HSK 1) |
-| D4 3.19 Audio dựng sẵn (Azure) | Chưa làm |
+| D4 3.19 Audio dựng sẵn (Azure) | **Code xong, chưa chạy thật** — `npm run audio`; dry-run HSK 1: 1.722 file ≈ 21.948 ký tự (4,4% F0/tháng). Cài đặt có Nguồn giọng + giọng Neural. Xem `docs/AUDIO.md` |
 | D5 3.15 Bộ thủ · 3.17 Khóa Pinyin · 3.18 XP & huy hiệu | Chưa làm |
 
 Việc người dùng cần tự kiểm tra: nhập file xuất vào Anki thật; chấm nói bằng micro thật trên Chrome và Edge; nghe thử giọng sau Bước A trên Edge, Chrome và điện thoại.

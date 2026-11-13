@@ -42,6 +42,12 @@ Số từ thực tế của HSK 1 so với config:
    - báo lỗi nếu thiếu từ HSK 1 nào hoặc dữ liệu không qua `validateWordList`, và khi đó **không** ghi file.
 3. `npm test` kiểm tra lại file đã build.
 
+## Audio dựng sẵn
+
+| Dữ liệu | Nguồn | Giấy phép / điều khoản | Ghi chú |
+|---|---|---|---|
+| MP3 giọng Microsoft Neural (`public/audio/`) | Azure AI Speech (REST chính thức, gói Free F0), đọc văn bản do dự án tự soạn | Điều khoản dịch vụ Azure; có ý kiến (chưa chính thức) rằng audio từ F0 không kèm quyền dùng thương mại — dự án phi thương mại | Chưa tạo. Xem `docs/AUDIO.md` |
+
 ## Duyệt dữ liệu
 
 1. `npm run review:export` → mở `docs/review-hsk1.tsv` bằng Excel / Google Sheets.

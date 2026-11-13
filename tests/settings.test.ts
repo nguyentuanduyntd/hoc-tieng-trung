@@ -3,7 +3,7 @@ import { SETTINGS_KEY, clampRate, defaultSettings, loadSettings, sanitizeSetting
 
 describe("cài đặt thiết bị", () => {
   it("mặc định: tối, chữ bình thường, tốc độ 0.85, ẩn phương ngữ", () => {
-    expect(defaultSettings()).toEqual({ rate: 0.85, theme: "dark", zhSize: "normal", showDialects: false });
+    expect(defaultSettings()).toEqual({ rate: 0.85, theme: "dark", zhSize: "normal", showDialects: false, voiceSource: "auto", neuralVoice: "female" });
   });
   it("giới hạn tốc độ 0.5–1.5, làm tròn 2 chữ số", () => {
     expect(clampRate(0.2)).toBe(0.5);
@@ -12,8 +12,8 @@ describe("cài đặt thiết bị", () => {
     expect(clampRate("abc")).toBe(0.85);
   });
   it("loại giá trị sai", () => {
-    expect(sanitizeSettings({ theme: "blue", zhSize: "huge", rate: 9, voiceURI: "" })).toEqual({ rate: 1.5, theme: "dark", zhSize: "normal", showDialects: false });
-    expect(sanitizeSettings({ theme: "light", zhSize: "xlarge", voiceURI: "v1" })).toEqual({ voiceURI: "v1", rate: 0.85, theme: "light", zhSize: "xlarge", showDialects: false });
+    expect(sanitizeSettings({ theme: "blue", zhSize: "huge", rate: 9, voiceURI: "" })).toEqual({ rate: 1.5, theme: "dark", zhSize: "normal", showDialects: false, voiceSource: "auto", neuralVoice: "female" });
+    expect(sanitizeSettings({ theme: "light", zhSize: "xlarge", voiceURI: "v1" })).toEqual({ voiceURI: "v1", rate: 0.85, theme: "light", zhSize: "xlarge", showDialects: false, voiceSource: "auto", neuralVoice: "female" });
   });
   it("migration: cài đặt v0.7 (chưa có showDialects) đọc được, mặc định ẩn phương ngữ", () => {
     expect(sanitizeSettings({ rate: 1, theme: "light", zhSize: "large", voiceURI: "v" }).showDialects).toBe(false);

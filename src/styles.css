@@ -2744,3 +2744,31 @@ a.reading-card:hover {
     max-width: none;
   }
 }
+
+/* Cài đặt — nguồn giọng */
+.neural-pick {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.neural-pick legend {
+  float: left;
+  margin-right: 8px;
+  padding: 0;
+}
+.neural-pick[disabled] {
+  opacity: 0.55;
+}
+hr.soft {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 14px 0 10px;
+}
+.small-h {
+  font-size: 1rem;
+  margin: 0 0 6px;
+}

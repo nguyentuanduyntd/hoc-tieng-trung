@@ -3,6 +3,9 @@
 
 export type Theme = "dark" | "light";
 export type ZhSize = "normal" | "large" | "xlarge";
+/** Nguồn giọng (SPEC 3.19): auto = có file dựng sẵn thì phát file, không thì giọng trình duyệt. */
+export type VoiceSource = "auto" | "neural" | "browser";
+export type NeuralPref = "female" | "male";
 
 export interface DeviceSettings {
   /** voiceURI của giọng đã chọn; undefined = "Tự động" (giọng hạng cao nhất, xem src/lib/voices.ts). */
@@ -13,6 +16,9 @@ export interface DeviceSettings {
   zhSize: ZhSize;
   /** Hiện cả giọng Quảng Đông & phương ngữ trong danh sách (mặc định ẩn). */
   showDialects: boolean;
+  voiceSource: VoiceSource;
+  /** Giọng Microsoft Neural dựng sẵn dùng mặc định (hội thoại: người thứ hai dùng giọng còn lại). */
+  neuralVoice: NeuralPref;
 }
 
 export const SETTINGS_KEY = "htt.settings.v1";
@@ -22,7 +28,14 @@ export const RATE_MAX = 1.5;
 export const ZH_SCALE: Record<ZhSize, number> = { normal: 1, large: 1.2, xlarge: 1.45 };
 export const ZH_SIZE_LABELS: Record<ZhSize, string> = { normal: "Bình thường", large: "Lớn", xlarge: "Rất lớn" };
 
-export const defaultSettings = (): DeviceSettings => ({ rate: 0.85, theme: "dark", zhSize: "normal", showDialects: false });
+export const defaultSettings = (): DeviceSettings => ({
+  rate: 0.85,
+  theme: "dark",
+  zhSize: "normal",
+  showDialects: false,
+  voiceSource: "auto",
+  neuralVoice: "female",
+});
 
 export function clampRate(v: unknown): number {
   const n = typeof v === "number" ? v : Number(v);
@@ -41,6 +54,9 @@ export function sanitizeSettings(input: unknown): DeviceSettings {
     zhSize: o.zhSize === "large" || o.zhSize === "xlarge" || o.zhSize === "normal" ? o.zhSize : d.zhSize,
     // migration: cài đặt v0.7 chưa có trường này -> mặc định ẩn phương ngữ
     showDialects: o.showDialects === true,
+    // migration: cài đặt trước v0.15 chưa có hai trường này -> Tự động, giọng nữ
+    voiceSource: o.voiceSource === "neural" || o.voiceSource === "browser" ? o.voiceSource : "auto",
+    neuralVoice: o.neuralVoice === "male" ? "male" : "female",
   };
 }
 

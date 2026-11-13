@@ -2,8 +2,53 @@
 // không gọi speechSynthesis rải rác. Giọng: "Tự động" = giọng hạng cao nhất (src/lib/voices.ts),
 // hoặc giọng đã chọn trong Cài đặt. Câu dài được chia nhỏ; giọng online lỗi -> tự đọc lại bằng giọng trên máy.
 
+import { AUDIO_MANIFEST_PATH, NEURAL_VOICES, type NeuralVoiceKey } from "../config/audio.ts";
+import { pickAudio, type AudioManifest } from "../lib/audio.ts";
 import { partnerVoice, rankVoices, resolvePrimary, splitForTts, voiceForGender, type Gender, type VoiceInfo } from "../lib/voices.ts";
 import { state } from "../state.ts";
+
+// ---------- Audio dựng sẵn (Microsoft Neural, nguồn A) ----------
+let manifest: AudioManifest | null = null;
+let manifestState: "loading" | "ready" | "none" = "loading";
+const manifestListeners = new Set<() => void>();
+if (typeof window !== "undefined" && typeof fetch !== "undefined") {
+  fetch(`${import.meta.env.BASE_URL}${AUDIO_MANIFEST_PATH}`)
+    .then((r) => (r.ok ? (r.json() as Promise<AudioManifest>) : null))
+    .catch(() => null)
+    .then((m) => {
+      manifest = m && m.items && Object.keys(m.items).length ? m : null;
+      manifestState = manifest ? "ready" : "none";
+      [...manifestListeners].forEach((fn) => fn());
+    });
+}
+
+/** Tình trạng audio dựng sẵn: số đoạn có file theo từng giọng. */
+export function prebuiltAudioInfo(): { state: typeof manifestState; female: number; male: number; total: number } {
+  const items = Object.values(manifest?.items ?? {});
+  return { state: manifestState, female: items.filter((e) => e.female).length, male: items.filter((e) => e.male).length, total: items.length };
+}
+export function onPrebuiltAudio(fn: () => void): () => void {
+  manifestListeners.add(fn);
+  return () => manifestListeners.delete(fn);
+}
+/** Có file dựng sẵn cho đoạn này không (theo nguồn giọng hiện tại). */
+export const hasPrebuilt = (text: string) => state.settings.voiceSource !== "browser" && !!pickAudio(manifest, text, state.settings.neuralVoice);
+
+let currentAudio: HTMLAudioElement | null = null;
+function stopAudio() {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.onended = currentAudio.onerror = null;
+    currentAudio = null;
+  }
+}
+
+/** Giọng Neural cho một lượt nói: theo giới tính (đề thi 男/女), người thứ hai khác giọng mặc định. */
+function neuralFor(p: VoicePick): NeuralVoiceKey {
+  if (p.gender === "male" || p.gender === "female") return p.gender;
+  const base = state.settings.neuralVoice;
+  return p.role === "partner" ? (base === "female" ? "male" : "female") : base;
+}
 
 export const ttsSupported = () => typeof window !== "undefined" && "speechSynthesis" in window;
 
@@ -87,7 +132,61 @@ export interface SpeakHandle {
  * Giọng online lỗi (mất mạng…) -> đọc lại đoạn đó bằng giọng trên máy.
  */
 export function speakAsync(text: string, opts: VoicePick & { rate?: number; fallbackMs?: number } = {}): SpeakHandle {
+  if (state.settings.voiceSource !== "browser") {
+    const hit = pickAudio(manifest, text, neuralFor(opts));
+    if (hit) return playPrebuilt(hit, opts.rate ?? baseRate(), () => speakTts(text, opts));
+  }
+  return speakTts(text, opts);
+}
+
+/** Phát file mp3 dựng sẵn; tốc độ = playbackRate (giữ cao độ). Lỗi tải/phát -> đọc bằng giọng trình duyệt. */
+function playPrebuilt(hit: { voice: NeuralVoiceKey; hash: string }, rate: number, fallback: () => SpeakHandle): SpeakHandle {
+  stopAudio();
+  if (ttsSupported()) speechSynthesis.cancel();
+  const audio = new Audio(`${import.meta.env.BASE_URL}audio/${NEURAL_VOICES[hit.voice].dir}/${hit.hash}.mp3`);
+  audio.playbackRate = rate;
+  audio.preservesPitch = true;
+  currentAudio = audio;
+  let cancelled = false;
+  let inner: SpeakHandle | null = null;
+  const done = new Promise<number>((resolve, reject) => {
+    const start = performance.now();
+    let fellBack = false;
+    const toFallback = () => {
+      // onerror và play() bị từ chối có thể cùng xảy ra -> chỉ dự phòng một lần
+      if (fellBack) return;
+      fellBack = true;
+      if (cancelled) return reject(new Error("cancelled"));
+      if (currentAudio === audio) currentAudio = null;
+      if (!ttsSupported()) return reject(new Error("audio-error"));
+      inner = fallback();
+      inner.done.then(resolve, reject);
+    };
+    audio.onended = () => {
+      if (currentAudio === audio) currentAudio = null;
+      resolve(performance.now() - start);
+    };
+    audio.onerror = toFallback;
+    audio.play().catch((e: unknown) => {
+      // trình duyệt chặn tự phát (chưa có thao tác người dùng) cũng đi đường dự phòng
+      if ((e as Error)?.name === "AbortError" && cancelled) return reject(new Error("cancelled"));
+      toFallback();
+    });
+  });
+  done.catch(() => {});
+  return {
+    done,
+    cancel() {
+      cancelled = true;
+      if (currentAudio === audio) stopAudio();
+      inner?.cancel();
+    },
+  };
+}
+
+function speakTts(text: string, opts: VoicePick & { rate?: number; fallbackMs?: number }): SpeakHandle {
   if (!ttsSupported()) return { done: Promise.reject(new Error("no-tts")), cancel() {} };
+  stopAudio();
   const rate = opts.rate ?? baseRate();
   const voice = pickVoice(opts);
   const chunks = splitForTts(text);
@@ -140,7 +239,7 @@ export function speakAsync(text: string, opts: VoicePick & { rate?: number; fall
 
 /** Đọc ngay (hủy câu đang đọc). `rate` mặc định = tốc độ trong Cài đặt. */
 export function speak(text: string, rate = baseRate(), pick: VoicePick = {}) {
-  if (!ttsSupported()) return;
+  if (!ttsSupported() && !hasPrebuilt(text)) return;
   speakAsync(text, { rate, ...pick });
 }
 
@@ -150,6 +249,7 @@ export const speakSlow = (text: string) => speak(text, Math.max(0.3, baseRate() 
 /** Đọc thử bằng một giọng cụ thể (trang Cài đặt). */
 export function speakWithVoice(text: string, voiceURI: string | undefined, rate = baseRate()) {
   if (!ttsSupported()) return;
+  stopAudio();
   const ranked = rankedVoices();
   const v = (voiceURI && ranked.find((x) => x.voice.voiceURI === voiceURI)) || resolvePrimary(ranked);
   speechSynthesis.cancel();
@@ -157,5 +257,6 @@ export function speakWithVoice(text: string, voiceURI: string | undefined, rate 
 }
 
 export function stopSpeaking() {
+  stopAudio();
   if (ttsSupported()) speechSynthesis.cancel();
 }

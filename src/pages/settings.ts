@@ -7,7 +7,9 @@ import { setProgress, setSettings, state } from "../state.ts";
 import type { HskStandard } from "../types.ts";
 import { esc } from "../ui/html.ts";
 import { groupVoices, hasNaturalVoice, rankVoices, type VoiceInfo } from "../lib/voices.ts";
-import { onVoicesChanged, rankedVoices, speakWithVoice, ttsSupported, voicesLoaded } from "../ui/speech.ts";
+import { onPrebuiltAudio, onVoicesChanged, prebuiltAudioInfo, rankedVoices, speakAsync, speakWithVoice, ttsSupported, voicesLoaded } from "../ui/speech.ts";
+import { NEURAL_VOICES } from "../config/audio.ts";
+import type { NeuralPref, VoiceSource } from "../lib/settings.ts";
 import { recognitionSupported } from "../ui/speechInput.ts";
 
 /** Câu nghe thử theo SPEC 3.19. */
@@ -30,9 +32,45 @@ function stillValidWithoutDialects(uri: string | undefined): string | undefined 
   return rankVoices(browserVoices()).some((x) => x.voice.voiceURI === uri) ? uri : undefined;
 }
 
+const SOURCE_LABELS: Record<VoiceSource, string> = {
+  auto: "Tự động — có giọng Microsoft dựng sẵn thì dùng, không thì giọng trình duyệt",
+  neural: "Microsoft Neural (dựng sẵn) — câu không có sẵn vẫn đọc bằng giọng trình duyệt",
+  browser: "Chỉ giọng trình duyệt",
+};
+
+/** Khối “Nguồn giọng” + giọng Microsoft Neural dựng sẵn (SPEC 3.19, nguồn A). */
+function sourceSection(): string {
+  const s = state.settings;
+  const info = prebuiltAudioInfo();
+  const status =
+    info.state === "loading"
+      ? `<p class="muted small">Đang kiểm tra audio dựng sẵn…</p>`
+      : info.state === "none"
+        ? `<p class="notice small">Bản web này <strong>chưa có audio Microsoft Neural dựng sẵn</strong> — mọi chỗ đang đọc bằng giọng trình duyệt. (Người quản trị tạo bằng <code>npm run audio</code>.)</p>`
+        : `<p class="muted small">Có sẵn ${info.total.toLocaleString("vi-VN")} từ / câu giọng Microsoft Neural (nữ ${info.female}, nam ${info.male}) — nghe giống nhau trên mọi trình duyệt và điện thoại. Câu không có sẵn sẽ đọc bằng giọng trình duyệt.</p>`;
+  return `
+    <div class="setting-row">
+      <label for="voice-source">Nguồn giọng:</label>
+      <select id="voice-source">${(Object.keys(SOURCE_LABELS) as VoiceSource[])
+        .map((k) => `<option value="${k}" ${s.voiceSource === k ? "selected" : ""}>${esc(SOURCE_LABELS[k])}</option>`)
+        .join("")}</select>
+    </div>
+    ${status}
+    <fieldset class="setting-row neural-pick" ${s.voiceSource === "browser" ? "disabled" : ""}>
+      <legend>Giọng Microsoft Neural:</legend>
+      ${(Object.keys(NEURAL_VOICES) as NeuralPref[])
+        .map((k) => `<label class="check"><input type="radio" name="neural-voice" value="${k}" ${s.neuralVoice === k ? "checked" : ""}/> ${esc(NEURAL_VOICES[k].label)}</label>`)
+        .join("")}
+      <button class="btn" id="neural-test" ${info.state === "ready" && s.voiceSource !== "browser" ? "" : "disabled"}>▶ Nghe thử</button>
+    </fieldset>
+    <p class="muted small">Hội thoại: người nói thứ nhất dùng giọng đã chọn, người thứ hai dùng giọng còn lại.</p>
+    <hr class="soft" />
+    <h3 class="small-h">Giọng trình duyệt</h3>`;
+}
+
 function voiceSection(): string {
   const s = state.settings;
-  if (!ttsSupported()) return `<p class="notice">Trình duyệt này không hỗ trợ đọc văn bản (Web Speech API). Hãy dùng Edge, Chrome hoặc Safari.</p>`;
+  if (!ttsSupported()) return sourceSection() + `<p class="notice">Trình duyệt này không hỗ trợ đọc văn bản (Web Speech API). Hãy dùng Edge, Chrome hoặc Safari.</p>`;
   const ranked = rankedVoices();
   // nhãn "Tự động" = giọng mà chế độ Tự động sẽ dùng (hạng cao nhất), không phải giọng đang chọn
   const primary = ranked[0];
@@ -46,8 +84,8 @@ function voiceSection(): string {
     : !ranked.length
       ? `<p class="notice">Chưa tìm thấy giọng tiếng phổ thông. Trên Windows: Cài đặt → Thời gian & ngôn ngữ → Giọng nói → thêm giọng “Chinese (Simplified)”, rồi tải lại trang. Hoặc mở web bằng Microsoft Edge.</p>`
       : "";
-  return `
-      <p class="muted">Web dùng giọng tiếng Trung có sẵn trong trình duyệt/hệ điều hành.${ranked.length ? ` Có ${ranked.length} giọng tiếng phổ thông dùng được.` : ""}</p>
+  return sourceSection() + `
+      <p class="muted">Dùng cho câu không có audio dựng sẵn (hoặc khi chọn “Chỉ giọng trình duyệt”): giọng tiếng Trung có sẵn trong trình duyệt/hệ điều hành.${ranked.length ? ` Có ${ranked.length} giọng tiếng phổ thông dùng được.` : ""}</p>
       ${status}
       ${fallbackNotice ? `<p class="notice small">${esc(fallbackNotice)}</p>` : ""}
       <div class="setting-row">
@@ -64,7 +102,7 @@ function voiceSection(): string {
       </div>
       ${
         ranked.length && !hasNaturalVoice(ranked)
-          ? `<p class="small hint">💡 Muốn giọng tự nhiên hơn (晓晓, 云希 – Natural), hãy mở web bằng <strong>Microsoft Edge</strong>: Edge có sẵn giọng Microsoft Natural miễn phí (cần mạng).</p>`
+          ? `<p class="small hint">💡 Muốn đọc <em>mọi</em> câu bằng giọng Natural, hãy mở web bằng <strong>Microsoft Edge</strong>.${prebuiltAudioInfo().state === "ready" ? " Từ vựng và ví dụ vẫn dùng giọng Microsoft dựng sẵn." : ""}</p>`
           : ""
       }
       <label class="check"><input type="checkbox" id="show-dialects" ${s.showDialects ? "checked" : ""} /> Hiện giọng Quảng Đông / phương ngữ${dialectCount ? ` (${dialectCount})` : ""}</label>
@@ -149,6 +187,7 @@ export function settingsPage(): string {
 }
 
 let unsubscribeVoices: (() => void) | null = null;
+let unsubscribeAudio: (() => void) | null = null;
 
 export function mountSettings(rerender: () => void) {
   const flash = (id: string, text: string) => {
@@ -170,8 +209,24 @@ export function mountSettings(rerender: () => void) {
   unsubscribeVoices = onVoicesChanged(() => {
     if (document.getElementById("voice-section") && sig() !== shown) setTimeout(redrawVoice, 0);
   });
+  unsubscribeAudio?.();
+  unsubscribeAudio = onPrebuiltAudio(() => setTimeout(redrawVoice, 0));
 
   function bindVoice() {
+    document.getElementById("voice-source")?.addEventListener("change", (e) => {
+      const v = (e.target as HTMLSelectElement).value as VoiceSource;
+      setSettings((x) => ({ ...x, voiceSource: v }));
+      redrawVoice();
+      flash("voice-msg", "Đã lưu nguồn giọng.");
+    });
+    document.querySelectorAll<HTMLInputElement>('input[name="neural-voice"]').forEach((r) =>
+      r.addEventListener("change", () => {
+        setSettings((x) => ({ ...x, neuralVoice: r.value as NeuralPref }));
+        if (prebuiltAudioInfo().state === "ready") speakAsync(SAMPLE, { rate: currentRate() });
+        flash("voice-msg", "Đã lưu giọng Microsoft Neural.");
+      }),
+    );
+    document.getElementById("neural-test")?.addEventListener("click", () => speakAsync(SAMPLE, { rate: currentRate() }));
     const rateInput = document.getElementById("rate-input") as HTMLInputElement | null;
     const currentRate = () => (rateInput ? clampRate(rateInput.value) : undefined);
     document.getElementById("voice-select")?.addEventListener("change", (e) => {
