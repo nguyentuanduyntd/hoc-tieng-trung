@@ -1,4 +1,4 @@
-# Hiện trạng dự án (cập nhật sau Bước D5b vòng 2 — v0.17.0, 13/11/2026)
+# Hiện trạng dự án (cập nhật sau Bước D5c vòng 2 — v0.18.0, 13/11/2026)
 
 > SPEC trong repo đã được thay bằng **v2.1** (có Mục 1b, 3.12–3.19).
 
@@ -45,6 +45,8 @@ src/pages/reading.ts                thư viện bài đọc + trình đọc/nghe
 src/pages/practice.ts               trang Luyện tập + game Mưa từ vựng
 scripts/build-audio.ts              dựng MP3 giọng Microsoft Neural (Azure F0)
 src/config/audio.ts, src/lib/audio.ts  cấu hình giọng; gom văn bản, SSML, tính ký tự, manifest
+src/lib/xp.ts                       XP, cấp độ, huy hiệu, kỷ lục (thuần)
+src/ui/achievements.ts               ô XP trang chủ + khối Thành tích
 src/pages/pinyinCourse.ts           Lộ trình Pinyin: danh sách, bài học, bài luyện
 src/lib/pinyinCourse.ts             tạo bài luyện Pinyin + tiến độ
 scripts/build-pinyin.ts             sinh public/data/pinyin-course.json
@@ -134,6 +136,6 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 | D4 3.19 Audio dựng sẵn (Azure) | **Code xong, chưa chạy thật** — `npm run audio`; dry-run HSK 1: 1.722 file ≈ 21.948 ký tự (4,4% F0/tháng). Cài đặt có Nguồn giọng + giọng Neural. Xem `docs/AUDIO.md` |
 | D5a 3.15 Bộ thủ | **Xong** — `#/luyen-tap/bo-thu`, 78 bộ / 7 nhóm, nhận diện + ghép bộ, tiến độ theo nhóm. 3 bộ (父, 气, 夕) chỉ có 3–4 chữ ví dụ |
 | D5b 3.17 Khóa Pinyin | **Xong** — `#/pinyin`, 9 bài, nghe-chọn theo nhóm âm dễ nhầm + chọn cách viết. Khóa Lượng từ / Mẫu câu giao tiếp của 3.17 **chưa làm** |
-| D5c 3.18 XP & huy hiệu | Chưa làm |
+| D5c 3.18 XP & huy hiệu | **Xong** — XP mọi hoạt động, cấp độ, 20 huy hiệu, kỷ lục cá nhân (Tiến độ → Thành tích); không có bảng xếp hạng |
 
 Việc người dùng cần tự kiểm tra: nhập file xuất vào Anki thật; chấm nói bằng micro thật trên Chrome và Edge; nghe thử giọng sau Bước A trên Edge, Chrome và điện thoại.

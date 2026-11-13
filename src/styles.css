@@ -3029,3 +3029,56 @@ hr.soft {
 .py-hint {
   border-color: var(--accent);
 }
+
+/* ---------- XP & huy hiệu ---------- */
+.kpi-link {
+  color: inherit;
+  text-decoration: none;
+}
+.kpi-link:hover {
+  border-color: var(--accent);
+}
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+.badge-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  padding: 12px 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  opacity: 0.6;
+}
+.badge-card.got {
+  opacity: 1;
+  border-color: var(--ok);
+}
+.badge-icon {
+  font-size: 2rem;
+  line-height: 1;
+  filter: grayscale(1);
+}
+.badge-card.got .badge-icon {
+  filter: none;
+}
+.mini-bar {
+  width: 80%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.mini-bar > span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+table.records td:last-child {
+  text-align: right;
+}

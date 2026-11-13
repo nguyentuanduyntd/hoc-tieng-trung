@@ -3,6 +3,7 @@
 // chấm từng âm tiết / chữ. Điểm tốt nhất từng câu lưu trong tiến độ.
 
 import { PASS, checkHanzi, checkPinyin, dictationStatus, recordSentence, targetSyllables, type DictationResult, type DictationStatus } from "../lib/dictation.ts";
+import { XP } from "../lib/xp.ts";
 import { isHanzi } from "../lib/pinyin.ts";
 import { setProgress, state } from "../state.ts";
 import type { Reading, ReadingSentence } from "../types.ts";
@@ -246,7 +247,11 @@ function check(el: HTMLElement, typed: string) {
   run.result = { ...raw, accuracy };
   run.typed = typed;
   const { reading, i } = run;
-  setProgress((p) => ({ ...p, dictation: recordSentence(p, reading.id, i, accuracy) }), { activity: true, silent: true });
+  setProgress((p) => ({ ...p, dictation: recordSentence(p, reading.id, i, accuracy) }), {
+    activity: true,
+    silent: true,
+    xp: accuracy >= PASS ? XP.dictationPass : XP.dictationTry,
+  });
   renderRun(el);
   el.querySelector<HTMLElement>(".dict-result")?.scrollIntoView({ block: "nearest", behavior: "smooth" });
 }

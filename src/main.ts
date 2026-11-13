@@ -19,12 +19,13 @@ import { onVoicesChanged, savedVoiceMissing } from "./ui/speech.ts";
 import { toast } from "./ui/toast.ts";
 import { installReaderHandlers, loadReadings, mountReader, mountReadingList, readerPage, readingListPage } from "./pages/reading.ts";
 import { mountReviewPage, reviewCounts, reviewPage } from "./pages/review.ts";
-import { applyDeviceSettings, setSettings, loadLessons, loadVocab, setProgress, state, subscribe } from "./state.ts";
+import { applyDeviceSettings, onMotivation, setSettings, loadLessons, loadVocab, setProgress, state, subscribe } from "./state.ts";
 import type { HskStandard, ReadingsFile, Word } from "./types.ts";
 import { installActivityTracker } from "./ui/activity.ts";
 import { installChartTooltip } from "./ui/charts.ts";
 import { esc, zhWord } from "./ui/html.ts";
 import { inSrs, installPopupHandlers } from "./ui/popup.ts";
+import { achievementsSection } from "./ui/achievements.ts";
 import { resourceHint } from "./ui/resourceHint.ts";
 
 const app = document.getElementById("app")!;
@@ -188,7 +189,9 @@ function progressPage(): string {
       </div>
       <p class="muted" id="io-msg" aria-live="polite" style="margin-top:10px"></p>
     </div>
-  </div>`;
+  </div>
+  ${achievementsSection()}
+`;
 }
 
 function ankiOptions() {
@@ -405,6 +408,17 @@ window.addEventListener("hashchange", () => {
 });
 
 render();
+// Thông báo huy hiệu / lên cấp / mục tiêu ngày (SPEC 3.18). Lần đầu mở bản mới, người dùng cũ có thể
+// nhận nhiều huy hiệu cùng lúc -> gộp vào một thông báo.
+onMotivation((e) => {
+  const parts: string[] = [];
+  if (e.levelUp) parts.push(`⭐ Lên cấp ${e.levelUp}!`);
+  if (e.badges.length === 1) parts.push(`🏅 Huy hiệu mới: ${e.badges[0].icon} ${e.badges[0].title}`);
+  else if (e.badges.length > 1) parts.push(`🏅 Nhận ${e.badges.length} huy hiệu: ${e.badges.map((b) => b.icon).join(" ")} — xem ở trang Tiến độ`);
+  if (e.goalBonus) parts.push("🎯 Đạt mục tiêu hôm nay +10 XP");
+  if (parts.length) toast(parts.join(" · "), 6000);
+});
+
 loadVocab();
 Promise.all([loadLessons(), loadReadings()]).then(([, r]) => {
   readingsFile = r;

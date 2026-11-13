@@ -6,6 +6,7 @@ import { createSegmenter, type Segmenter } from "./lib/segment.ts";
 import { localDate } from "./lib/srs.ts";
 import { logActivity, type ActivityKind } from "./lib/dashboard.ts";
 import { toneless } from "./lib/pinyin.ts";
+import { applyMotivation, type Badge } from "./lib/xp.ts";
 import { ZH_SCALE, loadSettings, saveSettings, type DeviceSettings } from "./lib/settings.ts";
 import type { LessonsFile, UserProgress, VocabFile, Word } from "./types.ts";
 
@@ -31,18 +32,38 @@ export function subscribe(fn: Listener): () => void {
   return () => listeners.delete(fn);
 }
 
+export interface MotivationEvent {
+  xp: number;
+  badges: Badge[];
+  levelUp?: number;
+  goalBonus: boolean;
+}
+const motivationListeners = new Set<(e: MotivationEvent) => void>();
+/** Báo khi nhận huy hiệu mới / lên cấp / đạt mục tiêu ngày (main.ts hiện thông báo). */
+export function onMotivation(fn: (e: MotivationEvent) => void): () => void {
+  motivationListeners.add(fn);
+  return () => motivationListeners.delete(fn);
+}
+
 /**
  * Cập nhật tiến độ. `activity`: ghi nhận một ngày có học (streak) và, nếu là loại hoạt động,
- * cộng vào nhật ký học hôm nay.
+ * cộng vào nhật ký học hôm nay. `xp`: XP của hoạt động (SPEC 3.18). Sau mỗi lần cập nhật:
+ * kỷ lục streak, thưởng mục tiêu ngày, huy hiệu mới.
  */
 export function setProgress(
   update: (p: UserProgress) => UserProgress,
-  opts: { activity?: boolean | ActivityKind; silent?: boolean } = {},
+  opts: { activity?: boolean | ActivityKind; silent?: boolean; xp?: number } = {},
 ) {
   let next = update(state.progress);
   const today = localDate(new Date());
   if (opts.activity) next = markActive(next, today);
   if (typeof opts.activity === "string") next = logActivity(next, opts.activity, today);
+  const m = applyMotivation(next, today, { xp: opts.xp, hsk1Lessons: state.lessons?.lessons.length });
+  next = m.p;
+  if (m.badges.length || m.levelUp || m.goalBonus) {
+    const ev: MotivationEvent = { xp: opts.xp ?? 0, badges: m.badges, levelUp: m.levelUp, goalBonus: m.goalBonus };
+    queueMicrotask(() => [...motivationListeners].forEach((fn) => fn(ev)));
+  }
   state.progress = next;
   state.persisted = saveProgress(next);
   if (!opts.silent) [...listeners].forEach((fn) => fn());

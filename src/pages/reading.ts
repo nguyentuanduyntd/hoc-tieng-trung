@@ -4,6 +4,7 @@
 // Phím: Space phát/dừng, ←/→ câu trước/sau, R lặp câu, P pinyin, T dịch.
 
 import { checkAnswer } from "../lib/grading.ts";
+import { XP } from "../lib/xp.ts";
 import { SPEEDS, estimateSpeechMs, nextSentenceIndex, shadowPauseMs } from "../lib/readings.ts";
 import { addWordCards, localDate, wordStatuses, type WordStatus } from "../lib/srs.ts";
 import { setProgress, state } from "../state.ts";
@@ -421,9 +422,10 @@ export function installReaderHandlers() {
       P.submitted = true;
       const r = P.reading;
       const correct = r.questions.filter((x) => checkAnswer(x, { type: "comprehension", value: P!.answers.get(x.id) ?? -1 })).length;
+      const firstTime = !state.progress.readingResults[r.id];
       setProgress(
         (p) => ({ ...p, readingResults: { ...p.readingResults, [r.id]: { score: correct / r.questions.length, date: localDate(new Date()) } } }),
-        { activity: "readings", silent: true },
+        { activity: "readings", silent: true, xp: firstTime ? XP.reading : XP.readingRepeat },
       );
       return renderReader();
     }

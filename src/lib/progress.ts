@@ -3,6 +3,7 @@
 
 import { DEFAULT_HSK_STANDARD, isHskStandard } from "../config/hsk.ts";
 import type { SrsCard, UserProgress } from "../types.ts";
+import { estimateInitialXp } from "./xp.ts";
 
 export const STORAGE_KEY = "htt.progress.v1";
 
@@ -26,6 +27,9 @@ export function defaultProgress(): UserProgress {
     dictation: {},
     radicals: {},
     pinyinCourse: {},
+    xp: { total: 0, byDay: {}, lastGoalBonus: "" },
+    badges: {},
+    bestStreak: 0,
   };
 }
 
@@ -36,8 +40,8 @@ export function sanitizeProgress(input: unknown): UserProgress {
   const o = input as Record<string, unknown>;
   const num = (v: unknown, fallback: number, min = 0) =>
     typeof v === "number" && Number.isFinite(v) && v >= min ? v : fallback;
-  return {
-    version: 1,
+  const base = {
+    version: 1 as const,
     hskStandard: isHskStandard(o.hskStandard) ? o.hskStandard : d.hskStandard,
     dailyGoalMinutes: num(o.dailyGoalMinutes, d.dailyGoalMinutes, 1),
     newCardsPerDay: num(o.newCardsPerDay, d.newCardsPerDay),
@@ -64,6 +68,22 @@ export function sanitizeProgress(input: unknown): UserProgress {
     // thêm ở v0.17.0
     pinyinCourse: sanitizeResultsBy(o.pinyinCourse, (x) => x.score >= 0 && x.score <= 1, "best"),
   };
+  // thêm ở v0.18.0 — tiến độ cũ chưa có XP: ước lượng XP ban đầu từ lịch sử học
+  const xpRaw = o.xp as Record<string, unknown> | undefined;
+  const xp =
+    xpRaw && typeof xpRaw === "object" && typeof xpRaw.total === "number" && Number.isFinite(xpRaw.total) && xpRaw.total >= 0
+      ? {
+          total: Math.round(xpRaw.total),
+          byDay: sanitizeCounts(xpRaw.byDay),
+          lastGoalBonus: typeof xpRaw.lastGoalBonus === "string" ? xpRaw.lastGoalBonus : "",
+        }
+      : { total: estimateInitialXp(base), byDay: {}, lastGoalBonus: "" };
+  const badges =
+    o.badges && typeof o.badges === "object" && !Array.isArray(o.badges)
+      ? Object.fromEntries(Object.entries(o.badges as Record<string, unknown>).filter((e): e is [string, string] => typeof e[1] === "string"))
+      : {};
+  const bestStreak = Math.max(base.streak, typeof o.bestStreak === "number" && Number.isFinite(o.bestStreak) && o.bestStreak >= 0 ? Math.round(o.bestStreak) : 0);
+  return { ...base, xp, badges, bestStreak };
 }
 
 function sanitizeResultsBy<K extends string = "score">(

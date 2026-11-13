@@ -10,6 +10,7 @@ import { localDate } from "../lib/srs.ts";
 import { state } from "../state.ts";
 import type { ReadingsFile } from "../types.ts";
 import { columnChart } from "../ui/charts.ts";
+import { xpKpi } from "../ui/achievements.ts";
 import { esc } from "../ui/html.ts";
 import { reviewCounts } from "./review.ts";
 
@@ -98,6 +99,7 @@ export function homePage(readings: ReadingsFile | null, standardPicker: string):
       <div class="kpi"><span class="kpi-value">${p.streak}</span><span class="kpi-label">ngày liên tiếp 🔥</span></div>
       <div class="kpi"><span class="kpi-value">${minutes}<small>/${p.dailyGoalMinutes}</small></span><span class="kpi-label">phút hôm nay</span>
         <span class="goal-bar" role="progressbar" aria-valuenow="${Math.round(ratio * 100)}" aria-valuemin="0" aria-valuemax="100" aria-label="Mục tiêu ngày"><span style="width:${ratio * 100}%"></span></span></div>
+      ${xpKpi()}
     </div>
   </div>
 

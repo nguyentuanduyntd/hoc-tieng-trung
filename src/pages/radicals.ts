@@ -1,6 +1,7 @@
 // Bộ thủ (#/luyen-tap/bo-thu, /bo-thu/<bộ>, /bo-thu/luyen[/<nhóm|bộ>]) — SPEC 3.15.
 
 import { RADICAL_PASS, buildRadicalQuiz, charsOf, isLearned, recordRadicalQuiz, topicProgress, type RadicalQuestion } from "../lib/radicals.ts";
+import { XP } from "../lib/xp.ts";
 import { localDate } from "../lib/srs.ts";
 import { glyphSvg, type StrokeJson } from "../lib/writing.ts";
 import { setProgress, state } from "../state.ts";
@@ -232,7 +233,11 @@ function finish(el: HTMLElement) {
   document.onkeydown = null;
   const right = Q.results.filter((r) => r.correct).length;
   const before = new Set(Q.file.radicals.filter((r) => isLearned(state.progress, r.id)).map((r) => r.id));
-  setProgress((p) => ({ ...p, radicals: recordRadicalQuiz(p, Q.file, Q.results, localDate(new Date())) }), { activity: true, silent: true });
+  setProgress((p) => ({ ...p, radicals: recordRadicalQuiz(p, Q.file, Q.results, localDate(new Date())) }), {
+    activity: true,
+    silent: true,
+    xp: right * XP.quizCorrect,
+  });
   const newly = Q.file.radicals.filter((r) => !before.has(r.id) && isLearned(state.progress, r.id));
   const wrong = Q.results.filter((r) => !r.correct);
   el.innerHTML = `

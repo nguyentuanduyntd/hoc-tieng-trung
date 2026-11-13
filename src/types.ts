@@ -262,6 +262,12 @@ export interface UserProgress {
   radicals: Record<string, { best: number; date: string }>;
   /** Lộ trình Pinyin: điểm tốt nhất (0..1) theo id bài; ≥ 0.8 = xong. */
   pinyinCourse: Record<string, { best: number; date: string }>;
+  /** XP (SPEC 3.18): tổng, theo ngày (120 ngày gần nhất), ngày đã nhận thưởng mục tiêu. */
+  xp: { total: number; byDay: Record<string, number>; lastGoalBonus: string };
+  /** Huy hiệu đã đạt: id -> ngày đạt. */
+  badges: Record<string, string>;
+  /** Chuỗi ngày học dài nhất (kỷ lục). */
+  bestStreak: number;
 }
 
 export interface DayLog {

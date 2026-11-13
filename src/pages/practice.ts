@@ -2,6 +2,7 @@
 // Vòng lặp dùng requestAnimationFrame, tự tạm dừng khi tab bị ẩn. Kỷ lục và từ gõ sai lưu trong tiến độ.
 
 import { wordsAtLevel } from "../config/hsk.ts";
+import { gameXp } from "../lib/xp.ts";
 import { applyWrongToSrs } from "../lib/exam.ts";
 import {
   LIVES,
@@ -362,7 +363,7 @@ function endGame() {
       gameRecords: out.record ? { ...p.gameRecords, [recordKey(s.mode)]: out.record } : p.gameRecords,
       cards: out.toSrs.length ? applyWrongToSrs(p.cards, out.toSrs, p.srsCardTypes, new Date()) : p.cards,
     }),
-    { activity: s.hits > 0, silent: true },
+    { activity: s.hits > 0, silent: true, xp: gameXp(s.score) },
   );
   const r = root();
   if (!r) return;

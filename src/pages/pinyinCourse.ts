@@ -1,6 +1,7 @@
 // Lộ trình Pinyin (#/pinyin, #/pinyin/<bài>) — SPEC 3.17, học trước HSK 1.
 
 import { PINYIN_PASS, buildPinyinQuiz, isCorrect, lessonDone, marked, nextPinyinLesson, recordPinyinLesson, type PinyinQuestion } from "../lib/pinyinCourse.ts";
+import { XP } from "../lib/xp.ts";
 import { localDate } from "../lib/srs.ts";
 import { setProgress, state } from "../state.ts";
 import type { PinyinCourseFile, PinyinLesson } from "../types.ts";
@@ -181,7 +182,11 @@ function next(el: HTMLElement) {
   }
   document.onkeydown = null;
   const score = Math.round((Q.right / Q.qs.length) * 100) / 100;
-  setProgress((p) => ({ ...p, pinyinCourse: recordPinyinLesson(p, Q.lesson.id, score, localDate(new Date())) }), { activity: true, silent: true });
+  setProgress((p) => ({ ...p, pinyinCourse: recordPinyinLesson(p, Q.lesson.id, score, localDate(new Date())) }), {
+    activity: true,
+    silent: true,
+    xp: Q.right * XP.quizCorrect,
+  });
   const pass = score >= PINYIN_PASS;
   const nextLesson = Q.course.lessons.find((x) => x.order === Q.lesson.order + 1);
   el.innerHTML = `

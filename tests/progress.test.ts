@@ -24,7 +24,7 @@ describe("tiến độ", () => {
 
   it("lưu rồi đọc lại", () => {
     const s = memoryStorage();
-    const p = { ...defaultProgress(), streak: 4, hskStandard: "2.0" as const };
+    const p = { ...defaultProgress(), streak: 4, bestStreak: 4, hskStandard: "2.0" as const };
     expect(saveProgress(p, s)).toBe(true);
     expect(loadProgress(s)).toEqual(p);
   });

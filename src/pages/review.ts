@@ -1,5 +1,6 @@
 // Trang Ôn tập (SRS). Phím: Space = lật thẻ / phát lại âm, 1–4 = Quên/Khó/Được/Dễ.
 
+import { XP } from "../lib/xp.ts";
 import {
   CARD_TYPE_LABELS,
   RATING_LABELS,
@@ -168,7 +169,7 @@ function rate(r: Rating) {
   const id = session.cardId;
   session.cardId = null;
   session.reviewed++;
-  setProgress((p) => ({ ...p, cards: applyReview(p.cards, id, r, new Date()) }), { activity: "reviews", silent: true });
+  setProgress((p) => ({ ...p, cards: applyReview(p.cards, id, r, new Date()) }), { activity: "reviews", silent: true, xp: XP.review });
   render();
   document.dispatchEvent(new CustomEvent("srs-changed"));
 }

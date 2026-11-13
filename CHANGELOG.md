@@ -1,5 +1,36 @@
 # Changelog
 
+## [0.18.0] — 2026-11-13 — Bước D5c: XP, cấp độ, huy hiệu, kỷ lục (SPEC 3.18)
+
+### Thêm
+- **XP cho mỗi hoạt động**, cộng qua một chỗ duy nhất (`setProgress(..., { xp })`):
+  - Ôn 1 thẻ: 2 · bài học: 20 (học lại 5) · checkpoint / thi vượt: 30.
+  - Bài đọc: 15 (đọc lại 5) · thi thử: 30, đạt thêm 20.
+  - Câu chính tả đạt: 3 (chưa đạt 1) · viết chữ: 1–2.
+  - Bộ thủ, Pinyin: 1 XP/câu đúng · Mưa từ vựng: điểm ÷ 10 (tối đa 50).
+  - Đạt mục tiêu phút học trong ngày: +10 (một lần/ngày).
+- **Cấp độ:** cấp n cần 25·n·(n−1) XP (0, 50, 150, 300, 500…). Trang chủ có ô ⭐ cấp + XP hôm nay + thanh lên cấp.
+- **20 huy hiệu theo mốc:**
+  - Chuỗi ngày học 3 / 7 / 30 / 100.
+  - Thuộc 50 / 150 / **300 từ**.
+  - Bài học đầu tiên, 10 bài, hết lộ trình HSK 1.
+  - 500 lượt ôn · qua thi thử (≥ 120) · ≥ 180 điểm.
+  - 5 bài đọc · 30 câu chính tả · 10 bộ thủ · xong Lộ trình Pinyin · 500 điểm game · cấp 5 / 10.
+  - Huy hiệu lưu kèm ngày đạt.
+- Thông báo khi lên cấp, nhận huy hiệu, đạt mục tiêu ngày; nhiều huy hiệu cùng lúc thì gộp vào một thông báo.
+- Trang Tiến độ → **🏅 Thành tích**:
+  - Cấp và XP, cách tính XP.
+  - **Kỷ lục cá nhân:** chuỗi ngày dài nhất, XP nhiều nhất một ngày, điểm thi cao nhất, kỷ lục game.
+  - Biểu đồ XP 14 ngày.
+  - Lưới huy hiệu: đã đạt / chưa đạt kèm tiến độ.
+- **Không có bảng xếp hạng** (chưa có backend — đúng SPEC).
+- Test: 337.
+
+### Thay đổi
+- Tiến độ thêm `xp`, `badges`, `bestStreak`. **Migration**:
+  - Tiến độ cũ chưa có XP: **ước lượng XP ban đầu từ lịch sử** (bài học, lượt ôn trong 120 ngày, thi thử, bài đọc, chính tả, game).
+  - `bestStreak` = streak hiện tại; huy hiệu được trao ở lần học kế tiếp.
+
 ## [0.17.0] — 2026-11-13 — Bước D5b: Lộ trình Pinyin (SPEC 3.17, phần khóa Pinyin)
 
 ### Thêm

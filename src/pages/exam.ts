@@ -3,6 +3,7 @@
 // `reviewSeconds` để sửa đáp án (không có âm thanh). Phần Đọc đếm ngược, hết giờ tự nộp.
 
 import { fullyVerified, getExamConfig, isListening, type ExamConfig, type ListeningTiming } from "../config/exams.ts";
+import { XP } from "../lib/xp.ts";
 import { allQuestions, applyWrongToSrs, formatClock, scoreExam, wrongWordIds, type ExamResult } from "../lib/exam.ts";
 import { localDate } from "../lib/srs.ts";
 import { setProgress, state } from "../state.ts";
@@ -495,7 +496,7 @@ function submit() {
         { examId: exam.id, date: localDate(new Date()), score: result.total, sectionScores: Object.fromEntries(result.sections.map((s) => [s.id, s.score])) },
       ],
     }),
-    { activity: "exams", silent: true },
+    { activity: "exams", silent: true, xp: XP.exam + (result.passed ? XP.examPassBonus : 0) },
   );
   render();
   window.scrollTo(0, 0);

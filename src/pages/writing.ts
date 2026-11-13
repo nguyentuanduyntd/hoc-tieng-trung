@@ -2,6 +2,7 @@
 // và phiếu in luyện viết (#/luyen-tap/in/<lessonId> | /in/chu/<chữ>) — nút “In PDF luyện viết” của 3.14.
 
 import HanziWriter from "hanzi-writer";
+import { XP } from "../lib/xp.ts";
 import {
   DEFAULT_WORKSHEET,
   charInfo,
@@ -205,7 +206,7 @@ function startQuiz() {
     onComplete: (sum) => {
       board.results[ch] = sum.totalMistakes;
       msg(sum.totalMistakes === 0 ? `🎉 Viết đúng hết chữ ${ch}!` : `Xong chữ ${ch} — ${sum.totalMistakes} lần sai. Viết lại cho thuộc nhé.`, "ok");
-      setProgress((p) => p, { activity: true, silent: true });
+      setProgress((p) => p, { activity: true, silent: true, xp: sum.totalMistakes === 0 ? XP.writeCharPerfect : XP.writeChar });
       const btn = document.querySelector(`.write-char[data-w-go="${board.i}"]`);
       btn?.classList.add(sum.totalMistakes === 0 ? "perfect" : "done");
     },

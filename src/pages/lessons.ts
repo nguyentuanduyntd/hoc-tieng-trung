@@ -2,6 +2,7 @@
 // Phím: 1–4 chọn đáp án, Enter = kiểm tra / tiếp tục, Space = nghe lại.
 
 import { getLevelInfo } from "../config/hsk.ts";
+import { XP } from "../lib/xp.ts";
 import { checkAnswer, shuffle, type Response } from "../lib/grading.ts";
 import { completeUnit, findCheckpoint, isUnlocked, lessonOrder, nextLesson, passed, unitProgress } from "../lib/lessons.ts";
 import { applyTone } from "../lib/pinyin.ts";
@@ -507,20 +508,21 @@ function finishRun(r: HTMLElement) {
   const scored = R.total - R.skipped;
   if (R.mode === "lesson") {
     const l = R.lesson!;
+    const first = !state.progress.completedLessonIds.includes(l.id);
     setProgress(
       (p) => ({
         ...p,
         completedLessonIds: p.completedLessonIds.includes(l.id) ? p.completedLessonIds : [...p.completedLessonIds, l.id],
         cards: l.newWordIds.reduce((cards, id, i) => addWordCards(cards, id, p.srsCardTypes, new Date(Date.now() + i)), p.cards),
       }),
-      { activity: "lessons", silent: true },
+      { activity: "lessons", silent: true, xp: first ? XP.lesson : 5 },
     );
   } else if (R.mode === "checkpoint") {
     const c = R.checkpoint!;
     if (passed(R.firstTryCorrect, scored, c.passRatio))
       setProgress(
         (p) => ({ ...p, completedLessonIds: p.completedLessonIds.includes(c.id) ? p.completedLessonIds : [...p.completedLessonIds, c.id] }),
-        { activity: true, silent: true },
+        { activity: true, silent: true, xp: state.progress.completedLessonIds.includes(c.id) ? 5 : XP.checkpoint },
       );
   } else if (passed(R.firstTryCorrect, scored, R.unit!.passRatio)) {
     const u = R.unit!;
@@ -531,7 +533,7 @@ function finishRun(r: HTMLElement) {
         completedLessonIds: completeUnit(u, p.completedLessonIds, state.lessons?.checkpoints ?? []),
         cards: ids.reduce((cards, id, i) => addWordCards(cards, id, p.srsCardTypes, new Date(Date.now() + i)), p.cards),
       }),
-      { activity: "lessons", silent: true },
+      { activity: "lessons", silent: true, xp: XP.skipUnit },
     );
   }
   renderSummary(r);
