@@ -4,7 +4,7 @@ import { scoreSpeech, SPEAK_PASS } from "../lib/grading.ts";
 import { sameSound, setProgress, state } from "../state.ts";
 import type { SentenceRef } from "../types.ts";
 import { esc, zhTokens } from "./html.ts";
-import { speak, ttsSupported } from "./speech.ts";
+import { speak, speakSlow, ttsSupported } from "./speech.ts";
 import { recognitionSupported, recognizeOnce, recordOnce, recorderSupported } from "./speechInput.ts";
 
 export interface SpeakResult {
@@ -120,7 +120,7 @@ export function mountSpeakWidget(root: HTMLElement, s: SentenceRef, onResult: (r
         speak(s.zh);
         break;
       case "slow":
-        speak(s.zh, 0.55);
+        speakSlow(s.zh);
         break;
       case "consent":
         setProgress((p) => ({ ...p, speechRecognitionConsent: true }), { silent: true });

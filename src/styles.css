@@ -80,12 +80,13 @@ a {
 
 .nav {
   display: flex;
-  gap: 4px;
+  gap: 2px;
+  max-width: 100%;
   overflow-x: auto;
 }
 
 .nav a {
-  padding: 6px 12px;
+  padding: 6px 10px;
   border-radius: 999px;
   color: var(--muted);
   text-decoration: none;
@@ -1887,4 +1888,148 @@ a.reading-card:hover {
   .chart .val {
     font-size: 19px;
   }
+}
+
+/* ---------- Cài đặt: giao diện sáng ---------- */
+:root[data-theme="light"] {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --border: #d5dae1;
+  --text: #1b1f24;
+  --muted: #59626e;
+  --accent: #cf3439;
+  --accent-soft: rgba(207, 52, 57, 0.1);
+  --ok: #1a7f37;
+  --warn: #9a6700;
+  color-scheme: light;
+}
+
+:root[data-theme="light"] .topbar {
+  background: rgba(246, 247, 249, 0.94);
+}
+
+:root[data-theme="light"] .player-bar {
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+:root[data-theme="light"] .w-learning {
+  color: #9a6700;
+}
+
+:root[data-theme="light"] .w-known {
+  color: #1a7f37;
+}
+
+:root[data-theme="light"] .speaker.spk-A {
+  color: #0969da;
+}
+
+:root[data-theme="light"] .speaker.spk-B {
+  color: #8250df;
+}
+
+:root[data-theme="light"] .chart-tip,
+:root[data-theme="light"] .dict-popup {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+:root[data-theme="light"] .dict-popup::backdrop {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme="light"] .feedback.ok,
+:root[data-theme="light"] .option.correct,
+:root[data-theme="light"] .tile.correct {
+  background: rgba(26, 127, 55, 0.1);
+}
+
+/* ---------- Cài đặt: cỡ chữ Hán (--zh-scale: 1 / 1.2 / 1.45) ---------- */
+:root {
+  --zh-scale: 1;
+}
+
+:root .zh { font-size: calc(1.25em * var(--zh-scale)); }
+:root .word .hanzi { font-size: calc(2rem * var(--zh-scale)); }
+:root .dict-hanzi { font-size: calc(3rem * var(--zh-scale)); }
+:root .ex-zh { font-size: calc(1.25rem * var(--zh-scale)); }
+:root .rv-hanzi { font-size: calc(4rem * var(--zh-scale)); }
+:root .q-hanzi { font-size: calc(3.4rem * var(--zh-scale)); }
+:root .q-sentence { font-size: calc(1.8rem * var(--zh-scale)); }
+:root .tile,
+:root .punct { font-size: calc(1.35rem * var(--zh-scale)); }
+:root .match-col .tile:not(.zh-tile) { font-size: 0.95rem; }
+:root .hanzi-options .option .zh { font-size: calc(1.6rem * var(--zh-scale)); }
+:root .speak-chars { font-size: calc(2rem * var(--zh-scale)); }
+:root .big-zh { font-size: calc(1.9rem * var(--zh-scale)); }
+:root .sent-zh { font-size: calc(1.55rem * var(--zh-scale)); }
+:root .exam-text,
+:root .exam-question { font-size: calc(1.5rem * var(--zh-scale)); }
+:root .exam-opt .exam-zh,
+:root .transcript .exam-zh { font-size: calc(1em * var(--zh-scale)); }
+:root .reading-zh { font-size: calc(1.6rem * var(--zh-scale)); }
+:root .char-chip .big { font-size: calc(1.6rem * var(--zh-scale)); }
+:root .summary-words { font-size: calc(1.6rem * var(--zh-scale)); }
+:root table.sandhi .zh-cell { font-size: calc(1.4rem * var(--zh-scale)); }
+:root .zh-preview { font-family: var(--font-zh); font-size: calc(1.6rem * var(--zh-scale)); }
+
+@media (max-width: 560px) {
+  :root .rv-hanzi { font-size: calc(3.2rem * var(--zh-scale)); }
+  :root .q-hanzi { font-size: calc(2.8rem * var(--zh-scale)); }
+  :root .sent-zh { font-size: calc(1.35rem * var(--zh-scale)); }
+  :root .exam-text,
+  :root .exam-question { font-size: calc(1.25rem * var(--zh-scale)); }
+}
+
+/* Trang cài đặt */
+.settings {
+  max-width: 820px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.settings .card h2 {
+  margin-bottom: 6px;
+}
+
+.settings h3 {
+  font-size: 1rem;
+  margin: 16px 0 4px;
+}
+
+.setting-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.setting-row > label {
+  min-width: 80px;
+}
+
+.setting-row select {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.seg-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.seg-btns .btn[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.saved-msg {
+  color: var(--ok);
+  min-height: 1.2em;
 }

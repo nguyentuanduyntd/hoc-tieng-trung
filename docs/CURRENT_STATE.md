@@ -42,6 +42,8 @@ src/pages/pronunciation.ts          luyện phát âm & thanh điệu
 src/pages/reading.ts                thư viện bài đọc + trình đọc/nghe/shadowing
 src/pages/exam.ts                   danh sách đề, phòng thi, kết quả
 src/pages/home.ts                   dashboard trang chủ
+src/pages/settings.ts               trang Cài đặt (giọng đọc, giao diện, cỡ chữ Hán, học tập, quyền riêng tư)
+src/lib/settings.ts                 cài đặt theo thiết bị (localStorage riêng)
 src/lib/dashboard.ts                nhật ký học, việc hôm nay, tiến độ theo cấp, gợi ý nguồn
 src/ui/charts.ts, activity.ts       biểu đồ SVG + tooltip; đo thời gian học
 src/ui/resourceHint.ts              khối gợi ý nguồn theo ngữ cảnh

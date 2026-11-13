@@ -10,7 +10,7 @@ import { setProgress, state } from "../state.ts";
 import type { Reading, ReadingsFile } from "../types.ts";
 import { esc, zhWord } from "../ui/html.ts";
 import { resourceHint } from "../ui/resourceHint.ts";
-import { speakAsync, stopSpeaking, ttsSupported, zhVoiceCount, type SpeakHandle } from "../ui/speech.ts";
+import { baseRate, speakAsync, stopSpeaking, ttsSupported, zhVoiceCount, type SpeakHandle } from "../ui/speech.ts";
 import { recordOnce, recorderSupported } from "../ui/speechInput.ts";
 
 // ---------- Dữ liệu ----------
@@ -277,7 +277,9 @@ const wait = (ms: number, token: number) =>
 /** Đọc một câu; trả về thời lượng (ms) hoặc null nếu bị dừng. */
 async function sayOne(i: number, token: number): Promise<number | null> {
   const s = P!.reading.sentences[i];
-  const h = speakAsync(s.zh, { rate: prefs.speed, voiceIndex: voiceFor(i), fallbackMs: estimateSpeechMs(s.zh, prefs.speed) });
+  // 1x = tốc độ chuẩn trong Cài đặt
+  const rate = prefs.speed * baseRate();
+  const h = speakAsync(s.zh, { rate, voiceIndex: voiceFor(i), fallbackMs: estimateSpeechMs(s.zh, rate) });
   P!.handle = h;
   try {
     const ms = await h.done;

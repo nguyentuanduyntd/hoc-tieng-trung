@@ -6,14 +6,15 @@ import { isResourceReady, learnerStats } from "./lib/dashboard.ts";
 import { buildAnkiTxt, selectWords, type AnkiFilter } from "./lib/anki.ts";
 import { exportProgressJson, importProgressJson } from "./lib/progress.ts";
 import { searchWords } from "./lib/search.ts";
-import { CARD_TYPE_LABELS, addWordCards, type CardType } from "./lib/srs.ts";
+import { addWordCards } from "./lib/srs.ts";
 import { installPlayerHandlers, lessonPlayerPage, lessonsListPage, mountLessonPlayer, mountLessonsList } from "./pages/lessons.ts";
 import { mountPronunciation, pronunciationPage } from "./pages/pronunciation.ts";
 import { examListPage, examRunPage, installExamHandlers, mountExamList, mountExamRun } from "./pages/exam.ts";
 import { homePage } from "./pages/home.ts";
+import { mountSettings, settingsPage } from "./pages/settings.ts";
 import { installReaderHandlers, loadReadings, mountReader, mountReadingList, readerPage, readingListPage } from "./pages/reading.ts";
 import { mountReviewPage, reviewCounts, reviewPage } from "./pages/review.ts";
-import { loadLessons, loadVocab, setProgress, state, subscribe } from "./state.ts";
+import { applyDeviceSettings, loadLessons, loadVocab, setProgress, state, subscribe } from "./state.ts";
 import type { HskStandard, ReadingsFile, Word } from "./types.ts";
 import { installActivityTracker } from "./ui/activity.ts";
 import { installChartTooltip } from "./ui/charts.ts";
@@ -149,23 +150,12 @@ function progressPage(): string {
     <div class="card">
       <h3>Tổng quan</h3>
       <p>Chuỗi ngày học: <strong>${p.streak}</strong> · Thẻ ôn: <strong>${p.cards.length}</strong> · Từ đã ôn ít nhất 1 lần: <strong>${learned}</strong></p>
-      <div class="toolbar">${standardPicker()}</div>
+      <p class="muted small">Chuẩn HSK đang dùng: ${esc(std.label)}</p>
     </div>
     <div class="card">
-      <h3>Cài đặt ôn tập</h3>
-      <label class="row field"><span>Mục tiêu mỗi ngày (phút)</span>
-        <input type="number" id="daily-goal" min="1" max="240" value="${p.dailyGoalMinutes}" /></label>
-      <label class="row field"><span>Thẻ mới mỗi ngày</span>
-        <input type="number" id="new-per-day" min="0" max="100" value="${p.newCardsPerDay}" /></label>
-      <fieldset class="field"><legend class="muted">Loại thẻ tạo khi thêm từ</legend>
-        ${(Object.keys(CARD_TYPE_LABELS) as CardType[])
-          .map(
-            (t) => `<label class="check"><input type="checkbox" name="card-type" value="${t}" ${p.srsCardTypes.includes(t) ? "checked" : ""}/> ${esc(CARD_TYPE_LABELS[t])}</label>`,
-          )
-          .join("")}
-      </fieldset>
-      <button class="btn" id="apply-types">Thêm loại thẻ mới cho các từ đã có</button>
-      <p class="muted small" id="srs-msg" aria-live="polite"></p>
+      <h3>Cài đặt học tập</h3>
+      <p>Chuẩn HSK, mục tiêu mỗi ngày, số thẻ mới, loại thẻ ôn, giọng đọc và giao diện đã chuyển sang trang <a href="#/cai-dat">Cài đặt</a>.</p>
+      <a class="btn" href="#/cai-dat">Mở Cài đặt</a>
     </div>
     <div class="card">
       <h3>Xuất sang Anki</h3>
@@ -221,39 +211,6 @@ function bindProgressPage() {
     const o = ankiOptions();
     const txt = buildAnkiTxt(state.vocab.words, o);
     downloadText(`anki-hoc-tieng-trung-${o.level ? `hsk${o.level}` : "tat-ca"}-${o.filter}.txt`, txt, "text/plain;charset=utf-8");
-  });
-
-  document.getElementById("daily-goal")!.addEventListener("change", (e) => {
-    const v = Math.max(1, Math.min(240, Math.round(Number((e.target as HTMLInputElement).value) || 10)));
-    setProgress((p) => ({ ...p, dailyGoalMinutes: v }), { silent: true });
-    document.getElementById("srs-msg")!.textContent = `Đã lưu: mục tiêu ${v} phút mỗi ngày.`;
-  });
-  document.getElementById("new-per-day")!.addEventListener("change", (e) => {
-    const v = Math.max(0, Math.min(100, Math.round(Number((e.target as HTMLInputElement).value) || 0)));
-    setProgress((p) => ({ ...p, newCardsPerDay: v }), { silent: true });
-    document.getElementById("srs-msg")!.textContent = `Đã lưu: ${v} thẻ mới mỗi ngày.`;
-  });
-  document.querySelectorAll<HTMLInputElement>('input[name="card-type"]').forEach((cb) =>
-    cb.addEventListener("change", () => {
-      const types = [...document.querySelectorAll<HTMLInputElement>('input[name="card-type"]:checked')].map((x) => x.value as CardType);
-      if (!types.length) {
-        cb.checked = true;
-        document.getElementById("srs-msg")!.textContent = "Cần chọn ít nhất một loại thẻ.";
-        return;
-      }
-      setProgress((p) => ({ ...p, srsCardTypes: types }), { silent: true });
-      document.getElementById("srs-msg")!.textContent = "Đã lưu loại thẻ.";
-    }),
-  );
-  document.getElementById("apply-types")!.addEventListener("click", () => {
-    const before = state.progress.cards.length;
-    setProgress((p) => {
-      const now = new Date();
-      let cards = p.cards;
-      for (const id of new Set(p.cards.map((c) => c.wordId))) cards = addWordCards(cards, id, p.srsCardTypes, now);
-      return { ...p, cards };
-    });
-    document.getElementById("srs-msg")!.textContent = `Đã thêm ${state.progress.cards.length - before} thẻ.`;
   });
 
   const msg = () => document.getElementById("io-msg")!;
@@ -324,6 +281,7 @@ const routes: Record<string, Route> = {
   },
   nguon: { render: resourcesPage },
   "tien-do": { render: progressPage, mount: bindProgressPage },
+  "cai-dat": { render: settingsPage, mount: () => mountSettings(render) },
 };
 let sessionQuery = "";
 
@@ -365,6 +323,7 @@ function render() {
   });
 }
 
+applyDeviceSettings();
 installPopupHandlers();
 installPlayerHandlers();
 installReaderHandlers();

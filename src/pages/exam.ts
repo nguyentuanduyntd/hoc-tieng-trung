@@ -299,7 +299,7 @@ const voiceFor = (speaker?: string) => (zhVoiceCount() >= 2 && speaker === "男"
 
 async function sayLine(text: string, speaker: string | undefined, token: number): Promise<boolean> {
   if (!ttsSupported()) return S?.token === token;
-  const h = speakAsync(text, { rate: 0.9, voiceIndex: voiceFor(speaker), fallbackMs: 300 * [...text].length });
+  const h = speakAsync(text, { voiceIndex: voiceFor(speaker), fallbackMs: 300 * [...text].length });
   S!.handle = h;
   try {
     await h.done;

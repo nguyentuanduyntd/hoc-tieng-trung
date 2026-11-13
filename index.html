@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <script>
+      // Áp giao diện & cỡ chữ Hán trước khi vẽ trang (tránh nháy màu). Lỗi storage -> mặc định.
+      (function () {
+        var d = document.documentElement, s = {};
+        try { s = JSON.parse(localStorage.getItem("htt.settings.v1") || "{}") || {}; } catch (e) {}
+        var scale = { normal: 1, large: 1.2, xlarge: 1.45 };
+        d.dataset.theme = s.theme === "light" ? "light" : "dark";
+        d.dataset.zh = scale[s.zhSize] ? s.zhSize : "normal";
+        d.style.setProperty("--zh-scale", String(scale[d.dataset.zh]));
+      })();
+    </script>
     <title>Học Tiếng Trung</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,6 +36,7 @@
         <a href="#/thi-thu" data-route="thi-thu">Thi thử</a>
         <a href="#/nguon" data-route="nguon">Nguồn miễn phí</a>
         <a href="#/tien-do" data-route="tien-do">Tiến độ</a>
+        <a href="#/cai-dat" data-route="cai-dat">Cài đặt</a>
       </nav>
     </header>
     <main id="app" tabindex="-1"></main>

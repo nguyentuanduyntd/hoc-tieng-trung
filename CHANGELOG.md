@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.7.0] — 2026-11-13 — Trang Cài đặt
+
+### Thêm
+- **Trang Cài đặt** (`#/cai-dat`, `src/pages/settings.ts`):
+  - **Giọng đọc**: chọn trong các giọng tiếng Trung có sẵn của trình duyệt/hệ điều hành (giọng zh-CN xếp trước), tốc độ 0.5–1.5, nút 🔊 Thử. Giọng & tốc độ này dùng cho mọi nút 🔊, bài học, ôn tập, bài đọc (1x = tốc độ đã chọn), thi thử; hội thoại vẫn dùng giọng khác cho người nói thứ hai. Hướng dẫn cài giọng khi máy chưa có.
+  - **Giao diện**: ☀️ Sáng / 🌙 Tối (bảng màu sáng riêng; màu biểu đồ đã kiểm tra trên nền sáng). Áp dụng trước khi vẽ trang để không nháy màu.
+  - **Cỡ chữ Hán**: Bình thường / Lớn / Rất lớn (×1 / ×1.2 / ×1.45) cho từ vựng, thẻ ôn, bài đọc, bài tập, đề thi; chữ tiếng Việt giữ nguyên; có ô xem trước.
+  - **Học tập** (chuyển từ trang Tiến độ sang): chuẩn HSK, mục tiêu phút/ngày, thẻ mới/ngày, loại thẻ ôn.
+  - **Quyền riêng tư**: bật/tắt chấm nói tự động (trước đây đồng ý rồi thì không tắt được).
+  - Khôi phục cài đặt giao diện & giọng đọc mặc định.
+- `src/lib/settings.ts`: cài đặt theo thiết bị (localStorage riêng `htt.settings.v1`, không nằm trong file sao lưu tiến độ), có test.
+
+### Sửa
+- Danh sách listener được duyệt trên bản sao (tránh lặp vô hạn khi listener tự đăng ký lại).
+- Thu gọn khoảng cách menu để vừa mục “Cài đặt”.
+
 ## [0.6.0] — 2026-11-13 — Giai đoạn 6: dashboard + nâng cấp mục nguồn
 
 ### Thêm

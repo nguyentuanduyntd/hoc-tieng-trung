@@ -6,12 +6,15 @@ import { createSegmenter, type Segmenter } from "./lib/segment.ts";
 import { localDate } from "./lib/srs.ts";
 import { logActivity, type ActivityKind } from "./lib/dashboard.ts";
 import { toneless } from "./lib/pinyin.ts";
+import { ZH_SCALE, loadSettings, saveSettings, type DeviceSettings } from "./lib/settings.ts";
 import type { LessonsFile, UserProgress, VocabFile, Word } from "./types.ts";
 
 type Listener = () => void;
 
 export const state = {
   progress: loadProgress(),
+  /** Cài đặt theo thiết bị (giọng, tốc độ, giao diện, cỡ chữ). */
+  settings: loadSettings(),
   vocab: null as VocabFile | null,
   wordsById: new Map<string, Word>(),
   wordsByHanzi: new Map<string, Word>(),
@@ -42,7 +45,22 @@ export function setProgress(
   if (typeof opts.activity === "string") next = logActivity(next, opts.activity, today);
   state.progress = next;
   state.persisted = saveProgress(next);
-  if (!opts.silent) listeners.forEach((fn) => fn());
+  if (!opts.silent) [...listeners].forEach((fn) => fn());
+}
+
+/** Áp dụng giao diện & cỡ chữ Hán lên <html>. */
+export function applyDeviceSettings(s: DeviceSettings = state.settings) {
+  const root = document.documentElement;
+  root.dataset.theme = s.theme;
+  root.dataset.zh = s.zhSize;
+  root.style.setProperty("--zh-scale", String(ZH_SCALE[s.zhSize]));
+  document.querySelector('meta[name="color-scheme"]')?.setAttribute("content", s.theme);
+}
+
+export function setSettings(update: (s: DeviceSettings) => DeviceSettings): boolean {
+  state.settings = update(state.settings);
+  applyDeviceSettings();
+  return saveSettings(state.settings);
 }
 
 let lessonsPromise: Promise<LessonsFile | null> | null = null;
@@ -82,5 +100,5 @@ export async function loadVocab(): Promise<void> {
   } catch (err) {
     state.loadError = `Không tải được dữ liệu từ vựng (${(err as Error).message}).`;
   }
-  listeners.forEach((fn) => fn());
+  [...listeners].forEach((fn) => fn());
 }
