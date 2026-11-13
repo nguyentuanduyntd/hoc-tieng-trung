@@ -1,0 +1,2074 @@
+{
+ "meta": {
+  "generatedAt": "2026-11-13",
+  "description": "Lộ trình HSK 1 (dự án tự soạn)"
+ },
+ "units": [
+  {
+   "hskLevel": 1,
+   "unit": 1,
+   "title": "Chào hỏi & giới thiệu",
+   "lessonIds": [
+    "hsk1-u1-l1",
+    "hsk1-u1-l2",
+    "hsk1-u1-l3",
+    "hsk1-u1-l4"
+   ],
+   "skipTest": [
+    {
+     "id": "hsk1-u1-skip-e9",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "老师，您好！",
+       "vi": "Em chào thầy ạ!",
+       "tokens": [
+        {
+         "text": "老师",
+         "wordId": "老师_lao3shi1"
+        },
+        {
+         "text": "，"
+        },
+        {
+         "text": "您",
+         "wordId": "您_nin2"
+        },
+        {
+         "text": "好",
+         "wordId": "好_hao3"
+        },
+        {
+         "text": "！"
+        }
+       ],
+       "pinyin": "Lǎo shī, nín hǎo!"
+      },
+      "blankIndex": 2,
+      "options": [
+       "您_nin2",
+       "学生_xue2sheng5",
+       "没有_mei2you3",
+       "呢_ne5"
+      ]
+     },
+     "answer": "您_nin2"
+    },
+    {
+     "id": "hsk1-u1-skip-e10",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "你叫什么名字？",
+       "vi": "Bạn tên là gì?",
+       "tokens": [
+        {
+         "text": "你",
+         "wordId": "你_ni3"
+        },
+        {
+         "text": "叫",
+         "wordId": "叫_jiao4"
+        },
+        {
+         "text": "什么",
+         "wordId": "什么_shen2me5"
+        },
+        {
+         "text": "名字",
+         "wordId": "名字_ming2zi5"
+        },
+        {
+         "text": "？"
+        }
+       ],
+       "pinyin": "Nǐ jiào shén me míng zi?"
+      },
+      "blankIndex": 2,
+      "options": [
+       "吗_ma5",
+       "不客气_bu4ke4qi5",
+       "什么_shen2me5",
+       "谢谢_xie4xie5"
+      ]
+     },
+     "answer": "什么_shen2me5"
+    },
+    {
+     "id": "hsk1-u1-skip-e7",
+     "type": "listen-choose-hanzi",
+     "prompt": {
+      "wordId": "几_ji3",
+      "options": [
+       "是_shi4",
+       "不客气_bu4ke4qi5",
+       "汉语_Han4yu3",
+       "几_ji3"
+      ]
+     },
+     "answer": "几_ji3"
+    },
+    {
+     "id": "hsk1-u1-skip-e5",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "中国_Zhong1guo2",
+      "options": [
+       "和_he2",
+       "中国_Zhong1guo2",
+       "几_ji3",
+       "再见_zai4jian4"
+      ]
+     },
+     "answer": "中国_Zhong1guo2"
+    },
+    {
+     "id": "hsk1-u1-skip-e3",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "什么_shen2me5",
+      "options": [
+       "不客气_bu4ke4qi5",
+       "是_shi4",
+       "什么_shen2me5",
+       "和_he2"
+      ]
+     },
+     "answer": "什么_shen2me5"
+    },
+    {
+     "id": "hsk1-u1-skip-e1",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "再见_zai4jian4",
+      "options": [
+       "老师_lao3shi1",
+       "是_shi4",
+       "再见_zai4jian4",
+       "呢_ne5"
+      ]
+     },
+     "answer": "再见_zai4jian4"
+    },
+    {
+     "id": "hsk1-u1-skip-e6",
+     "type": "listen-choose-hanzi",
+     "prompt": {
+      "wordId": "爸爸_ba4ba5",
+      "options": [
+       "爸爸_ba4ba5",
+       "家_jia1",
+       "汉语_Han4yu3",
+       "没有_mei2you3"
+      ]
+     },
+     "answer": "爸爸_ba4ba5"
+    },
+    {
+     "id": "hsk1-u1-skip-e8",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "谢谢老师！不客气。",
+       "vi": "Em cảm ơn thầy! – Không có gì.",
+       "tokens": [
+        {
+         "text": "谢谢",
+         "wordId": "谢谢_xie4xie5"
+        },
+        {
+         "text": "老师",
+         "wordId": "老师_lao3shi1"
+        },
+        {
+         "text": "！"
+        },
+        {
+         "text": "不客气",
+         "wordId": "不客气_bu4ke4qi5"
+        },
+        {
+         "text": "。"
+        }
+       ],
+       "pinyin": "Xiè xie lǎo shī! Bù kè qi."
+      },
+      "blankIndex": 3,
+      "options": [
+       "是_shi4",
+       "不客气_bu4ke4qi5",
+       "中国_Zhong1guo2",
+       "再见_zai4jian4"
+      ]
+     },
+     "answer": "不客气_bu4ke4qi5"
+    },
+    {
+     "id": "hsk1-u1-skip-e2",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "妈妈_ma1ma5",
+      "options": [
+       "名字_ming2zi5",
+       "是_shi4",
+       "不_bu4",
+       "妈妈_ma1ma5"
+      ]
+     },
+     "answer": "妈妈_ma1ma5"
+    },
+    {
+     "id": "hsk1-u1-skip-e4",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "您_nin2",
+      "options": [
+       "叫_jiao4",
+       "您_nin2",
+       "名字_ming2zi5",
+       "谢谢_xie4xie5"
+      ]
+     },
+     "answer": "您_nin2"
+    },
+    {
+     "id": "hsk1-u1-skip-e11",
+     "type": "order-words",
+     "prompt": {
+      "sentence": {
+       "zh": "谢谢老师！不客气。",
+       "vi": "Em cảm ơn thầy! – Không có gì.",
+       "tokens": [
+        {
+         "text": "谢谢",
+         "wordId": "谢谢_xie4xie5"
+        },
+        {
+         "text": "老师",
+         "wordId": "老师_lao3shi1"
+        },
+        {
+         "text": "！"
+        },
+        {
+         "text": "不客气",
+         "wordId": "不客气_bu4ke4qi5"
+        },
+        {
+         "text": "。"
+        }
+       ],
+       "pinyin": "Xiè xie lǎo shī! Bù kè qi."
+      },
+      "tiles": [
+       "不客气",
+       "谢谢",
+       "老师"
+      ]
+     },
+     "answer": [
+      "谢谢",
+      "老师",
+      "不客气"
+     ]
+    },
+    {
+     "id": "hsk1-u1-skip-e12",
+     "type": "order-words",
+     "prompt": {
+      "sentence": {
+       "zh": "老师，您好！",
+       "vi": "Em chào thầy ạ!",
+       "tokens": [
+        {
+         "text": "老师",
+         "wordId": "老师_lao3shi1"
+        },
+        {
+         "text": "，"
+        },
+        {
+         "text": "您",
+         "wordId": "您_nin2"
+        },
+        {
+         "text": "好",
+         "wordId": "好_hao3"
+        },
+        {
+         "text": "！"
+        }
+       ],
+       "pinyin": "Lǎo shī, nín hǎo!"
+      },
+      "tiles": [
+       "好",
+       "您",
+       "老师"
+      ]
+     },
+     "answer": [
+      "老师",
+      "您",
+      "好"
+     ]
+    }
+   ],
+   "passRatio": 0.8
+  }
+ ],
+ "lessons": [
+  {
+   "id": "hsk1-u1-l1",
+   "hskLevel": 1,
+   "unit": 1,
+   "order": 1,
+   "title": "Xin chào!",
+   "newWordIds": [
+    "你_ni3",
+    "好_hao3",
+    "您_nin2",
+    "老师_lao3shi1",
+    "谢谢_xie4xie5",
+    "不客气_bu4ke4qi5",
+    "再见_zai4jian4"
+   ],
+   "grammar": {
+    "pattern": "Danh xưng + 好",
+    "explanationVi": "好 nghĩa là “tốt”. Ghép danh xưng với 好 thành lời chào: 你好 (chào bạn), 您好 (chào lịch sự với người lớn tuổi hoặc cấp trên), 老师好 (chào thầy cô). Người kia đáp lại cũng bằng 你好 / 您好.",
+    "examples": [
+     {
+      "zh": "你好！",
+      "vi": "Chào bạn!",
+      "tokens": [
+       {
+        "text": "你",
+        "wordId": "你_ni3"
+       },
+       {
+        "text": "好",
+        "wordId": "好_hao3"
+       },
+       {
+        "text": "！"
+       }
+      ],
+      "pinyin": "Nǐ hǎo!"
+     },
+     {
+      "zh": "您好！",
+      "vi": "Chào ông / Chào bà!",
+      "tokens": [
+       {
+        "text": "您",
+        "wordId": "您_nin2"
+       },
+       {
+        "text": "好",
+        "wordId": "好_hao3"
+       },
+       {
+        "text": "！"
+       }
+      ],
+      "pinyin": "Nín hǎo!"
+     },
+     {
+      "zh": "老师好！",
+      "vi": "Em chào thầy / cô!",
+      "tokens": [
+       {
+        "text": "老师",
+        "wordId": "老师_lao3shi1"
+       },
+       {
+        "text": "好",
+        "wordId": "好_hao3"
+       },
+       {
+        "text": "！"
+       }
+      ],
+      "pinyin": "Lǎo shī hǎo!"
+     }
+    ]
+   },
+   "exercises": [
+    {
+     "id": "hsk1-u1-l1-e1",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "你_ni3",
+      "options": [
+       "老师_lao3shi1",
+       "你_ni3",
+       "不客气_bu4ke4qi5",
+       "好_hao3"
+      ]
+     },
+     "answer": "你_ni3"
+    },
+    {
+     "id": "hsk1-u1-l1-e2",
+     "type": "listen-choose-hanzi",
+     "prompt": {
+      "wordId": "不客气_bu4ke4qi5",
+      "options": [
+       "您_nin2",
+       "再见_zai4jian4",
+       "你_ni3",
+       "不客气_bu4ke4qi5"
+      ]
+     },
+     "answer": "不客气_bu4ke4qi5"
+    },
+    {
+     "id": "hsk1-u1-l1-e3",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "谢谢_xie4xie5",
+      "options": [
+       "不客气_bu4ke4qi5",
+       "你_ni3",
+       "谢谢_xie4xie5",
+       "老师_lao3shi1"
+      ]
+     },
+     "answer": "谢谢_xie4xie5"
+    },
+    {
+     "id": "hsk1-u1-l1-e4",
+     "type": "choose-tone",
+     "prompt": {
+      "wordId": "你_ni3",
+      "syllable": "nǐ",
+      "toneless": "ni"
+     },
+     "answer": 3
+    },
+    {
+     "id": "hsk1-u1-l1-e5",
+     "type": "match-pairs",
+     "prompt": {
+      "wordIds": [
+       "你_ni3",
+       "再见_zai4jian4",
+       "好_hao3",
+       "老师_lao3shi1",
+       "谢谢_xie4xie5"
+      ]
+     },
+     "answer": [
+      "你_ni3",
+      "再见_zai4jian4",
+      "好_hao3",
+      "老师_lao3shi1",
+      "谢谢_xie4xie5"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l1-e6",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "老师_lao3shi1",
+      "options": [
+       "老师_lao3shi1",
+       "再见_zai4jian4",
+       "好_hao3",
+       "谢谢_xie4xie5"
+      ]
+     },
+     "answer": "老师_lao3shi1"
+    },
+    {
+     "id": "hsk1-u1-l1-e7",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "老师，您好！",
+       "vi": "Em chào thầy ạ!",
+       "tokens": [
+        {
+         "text": "老师",
+         "wordId": "老师_lao3shi1"
+        },
+        {
+         "text": "，"
+        },
+        {
+         "text": "您",
+         "wordId": "您_nin2"
+        },
+        {
+         "text": "好",
+         "wordId": "好_hao3"
+        },
+        {
+         "text": "！"
+        }
+       ],
+       "pinyin": "Lǎo shī, nín hǎo!"
+      },
+      "blankIndex": 2,
+      "options": [
+       "再见_zai4jian4",
+       "您_nin2",
+       "谢谢_xie4xie5",
+       "不客气_bu4ke4qi5"
+      ]
+     },
+     "answer": "您_nin2"
+    },
+    {
+     "id": "hsk1-u1-l1-e8",
+     "type": "order-words",
+     "prompt": {
+      "sentence": {
+       "zh": "谢谢老师！不客气。",
+       "vi": "Em cảm ơn thầy! – Không có gì.",
+       "tokens": [
+        {
+         "text": "谢谢",
+         "wordId": "谢谢_xie4xie5"
+        },
+        {
+         "text": "老师",
+         "wordId": "老师_lao3shi1"
+        },
+        {
+         "text": "！"
+        },
+        {
+         "text": "不客气",
+         "wordId": "不客气_bu4ke4qi5"
+        },
+        {
+         "text": "。"
+        }
+       ],
+       "pinyin": "Xiè xie lǎo shī! Bù kè qi."
+      },
+      "tiles": [
+       "老师",
+       "不客气",
+       "谢谢"
+      ]
+     },
+     "answer": [
+      "谢谢",
+      "老师",
+      "不客气"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l1-e9",
+     "type": "listen-choose-hanzi",
+     "prompt": {
+      "wordId": "再见_zai4jian4",
+      "options": [
+       "你_ni3",
+       "再见_zai4jian4",
+       "好_hao3",
+       "谢谢_xie4xie5"
+      ]
+     },
+     "answer": "再见_zai4jian4"
+    },
+    {
+     "id": "hsk1-u1-l1-e10",
+     "type": "choose-tone",
+     "prompt": {
+      "wordId": "好_hao3",
+      "syllable": "hǎo",
+      "toneless": "hao"
+     },
+     "answer": 3
+    },
+    {
+     "id": "hsk1-u1-l1-e11",
+     "type": "write-stroke",
+     "prompt": {
+      "wordId": "不_bu4",
+      "char": "不"
+     },
+     "answer": "不"
+    },
+    {
+     "id": "hsk1-u1-l1-e12",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "好_hao3",
+      "options": [
+       "再见_zai4jian4",
+       "好_hao3",
+       "老师_lao3shi1",
+       "不客气_bu4ke4qi5"
+      ]
+     },
+     "answer": "好_hao3"
+    },
+    {
+     "id": "hsk1-u1-l1-e13",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "谢谢你！",
+       "vi": "Cảm ơn bạn!",
+       "tokens": [
+        {
+         "text": "谢谢",
+         "wordId": "谢谢_xie4xie5"
+        },
+        {
+         "text": "你",
+         "wordId": "你_ni3"
+        },
+        {
+         "text": "！"
+        }
+       ],
+       "pinyin": "Xiè xie nǐ!"
+      },
+      "blankIndex": 0,
+      "options": [
+       "不客气_bu4ke4qi5",
+       "谢谢_xie4xie5",
+       "老师_lao3shi1",
+       "再见_zai4jian4"
+      ]
+     },
+     "answer": "谢谢_xie4xie5"
+    },
+    {
+     "id": "hsk1-u1-l1-e14",
+     "type": "order-words",
+     "prompt": {
+      "sentence": {
+       "zh": "老师，您好！",
+       "vi": "Em chào thầy ạ!",
+       "tokens": [
+        {
+         "text": "老师",
+         "wordId": "老师_lao3shi1"
+        },
+        {
+         "text": "，"
+        },
+        {
+         "text": "您",
+         "wordId": "您_nin2"
+        },
+        {
+         "text": "好",
+         "wordId": "好_hao3"
+        },
+        {
+         "text": "！"
+        }
+       ],
+       "pinyin": "Lǎo shī, nín hǎo!"
+      },
+      "tiles": [
+       "好",
+       "您",
+       "老师"
+      ]
+     },
+     "answer": [
+      "老师",
+      "您",
+      "好"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l1-e15",
+     "type": "speak",
+     "prompt": {
+      "sentence": {
+       "zh": "你好！",
+       "vi": "Chào bạn!",
+       "tokens": [
+        {
+         "text": "你",
+         "wordId": "你_ni3"
+        },
+        {
+         "text": "好",
+         "wordId": "好_hao3"
+        },
+        {
+         "text": "！"
+        }
+       ],
+       "pinyin": "Nǐ hǎo!"
+      }
+     },
+     "answer": "你好！"
+    }
+   ]
+  },
+  {
+   "id": "hsk1-u1-l2",
+   "hskLevel": 1,
+   "unit": 1,
+   "order": 2,
+   "title": "Bạn tên là gì?",
+   "newWordIds": [
+    "我_wo3",
+    "叫_jiao4",
+    "什么_shen2me5",
+    "名字_ming2zi5",
+    "是_shi4",
+    "他_ta1",
+    "她_ta1"
+   ],
+   "grammar": {
+    "pattern": "A 是 B",
+    "explanationVi": "是 nối hai danh từ / đại từ, nghĩa là “A là B”. 是 không biến đổi theo ngôi hay thời gian. Lưu ý: tiếng Trung không dùng 是 trước tính từ (nói 我很好, không nói 我是好).",
+    "examples": [
+     {
+      "zh": "我是老师。",
+      "vi": "Tôi là giáo viên.",
+      "tokens": [
+       {
+        "text": "我",
+        "wordId": "我_wo3"
+       },
+       {
+        "text": "是",
+        "wordId": "是_shi4"
+       },
+       {
+        "text": "老师",
+        "wordId": "老师_lao3shi1"
+       },
+       {
+        "text": "。"
+       }
+      ],
+      "pinyin": "Wǒ shì lǎo shī."
+     },
+     {
+      "zh": "她是老师。",
+      "vi": "Cô ấy là giáo viên.",
+      "tokens": [
+       {
+        "text": "她",
+        "wordId": "她_ta1"
+       },
+       {
+        "text": "是",
+        "wordId": "是_shi4"
+       },
+       {
+        "text": "老师",
+        "wordId": "老师_lao3shi1"
+       },
+       {
+        "text": "。"
+       }
+      ],
+      "pinyin": "Tā shì lǎo shī."
+     },
+     {
+      "zh": "他是我爸爸。",
+      "vi": "Ông ấy là bố tôi.",
+      "tokens": [
+       {
+        "text": "他",
+        "wordId": "他_ta1"
+       },
+       {
+        "text": "是",
+        "wordId": "是_shi4"
+       },
+       {
+        "text": "我",
+        "wordId": "我_wo3"
+       },
+       {
+        "text": "爸爸",
+        "wordId": "爸爸_ba4ba5"
+       },
+       {
+        "text": "。"
+       }
+      ],
+      "pinyin": "Tā shì wǒ bà ba."
+     }
+    ]
+   },
+   "exercises": [
+    {
+     "id": "hsk1-u1-l2-e1",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "什么_shen2me5",
+      "options": [
+       "她_ta1",
+       "谢谢_xie4xie5",
+       "不客气_bu4ke4qi5",
+       "什么_shen2me5"
+      ]
+     },
+     "answer": "什么_shen2me5"
+    },
+    {
+     "id": "hsk1-u1-l2-e2",
+     "type": "listen-choose-hanzi",
+     "prompt": {
+      "wordId": "是_shi4",
+      "options": [
+       "不客气_bu4ke4qi5",
+       "再见_zai4jian4",
+       "是_shi4",
+       "您_nin2"
+      ]
+     },
+     "answer": "是_shi4"
+    },
+    {
+     "id": "hsk1-u1-l2-e3",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "叫_jiao4",
+      "options": [
+       "什么_shen2me5",
+       "叫_jiao4",
+       "好_hao3",
+       "名字_ming2zi5"
+      ]
+     },
+     "answer": "叫_jiao4"
+    },
+    {
+     "id": "hsk1-u1-l2-e4",
+     "type": "choose-tone",
+     "prompt": {
+      "wordId": "是_shi4",
+      "syllable": "shì",
+      "toneless": "shi"
+     },
+     "answer": 4
+    },
+    {
+     "id": "hsk1-u1-l2-e5",
+     "type": "match-pairs",
+     "prompt": {
+      "wordIds": [
+       "什么_shen2me5",
+       "叫_jiao4",
+       "是_shi4",
+       "名字_ming2zi5",
+       "我_wo3"
+      ]
+     },
+     "answer": [
+      "什么_shen2me5",
+      "叫_jiao4",
+      "是_shi4",
+      "名字_ming2zi5",
+      "我_wo3"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l2-e6",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "他_ta1",
+      "options": [
+       "叫_jiao4",
+       "是_shi4",
+       "他_ta1",
+       "再见_zai4jian4"
+      ]
+     },
+     "answer": "他_ta1"
+    },
+    {
+     "id": "hsk1-u1-l2-e7",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "你叫什么名字？",
+       "vi": "Bạn tên là gì?",
+       "tokens": [
+        {
+         "text": "你",
+         "wordId": "你_ni3"
+        },
+        {
+         "text": "叫",
+         "wordId": "叫_jiao4"
+        },
+        {
+         "text": "什么",
+         "wordId": "什么_shen2me5"
+        },
+        {
+         "text": "名字",
+         "wordId": "名字_ming2zi5"
+        },
+        {
+         "text": "？"
+        }
+       ],
+       "pinyin": "Nǐ jiào shén me míng zi?"
+      },
+      "blankIndex": 2,
+      "options": [
+       "再见_zai4jian4",
+       "我_wo3",
+       "是_shi4",
+       "什么_shen2me5"
+      ]
+     },
+     "answer": "什么_shen2me5"
+    },
+    {
+     "id": "hsk1-u1-l2-e8",
+     "type": "order-words",
+     "prompt": {
+      "sentence": {
+       "zh": "我是老师。",
+       "vi": "Tôi là giáo viên.",
+       "tokens": [
+        {
+         "text": "我",
+         "wordId": "我_wo3"
+        },
+        {
+         "text": "是",
+         "wordId": "是_shi4"
+        },
+        {
+         "text": "老师",
+         "wordId": "老师_lao3shi1"
+        },
+        {
+         "text": "。"
+        }
+       ],
+       "pinyin": "Wǒ shì lǎo shī."
+      },
+      "tiles": [
+       "是",
+       "我",
+       "老师"
+      ]
+     },
+     "answer": [
+      "我",
+      "是",
+      "老师"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l2-e9",
+     "type": "listen-choose-hanzi",
+     "prompt": {
+      "wordId": "名字_ming2zi5",
+      "options": [
+       "什么_shen2me5",
+       "名字_ming2zi5",
+       "老师_lao3shi1",
+       "好_hao3"
+      ]
+     },
+     "answer": "名字_ming2zi5"
+    },
+    {
+     "id": "hsk1-u1-l2-e10",
+     "type": "choose-tone",
+     "prompt": {
+      "wordId": "他_ta1",
+      "syllable": "tā",
+      "toneless": "ta"
+     },
+     "answer": 1
+    },
+    {
+     "id": "hsk1-u1-l2-e11",
+     "type": "write-stroke",
+     "prompt": {
+      "wordId": "什么_shen2me5",
+      "char": "么"
+     },
+     "answer": "么"
+    },
+    {
+     "id": "hsk1-u1-l2-e12",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "她_ta1",
+      "options": [
+       "老师_lao3shi1",
+       "名字_ming2zi5",
+       "她_ta1",
+       "是_shi4"
+      ]
+     },
+     "answer": "她_ta1"
+    },
+    {
+     "id": "hsk1-u1-l2-e13",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "我叫什么名字？",
+       "vi": "Tôi tên là gì?",
+       "tokens": [
+        {
+         "text": "我",
+         "wordId": "我_wo3"
+        },
+        {
+         "text": "叫",
+         "wordId": "叫_jiao4"
+        },
+        {
+         "text": "什么",
+         "wordId": "什么_shen2me5"
+        },
+        {
+         "text": "名字",
+         "wordId": "名字_ming2zi5"
+        },
+        {
+         "text": "？"
+        }
+       ],
+       "pinyin": "Wǒ jiào shén me míng zi?"
+      },
+      "blankIndex": 3,
+      "options": [
+       "是_shi4",
+       "老师_lao3shi1",
+       "名字_ming2zi5",
+       "您_nin2"
+      ]
+     },
+     "answer": "名字_ming2zi5"
+    },
+    {
+     "id": "hsk1-u1-l2-e14",
+     "type": "order-words",
+     "prompt": {
+      "sentence": {
+       "zh": "她叫什么名字？",
+       "vi": "Cô ấy tên là gì?",
+       "tokens": [
+        {
+         "text": "她",
+         "wordId": "她_ta1"
+        },
+        {
+         "text": "叫",
+         "wordId": "叫_jiao4"
+        },
+        {
+         "text": "什么",
+         "wordId": "什么_shen2me5"
+        },
+        {
+         "text": "名字",
+         "wordId": "名字_ming2zi5"
+        },
+        {
+         "text": "？"
+        }
+       ],
+       "pinyin": "Tā jiào shén me míng zi?"
+      },
+      "tiles": [
+       "名字",
+       "她",
+       "什么",
+       "叫"
+      ]
+     },
+     "answer": [
+      "她",
+      "叫",
+      "什么",
+      "名字"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l2-e15",
+     "type": "speak",
+     "prompt": {
+      "sentence": {
+       "zh": "你叫什么名字？",
+       "vi": "Bạn tên là gì?",
+       "tokens": [
+        {
+         "text": "你",
+         "wordId": "你_ni3"
+        },
+        {
+         "text": "叫",
+         "wordId": "叫_jiao4"
+        },
+        {
+         "text": "什么",
+         "wordId": "什么_shen2me5"
+        },
+        {
+         "text": "名字",
+         "wordId": "名字_ming2zi5"
+        },
+        {
+         "text": "？"
+        }
+       ],
+       "pinyin": "Nǐ jiào shén me míng zi?"
+      }
+     },
+     "answer": "你叫什么名字？"
+    }
+   ]
+  },
+  {
+   "id": "hsk1-u1-l3",
+   "hskLevel": 1,
+   "unit": 1,
+   "order": 3,
+   "title": "Bạn là người nước nào?",
+   "newWordIds": [
+    "中国_Zhong1guo2",
+    "人_ren2",
+    "吗_ma5",
+    "不_bu4",
+    "呢_ne5",
+    "汉语_Han4yu3",
+    "学生_xue2sheng5"
+   ],
+   "grammar": {
+    "pattern": "Câu trần thuật + 吗？",
+    "explanationVi": "Thêm 吗 vào cuối câu để biến câu trần thuật thành câu hỏi có/không. Trả lời khẳng định lặp lại động từ (是), phủ định thêm 不 trước động từ (不是). Hỏi ngược lại “còn bạn?” dùng 呢: 你呢？",
+    "examples": [
+     {
+      "zh": "你是中国人吗？",
+      "vi": "Bạn là người Trung Quốc à?",
+      "tokens": [
+       {
+        "text": "你",
+        "wordId": "你_ni3"
+       },
+       {
+        "text": "是",
+        "wordId": "是_shi4"
+       },
+       {
+        "text": "中国",
+        "wordId": "中国_Zhong1guo2"
+       },
+       {
+        "text": "人",
+        "wordId": "人_ren2"
+       },
+       {
+        "text": "吗",
+        "wordId": "吗_ma5"
+       },
+       {
+        "text": "？"
+       }
+      ],
+      "pinyin": "Nǐ shì Zhōng guó rén ma?"
+     },
+     {
+      "zh": "他是学生吗？",
+      "vi": "Anh ấy là học sinh phải không?",
+      "tokens": [
+       {
+        "text": "他",
+        "wordId": "他_ta1"
+       },
+       {
+        "text": "是",
+        "wordId": "是_shi4"
+       },
+       {
+        "text": "学生",
+        "wordId": "学生_xue2sheng5"
+       },
+       {
+        "text": "吗",
+        "wordId": "吗_ma5"
+       },
+       {
+        "text": "？"
+       }
+      ],
+      "pinyin": "Tā shì xué sheng ma?"
+     },
+     {
+      "zh": "我不是中国人。",
+      "vi": "Tôi không phải người Trung Quốc.",
+      "tokens": [
+       {
+        "text": "我",
+        "wordId": "我_wo3"
+       },
+       {
+        "text": "不",
+        "wordId": "不_bu4"
+       },
+       {
+        "text": "是",
+        "wordId": "是_shi4"
+       },
+       {
+        "text": "中国",
+        "wordId": "中国_Zhong1guo2"
+       },
+       {
+        "text": "人",
+        "wordId": "人_ren2"
+       },
+       {
+        "text": "。"
+       }
+      ],
+      "pinyin": "Wǒ bú shì Zhōng guó rén."
+     }
+    ]
+   },
+   "exercises": [
+    {
+     "id": "hsk1-u1-l3-e1",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "吗_ma5",
+      "options": [
+       "吗_ma5",
+       "不_bu4",
+       "名字_ming2zi5",
+       "我_wo3"
+      ]
+     },
+     "answer": "吗_ma5"
+    },
+    {
+     "id": "hsk1-u1-l3-e2",
+     "type": "listen-choose-hanzi",
+     "prompt": {
+      "wordId": "汉语_Han4yu3",
+      "options": [
+       "汉语_Han4yu3",
+       "老师_lao3shi1",
+       "好_hao3",
+       "我_wo3"
+      ]
+     },
+     "answer": "汉语_Han4yu3"
+    },
+    {
+     "id": "hsk1-u1-l3-e3",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "中国_Zhong1guo2",
+      "options": [
+       "中国_Zhong1guo2",
+       "吗_ma5",
+       "不_bu4",
+       "谢谢_xie4xie5"
+      ]
+     },
+     "answer": "中国_Zhong1guo2"
+    },
+    {
+     "id": "hsk1-u1-l3-e4",
+     "type": "choose-tone",
+     "prompt": {
+      "wordId": "不_bu4",
+      "syllable": "bù",
+      "toneless": "bu"
+     },
+     "answer": 4
+    },
+    {
+     "id": "hsk1-u1-l3-e5",
+     "type": "match-pairs",
+     "prompt": {
+      "wordIds": [
+       "汉语_Han4yu3",
+       "学生_xue2sheng5",
+       "中国_Zhong1guo2",
+       "不_bu4",
+       "呢_ne5"
+      ]
+     },
+     "answer": [
+      "汉语_Han4yu3",
+      "学生_xue2sheng5",
+      "中国_Zhong1guo2",
+      "不_bu4",
+      "呢_ne5"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l3-e6",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "学生_xue2sheng5",
+      "options": [
+       "学生_xue2sheng5",
+       "是_shi4",
+       "叫_jiao4",
+       "名字_ming2zi5"
+      ]
+     },
+     "answer": "学生_xue2sheng5"
+    },
+    {
+     "id": "hsk1-u1-l3-e7",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "你是学生吗？",
+       "vi": "Bạn là học sinh phải không?",
+       "tokens": [
+        {
+         "text": "你",
+         "wordId": "你_ni3"
+        },
+        {
+         "text": "是",
+         "wordId": "是_shi4"
+        },
+        {
+         "text": "学生",
+         "wordId": "学生_xue2sheng5"
+        },
+        {
+         "text": "吗",
+         "wordId": "吗_ma5"
+        },
+        {
+         "text": "？"
+        }
+       ],
+       "pinyin": "Nǐ shì xué sheng ma?"
+      },
+      "blankIndex": 3,
+      "options": [
+       "中国_Zhong1guo2",
+       "不客气_bu4ke4qi5",
+       "人_ren2",
+       "吗_ma5"
+      ]
+     },
+     "answer": "吗_ma5"
+    },
+    {
+     "id": "hsk1-u1-l3-e8",
+     "type": "order-words",
+     "prompt": {
+      "sentence": {
+       "zh": "我是学生，你呢？",
+       "vi": "Tôi là học sinh, còn bạn?",
+       "tokens": [
+        {
+         "text": "我",
+         "wordId": "我_wo3"
+        },
+        {
+         "text": "是",
+         "wordId": "是_shi4"
+        },
+        {
+         "text": "学生",
+         "wordId": "学生_xue2sheng5"
+        },
+        {
+         "text": "，"
+        },
+        {
+         "text": "你",
+         "wordId": "你_ni3"
+        },
+        {
+         "text": "呢",
+         "wordId": "呢_ne5"
+        },
+        {
+         "text": "？"
+        }
+       ],
+       "pinyin": "Wǒ shì xué sheng, nǐ ne?"
+      },
+      "tiles": [
+       "你",
+       "我",
+       "是",
+       "学生",
+       "呢"
+      ]
+     },
+     "answer": [
+      "我",
+      "是",
+      "学生",
+      "你",
+      "呢"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l3-e9",
+     "type": "listen-choose-hanzi",
+     "prompt": {
+      "wordId": "人_ren2",
+      "options": [
+       "谢谢_xie4xie5",
+       "好_hao3",
+       "人_ren2",
+       "老师_lao3shi1"
+      ]
+     },
+     "answer": "人_ren2"
+    },
+    {
+     "id": "hsk1-u1-l3-e10",
+     "type": "choose-tone",
+     "prompt": {
+      "wordId": "人_ren2",
+      "syllable": "rén",
+      "toneless": "ren"
+     },
+     "answer": 2
+    },
+    {
+     "id": "hsk1-u1-l3-e11",
+     "type": "write-stroke",
+     "prompt": {
+      "wordId": "人_ren2",
+      "char": "人"
+     },
+     "answer": "人"
+    },
+    {
+     "id": "hsk1-u1-l3-e12",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "呢_ne5",
+      "options": [
+       "什么_shen2me5",
+       "人_ren2",
+       "她_ta1",
+       "呢_ne5"
+      ]
+     },
+     "answer": "呢_ne5"
+    },
+    {
+     "id": "hsk1-u1-l3-e13",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "我不是中国人。",
+       "vi": "Tôi không phải người Trung Quốc.",
+       "tokens": [
+        {
+         "text": "我",
+         "wordId": "我_wo3"
+        },
+        {
+         "text": "不",
+         "wordId": "不_bu4"
+        },
+        {
+         "text": "是",
+         "wordId": "是_shi4"
+        },
+        {
+         "text": "中国",
+         "wordId": "中国_Zhong1guo2"
+        },
+        {
+         "text": "人",
+         "wordId": "人_ren2"
+        },
+        {
+         "text": "。"
+        }
+       ],
+       "pinyin": "Wǒ bú shì Zhōng guó rén."
+      },
+      "blankIndex": 1,
+      "options": [
+       "吗_ma5",
+       "不_bu4",
+       "什么_shen2me5",
+       "老师_lao3shi1"
+      ]
+     },
+     "answer": "不_bu4"
+    },
+    {
+     "id": "hsk1-u1-l3-e14",
+     "type": "order-words",
+     "prompt": {
+      "sentence": {
+       "zh": "我学汉语。",
+       "vi": "Tôi học tiếng Trung.",
+       "tokens": [
+        {
+         "text": "我",
+         "wordId": "我_wo3"
+        },
+        {
+         "text": "学",
+         "wordId": "学_xue2"
+        },
+        {
+         "text": "汉语",
+         "wordId": "汉语_Han4yu3"
+        },
+        {
+         "text": "。"
+        }
+       ],
+       "pinyin": "Wǒ xué Hàn yǔ."
+      },
+      "tiles": [
+       "我",
+       "汉语",
+       "学"
+      ]
+     },
+     "answer": [
+      "我",
+      "学",
+      "汉语"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l3-e15",
+     "type": "speak",
+     "prompt": {
+      "sentence": {
+       "zh": "你是中国人吗？",
+       "vi": "Bạn là người Trung Quốc à?",
+       "tokens": [
+        {
+         "text": "你",
+         "wordId": "你_ni3"
+        },
+        {
+         "text": "是",
+         "wordId": "是_shi4"
+        },
+        {
+         "text": "中国",
+         "wordId": "中国_Zhong1guo2"
+        },
+        {
+         "text": "人",
+         "wordId": "人_ren2"
+        },
+        {
+         "text": "吗",
+         "wordId": "吗_ma5"
+        },
+        {
+         "text": "？"
+        }
+       ],
+       "pinyin": "Nǐ shì Zhōng guó rén ma?"
+      }
+     },
+     "answer": "你是中国人吗？"
+    }
+   ]
+  },
+  {
+   "id": "hsk1-u1-l4",
+   "hskLevel": 1,
+   "unit": 1,
+   "order": 4,
+   "title": "Gia đình bạn có mấy người?",
+   "newWordIds": [
+    "家_jia1",
+    "有_you3",
+    "几_ji3",
+    "口_kou3",
+    "爸爸_ba4ba5",
+    "妈妈_ma1ma5",
+    "和_he2",
+    "没有_mei2you3"
+   ],
+   "grammar": {
+    "pattern": "有 / 没有",
+    "explanationVi": "有 nghĩa là “có”. Phủ định của 有 là 没有 (không nói 不有). Hỏi số lượng nhỏ dùng 几 + lượng từ; với số người trong gia đình dùng lượng từ 口: 几口人？",
+    "examples": [
+     {
+      "zh": "我家有三口人。",
+      "vi": "Nhà tôi có ba người.",
+      "tokens": [
+       {
+        "text": "我",
+        "wordId": "我_wo3"
+       },
+       {
+        "text": "家",
+        "wordId": "家_jia1"
+       },
+       {
+        "text": "有",
+        "wordId": "有_you3"
+       },
+       {
+        "text": "三",
+        "wordId": "三_san1"
+       },
+       {
+        "text": "口",
+        "wordId": "口_kou3"
+       },
+       {
+        "text": "人",
+        "wordId": "人_ren2"
+       },
+       {
+        "text": "。"
+       }
+      ],
+      "pinyin": "Wǒ jiā yǒu sān kǒu rén."
+     },
+     {
+      "zh": "你家有几口人？",
+      "vi": "Nhà bạn có mấy người?",
+      "tokens": [
+       {
+        "text": "你",
+        "wordId": "你_ni3"
+       },
+       {
+        "text": "家",
+        "wordId": "家_jia1"
+       },
+       {
+        "text": "有",
+        "wordId": "有_you3"
+       },
+       {
+        "text": "几",
+        "wordId": "几_ji3"
+       },
+       {
+        "text": "口",
+        "wordId": "口_kou3"
+       },
+       {
+        "text": "人",
+        "wordId": "人_ren2"
+       },
+       {
+        "text": "？"
+       }
+      ],
+      "pinyin": "Nǐ jiā yǒu jǐ kǒu rén?"
+     },
+     {
+      "zh": "我没有电脑。",
+      "vi": "Tôi không có máy tính.",
+      "tokens": [
+       {
+        "text": "我",
+        "wordId": "我_wo3"
+       },
+       {
+        "text": "没有",
+        "wordId": "没有_mei2you3"
+       },
+       {
+        "text": "电脑",
+        "wordId": "电脑_dian4nao3"
+       },
+       {
+        "text": "。"
+       }
+      ],
+      "pinyin": "Wǒ méi yǒu diàn nǎo."
+     }
+    ]
+   },
+   "exercises": [
+    {
+     "id": "hsk1-u1-l4-e1",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "几_ji3",
+      "options": [
+       "再见_zai4jian4",
+       "汉语_Han4yu3",
+       "她_ta1",
+       "几_ji3"
+      ]
+     },
+     "answer": "几_ji3"
+    },
+    {
+     "id": "hsk1-u1-l4-e2",
+     "type": "listen-choose-hanzi",
+     "prompt": {
+      "wordId": "家_jia1",
+      "options": [
+       "人_ren2",
+       "家_jia1",
+       "吗_ma5",
+       "没有_mei2you3"
+      ]
+     },
+     "answer": "家_jia1"
+    },
+    {
+     "id": "hsk1-u1-l4-e3",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "妈妈_ma1ma5",
+      "options": [
+       "家_jia1",
+       "妈妈_ma1ma5",
+       "再见_zai4jian4",
+       "中国_Zhong1guo2"
+      ]
+     },
+     "answer": "妈妈_ma1ma5"
+    },
+    {
+     "id": "hsk1-u1-l4-e4",
+     "type": "choose-tone",
+     "prompt": {
+      "wordId": "口_kou3",
+      "syllable": "kǒu",
+      "toneless": "kou"
+     },
+     "answer": 3
+    },
+    {
+     "id": "hsk1-u1-l4-e5",
+     "type": "match-pairs",
+     "prompt": {
+      "wordIds": [
+       "妈妈_ma1ma5",
+       "家_jia1",
+       "爸爸_ba4ba5",
+       "没有_mei2you3",
+       "有_you3"
+      ]
+     },
+     "answer": [
+      "妈妈_ma1ma5",
+      "家_jia1",
+      "爸爸_ba4ba5",
+      "没有_mei2you3",
+      "有_you3"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l4-e6",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "没有_mei2you3",
+      "options": [
+       "妈妈_ma1ma5",
+       "没有_mei2you3",
+       "叫_jiao4",
+       "名字_ming2zi5"
+      ]
+     },
+     "answer": "没有_mei2you3"
+    },
+    {
+     "id": "hsk1-u1-l4-e7",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "你家有几口人？",
+       "vi": "Nhà bạn có mấy người?",
+       "tokens": [
+        {
+         "text": "你",
+         "wordId": "你_ni3"
+        },
+        {
+         "text": "家",
+         "wordId": "家_jia1"
+        },
+        {
+         "text": "有",
+         "wordId": "有_you3"
+        },
+        {
+         "text": "几",
+         "wordId": "几_ji3"
+        },
+        {
+         "text": "口",
+         "wordId": "口_kou3"
+        },
+        {
+         "text": "人",
+         "wordId": "人_ren2"
+        },
+        {
+         "text": "？"
+        }
+       ],
+       "pinyin": "Nǐ jiā yǒu jǐ kǒu rén?"
+      },
+      "blankIndex": 3,
+      "options": [
+       "几_ji3",
+       "他_ta1",
+       "您_nin2",
+       "中国_Zhong1guo2"
+      ]
+     },
+     "answer": "几_ji3"
+    },
+    {
+     "id": "hsk1-u1-l4-e8",
+     "type": "order-words",
+     "prompt": {
+      "sentence": {
+       "zh": "我家有三口人。",
+       "vi": "Nhà tôi có ba người.",
+       "tokens": [
+        {
+         "text": "我",
+         "wordId": "我_wo3"
+        },
+        {
+         "text": "家",
+         "wordId": "家_jia1"
+        },
+        {
+         "text": "有",
+         "wordId": "有_you3"
+        },
+        {
+         "text": "三",
+         "wordId": "三_san1"
+        },
+        {
+         "text": "口",
+         "wordId": "口_kou3"
+        },
+        {
+         "text": "人",
+         "wordId": "人_ren2"
+        },
+        {
+         "text": "。"
+        }
+       ],
+       "pinyin": "Wǒ jiā yǒu sān kǒu rén."
+      },
+      "tiles": [
+       "我",
+       "口",
+       "三",
+       "人",
+       "有",
+       "家"
+      ]
+     },
+     "answer": [
+      "我",
+      "家",
+      "有",
+      "三",
+      "口",
+      "人"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l4-e9",
+     "type": "listen-choose-hanzi",
+     "prompt": {
+      "wordId": "和_he2",
+      "options": [
+       "你_ni3",
+       "爸爸_ba4ba5",
+       "妈妈_ma1ma5",
+       "和_he2"
+      ]
+     },
+     "answer": "和_he2"
+    },
+    {
+     "id": "hsk1-u1-l4-e10",
+     "type": "choose-tone",
+     "prompt": {
+      "wordId": "家_jia1",
+      "syllable": "jiā",
+      "toneless": "jia"
+     },
+     "answer": 1
+    },
+    {
+     "id": "hsk1-u1-l4-e11",
+     "type": "write-stroke",
+     "prompt": {
+      "wordId": "几_ji3",
+      "char": "几"
+     },
+     "answer": "几"
+    },
+    {
+     "id": "hsk1-u1-l4-e12",
+     "type": "choose-meaning",
+     "prompt": {
+      "wordId": "有_you3",
+      "options": [
+       "有_you3",
+       "不客气_bu4ke4qi5",
+       "汉语_Han4yu3",
+       "吗_ma5"
+      ]
+     },
+     "answer": "有_you3"
+    },
+    {
+     "id": "hsk1-u1-l4-e13",
+     "type": "fill-blank",
+     "prompt": {
+      "sentence": {
+       "zh": "我家有爸爸、妈妈和我。",
+       "vi": "Nhà tôi có bố, mẹ và tôi.",
+       "tokens": [
+        {
+         "text": "我",
+         "wordId": "我_wo3"
+        },
+        {
+         "text": "家",
+         "wordId": "家_jia1"
+        },
+        {
+         "text": "有",
+         "wordId": "有_you3"
+        },
+        {
+         "text": "爸爸",
+         "wordId": "爸爸_ba4ba5"
+        },
+        {
+         "text": "、"
+        },
+        {
+         "text": "妈妈",
+         "wordId": "妈妈_ma1ma5"
+        },
+        {
+         "text": "和",
+         "wordId": "和_he2"
+        },
+        {
+         "text": "我",
+         "wordId": "我_wo3"
+        },
+        {
+         "text": "。"
+        }
+       ],
+       "pinyin": "Wǒ jiā yǒu bà ba, mā ma hé wǒ."
+      },
+      "blankIndex": 6,
+      "options": [
+       "和_he2",
+       "谢谢_xie4xie5",
+       "不_bu4",
+       "呢_ne5"
+      ]
+     },
+     "answer": "和_he2"
+    },
+    {
+     "id": "hsk1-u1-l4-e14",
+     "type": "order-words",
+     "prompt": {
+      "sentence": {
+       "zh": "我没有哥哥。",
+       "vi": "Tôi không có anh trai.",
+       "tokens": [
+        {
+         "text": "我",
+         "wordId": "我_wo3"
+        },
+        {
+         "text": "没有",
+         "wordId": "没有_mei2you3"
+        },
+        {
+         "text": "哥哥",
+         "wordId": "哥哥_ge1ge5"
+        },
+        {
+         "text": "。"
+        }
+       ],
+       "pinyin": "Wǒ méi yǒu gē ge."
+      },
+      "tiles": [
+       "我",
+       "哥哥",
+       "没有"
+      ]
+     },
+     "answer": [
+      "我",
+      "没有",
+      "哥哥"
+     ]
+    },
+    {
+     "id": "hsk1-u1-l4-e15",
+     "type": "speak",
+     "prompt": {
+      "sentence": {
+       "zh": "我家有三口人。",
+       "vi": "Nhà tôi có ba người.",
+       "tokens": [
+        {
+         "text": "我",
+         "wordId": "我_wo3"
+        },
+        {
+         "text": "家",
+         "wordId": "家_jia1"
+        },
+        {
+         "text": "有",
+         "wordId": "有_you3"
+        },
+        {
+         "text": "三",
+         "wordId": "三_san1"
+        },
+        {
+         "text": "口",
+         "wordId": "口_kou3"
+        },
+        {
+         "text": "人",
+         "wordId": "人_ren2"
+        },
+        {
+         "text": "。"
+        }
+       ],
+       "pinyin": "Wǒ jiā yǒu sān kǒu rén."
+      }
+     },
+     "answer": "我家有三口人。"
+    }
+   ]
+  }
+ ]
+}

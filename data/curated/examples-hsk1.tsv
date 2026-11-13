@@ -1,0 +1,72 @@
+# Câu ví dụ HSK 1 do dự án tự soạn. Chỉ được dùng từ có trong hsk1.tsv (build sẽ báo lỗi nếu có chữ lạ).
+# Cột: câu tiếng Trung <TAB> nghĩa tiếng Việt. Pinyin và tách từ được sinh tự động.
+你好，我是老师。	Xin chào, tôi là giáo viên.
+谢谢你！不客气。	Cảm ơn bạn! – Không có gì.
+对不起！没关系。	Xin lỗi! – Không sao.
+我爱我的家人。	Tôi yêu gia đình tôi.
+你叫什么名字？	Bạn tên là gì?
+今天天气很好。	Hôm nay thời tiết rất đẹp.
+明天会下雨吗？	Ngày mai có mưa không?
+我想喝茶。	Tôi muốn uống trà.
+这个苹果很好吃。	Quả táo này rất ngon.
+你家有几口人？	Nhà bạn có mấy người?
+我有一个哥哥和两个妹妹。	Tôi có một anh trai và hai em gái.
+他是大学生。	Anh ấy là sinh viên.
+她在医院工作，她是医生。	Cô ấy làm việc ở bệnh viện, cô ấy là bác sĩ.
+现在几点？	Bây giờ là mấy giờ?
+我早上七点起床。	Tôi thức dậy lúc 7 giờ sáng.
+我们下午去商店买东西。	Chiều nay chúng tôi đi cửa hàng mua đồ.
+这件衣服多少钱？	Bộ quần áo này bao nhiêu tiền?
+太贵了！	Đắt quá!
+那个杯子很便宜。	Cái cốc kia rất rẻ.
+你会说汉语吗？	Bạn có biết nói tiếng Trung không?
+我会写一点儿汉字。	Tôi biết viết một chút chữ Hán.
+我们在学校学习中文。	Chúng tôi học tiếng Trung ở trường.
+星期天我不上班。	Chủ nhật tôi không đi làm.
+我坐出租车去饭店。	Tôi đi taxi đến nhà hàng.
+他开车去公司。	Anh ấy lái xe đến công ty.
+你喜欢看电影吗？	Bạn có thích xem phim không?
+我喜欢猫，也喜欢狗。	Tôi thích mèo, cũng thích chó.
+桌子上有一本书。	Trên bàn có một quyển sách.
+椅子在桌子后面。	Cái ghế ở phía sau cái bàn.
+我昨天去了北京。	Hôm qua tôi đã đi Bắc Kinh.
+你去哪儿？我回家。	Bạn đi đâu? – Tôi về nhà.
+我有点儿忙。	Tôi hơi bận.
+她很高兴认识你。	Cô ấy rất vui được quen bạn.
+请问，火车站在哪里？	Xin hỏi, ga tàu hỏa ở đâu?
+我们中午吃饺子。	Buổi trưa chúng tôi ăn sủi cảo.
+妈妈正在做饭。	Mẹ đang nấu cơm.
+爸爸在看电视。	Bố đang xem tivi.
+我晚上十点睡觉。	Tôi đi ngủ lúc 10 giờ tối.
+你的手机号是多少？	Số điện thoại của bạn là bao nhiêu?
+我给朋友打电话。	Tôi gọi điện thoại cho bạn.
+我觉得这个电影很好看。	Tôi thấy bộ phim này rất hay.
+外边很冷，你多穿一点儿衣服。	Bên ngoài rất lạnh, bạn mặc thêm chút quần áo nhé.
+今天很热。	Hôm nay rất nóng.
+他们是我的同学。	Họ là bạn học của tôi.
+我儿子今年八岁。	Con trai tôi năm nay 8 tuổi.
+我女儿在小学上学。	Con gái tôi học ở trường tiểu học.
+喂，你在哪儿？	A lô, bạn đang ở đâu?
+我不知道。	Tôi không biết.
+你可以在这里休息。	Bạn có thể nghỉ ở đây.
+我要一个包子。	Tôi muốn một cái bánh bao.
+再见！明天见。	Tạm biệt! Mai gặp nhé.
+下课了，我们回家吧。	Tan học rồi, chúng ta về nhà thôi.
+他没有电脑。	Anh ấy không có máy tính.
+学生们在读书。	Các học sinh đang đọc sách.
+这些水果都是我买的。	Chỗ hoa quả này đều là tôi mua.
+我想吃米饭和鸡蛋。	Tôi muốn ăn cơm và trứng.
+早上我喝牛奶，吃面包。	Buổi sáng tôi uống sữa, ăn bánh mì.
+我们坐飞机去中国。	Chúng tôi đi máy bay sang Trung Quốc.
+我住在这儿。	Tôi sống ở đây.
+她喜欢唱歌。	Cô ấy thích hát.
+学汉语很好玩儿。	Học tiếng Trung rất vui.
+你的女朋友很漂亮。	Bạn gái của bạn rất xinh.
+我们去超市吧。	Chúng ta đi siêu thị nhé.
+一年有十二个月。	Một năm có mười hai tháng.
+你听见了吗？	Bạn nghe thấy chưa?
+房间里有一个人。	Trong phòng có một người.
+这是什么？这是我的书。	Đây là gì? – Đây là sách của tôi.
+他生病了，没去上课。	Anh ấy bị ốm nên không đi học.
+下雪了！	Tuyết rơi rồi!
+我还没有吃午饭。	Tôi vẫn chưa ăn trưa.

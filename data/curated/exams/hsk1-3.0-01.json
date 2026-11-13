@@ -1,0 +1,100 @@
+{
+  "$comment": "Đề thi thử HSK 1 (chuẩn 3.0) số 1 — dự án tự soạn, chỉ dùng từ HSK 1. Hình minh họa = emoji (không dùng ảnh có bản quyền). keyWords: từ liên quan, được đưa vào ôn tập khi làm sai. Build: scripts/build-exams.ts.",
+  "id": "hsk1-3.0-01",
+  "standard": "3.0",
+  "level": 1,
+  "title": "Đề thi thử HSK 1 · Số 1",
+  "parts": {
+    "L1": [
+      { "audio": ["一个苹果"], "picture": "🍎", "answer": true, "keyWords": ["苹果"], "explanationVi": "一个苹果 = một quả táo — khớp với hình." },
+      { "audio": ["看电视"], "picture": "📖", "answer": false, "keyWords": ["看", "电视"], "explanationVi": "看电视 = xem tivi, còn hình là quyển sách (书)." },
+      { "audio": ["打电话"], "picture": "📞", "answer": true, "keyWords": ["打电话"], "explanationVi": "打电话 = gọi điện thoại — khớp với hình." },
+      { "audio": ["下雨了"], "picture": "🌨️", "answer": false, "keyWords": ["下雨"], "explanationVi": "下雨 = trời mưa, còn hình là tuyết rơi (下雪)." },
+      { "audio": ["坐飞机"], "picture": "✈️", "answer": true, "keyWords": ["坐", "飞机"], "explanationVi": "坐飞机 = đi máy bay — khớp với hình." }
+    ],
+    "L2": [
+      { "audio": ["我想喝牛奶。"], "options": ["🥛", "🍵", "💧"], "answer": 0, "keyWords": ["牛奶", "喝"], "explanationVi": "牛奶 = sữa bò." },
+      { "audio": ["她是医生。"], "options": ["🧑‍🏫", "🧑‍⚕️", "🧑‍🎓"], "answer": 1, "keyWords": ["医生"], "explanationVi": "医生 = bác sĩ." },
+      { "audio": ["我坐出租车去饭店。"], "options": ["🚆", "✈️", "🚕"], "answer": 2, "keyWords": ["出租车"], "explanationVi": "出租车 = xe taxi." },
+      { "audio": ["今天很冷。"], "options": ["🥶", "🥵", "🌧️"], "answer": 0, "keyWords": ["冷"], "explanationVi": "冷 = lạnh (热 = nóng)." },
+      { "audio": ["我喜欢吃饺子。"], "options": ["🍎", "🥟", "🍞"], "answer": 1, "keyWords": ["饺子"], "explanationVi": "饺子 = sủi cảo." }
+    ],
+    "L3": [
+      { "audio": ["你今年多大？"], "options": ["我八岁。", "我在学校。", "我是学生。"], "answer": 0, "keyWords": ["多", "大", "岁"], "explanationVi": "多大 hỏi tuổi → trả lời bằng … 岁." },
+      { "audio": ["你是做什么工作的？"], "options": ["我是医生。", "我喜欢喝茶。", "明天见。"], "answer": 0, "keyWords": ["工作", "做"], "explanationVi": "Hỏi nghề nghiệp (做什么工作) → 我是医生." },
+      { "audio": ["你家在哪儿？"], "options": ["我家有三口人。", "我家在北京。", "我爱我家。"], "answer": 1, "keyWords": ["哪儿", "在"], "explanationVi": "哪儿 hỏi nơi chốn → 我家在北京." },
+      { "audio": ["现在几点？"], "options": ["星期三。", "三点。", "三月。"], "answer": 1, "keyWords": ["几", "点", "现在"], "explanationVi": "几点 hỏi giờ → 三点 (ba giờ)." },
+      { "audio": ["你想喝什么？"], "options": ["我想喝茶。", "我想去商店。", "我想睡觉。"], "answer": 0, "keyWords": ["想", "喝"], "explanationVi": "喝什么 hỏi uống gì → 我想喝茶." }
+    ],
+    "L4": [
+      {
+        "audio": [{ "speaker": "女", "zh": "你去哪儿？" }, { "speaker": "男", "zh": "我去医院看病。" }],
+        "question": "男的去哪儿？",
+        "options": ["学校", "医院", "商店"],
+        "answer": 1,
+        "keyWords": ["医院", "看病"],
+        "explanationVi": "Người nam nói 我去医院看病 — đi bệnh viện khám bệnh."
+      },
+      {
+        "audio": [{ "speaker": "男", "zh": "这件衣服多少钱？" }, { "speaker": "女", "zh": "一百块。" }],
+        "question": "衣服多少钱？",
+        "options": ["十块", "一百块", "一千块"],
+        "answer": 1,
+        "keyWords": ["多少", "钱", "百", "块"],
+        "explanationVi": "一百块 = một trăm tệ (块 là cách nói khẩu ngữ của 元)."
+      },
+      {
+        "audio": [{ "speaker": "女", "zh": "你明天上班吗？" }, { "speaker": "男", "zh": "明天是星期六，我不上班。" }],
+        "question": "明天星期几？",
+        "options": ["星期五", "星期六", "星期天"],
+        "answer": 1,
+        "keyWords": ["星期", "上班"],
+        "explanationVi": "明天是星期六 — ngày mai là thứ Bảy."
+      },
+      {
+        "audio": [{ "speaker": "男", "zh": "你的猫呢？" }, { "speaker": "女", "zh": "它在椅子后面。" }],
+        "question": "猫在哪儿？",
+        "options": ["桌子上", "椅子后面", "房间外边"],
+        "answer": 1,
+        "keyWords": ["椅子", "后面"],
+        "explanationVi": "它在椅子后面 — con mèo ở phía sau cái ghế."
+      },
+      {
+        "audio": [{ "speaker": "女", "zh": "你会开车吗？" }, { "speaker": "男", "zh": "不会，我坐出租车去公司。" }],
+        "question": "男的怎么去公司？",
+        "options": ["开车", "坐出租车", "坐飞机"],
+        "answer": 1,
+        "keyWords": ["出租车", "开车", "会"],
+        "explanationVi": "Người nam không biết lái xe (不会), đi taxi (坐出租车) đến công ty."
+      }
+    ],
+    "R1": [
+      { "text": "电脑", "picture": "💻", "answer": true, "keyWords": ["电脑"], "explanationVi": "电脑 = máy tính." },
+      { "text": "米饭", "picture": "🍞", "answer": false, "keyWords": ["米饭", "面包"], "explanationVi": "米饭 = cơm; hình là bánh mì (面包)." },
+      { "text": "医院", "picture": "🏥", "answer": true, "keyWords": ["医院"], "explanationVi": "医院 = bệnh viện." },
+      { "text": "下雪", "picture": "🌧️", "answer": false, "keyWords": ["雪", "下雨"], "explanationVi": "下雪 = tuyết rơi; hình là trời mưa (下雨)." },
+      { "text": "睡觉", "picture": "😴", "answer": true, "keyWords": ["睡觉"], "explanationVi": "睡觉 = đi ngủ." }
+    ],
+    "R2": [
+      { "text": "我在看书。", "options": ["📺", "📖", "🎬"], "answer": 1, "keyWords": ["书", "看"], "explanationVi": "看书 = đọc sách." },
+      { "text": "我们去商店买东西吧。", "options": ["🏪", "🏫", "🏥"], "answer": 0, "keyWords": ["商店", "买", "东西"], "explanationVi": "商店 = cửa hàng (🏫 là 学校, 🏥 là 医院)." },
+      { "text": "爸爸在开车。", "options": ["🚗", "🚆", "✈️"], "answer": 0, "keyWords": ["开车"], "explanationVi": "开车 = lái xe ô tô." },
+      { "text": "她喜欢唱歌。", "options": ["🎤", "✍️", "📚"], "answer": 0, "keyWords": ["唱", "歌"], "explanationVi": "唱歌 = hát." },
+      { "text": "我想吃水果。", "options": ["🍉", "🥚", "🍜"], "answer": 0, "keyWords": ["水果"], "explanationVi": "水果 = hoa quả, trái cây." }
+    ],
+    "R3": [
+      { "text": "我＿＿北京人。", "options": ["是", "有", "在"], "answer": 0, "keyWords": ["是"], "explanationVi": "A 是 B: 我是北京人 = tôi là người Bắc Kinh." },
+      { "text": "你会＿＿汉语吗？", "options": ["说", "看", "坐"], "answer": 0, "keyWords": ["说", "会"], "explanationVi": "说汉语 = nói tiếng Trung." },
+      { "text": "我家＿＿四口人。", "options": ["有", "是", "在"], "answer": 0, "keyWords": ["有", "口"], "explanationVi": "我家有四口人 = nhà tôi có bốn người (dùng 有)." },
+      { "text": "这个电影很＿＿。", "options": ["好吃", "好看", "冷"], "answer": 1, "keyWords": ["好看", "电影"], "explanationVi": "Phim → 好看 (hay, đáng xem); 好吃 dùng cho đồ ăn." },
+      { "text": "＿＿是星期一，明天是星期二。", "options": ["今天", "昨天", "去年"], "answer": 0, "keyWords": ["今天", "星期"], "explanationVi": "Ngày mai là thứ Ba → hôm nay (今天) là thứ Hai." }
+    ],
+    "R4": [
+      { "text": "我是中国人，我在北京工作。", "question": "他在哪儿工作？", "options": ["北京", "学校", "医院"], "answer": 0, "keyWords": ["工作", "北京"], "explanationVi": "我在北京工作 — làm việc ở Bắc Kinh." },
+      { "text": "今天下午三点，我和妈妈去商店买衣服。", "question": "她们几点去商店？", "options": ["三点", "四点", "十点"], "answer": 0, "keyWords": ["下午", "点"], "explanationVi": "下午三点 — ba giờ chiều." },
+      { "text": "我有一个哥哥，他是大学生。", "question": "哥哥是做什么的？", "options": ["老师", "大学生", "医生"], "answer": 1, "keyWords": ["哥哥", "大学生"], "explanationVi": "他是大学生 — anh trai là sinh viên." },
+      { "text": "我爸爸喜欢喝茶，妈妈喜欢喝牛奶。", "question": "妈妈喜欢喝什么？", "options": ["茶", "水", "牛奶"], "answer": 2, "keyWords": ["牛奶", "喜欢"], "explanationVi": "妈妈喜欢喝牛奶 — mẹ thích uống sữa." },
+      { "text": "昨天很冷，今天不冷，很热。", "question": "今天天气怎么样？", "options": ["很冷", "很热", "下雨"], "answer": 1, "keyWords": ["热", "冷", "天气"], "explanationVi": "今天不冷，很热 — hôm nay không lạnh, rất nóng." }
+    ]
+  }
+}

@@ -1,0 +1,304 @@
+# Dữ liệu biên soạn cho HSK 1 (HSK 3.0 bản 2025 "newest-1" ∪ HSK 2.0 "old-1").
+# Cột: hanzi <TAB> pinyin (chỉ điền khi dữ liệu gốc có nhiều cách đọc) <TAB> hanViet <TAB> meaningVi
+# hanViet và meaningVi do dự án tự soạn — TRẠNG THÁI: bản nháp, cần người duyệt (xem docs/DATA_SOURCES.md).
+爱		ái	yêu; thích
+八		bát	tám (8)
+爸爸		bá bá	bố, ba
+吧	ba	ba	(trợ từ) nhé, đi, chứ
+白天		bạch thiên	ban ngày
+百		bách	trăm
+半		bán	một nửa; rưỡi
+包子		bao tử	bánh bao
+杯子		bôi tử	cái cốc, cái ly
+本		bản	quyển (lượng từ cho sách); gốc
+边	biān	biên	bên, cạnh
+便宜	pián yi	tiện nghi	rẻ
+病		bệnh	bệnh, ốm
+不		bất	không
+不客气		bất khách khí	không có gì, đừng khách sáo
+不要		bất yếu	đừng; không cần
+菜		thái	món ăn; rau
+茶		trà	trà
+唱		xướng	hát
+超市		siêu thị	siêu thị
+车	chē	xa	xe
+吃	chī	ngật	ăn
+出租车		xuất tô xa	xe taxi
+穿		xuyên	mặc (quần áo), đi (giày)
+打电话		đả điện thoại	gọi điện thoại
+大	dà	đại	to, lớn
+大家		đại gia	mọi người
+大学	dà xué	đại học	đại học
+大学生		đại học sinh	sinh viên
+到		đáo	đến, tới
+的	de	đích	(trợ từ) của
+弟弟		đệ đệ	em trai
+第		đệ	thứ (số thứ tự)
+点		điểm	giờ; điểm; một chút
+电话		điện thoại	điện thoại
+电脑		điện não	máy tính
+电视		điện thị	tivi
+电影		điện ảnh	phim
+电影院		điện ảnh viện	rạp chiếu phim
+店		điếm	cửa hàng, tiệm
+东西	dōng xi	đông tây	đồ vật, đồ
+都	dōu	đô	đều, tất cả
+读	dú	độc	đọc
+读书		độc thư	đọc sách; đi học
+对		đối	đúng; đối với
+对不起		đối bất khởi	xin lỗi
+多		đa	nhiều
+多少	duō shao	đa thiểu	bao nhiêu
+儿子		nhi tử	con trai
+二		nhị	hai (2)
+饭		phạn	cơm, bữa ăn
+饭店		phạn điếm	nhà hàng; khách sạn
+房间		phòng gian	phòng
+飞机		phi cơ	máy bay
+非常		phi thường	rất, vô cùng
+分	fēn	phân	phút; xu (đơn vị tiền); chia
+分钟		phân chung	phút
+高兴		cao hứng	vui, vui mừng
+哥哥		ca ca	anh trai
+歌	gē	ca	bài hát
+个	gè	cá	cái, chiếc (lượng từ chung)
+给	gěi	cấp	cho, đưa
+工作		công tác	công việc; làm việc
+公司		công ty	công ty
+狗		cẩu	con chó
+贵		quý	đắt; quý
+国	guó	quốc	nước, quốc gia
+还	hái	hoàn	còn, vẫn
+孩子		hài tử	đứa trẻ; con
+汉语		Hán ngữ	tiếng Hán, tiếng Trung
+汉字		Hán tự	chữ Hán
+好	hǎo	hảo	tốt, hay; khỏe
+好吃	hǎo chī	hảo ngật	ngon
+好看		hảo khán	đẹp; hay (phim, sách)
+好听		hảo thính	hay (nghe), êm tai
+好玩儿		hảo ngoạn nhi	vui, thú vị
+号	hào	hiệu	ngày (trong tháng); số
+喝	hē	hát	uống
+和	hé	hòa	và; với
+很		ngận	rất
+后	hòu	hậu	sau
+回	huí	hồi	về, trở về; lần
+会	huì	hội	biết (làm); có thể; sẽ
+火车		hỏa xa	tàu hỏa
+鸡蛋		kê đản	trứng gà
+几	jǐ	kỷ	mấy
+家	jiā	gia	nhà, gia đình
+家人		gia nhân	người nhà
+见	jiàn	kiến	gặp, thấy
+件		kiện	cái, chiếc (lượng từ cho áo, việc)
+饺子		giảo tử	sủi cảo, bánh chẻo
+叫	jiào	khiếu	gọi; tên là
+姐姐		tỷ tỷ	chị gái
+今年		kim niên	năm nay
+今天		kim thiên	hôm nay
+九		cửu	chín (9)
+觉得		giác đắc	cảm thấy, thấy rằng
+开		khai	mở; lái (xe)
+开车		khai xa	lái xe
+看	kàn	khán	xem, nhìn; đọc
+看病		khán bệnh	đi khám bệnh; khám bệnh
+看见		khán kiến	nhìn thấy
+可以		khả dĩ	có thể, được
+课		khóa	bài học, tiết học
+口		khẩu	miệng; (lượng từ) người (trong nhà)
+块		khối	đồng (tiền, khẩu ngữ); miếng
+来		lai	đến, tới
+老师		lão sư	thầy giáo, cô giáo
+了	le	liễu	(trợ từ) đã, rồi
+冷	lěng	lãnh	lạnh
+里	lǐ	lý	trong, bên trong
+两		lưỡng	hai (dùng trước lượng từ)
+零		linh	số không (0)
+六		lục	sáu (6)
+妈妈		ma ma	mẹ
+吗	ma	ma	(trợ từ nghi vấn) … không?
+买		mãi	mua
+卖		mại	bán
+忙		mang	bận
+猫		miêu	con mèo
+没关系		một quan hệ	không sao, không có gì
+没有		một hữu	không có; chưa
+妹妹		muội muội	em gái
+们		môn	(hậu tố số nhiều) các, chúng
+米饭		mễ phạn	cơm (gạo)
+面包		miến bao	bánh mì
+面条儿		miến điều nhi	mì sợi
+名字		danh tự	tên
+明年		minh niên	năm sau
+明天		minh thiên	ngày mai
+哪	nǎ	na	nào
+哪儿		na nhi	đâu, ở đâu
+哪里	nǎ lǐ	na lý	đâu, ở đâu
+哪些		na ta	những … nào
+那	nà	na	kia, đó
+那边		na biên	bên kia, đằng kia
+那儿		na nhi	ở đó, chỗ đó
+那里	nà li	na lý	ở đó, chỗ đó
+那些		na ta	những … kia
+男		nam	nam, con trai
+男朋友		nam bằng hữu	bạn trai
+呢	ne	ni	(trợ từ) … thì sao?, còn … ?
+能	néng	năng	có thể
+你	nǐ	nhĩ	bạn, anh, chị (ngôi thứ hai)
+你们		nhĩ môn	các bạn
+年	nián	niên	năm
+您		nâm	ngài, ông, bà (kính trọng)
+牛奶		ngưu nãi	sữa bò
+女	nǚ	nữ	nữ, con gái
+女儿		nữ nhi	con gái
+女朋友		nữ bằng hữu	bạn gái
+女士		nữ sĩ	quý bà, chị (lịch sự)
+朋友		bằng hữu	bạn bè
+漂亮		phiêu lượng	đẹp, xinh
+苹果		bình quả	quả táo
+七		thất	bảy (7)
+起床		khởi sàng	thức dậy
+千	qiān	thiên	nghìn
+前		tiền	trước
+钱	qián	tiền	tiền
+请		thỉnh	mời; xin, vui lòng
+请问		thỉnh vấn	xin hỏi
+去		khứ	đi
+去年		khứ niên	năm ngoái
+热		nhiệt	nóng
+人		nhân	người
+认识		nhận thức	quen, biết (người)
+日	rì	nhật	ngày; mặt trời
+三	sān	tam	ba (3)
+商店		thương điếm	cửa hàng
+上	shàng	thượng	trên; lên
+上班		thượng ban	đi làm
+上课		thượng khóa	lên lớp, vào học
+上午		thượng ngọ	buổi sáng
+上学		thượng học	đi học
+少	shǎo	thiểu	ít
+什么		thập ma	cái gì
+生病		sinh bệnh	bị ốm
+十		thập	mười (10)
+时候		thời hậu	lúc, khi
+时间		thời gian	thời gian
+事		sự	việc, chuyện
+是	shì	thị	là
+手机		thủ cơ	điện thoại di động
+书	shū	thư	sách
+书店		thư điếm	hiệu sách
+谁		thùy	ai
+水	shuǐ	thủy	nước
+水果		thủy quả	hoa quả, trái cây
+睡		thụy	ngủ
+睡觉		thụy giác	đi ngủ
+说	shuō	thuyết	nói
+说话		thuyết thoại	nói chuyện
+四		tứ	bốn (4)
+岁	suì	tuế	tuổi
+他		tha	anh ấy, ông ấy
+他们		tha môn	họ, bọn họ
+它		tha	nó (vật, con vật)
+它们		tha môn	chúng nó (vật, con vật)
+她		tha	cô ấy, bà ấy
+她们		tha môn	các cô ấy
+太		thái	quá
+天		thiên	ngày; trời
+天气		thiên khí	thời tiết
+听	tīng	thính	nghe
+听见		thính kiến	nghe thấy
+同学		đồng học	bạn học
+外		ngoại	ngoài
+外边		ngoại biên	bên ngoài
+玩	wán	ngoạn	chơi
+晚		vãn	muộn; tối
+晚饭		vãn phạn	bữa tối
+晚上		vãn thượng	buổi tối
+喂	wèi	uy	a lô; này (gọi)
+问		vấn	hỏi
+问题		vấn đề	câu hỏi; vấn đề
+我		ngã	tôi
+我们		ngã môn	chúng tôi, chúng ta
+五		ngũ	năm (5)
+午饭		ngọ phạn	bữa trưa
+喜欢		hỉ hoan	thích
+下		hạ	dưới; xuống
+下班		hạ ban	tan làm
+下课		hạ khóa	tan học
+下午		hạ ngọ	buổi chiều
+下雨		hạ vũ	trời mưa
+先生		tiên sinh	ông, ngài; chồng
+现在		hiện tại	bây giờ
+想		tưởng	muốn; nghĩ; nhớ
+小		tiểu	nhỏ
+小朋友		tiểu bằng hữu	bạn nhỏ, em nhỏ
+小时		tiểu thời	giờ, tiếng (đồng hồ)
+小学		tiểu học	trường tiểu học
+小学生		tiểu học sinh	học sinh tiểu học
+些		ta	một vài, một số
+写		tả	viết
+谢谢		tạ tạ	cảm ơn
+新	xīn	tân	mới
+星期		tinh kỳ	tuần; thứ (星期一: thứ Hai)
+星期日		tinh kỳ nhật	Chủ nhật
+星期天		tinh kỳ thiên	Chủ nhật
+休息		hưu tức	nghỉ ngơi
+学		học	học
+学生		học sinh	học sinh
+学习		học tập	học tập
+学校		học hiệu	trường học
+雪	xuě	tuyết	tuyết
+要	yào	yếu	muốn; cần; sẽ
+也	yě	dã	cũng
+一		nhất	một (1)
+一半		nhất bán	một nửa
+一点儿		nhất điểm nhi	một chút
+一些		nhất ta	một vài, một ít
+衣服		y phục	quần áo
+医生		y sinh	bác sĩ
+医院		y viện	bệnh viện
+椅子		ỷ tử	cái ghế
+有		hữu	có
+有的		hữu đích	có (cái, người) …, một số
+有点儿		hữu điểm nhi	hơi, có chút
+有些		hữu ta	một số; hơi
+雨	yǔ	vũ	mưa
+元	yuán	nguyên	đồng (đơn vị tiền)
+月		nguyệt	tháng; mặt trăng
+再		tái	lại, nữa
+再见		tái kiến	tạm biệt
+在		tại	ở, tại; đang
+早		tảo	sớm; chào buổi sáng
+早饭		tảo phạn	bữa sáng
+早上		tảo thượng	buổi sáng (sớm)
+怎么	zěn me	chẩm ma	thế nào, sao
+怎么样		chẩm ma dạng	thế nào, ra sao
+找		trảo	tìm; trả lại (tiền thừa)
+这		giá	này, đây
+这边		giá biên	bên này
+这儿		giá nhi	ở đây, chỗ này
+这里	zhè lǐ	giá lý	ở đây
+这些		giá ta	những … này
+真		chân	thật, thật là
+正在		chính tại	đang
+知道		tri đạo	biết
+只	zhǐ	chỉ	chỉ
+中国		Trung Quốc	Trung Quốc
+中文		Trung văn	tiếng Trung
+中午		trung ngọ	buổi trưa
+中学		trung học	trường trung học
+中学生		trung học sinh	học sinh trung học
+住		trú	ở, sống
+桌子		trác tử	cái bàn
+字		tự	chữ
+昨天		tạc thiên	hôm qua
+坐	zuò	tọa	ngồi; đi (xe, máy bay)
+做		tố	làm
+做饭		tố phạn	nấu cơm
+北京		Bắc Kinh	Bắc Kinh
+饭馆		phạn quán	quán ăn, nhà hàng
+后面		hậu diện	phía sau
+火车站		hỏa xa trạm	ga tàu hỏa
+没	méi	một	không, chưa (có)
+前面		tiền diện	phía trước
+小姐		tiểu thư	cô (gọi phụ nữ trẻ)
