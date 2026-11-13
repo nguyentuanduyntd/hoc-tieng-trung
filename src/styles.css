@@ -2402,3 +2402,107 @@ a.reading-card:hover {
     padding: 5px 8px;
   }
 }
+
+/* ---------- Chép chính tả ---------- */
+.dict-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 12px;
+}
+.dict-dot {
+  min-width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+}
+.dict-dot.tried {
+  border-color: var(--warn);
+}
+.dict-dot.done {
+  border-color: var(--ok);
+  background: rgba(63, 185, 80, 0.14);
+}
+.dict-dot.current {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+.dict-card .spacer {
+  flex: 1;
+}
+.dict-controls {
+  margin: 10px 0;
+}
+.dict-hint {
+  font-size: 1.1rem;
+}
+.dict-cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+.dict-cell {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 2.4em;
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.dict-legend .dict-cell {
+  display: inline-block;
+  min-width: 0;
+  padding: 0 6px;
+}
+.dc-target {
+  font-size: 1.15rem;
+}
+.dc-got {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+/* màu đi kèm chữ “✓ / — / chữ bạn gõ” và chú thích, không chỉ dựa vào màu */
+.dict-cell.ok,
+.dict-cell.homophone {
+  border-color: var(--ok);
+  background: rgba(63, 185, 80, 0.14);
+}
+.dict-cell.homophone {
+  border-style: dashed;
+}
+.dict-cell.tone {
+  border-color: var(--warn);
+  background: rgba(210, 153, 34, 0.16);
+}
+.dict-cell.wrong {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.dict-cell.missing {
+  border-style: dashed;
+  opacity: 0.75;
+}
+.dict-extra {
+  text-decoration: line-through;
+  color: var(--accent);
+}
+.dict-answer {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  font-size: 1.2rem;
+}
+.dict-answer p {
+  font-size: 0.95rem;
+  margin: 6px 0 0;
+}
+.ok-text {
+  color: var(--ok);
+}

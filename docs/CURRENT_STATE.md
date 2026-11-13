@@ -1,4 +1,4 @@
-# Hiện trạng dự án (cập nhật sau Bước D1 vòng 2 — v0.12.0, 13/11/2026)
+# Hiện trạng dự án (cập nhật sau Bước D2 vòng 2 — v0.13.0, 13/11/2026)
 
 > SPEC trong repo đã được thay bằng **v2.1** (có Mục 1b, 3.12–3.19).
 
@@ -43,6 +43,8 @@ src/pages/lessons.ts                lộ trình + trình chạy bài + thi vư�
 src/pages/pronunciation.ts          luyện phát âm & thanh điệu
 src/pages/reading.ts                thư viện bài đọc + trình đọc/nghe/shadowing
 src/pages/practice.ts               trang Luyện tập + game Mưa từ vựng
+src/pages/dictation.ts              chép chính tả (danh sách + làm bài)
+src/lib/dictation.ts                chấm chính tả (căn hàng, tách pinyin gõ liền)
 src/lib/pinyinGame.ts               logic game gõ pinyin (chấm, vòng chơi, tổng kết)
 src/pages/exam.ts                   danh sách đề, phòng thi, kết quả
 src/pages/home.ts                   dashboard trang chủ
@@ -117,7 +119,7 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 | C1 Rà cấu trúc đề | **Xong** — theo tài liệu CTI 12/2025; 2 mục chưa xác minh được ghi rõ |
 | C2 +2 đề | **Xong** — 3 đề, không trùng câu |
 | D1 3.12 Game gõ pinyin | **Xong** — `#/luyen-tap/go-pinyin`, 2 chế độ, boss, từ yếu → SRS, kỷ lục |
-| D2 3.13 Chép chính tả | Chưa làm |
+| D2 3.13 Chép chính tả | **Xong** — `#/luyen-tap/chinh-ta`, 12 bài HSK 1, gõ pinyin/chữ Hán, tô đúng/sai thanh/đồng âm/sai/thiếu |
 | D3 3.16 Mễ tự cách + In PDF | Chưa làm |
 | D4 3.19 Audio dựng sẵn (Azure) | Chưa làm |
 | D5 3.15 Bộ thủ · 3.17 Khóa Pinyin · 3.18 XP & huy hiệu | Chưa làm |

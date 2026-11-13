@@ -23,6 +23,7 @@ export function defaultProgress(): UserProgress {
     studyLog: {},
     gameRecords: {},
     wordMisses: {},
+    dictation: {},
   };
 }
 
@@ -54,6 +55,8 @@ export function sanitizeProgress(input: unknown): UserProgress {
     // thêm ở v0.12.0 — dữ liệu cũ không có: mặc định rỗng
     gameRecords: sanitizeResultsBy(o.gameRecords, (x) => typeof x.score === "number" && Number.isFinite(x.score) && x.score >= 0),
     wordMisses: sanitizeCounts(o.wordMisses),
+    // thêm ở v0.13.0
+    dictation: sanitizeDictation(o.dictation),
   };
 }
 
@@ -63,6 +66,19 @@ function sanitizeResultsBy(v: unknown, ok: (x: { score: number }) => boolean): R
   for (const [k, r] of Object.entries(v as Record<string, unknown>)) {
     const x = r as { score?: unknown; date?: unknown };
     if (x && typeof x.date === "string" && typeof x.score === "number" && ok(x as { score: number })) out[k] = { score: x.score, date: x.date };
+  }
+  return out;
+}
+
+function sanitizeDictation(v: unknown): UserProgress["dictation"] {
+  if (!v || typeof v !== "object" || Array.isArray(v)) return {};
+  const out: UserProgress["dictation"] = {};
+  for (const [id, m] of Object.entries(v as Record<string, unknown>)) {
+    if (!m || typeof m !== "object" || Array.isArray(m)) continue;
+    const ok = Object.entries(m as Record<string, unknown>).filter(
+      (e): e is [string, number] => /^[0-9]+$/.test(e[0]) && typeof e[1] === "number" && e[1] >= 0 && e[1] <= 1,
+    );
+    if (ok.length) out[id] = Object.fromEntries(ok);
   }
   return out;
 }

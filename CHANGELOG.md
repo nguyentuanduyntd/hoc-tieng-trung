@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.13.0] — 2026-11-13 — Bước D2: chép chính tả (SPEC 3.13)
+
+### Thêm
+- **Chép chính tả** (`#/luyen-tap/chinh-ta`, thẻ mới trong trang Luyện tập): 12 bài HSK 1 = 12 bài đọc / hội thoại tự soạn (115 câu).
+  - Danh sách lọc theo **cấp HSK** và trạng thái **Xong / Đang học / Chưa học** (kèm số bài); bài đang học hiện số câu đã đạt.
+  - Mỗi câu: 🔊 Nghe, 🐢 Chậm (0,6× tốc độ cài đặt), 💡 Gợi ý (mở dần từng âm tiết / chữ từ đầu câu, mỗi gợi ý trừ điểm tương ứng). Hội thoại dùng giọng khác nhau cho hai người nói như trình đọc.
+  - Gõ lại bằng **Pinyin** (có/không cách, không dấu, số thanh hoặc dấu thanh; `ü` = `v` = `u:`) hoặc **Chữ Hán** qua bộ gõ của máy.
+  - Chấm từng âm tiết / chữ (căn hàng kiểu Levenshtein, ưu tiên giữ nhiều chỗ khớp nhất): **đúng · sai thanh** (chỉ khi có gõ thanh; 一/不 biến điệu thanh nào cũng được) **· đồng âm** (vd 他/她/它 — nghe không phân biệt được, vẫn tính đúng) **· sai · thiếu**, cộng phần **gõ thừa**. Mỗi ô có chữ đích + chữ bạn gõ / ✓ / —, không chỉ dựa vào màu.
+  - Sau khi kiểm tra hiện câu gốc có pinyin + nghĩa tiếng Việt, bấm từ để mở từ điển. Câu đạt ≥ 80% là xong; dải số câu tô màu đã đạt / đã thử.
+- Logic chấm thuần trong `src/lib/dictation.ts` — 16 test (gồm: gõ lại đúng mọi câu của 12 bài đều đạt 100%).
+
+### Thay đổi
+- Tiến độ thêm `dictation` (điểm tốt nhất từng câu). **Migration**: dữ liệu cũ không có trường này được gán rỗng; giá trị sai bị bỏ.
+- Test: 281.
+
 ## [0.12.0] — 2026-11-13 — Bước D1: game gõ pinyin “Mưa từ vựng” (SPEC 3.12)
 
 ### Thêm

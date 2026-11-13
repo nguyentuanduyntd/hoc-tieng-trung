@@ -19,6 +19,7 @@ import {
   type GameState,
 } from "../lib/pinyinGame.ts";
 import { localDate } from "../lib/srs.ts";
+import { dictationPage, mountDictation } from "./dictation.ts";
 import { loadLessons, setProgress, state } from "../state.ts";
 import type { Word } from "../types.ts";
 import { esc, zhWord } from "../ui/html.ts";
@@ -27,6 +28,7 @@ import { speakAsync, stopSpeaking, ttsSupported } from "../ui/speech.ts";
 // ---------- Trang tổng hợp ----------
 export function practicePage(param: string): string {
   if (param === "go-pinyin") return `<div id="game-root"><p class="muted">Đang tải dữ liệu…</p></div>`;
+  if (param === "chinh-ta" || param.startsWith("chinh-ta/")) return dictationPage();
   return `
     <h1>Luyện tập</h1>
     <p class="lead">Các bài luyện ngắn, chơi lúc nào cũng được. Từ bạn hay sai sẽ tự vào ôn tập.</p>
@@ -35,6 +37,11 @@ export function practicePage(param: string): string {
         <h2>⌨️ Mưa từ vựng</h2>
         <p>Thẻ từ rơi xuống, gõ pinyin để “bắn”. Gõ kèm thanh điệu đúng (<code>ni3hao3</code> hoặc <code>nǐ hǎo</code>) được nhân đôi điểm. Có chế độ nghe.</p>
         <a class="btn primary" href="#/luyen-tap/go-pinyin">Chơi</a>
+      </div>
+      <div class="card">
+        <h2>✍️ Chép chính tả</h2>
+        <p>Nghe từng câu của bài đọc / hội thoại rồi gõ lại bằng pinyin hoặc chữ Hán; chấm và tô màu từng âm tiết, từng chữ.</p>
+        <a class="btn primary" href="#/luyen-tap/chinh-ta">Luyện</a>
       </div>
       <div class="card">
         <h2>🗣 Phát âm & thanh điệu</h2>
@@ -46,6 +53,7 @@ export function practicePage(param: string): string {
 
 export function mountPractice(param: string) {
   if (param === "go-pinyin") void mountGame();
+  else if (param === "chinh-ta" || param.startsWith("chinh-ta/")) void mountDictation(param.slice("chinh-ta/".length));
 }
 
 // ---------- Cài đặt ván ----------

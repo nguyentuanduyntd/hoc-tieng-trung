@@ -256,6 +256,8 @@ export interface UserProgress {
   gameRecords: Record<string, { score: number; date: string }>;
   /** Số lần gõ sai tích lũy trong trò chơi theo wordId (đủ 2 lần thì từ vào ôn tập và bộ đếm về 0). */
   wordMisses: Record<string, number>;
+  /** Chép chính tả: điểm tốt nhất (0..1) của từng câu, theo id bài đọc rồi chỉ số câu. */
+  dictation: Record<string, Record<string, number>>;
 }
 
 export interface DayLog {
