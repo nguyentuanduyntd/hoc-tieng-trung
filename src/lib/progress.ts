@@ -24,6 +24,7 @@ export function defaultProgress(): UserProgress {
     gameRecords: {},
     wordMisses: {},
     dictation: {},
+    radicals: {},
   };
 }
 
@@ -57,15 +58,23 @@ export function sanitizeProgress(input: unknown): UserProgress {
     wordMisses: sanitizeCounts(o.wordMisses),
     // thêm ở v0.13.0
     dictation: sanitizeDictation(o.dictation),
+    // thêm ở v0.16.0
+    radicals: sanitizeResultsBy(o.radicals, (x) => x.score >= 0 && x.score <= 1, "best"),
   };
 }
 
-function sanitizeResultsBy(v: unknown, ok: (x: { score: number }) => boolean): Record<string, { score: number; date: string }> {
+function sanitizeResultsBy<K extends string = "score">(
+  v: unknown,
+  ok: (x: { score: number }) => boolean,
+  field: K = "score" as K,
+): Record<string, Record<K, number> & { date: string }> {
   if (!v || typeof v !== "object" || Array.isArray(v)) return {};
-  const out: Record<string, { score: number; date: string }> = {};
+  const out: Record<string, Record<K, number> & { date: string }> = {};
   for (const [k, r] of Object.entries(v as Record<string, unknown>)) {
-    const x = r as { score?: unknown; date?: unknown };
-    if (x && typeof x.date === "string" && typeof x.score === "number" && ok(x as { score: number })) out[k] = { score: x.score, date: x.date };
+    const x = r as Record<string, unknown>;
+    const n = x?.[field];
+    if (x && typeof x.date === "string" && typeof n === "number" && Number.isFinite(n) && ok({ score: n }))
+      out[k] = { [field]: n, date: x.date } as Record<K, number> & { date: string };
   }
   return out;
 }

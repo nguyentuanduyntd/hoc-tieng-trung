@@ -118,12 +118,22 @@ export function charInfo(ch: string, words: Word[]): { pinyin?: string; hanViet?
 /** Phép biến đổi từ hệ tọa độ dữ liệu nét (Make Me a Hanzi, y hướng lên, gốc 900) sang SVG 1024. */
 export const STROKE_TRANSFORM = "scale(1,-1) translate(0,-900)";
 
-/** SVG của chữ: `upto` = số nét đầu tiên được vẽ (mặc định tất cả). */
-export function glyphSvg(data: StrokeJson, opts: { upto?: number; className?: string; lastClass?: string } = {}): string {
+/**
+ * SVG của chữ: `upto` = số nét đầu tiên được vẽ (mặc định tất cả); `highlight` = chỉ số các nét tô class
+ * `highlightClass` (vd nét của bộ thủ); `only` = chỉ vẽ các nét này (giữ nguyên vị trí trong ô).
+ */
+export function glyphSvg(
+  data: StrokeJson,
+  opts: { upto?: number; className?: string; lastClass?: string; highlight?: number[]; highlightClass?: string; only?: number[] } = {},
+): string {
   const n = opts.upto ?? data.strokes.length;
   const paths = data.strokes
     .slice(0, n)
-    .map((d, i) => `<path d="${d}"${opts.lastClass && i === n - 1 ? ` class="${opts.lastClass}"` : ""}/>`)
+    .map((d, i) => {
+      if (opts.only && !opts.only.includes(i)) return "";
+      const cls = opts.lastClass && i === n - 1 ? opts.lastClass : opts.highlight?.includes(i) ? (opts.highlightClass ?? "hl") : "";
+      return `<path d="${d}"${cls ? ` class="${cls}"` : ""}/>`;
+    })
     .join("");
   return `<svg viewBox="0 0 1024 1024" class="${opts.className ?? "glyph"}" aria-hidden="true"><g transform="${STROKE_TRANSFORM}">${paths}</g></svg>`;
 }

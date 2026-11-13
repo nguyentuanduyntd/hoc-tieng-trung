@@ -21,6 +21,7 @@ import {
 import { localDate } from "../lib/srs.ts";
 import { dictationPage, mountDictation } from "./dictation.ts";
 import { mountWorksheet, mountWriting, worksheetPage, writingPage } from "./writing.ts";
+import { mountRadicals, radicalsPage } from "./radicals.ts";
 import { loadLessons, setProgress, state } from "../state.ts";
 import type { Word } from "../types.ts";
 import { esc, zhWord } from "../ui/html.ts";
@@ -32,6 +33,7 @@ export function practicePage(param: string): string {
   if (param === "chinh-ta" || param.startsWith("chinh-ta/")) return dictationPage();
   if (param === "viet" || param.startsWith("viet/")) return writingPage();
   if (param === "in" || param.startsWith("in/")) return worksheetPage();
+  if (param === "bo-thu" || param.startsWith("bo-thu/")) return radicalsPage();
   return `
     <h1>Luyện tập</h1>
     <p class="lead">Các bài luyện ngắn, chơi lúc nào cũng được. Từ bạn hay sai sẽ tự vào ôn tập.</p>
@@ -52,6 +54,11 @@ export function practicePage(param: string): string {
         <a class="btn primary" href="#/luyen-tap/viet">Luyện viết</a>
       </div>
       <div class="card">
+        <h2>部 Bộ thủ</h2>
+        <p>Bộ thủ thông dụng chia theo chủ đề: nghĩa, Hán Việt, thứ tự nét, mẹo nhớ, chữ ví dụ; luyện nhận diện bộ trong chữ và ghép bộ thành chữ.</p>
+        <a class="btn primary" href="#/luyen-tap/bo-thu">Học bộ thủ</a>
+      </div>
+      <div class="card">
         <h2>🗣 Phát âm & thanh điệu</h2>
         <p>Nghe phân biệt thanh, cặp thanh, biến điệu và nói theo câu.</p>
         <a class="btn" href="#/phat-am">Mở</a>
@@ -64,6 +71,7 @@ export function mountPractice(param: string) {
   else if (param === "chinh-ta" || param.startsWith("chinh-ta/")) void mountDictation(param.slice("chinh-ta/".length));
   else if (param === "viet" || param.startsWith("viet/")) void mountWriting(param.slice("viet/".length));
   else if (param === "in" || param.startsWith("in/")) void mountWorksheet(param.slice("in/".length));
+  else if (param === "bo-thu" || param.startsWith("bo-thu/")) void mountRadicals(param.slice("bo-thu/".length));
 }
 
 // ---------- Cài đặt ván ----------

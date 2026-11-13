@@ -258,6 +258,8 @@ export interface UserProgress {
   wordMisses: Record<string, number>;
   /** Chép chính tả: điểm tốt nhất (0..1) của từng câu, theo id bài đọc rồi chỉ số câu. */
   dictation: Record<string, Record<string, number>>;
+  /** Bộ thủ: điểm bài luyện tốt nhất (0..1) theo id bộ; ≥ 0.8 = đã thuộc. */
+  radicals: Record<string, { best: number; date: string }>;
 }
 
 export interface DayLog {
@@ -267,4 +269,38 @@ export interface DayLog {
   lessons: number;
   readings: number;
   exams: number;
+}
+
+// ---------- Bộ thủ (SPEC 3.15) ----------
+export interface RadicalExample {
+  hanzi: string;
+  pinyin: string;
+  /** Chữ có trong từ vựng HSK 1. */
+  hsk1: boolean;
+  /** Từ một chữ trong từ điển (mở pop-up). */
+  wordId?: string;
+}
+
+export interface RadicalEntry {
+  /** Dạng gốc, vd 水. */
+  id: string;
+  /** Mọi dạng (gốc + biến thể), vd ["水", "氵"]. */
+  forms: string[];
+  variants: string[];
+  /** Các dạng có dữ liệu nét (vẽ / hoạt ảnh được). */
+  drawable: string[];
+  strokes: Record<string, number>;
+  hanViet: string;
+  meaningVi: string;
+  topic: string;
+  mnemonic: string;
+  examples: RadicalExample[];
+}
+
+export interface RadicalsFile {
+  meta: { generatedAt: string; description: string };
+  topics: { id: string; title: string; icon: string }[];
+  radicals: RadicalEntry[];
+  /** Chữ HSK 1 có bộ thủ thuộc danh mục: bộ (id), dạng xuất hiện trong chữ, chỉ số các nét của bộ. */
+  chars: Record<string, { radical: string; form: string; radStrokes?: number[] }>;
 }

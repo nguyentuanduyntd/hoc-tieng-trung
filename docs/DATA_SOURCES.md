@@ -42,6 +42,14 @@ Số từ thực tế của HSK 1 so với config:
    - báo lỗi nếu thiếu từ HSK 1 nào hoặc dữ liệu không qua `validateWordList`, và khi đó **không** ghi file.
 3. `npm test` kiểm tra lại file đã build.
 
+## Bộ thủ
+
+| Dữ liệu | Nguồn | Giấy phép | Dùng cho | Trạng thái |
+|---|---|---|---|---|
+| Danh mục 78 bộ thủ: nhóm, nghĩa, Hán Việt, số nét, mẹo nhớ (`data/curated/radicals.json`) | Dự án tự soạn | Thuộc dự án | Trang bộ thủ | Bản nháp, cần duyệt |
+| Bộ thủ của từng chữ | complete-hsk-vocabulary (`radical` của mục chữ đơn) + `data/curated/char-radicals-hsk1.tsv` (46 chữ HSK 1, dự án tự điền theo cách xếp bộ của từ điển giản thể) | MIT / thuộc dự án | Chữ ví dụ, bài luyện | Đối chiếu số nét với `radStrokes`; 习 xếp bộ 乙 (từ điển khác nhau) |
+| Nét của bộ trong chữ (`radStrokes`) | hanzi-writer-data (Make Me a Hanzi) | Arphic Public License | Tô đỏ bộ trong chữ, bài “ghép bộ” | — |
+
 ## Audio dựng sẵn
 
 | Dữ liệu | Nguồn | Giấy phép / điều khoản | Ghi chú |

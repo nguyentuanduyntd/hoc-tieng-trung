@@ -1,0 +1,1290 @@
+{
+  "$comment": "Bộ thủ thông dụng (SPEC 3.15) — dự án tự soạn: tên Hán Việt, nghĩa, số nét, nhóm chủ đề, mẹo nhớ. `forms` = mọi dạng (gốc + biến thể) dùng để khớp với bộ thủ của chữ; `strokes` = số nét từng dạng. Bản nháp, cần duyệt.",
+  "topics": [
+    {
+      "id": "con-nguoi",
+      "title": "Con người",
+      "icon": "🧑"
+    },
+    {
+      "id": "thien-nhien",
+      "title": "Thiên nhiên",
+      "icon": "🌿"
+    },
+    {
+      "id": "dong-vat",
+      "title": "Động vật",
+      "icon": "🐾"
+    },
+    {
+      "id": "hanh-dong",
+      "title": "Hành động",
+      "icon": "🏃"
+    },
+    {
+      "id": "phuong-huong",
+      "title": "Phương hướng & nơi chốn",
+      "icon": "🧭"
+    },
+    {
+      "id": "do-vat",
+      "title": "Đồ vật",
+      "icon": "🧰"
+    },
+    {
+      "id": "bieu-tuong",
+      "title": "Nét & biểu tượng",
+      "icon": "✳️"
+    }
+  ],
+  "radicals": [
+    {
+      "id": "人",
+      "forms": [
+        "人",
+        "亻"
+      ],
+      "strokes": {
+        "人": 2,
+        "亻": 2
+      },
+      "hanViet": "nhân",
+      "meaningVi": "người",
+      "topic": "con-nguoi",
+      "mnemonic": "Hai nét như hai chân người đang bước. Đứng bên trái chữ thì dựng thẳng lên thành 亻 (nhân đứng)."
+    },
+    {
+      "id": "女",
+      "forms": [
+        "女"
+      ],
+      "strokes": {
+        "女": 3
+      },
+      "hanViet": "nữ",
+      "meaningVi": "phụ nữ, con gái",
+      "topic": "con-nguoi",
+      "mnemonic": "Người phụ nữ ngồi khoanh tay. Chữ có 女 thường liên quan tới phụ nữ, gia đình: 妈, 姐, 妹, 好."
+    },
+    {
+      "id": "子",
+      "forms": [
+        "子"
+      ],
+      "strokes": {
+        "子": 3
+      },
+      "hanViet": "tử",
+      "meaningVi": "con, đứa trẻ",
+      "topic": "con-nguoi",
+      "mnemonic": "Em bé quấn tã, hai tay dang ra. 好 = 女 + 子: có mẹ có con là “tốt”."
+    },
+    {
+      "id": "口",
+      "forms": [
+        "口"
+      ],
+      "strokes": {
+        "口": 3
+      },
+      "hanViet": "khẩu",
+      "meaningVi": "miệng",
+      "topic": "con-nguoi",
+      "mnemonic": "Cái miệng há ra hình vuông. Chữ có 口 hay liên quan tới nói, ăn, hỏi: 吃, 喝, 叫, 吗."
+    },
+    {
+      "id": "目",
+      "forms": [
+        "目"
+      ],
+      "strokes": {
+        "目": 5
+      },
+      "hanViet": "mục",
+      "meaningVi": "mắt",
+      "topic": "con-nguoi",
+      "mnemonic": "Con mắt dựng đứng, hai nét ngang ở giữa là con ngươi."
+    },
+    {
+      "id": "手",
+      "forms": [
+        "手",
+        "扌"
+      ],
+      "strokes": {
+        "手": 4,
+        "扌": 3
+      },
+      "hanViet": "thủ",
+      "meaningVi": "tay",
+      "topic": "con-nguoi",
+      "mnemonic": "Bàn tay xòe ngón. Bên trái chữ viết thành 扌 (tài gảy): chữ có 扌 là việc làm bằng tay: 打, 找."
+    },
+    {
+      "id": "心",
+      "forms": [
+        "心",
+        "忄"
+      ],
+      "strokes": {
+        "心": 4,
+        "忄": 3
+      },
+      "hanViet": "tâm",
+      "meaningVi": "tim, lòng",
+      "topic": "con-nguoi",
+      "mnemonic": "Trái tim với ba giọt máu. Bên trái chữ là 忄 (tâm đứng): chữ về cảm xúc, suy nghĩ: 忙, 想, 您."
+    },
+    {
+      "id": "言",
+      "forms": [
+        "言",
+        "讠"
+      ],
+      "strokes": {
+        "言": 7,
+        "讠": 2
+      },
+      "hanViet": "ngôn",
+      "meaningVi": "lời nói",
+      "topic": "con-nguoi",
+      "mnemonic": "Lời nói thoát ra từ miệng 口. Giản thể bên trái chữ chỉ còn 讠: 说, 话, 语, 谢, 请."
+    },
+    {
+      "id": "力",
+      "forms": [
+        "力"
+      ],
+      "strokes": {
+        "力": 2
+      },
+      "hanViet": "lực",
+      "meaningVi": "sức",
+      "topic": "con-nguoi",
+      "mnemonic": "Cánh tay gồng cơ bắp. 男 = 田 + 力: người dùng sức làm ruộng."
+    },
+    {
+      "id": "父",
+      "forms": [
+        "父"
+      ],
+      "strokes": {
+        "父": 4
+      },
+      "hanViet": "phụ",
+      "meaningVi": "cha",
+      "topic": "con-nguoi",
+      "mnemonic": "Tay cầm rìu — người cha lao động nuôi nhà. 爸 có 父 ở trên.",
+      "moreExamples": [
+        [
+          "爷",
+          "yé"
+        ],
+        [
+          "爹",
+          "diē"
+        ]
+      ]
+    },
+    {
+      "id": "大",
+      "forms": [
+        "大"
+      ],
+      "strokes": {
+        "大": 3
+      },
+      "hanViet": "đại",
+      "meaningVi": "to, lớn",
+      "topic": "con-nguoi",
+      "mnemonic": "Người dang rộng hai tay khoe “to thế này!”."
+    },
+    {
+      "id": "儿",
+      "forms": [
+        "儿"
+      ],
+      "strokes": {
+        "儿": 2
+      },
+      "hanViet": "nhân (đi)",
+      "meaningVi": "người (hai chân)",
+      "topic": "con-nguoi",
+      "mnemonic": "Hai cái chân đang đi, thường nằm dưới đáy chữ: 先, 元, 兄."
+    },
+    {
+      "id": "耳",
+      "forms": [
+        "耳"
+      ],
+      "strokes": {
+        "耳": 6
+      },
+      "hanViet": "nhĩ",
+      "meaningVi": "tai",
+      "topic": "con-nguoi",
+      "mnemonic": "Vành tai có các nếp gấp. Chữ về nghe, tiếng: 聊, 听 (phồn thể 聽)."
+    },
+    {
+      "id": "足",
+      "forms": [
+        "足",
+        "⻊"
+      ],
+      "strokes": {
+        "足": 7,
+        "⻊": 7
+      },
+      "hanViet": "túc",
+      "meaningVi": "chân",
+      "topic": "con-nguoi",
+      "mnemonic": "Cái miệng 口 ở trên là đầu gối, phần dưới là bàn chân. Chữ về chạy nhảy: 跑, 跳, 路."
+    },
+    {
+      "id": "日",
+      "forms": [
+        "日"
+      ],
+      "strokes": {
+        "日": 4
+      },
+      "hanViet": "nhật",
+      "meaningVi": "mặt trời, ngày",
+      "topic": "thien-nhien",
+      "mnemonic": "Mặt trời tròn, xưa vẽ thành khung có chấm giữa. Chữ về thời gian, ánh sáng: 明, 昨, 早, 时."
+    },
+    {
+      "id": "月",
+      "forms": [
+        "月",
+        "⺼"
+      ],
+      "strokes": {
+        "月": 4,
+        "⺼": 4
+      },
+      "hanViet": "nguyệt",
+      "meaningVi": "mặt trăng, tháng (cũng là “thịt” trong chữ về cơ thể)",
+      "topic": "thien-nhien",
+      "mnemonic": "Vầng trăng khuyết. Bên trái chữ về cơ thể (脑, 腿) thì 月 là “thịt”."
+    },
+    {
+      "id": "水",
+      "forms": [
+        "水",
+        "氵"
+      ],
+      "strokes": {
+        "水": 4,
+        "氵": 3
+      },
+      "hanViet": "thủy",
+      "meaningVi": "nước",
+      "topic": "thien-nhien",
+      "mnemonic": "Dòng nước chảy. Bên trái chữ là ba giọt nước 氵: 汉, 没, 洗, 海."
+    },
+    {
+      "id": "火",
+      "forms": [
+        "火",
+        "灬"
+      ],
+      "strokes": {
+        "火": 4,
+        "灬": 4
+      },
+      "hanViet": "hỏa",
+      "meaningVi": "lửa",
+      "topic": "thien-nhien",
+      "mnemonic": "Ngọn lửa bốc lên có tàn lửa hai bên. Nằm dưới đáy chữ thành bốn chấm 灬: 热, 点, 熊."
+    },
+    {
+      "id": "木",
+      "forms": [
+        "木"
+      ],
+      "strokes": {
+        "木": 4
+      },
+      "hanViet": "mộc",
+      "meaningVi": "cây, gỗ",
+      "topic": "thien-nhien",
+      "mnemonic": "Cái cây có thân, cành và rễ. Chữ về cây cối, đồ gỗ: 桌, 椅, 校, 机."
+    },
+    {
+      "id": "土",
+      "forms": [
+        "土"
+      ],
+      "strokes": {
+        "土": 3
+      },
+      "hanViet": "thổ",
+      "meaningVi": "đất",
+      "topic": "thien-nhien",
+      "mnemonic": "Mầm cây nhú lên khỏi mặt đất. Chữ về đất, nơi chốn: 地, 在, 坐."
+    },
+    {
+      "id": "山",
+      "forms": [
+        "山"
+      ],
+      "strokes": {
+        "山": 3
+      },
+      "hanViet": "sơn",
+      "meaningVi": "núi",
+      "topic": "thien-nhien",
+      "mnemonic": "Ba đỉnh núi, đỉnh giữa cao nhất."
+    },
+    {
+      "id": "石",
+      "forms": [
+        "石"
+      ],
+      "strokes": {
+        "石": 5
+      },
+      "hanViet": "thạch",
+      "meaningVi": "đá",
+      "topic": "thien-nhien",
+      "mnemonic": "Hòn đá 口 lăn dưới vách núi 厂."
+    },
+    {
+      "id": "雨",
+      "forms": [
+        "雨"
+      ],
+      "strokes": {
+        "雨": 8
+      },
+      "hanViet": "vũ",
+      "meaningVi": "mưa",
+      "topic": "thien-nhien",
+      "mnemonic": "Mây trên trời và những hạt mưa rơi. Chữ về thời tiết: 雪, 雷, 零."
+    },
+    {
+      "id": "金",
+      "forms": [
+        "金",
+        "钅"
+      ],
+      "strokes": {
+        "金": 8,
+        "钅": 5
+      },
+      "hanViet": "kim",
+      "meaningVi": "vàng, kim loại",
+      "topic": "thien-nhien",
+      "mnemonic": "Quặng kim loại trong lòng đất. Bên trái chữ là 钅: 钱, 钟, 铅."
+    },
+    {
+      "id": "气",
+      "forms": [
+        "气"
+      ],
+      "strokes": {
+        "气": 4
+      },
+      "hanViet": "khí",
+      "meaningVi": "hơi, không khí",
+      "topic": "thien-nhien",
+      "mnemonic": "Các làn hơi bay ngang trên trời.",
+      "moreExamples": [
+        [
+          "氧",
+          "yǎng"
+        ],
+        [
+          "氢",
+          "qīng"
+        ],
+        [
+          "氛",
+          "fēn"
+        ]
+      ]
+    },
+    {
+      "id": "田",
+      "forms": [
+        "田"
+      ],
+      "strokes": {
+        "田": 5
+      },
+      "hanViet": "điền",
+      "meaningVi": "ruộng",
+      "topic": "thien-nhien",
+      "mnemonic": "Thửa ruộng chia ô. 男 = 田 + 力."
+    },
+    {
+      "id": "禾",
+      "forms": [
+        "禾"
+      ],
+      "strokes": {
+        "禾": 5
+      },
+      "hanViet": "hòa",
+      "meaningVi": "lúa",
+      "topic": "thien-nhien",
+      "mnemonic": "Cây lúa trĩu bông nghiêng đầu (nét phẩy trên cùng). Chữ về mùa màng: 秋, 种, 租."
+    },
+    {
+      "id": "马",
+      "forms": [
+        "马"
+      ],
+      "strokes": {
+        "马": 3
+      },
+      "hanViet": "mã",
+      "meaningVi": "ngựa",
+      "topic": "dong-vat",
+      "mnemonic": "Con ngựa phi, giản thể chỉ còn 3 nét. 骑, 驾 thuộc bộ 马; 妈, 吗 mượn 马 làm phần âm “ma”."
+    },
+    {
+      "id": "鸟",
+      "forms": [
+        "鸟"
+      ],
+      "strokes": {
+        "鸟": 5
+      },
+      "hanViet": "điểu",
+      "meaningVi": "chim",
+      "topic": "dong-vat",
+      "mnemonic": "Con chim có mắt (chấm) và đuôi dài.",
+      "moreExamples": [
+        [
+          "鸡",
+          "jī"
+        ],
+        [
+          "鸭",
+          "yā"
+        ],
+        [
+          "鹅",
+          "é"
+        ],
+        [
+          "鸽",
+          "gē"
+        ]
+      ]
+    },
+    {
+      "id": "犬",
+      "forms": [
+        "犬",
+        "犭"
+      ],
+      "strokes": {
+        "犬": 4,
+        "犭": 3
+      },
+      "hanViet": "khuyển",
+      "meaningVi": "chó",
+      "topic": "dong-vat",
+      "mnemonic": "Chó = 大 thêm một chấm (cái tai). Bên trái chữ là 犭, gặp trong tên con vật: 狗, 猫."
+    },
+    {
+      "id": "虫",
+      "forms": [
+        "虫"
+      ],
+      "strokes": {
+        "虫": 6
+      },
+      "hanViet": "trùng",
+      "meaningVi": "sâu bọ",
+      "topic": "dong-vat",
+      "mnemonic": "Con sâu có cái đầu to. Chữ về côn trùng, rắn, cả 虾 (tôm)."
+    },
+    {
+      "id": "鱼",
+      "forms": [
+        "鱼"
+      ],
+      "strokes": {
+        "鱼": 8
+      },
+      "hanViet": "ngư",
+      "meaningVi": "cá",
+      "topic": "dong-vat",
+      "mnemonic": "Đầu cá (⺈), thân có vảy (田) và đuôi (一).",
+      "moreExamples": [
+        [
+          "鲜",
+          "xiān"
+        ],
+        [
+          "鲤",
+          "lǐ"
+        ],
+        [
+          "鲸",
+          "jīng"
+        ],
+        [
+          "鲁",
+          "lǔ"
+        ]
+      ]
+    },
+    {
+      "id": "牛",
+      "forms": [
+        "牛",
+        "牜"
+      ],
+      "strokes": {
+        "牛": 4,
+        "牜": 4
+      },
+      "hanViet": "ngưu",
+      "meaningVi": "trâu, bò",
+      "topic": "dong-vat",
+      "mnemonic": "Đầu bò nhìn thẳng, có cặp sừng. 牛奶 = sữa bò.",
+      "moreExamples": [
+        [
+          "物",
+          "wù"
+        ],
+        [
+          "特",
+          "tè"
+        ],
+        [
+          "牧",
+          "mù"
+        ]
+      ]
+    },
+    {
+      "id": "羊",
+      "forms": [
+        "羊"
+      ],
+      "strokes": {
+        "羊": 6
+      },
+      "hanViet": "dương",
+      "meaningVi": "dê, cừu",
+      "topic": "dong-vat",
+      "mnemonic": "Đầu dê với hai sừng cong (丷) ở trên.",
+      "moreExamples": [
+        [
+          "美",
+          "měi"
+        ],
+        [
+          "群",
+          "qún"
+        ],
+        [
+          "羔",
+          "gāo"
+        ],
+        [
+          "羡",
+          "xiàn"
+        ]
+      ]
+    },
+    {
+      "id": "走",
+      "forms": [
+        "走"
+      ],
+      "strokes": {
+        "走": 7
+      },
+      "hanViet": "tẩu",
+      "meaningVi": "đi, chạy",
+      "topic": "hanh-dong",
+      "mnemonic": "Người 土 vung tay bước nhanh trên đôi chân 止. Chữ về di chuyển: 起, 超."
+    },
+    {
+      "id": "辶",
+      "forms": [
+        "辶"
+      ],
+      "strokes": {
+        "辶": 3
+      },
+      "hanViet": "sước",
+      "meaningVi": "bước đi",
+      "topic": "hanh-dong",
+      "mnemonic": "Con đường uốn lượn nằm dưới chữ — chữ về đi lại, khoảng cách: 这, 还, 进, 远."
+    },
+    {
+      "id": "见",
+      "forms": [
+        "见"
+      ],
+      "strokes": {
+        "见": 4
+      },
+      "hanViet": "kiến",
+      "meaningVi": "thấy",
+      "topic": "hanh-dong",
+      "mnemonic": "Con mắt trên đôi chân — người đi để nhìn thấy. 视 = nhìn, 现 = hiện ra.",
+      "moreExamples": [
+        [
+          "规",
+          "guī"
+        ],
+        [
+          "觉",
+          "jué"
+        ],
+        [
+          "览",
+          "lǎn"
+        ],
+        [
+          "观",
+          "guān"
+        ]
+      ]
+    },
+    {
+      "id": "立",
+      "forms": [
+        "立"
+      ],
+      "strokes": {
+        "立": 5
+      },
+      "hanViet": "lập",
+      "meaningVi": "đứng",
+      "topic": "hanh-dong",
+      "mnemonic": "Người đứng thẳng trên mặt đất (nét ngang dưới cùng)."
+    },
+    {
+      "id": "欠",
+      "forms": [
+        "欠"
+      ],
+      "strokes": {
+        "欠": 4
+      },
+      "hanViet": "khiếm",
+      "meaningVi": "há miệng, thiếu",
+      "topic": "hanh-dong",
+      "mnemonic": "Người há miệng ngáp. Chữ về hơi thở, ca hát: 欢, 歌, 次."
+    },
+    {
+      "id": "止",
+      "forms": [
+        "止"
+      ],
+      "strokes": {
+        "止": 4
+      },
+      "hanViet": "chỉ",
+      "meaningVi": "dừng lại",
+      "topic": "hanh-dong",
+      "mnemonic": "Dấu bàn chân đứng yên. 正 = đi thẳng tới mốc."
+    },
+    {
+      "id": "彳",
+      "forms": [
+        "彳"
+      ],
+      "strokes": {
+        "彳": 3
+      },
+      "hanViet": "xích",
+      "meaningVi": "bước ngắn",
+      "topic": "hanh-dong",
+      "mnemonic": "Nửa bên trái của ngã tư 行 — chữ về đi lại, cách làm: 很, 往, 得."
+    },
+    {
+      "id": "宀",
+      "forms": [
+        "宀"
+      ],
+      "strokes": {
+        "宀": 3
+      },
+      "hanViet": "miên",
+      "meaningVi": "mái nhà",
+      "topic": "phuong-huong",
+      "mnemonic": "Mái nhà có ống khói. Chữ về nhà ở: 家, 室, 安, 字."
+    },
+    {
+      "id": "广",
+      "forms": [
+        "广"
+      ],
+      "strokes": {
+        "广": 3
+      },
+      "hanViet": "nghiễm",
+      "meaningVi": "mái hiên, nhà rộng",
+      "topic": "phuong-huong",
+      "mnemonic": "Mái nhà chỉ có một vách — nhà rộng, cửa hàng: 店, 床, 座."
+    },
+    {
+      "id": "门",
+      "forms": [
+        "门"
+      ],
+      "strokes": {
+        "门": 3
+      },
+      "hanViet": "môn",
+      "meaningVi": "cửa",
+      "topic": "phuong-huong",
+      "mnemonic": "Cánh cửa hai bên. 问, 间, 闹 đều thuộc bộ 门."
+    },
+    {
+      "id": "囗",
+      "forms": [
+        "囗"
+      ],
+      "strokes": {
+        "囗": 3
+      },
+      "hanViet": "vi",
+      "meaningVi": "vây quanh",
+      "topic": "phuong-huong",
+      "mnemonic": "Bức tường bao quanh (to hơn 口). Chữ về vùng, nước: 国, 回, 四, 图."
+    },
+    {
+      "id": "阝",
+      "forms": [
+        "阝"
+      ],
+      "strokes": {
+        "阝": 2
+      },
+      "hanViet": "phụ / ấp",
+      "meaningVi": "gò đất (bên trái) · làng (bên phải)",
+      "topic": "phuong-huong",
+      "mnemonic": "Bên trái chữ: bậc gò đất (院, 阳); bên phải chữ: làng, vùng (都, 那)."
+    },
+    {
+      "id": "厂",
+      "forms": [
+        "厂"
+      ],
+      "strokes": {
+        "厂": 2
+      },
+      "hanViet": "hán",
+      "meaningVi": "sườn núi, xưởng",
+      "topic": "phuong-huong",
+      "mnemonic": "Vách đá dựng đứng có mái che — nơi làm việc: 厂 = nhà máy."
+    },
+    {
+      "id": "十",
+      "forms": [
+        "十"
+      ],
+      "strokes": {
+        "十": 2
+      },
+      "hanViet": "thập",
+      "meaningVi": "mười",
+      "topic": "phuong-huong",
+      "mnemonic": "Ngã tư bốn hướng, cũng là số mười."
+    },
+    {
+      "id": "八",
+      "forms": [
+        "八",
+        "丷"
+      ],
+      "strokes": {
+        "八": 2,
+        "丷": 2
+      },
+      "hanViet": "bát",
+      "meaningVi": "tám, chia ra",
+      "topic": "phuong-huong",
+      "mnemonic": "Hai nét tách ra hai phía — chia ra. Ở đầu chữ thường viết 丷: 兴, 关."
+    },
+    {
+      "id": "小",
+      "forms": [
+        "小",
+        "⺌"
+      ],
+      "strokes": {
+        "小": 3,
+        "⺌": 3
+      },
+      "hanViet": "tiểu",
+      "meaningVi": "nhỏ",
+      "topic": "phuong-huong",
+      "mnemonic": "Một nét chia đôi vật nhỏ, hai hạt rơi hai bên.",
+      "moreExamples": [
+        [
+          "少",
+          "shǎo"
+        ],
+        [
+          "尖",
+          "jiān"
+        ],
+        [
+          "尚",
+          "shàng"
+        ],
+        [
+          "尘",
+          "chén"
+        ]
+      ]
+    },
+    {
+      "id": "车",
+      "forms": [
+        "车"
+      ],
+      "strokes": {
+        "车": 4
+      },
+      "hanViet": "xa",
+      "meaningVi": "xe",
+      "topic": "do-vat",
+      "mnemonic": "Nhìn từ trên xuống: trục và bánh xe. 辆 = lượng từ của xe."
+    },
+    {
+      "id": "贝",
+      "forms": [
+        "贝"
+      ],
+      "strokes": {
+        "贝": 4
+      },
+      "hanViet": "bối",
+      "meaningVi": "vỏ sò (tiền xưa)",
+      "topic": "do-vat",
+      "mnemonic": "Vỏ sò xưa dùng làm tiền, nên chữ có 贝 liên quan tới tiền bạc: 贵, 货, 贺."
+    },
+    {
+      "id": "刀",
+      "forms": [
+        "刀",
+        "刂"
+      ],
+      "strokes": {
+        "刀": 2,
+        "刂": 2
+      },
+      "hanViet": "đao",
+      "meaningVi": "dao",
+      "topic": "do-vat",
+      "mnemonic": "Con dao. Bên phải chữ dựng thành hai nét 刂: 到, 别, 前."
+    },
+    {
+      "id": "弓",
+      "forms": [
+        "弓"
+      ],
+      "strokes": {
+        "弓": 3
+      },
+      "hanViet": "cung",
+      "meaningVi": "cái cung",
+      "topic": "do-vat",
+      "mnemonic": "Cánh cung uốn cong. 弟 có cái cung ở giữa."
+    },
+    {
+      "id": "巾",
+      "forms": [
+        "巾"
+      ],
+      "strokes": {
+        "巾": 3
+      },
+      "hanViet": "cân",
+      "meaningVi": "khăn, vải",
+      "topic": "do-vat",
+      "mnemonic": "Mảnh vải treo trên cây sào. 师, 帮, 帽."
+    },
+    {
+      "id": "衣",
+      "forms": [
+        "衣",
+        "衤"
+      ],
+      "strokes": {
+        "衣": 6,
+        "衤": 5
+      },
+      "hanViet": "y",
+      "meaningVi": "áo",
+      "topic": "do-vat",
+      "mnemonic": "Cổ áo và hai vạt áo. Bên trái chữ là 衤 (khác 礻 một chấm): 衬, 裤."
+    },
+    {
+      "id": "糸",
+      "forms": [
+        "糸",
+        "纟"
+      ],
+      "strokes": {
+        "糸": 6,
+        "纟": 3
+      },
+      "hanViet": "mịch",
+      "meaningVi": "sợi tơ",
+      "topic": "do-vat",
+      "mnemonic": "Cuộn tơ xoắn. Giản thể bên trái chữ là 纟: 红, 给, 绍, 经."
+    },
+    {
+      "id": "食",
+      "forms": [
+        "食",
+        "饣"
+      ],
+      "strokes": {
+        "食": 9,
+        "饣": 3
+      },
+      "hanViet": "thực",
+      "meaningVi": "ăn, đồ ăn",
+      "topic": "do-vat",
+      "mnemonic": "Nắp đậy trên bát cơm. Bên trái chữ là 饣: 饭, 饺, 饿, 馆."
+    },
+    {
+      "id": "玉",
+      "forms": [
+        "玉",
+        "王"
+      ],
+      "strokes": {
+        "玉": 5,
+        "王": 4
+      },
+      "hanViet": "ngọc",
+      "meaningVi": "ngọc",
+      "topic": "do-vat",
+      "mnemonic": "Chuỗi ngọc xâu trên dây. Bên trái chữ mất chấm, trông như 王: 现, 玩, 球."
+    },
+    {
+      "id": "竹",
+      "forms": [
+        "竹",
+        "⺮"
+      ],
+      "strokes": {
+        "竹": 6,
+        "⺮": 6
+      },
+      "hanViet": "trúc",
+      "meaningVi": "tre, trúc",
+      "topic": "do-vat",
+      "mnemonic": "Hai nhánh tre có lá. Trên đầu chữ là ⺮ — đồ làm bằng tre: 笔, 笑, 第."
+    },
+    {
+      "id": "戈",
+      "forms": [
+        "戈"
+      ],
+      "strokes": {
+        "戈": 4
+      },
+      "hanViet": "qua",
+      "meaningVi": "cây giáo",
+      "topic": "do-vat",
+      "mnemonic": "Cây giáo có cán và lưỡi. 我 xưa là một thứ binh khí."
+    },
+    {
+      "id": "斤",
+      "forms": [
+        "斤"
+      ],
+      "strokes": {
+        "斤": 4
+      },
+      "hanViet": "cân",
+      "meaningVi": "cái rìu; cân (đơn vị)",
+      "topic": "do-vat",
+      "mnemonic": "Cái rìu. 新 = chặt cây 木 bằng rìu 斤 lấy gỗ mới.",
+      "moreExamples": [
+        [
+          "新",
+          "xīn"
+        ],
+        [
+          "断",
+          "duàn"
+        ],
+        [
+          "斯",
+          "sī"
+        ],
+        [
+          "斧",
+          "fǔ"
+        ],
+        [
+          "斥",
+          "chì"
+        ]
+      ]
+    },
+    {
+      "id": "页",
+      "forms": [
+        "页"
+      ],
+      "strokes": {
+        "页": 6
+      },
+      "hanViet": "hiệt",
+      "meaningVi": "đầu; trang",
+      "topic": "do-vat",
+      "mnemonic": "Cái đầu người trên thân. Chữ về đầu, mặt: 题, 颜, 顾."
+    },
+    {
+      "id": "米",
+      "forms": [
+        "米"
+      ],
+      "strokes": {
+        "米": 6
+      },
+      "hanViet": "mễ",
+      "meaningVi": "gạo",
+      "topic": "do-vat",
+      "mnemonic": "Những hạt gạo văng ra bốn phía quanh cây lúa."
+    },
+    {
+      "id": "一",
+      "forms": [
+        "一"
+      ],
+      "strokes": {
+        "一": 1
+      },
+      "hanViet": "nhất",
+      "meaningVi": "một",
+      "topic": "bieu-tuong",
+      "mnemonic": "Một nét ngang = một."
+    },
+    {
+      "id": "丨",
+      "forms": [
+        "丨"
+      ],
+      "strokes": {
+        "丨": 1
+      },
+      "hanViet": "cổn",
+      "meaningVi": "nét sổ",
+      "topic": "bieu-tuong",
+      "mnemonic": "Một nét thẳng từ trên xuống — nét sổ."
+    },
+    {
+      "id": "丶",
+      "forms": [
+        "丶"
+      ],
+      "strokes": {
+        "丶": 1
+      },
+      "hanViet": "chủ",
+      "meaningVi": "nét chấm",
+      "topic": "bieu-tuong",
+      "mnemonic": "Một chấm nhỏ như ngọn lửa đèn.",
+      "moreExamples": [
+        [
+          "主",
+          "zhǔ"
+        ],
+        [
+          "为",
+          "wèi"
+        ],
+        [
+          "丹",
+          "dān"
+        ]
+      ]
+    },
+    {
+      "id": "丿",
+      "forms": [
+        "丿"
+      ],
+      "strokes": {
+        "丿": 1
+      },
+      "hanViet": "phiệt",
+      "meaningVi": "nét phẩy",
+      "topic": "bieu-tuong",
+      "mnemonic": "Nét phẩy kéo xuống bên trái."
+    },
+    {
+      "id": "乙",
+      "forms": [
+        "乙",
+        "乚"
+      ],
+      "strokes": {
+        "乙": 1,
+        "乚": 1
+      },
+      "hanViet": "ất",
+      "meaningVi": "can Ất; nét gập",
+      "topic": "bieu-tuong",
+      "mnemonic": "Một nét gập khúc liền, như mầm cây cong lên."
+    },
+    {
+      "id": "二",
+      "forms": [
+        "二"
+      ],
+      "strokes": {
+        "二": 2
+      },
+      "hanViet": "nhị",
+      "meaningVi": "hai",
+      "topic": "bieu-tuong",
+      "mnemonic": "Hai nét ngang = hai; nét dưới dài hơn."
+    },
+    {
+      "id": "冫",
+      "forms": [
+        "冫"
+      ],
+      "strokes": {
+        "冫": 2
+      },
+      "hanViet": "băng",
+      "meaningVi": "băng, lạnh",
+      "topic": "bieu-tuong",
+      "mnemonic": "Hai giọt nước đông thành băng (ít hơn 氵 một giọt): 冷, 冰."
+    },
+    {
+      "id": "亠",
+      "forms": [
+        "亠"
+      ],
+      "strokes": {
+        "亠": 2
+      },
+      "hanViet": "đầu",
+      "meaningVi": "cái nắp, phần đầu",
+      "topic": "bieu-tuong",
+      "mnemonic": "Cái nắp đậy ở đỉnh chữ: 京, 交, 亮."
+    },
+    {
+      "id": "白",
+      "forms": [
+        "白"
+      ],
+      "strokes": {
+        "白": 5
+      },
+      "hanViet": "bạch",
+      "meaningVi": "trắng",
+      "topic": "bieu-tuong",
+      "mnemonic": "Mặt trời 日 có thêm tia sáng — trắng sáng.",
+      "moreExamples": [
+        [
+          "的",
+          "de"
+        ],
+        [
+          "百",
+          "bǎi"
+        ],
+        [
+          "皇",
+          "huáng"
+        ]
+      ]
+    },
+    {
+      "id": "疒",
+      "forms": [
+        "疒"
+      ],
+      "strokes": {
+        "疒": 5
+      },
+      "hanViet": "nạch",
+      "meaningVi": "bệnh tật",
+      "topic": "bieu-tuong",
+      "mnemonic": "Người bệnh nằm trên giường (广 thêm hai chấm). Chữ về bệnh: 病, 疼."
+    },
+    {
+      "id": "艸",
+      "forms": [
+        "艸",
+        "艹"
+      ],
+      "strokes": {
+        "艸": 6,
+        "艹": 3
+      },
+      "hanViet": "thảo",
+      "meaningVi": "cỏ",
+      "topic": "bieu-tuong",
+      "mnemonic": "Hai ngọn cỏ mọc trên đầu chữ (艹). Chữ về cây cỏ, rau: 草, 茶, 菜, 苹."
+    },
+    {
+      "id": "穴",
+      "forms": [
+        "穴"
+      ],
+      "strokes": {
+        "穴": 5
+      },
+      "hanViet": "huyệt",
+      "meaningVi": "hang, lỗ",
+      "topic": "bieu-tuong",
+      "mnemonic": "Mái nhà 宀 có lối vào 八 — cái hang. 穿, 空, 窗."
+    },
+    {
+      "id": "寸",
+      "forms": [
+        "寸"
+      ],
+      "strokes": {
+        "寸": 3
+      },
+      "hanViet": "thốn",
+      "meaningVi": "tấc; đo lường",
+      "topic": "bieu-tuong",
+      "mnemonic": "Bàn tay với một chấm ở cổ tay — chỗ bắt mạch, cách bàn tay một tấc. 对, 寺, 封."
+    },
+    {
+      "id": "夕",
+      "forms": [
+        "夕"
+      ],
+      "strokes": {
+        "夕": 3
+      },
+      "hanViet": "tịch",
+      "meaningVi": "buổi tối",
+      "topic": "bieu-tuong",
+      "mnemonic": "Mặt trăng mới mọc buổi chiều tà. 多 = hai buổi tối chồng lên = nhiều.",
+      "moreExamples": [
+        [
+          "多",
+          "duō"
+        ],
+        [
+          "外",
+          "wài"
+        ],
+        [
+          "够",
+          "gòu"
+        ]
+      ]
+    }
+  ]
+}

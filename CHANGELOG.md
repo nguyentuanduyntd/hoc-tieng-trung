@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.16.0] — 2026-11-13 — Bước D5a: Bộ thủ (SPEC 3.15)
+
+### Thêm
+- **Bộ thủ** (`#/luyen-tap/bo-thu`, thẻ mới trong Luyện tập): **78 bộ thủ** thông dụng, chia **7 nhóm chủ đề** — Con người, Thiên nhiên, Động vật, Hành động, Phương hướng & nơi chốn, Đồ vật, Nét & biểu tượng. Mỗi nhóm có thanh tiến độ (số bộ đã thuộc).
+- Trang từng bộ (`/bo-thu/<bộ>`):
+  - Hình gốc + biến thể (水 → 氵, 人 → 亻, 言 → 讠…) với số nét từng dạng.
+  - Nghĩa, Hán Việt, hoạt ảnh thứ tự nét, **mẹo nhớ** (dự án tự viết).
+  - 3–12 **chữ ví dụ**: chữ HSK 1 trước (★), **tô đỏ phần bộ thủ trong chữ**. Bấm chữ HSK 1 thì mở pop-up từ điển, chữ khác thì mở bảng luyện viết.
+  - Nút “Luyện bộ này” và “Luyện viết bộ”.
+- Bài luyện (`/bo-thu/luyen`, `/luyen/<nhóm>`, `/luyen/<bộ>`), phím 1–4 và Enter:
+  - **Nhận diện bộ trong chữ**: 4 lựa chọn; nhiễu ưu tiên cùng nhóm và không lấy phần khác của chữ.
+  - **Ghép bộ thành chữ**: bộ + phần còn lại của chữ (vẽ từ dữ liệu nét) → chọn chữ; nhiễu gồm chữ cùng bộ.
+  - Nút **🎲 Luyện ngẫu nhiên**.
+  - Một bộ được tính “đã thuộc” khi luyện riêng bộ đó đạt ≥ 80% (cần ≥ 2 câu về bộ).
+- Dữ liệu `public/data/radicals.json` (`scripts/build-radicals.ts`, nằm trong `npm run data`):
+  - Bộ thủ của chữ lấy từ complete-hsk-vocabulary (MIT); 46 chữ HSK 1 không có mục chữ đơn được bổ sung ở `data/curated/char-radicals-hsk1.tsv`.
+  - Danh mục và mẹo nhớ ở `data/curated/radicals.json`.
+  - Build báo lỗi khi ví dụ bổ sung mâu thuẫn với nguồn, hoặc thiếu dữ liệu nét.
+  - Chép thêm dữ liệu nét cho hình bộ thủ và chữ ví dụ.
+- Test: 315 (gồm: số nét bộ của 186 chữ HSK 1 khớp `radStrokes` của dữ liệu nét).
+
+### Thay đổi
+- Tiến độ thêm `radicals` (điểm luyện tốt nhất theo bộ). **Migration**: dữ liệu cũ → rỗng.
+- `glyphSvg` hỗ trợ tô một số nét (`highlight`) hoặc chỉ vẽ một số nét (`only`).
+
 ## [0.15.0] — 2026-11-13 — Bước D4: audio dựng sẵn giọng Microsoft Neural (SPEC 3.19, nguồn A)
 
 ### Thêm
