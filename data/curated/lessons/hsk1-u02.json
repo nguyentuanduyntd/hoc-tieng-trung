@@ -1,0 +1,91 @@
+{
+  "hskLevel": 1,
+  "unit": 2,
+  "title": "Số đếm, tiền & ngày tháng",
+  "lessons": [
+    {
+      "id": "hsk1-u2-l1",
+      "title": "Đếm từ 1 đến 8",
+      "words": ["一", "二", "三", "四", "五", "六", "七", "八"],
+      "grammar": {
+        "pattern": "Số đếm 一 → 八",
+        "explanationVi": "Đếm: 一 yī, 二 èr, 三 sān, 四 sì, 五 wǔ, 六 liù, 七 qī, 八 bā. Khi đếm hoặc đứng một mình, 一 đọc yī; đứng trước lượng từ thì biến điệu (一个 yí gè). Số điện thoại, số phòng đọc lần lượt từng chữ số.",
+        "examples": [
+          { "zh": "一、二、三、四、五。", "vi": "Một, hai, ba, bốn, năm." },
+          { "zh": "我家有五口人。", "vi": "Nhà tôi có năm người." },
+          { "zh": "我有三个中国朋友。", "vi": "Tôi có ba người bạn Trung Quốc." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我家有四口人。", "vi": "Nhà tôi có bốn người.", "blank": "四" },
+        { "zh": "我有三个中国朋友。", "vi": "Tôi có ba người bạn Trung Quốc.", "blank": "三" },
+        { "zh": "我爸爸有七个学生。", "vi": "Bố tôi có bảy học sinh.", "blank": "七" },
+        { "zh": "老师有八个学生。", "vi": "Thầy giáo có tám học sinh.", "blank": "八" }
+      ],
+      "speak": ["一、二、三、四、五。", "我家有四口人。"]
+    },
+    {
+      "id": "hsk1-u2-l2",
+      "title": "Bạn bao nhiêu tuổi?",
+      "words": ["九", "十", "零", "两", "百", "千", "岁"],
+      "grammar": {
+        "pattern": "几岁？/ 多大？· 两 và 二",
+        "explanationVi": "Hỏi tuổi trẻ em (dưới 10 tuổi) dùng 几岁？, hỏi người lớn dùng 多大？. Trả lời: 我 + số + 岁. Khi đếm dùng 二, còn trước lượng từ (个, 本, 口…) dùng 两: 两个人, không nói 二个人. 十 = 10, 百 = 100, 千 = 1000, 零 = 0.",
+        "examples": [
+          { "zh": "你几岁？我九岁。", "vi": "Em mấy tuổi? – Em chín tuổi." },
+          { "zh": "你多大？我二十岁。", "vi": "Bạn bao nhiêu tuổi? – Mình hai mươi tuổi." },
+          { "zh": "我有两个妹妹。", "vi": "Tôi có hai em gái." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我妈妈今年四十岁。", "vi": "Năm nay mẹ tôi bốn mươi tuổi.", "blank": "岁" },
+        { "zh": "我有两个哥哥。", "vi": "Tôi có hai anh trai.", "blank": "两", "notOptions": ["二"] },
+        { "zh": "我们学校有一千个学生。", "vi": "Trường chúng tôi có một nghìn học sinh.", "blank": "千" },
+        { "zh": "这个学校有九百个学生。", "vi": "Trường này có chín trăm học sinh.", "blank": "百" }
+      ],
+      "speak": ["你几岁？我九岁。", "我有两个哥哥。"]
+    },
+    {
+      "id": "hsk1-u2-l3",
+      "title": "Cái này bao nhiêu tiền?",
+      "words": ["个", "本", "件", "块", "元", "钱", "多少"],
+      "grammar": {
+        "pattern": "Số + lượng từ + danh từ",
+        "explanationVi": "Giữa số và danh từ phải có lượng từ: 一个人, 两本书, 三件衣服. 个 là lượng từ chung; 本 dùng cho sách vở; 件 dùng cho áo quần và sự việc. Hỏi giá: … 多少钱？ Trả lời bằng 块 (khẩu ngữ) hoặc 元 (văn viết): 十块 = 十元.",
+        "examples": [
+          { "zh": "我有两本书。", "vi": "Tôi có hai quyển sách." },
+          { "zh": "这件衣服多少钱？", "vi": "Bộ quần áo này bao nhiêu tiền?" },
+          { "zh": "一个苹果三块钱。", "vi": "Một quả táo ba đồng." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我买了三本书。", "vi": "Tôi đã mua ba quyển sách.", "blank": "本" },
+        { "zh": "这个多少钱？", "vi": "Cái này bao nhiêu tiền?", "blank": "多少" },
+        { "zh": "那件衣服二百块。", "vi": "Bộ quần áo kia hai trăm tệ.", "blank": "件" },
+        { "zh": "一个包子两块钱。", "vi": "Một cái bánh bao hai đồng.", "blank": "块" }
+      ],
+      "speak": ["这件衣服多少钱？", "一个包子两块钱。"]
+    },
+    {
+      "id": "hsk1-u2-l4",
+      "title": "Hôm nay ngày mấy?",
+      "words": ["第", "号", "月", "日", "年", "星期"],
+      "grammar": {
+        "pattern": "…月…号，星期…",
+        "explanationVi": "Ngày tháng đi từ lớn đến nhỏ: năm → tháng → ngày → thứ. Khi nói dùng 号, khi viết dùng 日. Thứ trong tuần: 星期一 (thứ Hai) … 星期六 (thứ Bảy), Chủ nhật là 星期天 / 星期日. Số thứ tự: 第 + số (第一 = thứ nhất).",
+        "examples": [
+          { "zh": "今天几月几号？", "vi": "Hôm nay là ngày mấy tháng mấy?" },
+          { "zh": "今天是十月一号，星期三。", "vi": "Hôm nay là ngày 1 tháng 10, thứ Tư." },
+          { "zh": "她是第一个来的。", "vi": "Cô ấy là người đến đầu tiên." }
+        ]
+      },
+      "sentences": [
+        { "zh": "明天是星期五。", "vi": "Ngày mai là thứ Sáu.", "blank": "星期" },
+        { "zh": "今天是五月八号。", "vi": "Hôm nay là ngày 8 tháng 5.", "blank": "号" },
+        { "zh": "一年有十二个月。", "vi": "Một năm có mười hai tháng.", "blank": "月" },
+        { "zh": "这是第一课。", "vi": "Đây là bài thứ nhất.", "blank": "第" }
+      ],
+      "speak": ["今天几月几号？", "一年有十二个月。"]
+    }
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "$comment": "Unit 1 HSK 1 (dự án tự soạn). Mỗi bài: 5–8 từ mới, 1 điểm ngữ pháp (3 ví dụ), 4 câu luyện tập (blank = từ che trong bài điền từ), 2 câu nói theo. Chỉ dùng từ trong hsk1.tsv.",
+  "hskLevel": 1,
+  "unit": 1,
+  "title": "Chào hỏi & giới thiệu",
+  "lessons": [
+    {
+      "id": "hsk1-u1-l1",
+      "title": "Xin chào!",
+      "words": [
+        "你",
+        "好",
+        "您",
+        "老师",
+        "谢谢",
+        "不客气",
+        "再见"
+      ],
+      "grammar": {
+        "pattern": "Danh xưng + 好",
+        "explanationVi": "好 nghĩa là “tốt”. Ghép danh xưng với 好 thành lời chào: 你好 (chào bạn), 您好 (chào lịch sự với người lớn tuổi hoặc cấp trên), 老师好 (chào thầy cô). Người kia đáp lại cũng bằng 你好 / 您好.",
+        "examples": [
+          {
+            "zh": "你好！",
+            "vi": "Chào bạn!"
+          },
+          {
+            "zh": "您好！",
+            "vi": "Chào ông / Chào bà!"
+          },
+          {
+            "zh": "老师好！",
+            "vi": "Em chào thầy / cô!"
+          }
+        ]
+      },
+      "sentences": [
+        {
+          "zh": "老师，您好！",
+          "vi": "Em chào thầy ạ!",
+          "blank": "您"
+        },
+        {
+          "zh": "谢谢你！",
+          "vi": "Cảm ơn bạn!",
+          "blank": "谢谢"
+        },
+        {
+          "zh": "老师再见！",
+          "vi": "Em chào tạm biệt thầy!",
+          "blank": "再见"
+        },
+        {
+          "zh": "谢谢老师！不客气。",
+          "vi": "Em cảm ơn thầy! – Không có gì.",
+          "blank": "不客气"
+        }
+      ],
+      "speak": [
+        "你好！",
+        "谢谢老师！"
+      ]
+    },
+    {
+      "id": "hsk1-u1-l2",
+      "title": "Bạn tên là gì?",
+      "words": [
+        "我",
+        "叫",
+        "什么",
+        "名字",
+        "是",
+        "他",
+        "她"
+      ],
+      "grammar": {
+        "pattern": "A 是 B",
+        "explanationVi": "是 nối hai danh từ / đại từ, nghĩa là “A là B”. 是 không biến đổi theo ngôi hay thời gian. Lưu ý: tiếng Trung không dùng 是 trước tính từ (nói 我很好, không nói 我是好).",
+        "examples": [
+          {
+            "zh": "我是老师。",
+            "vi": "Tôi là giáo viên."
+          },
+          {
+            "zh": "她是老师。",
+            "vi": "Cô ấy là giáo viên."
+          },
+          {
+            "zh": "他是我爸爸。",
+            "vi": "Ông ấy là bố tôi."
+          }
+        ]
+      },
+      "sentences": [
+        {
+          "zh": "你叫什么名字？",
+          "vi": "Bạn tên là gì?",
+          "blank": "什么"
+        },
+        {
+          "zh": "我叫什么名字？",
+          "vi": "Tôi tên là gì?",
+          "blank": "名字"
+        },
+        {
+          "zh": "我是老师。",
+          "vi": "Tôi là giáo viên.",
+          "blank": "是",
+          "notOptions": [
+            "叫"
+          ]
+        },
+        {
+          "zh": "她叫什么名字？",
+          "vi": "Cô ấy tên là gì?",
+          "blank": "她"
+        }
+      ],
+      "speak": [
+        "你叫什么名字？",
+        "我是老师。"
+      ]
+    },
+    {
+      "id": "hsk1-u1-l3",
+      "title": "Bạn là người nước nào?",
+      "words": [
+        "中国",
+        "人",
+        "吗",
+        "不",
+        "呢",
+        "汉语",
+        "学生"
+      ],
+      "grammar": {
+        "pattern": "Câu trần thuật + 吗？",
+        "explanationVi": "Thêm 吗 vào cuối câu để biến câu trần thuật thành câu hỏi có/không. Trả lời khẳng định lặp lại động từ (是), phủ định thêm 不 trước động từ (不是). Hỏi ngược lại “còn bạn?” dùng 呢: 你呢？",
+        "examples": [
+          {
+            "zh": "你是中国人吗？",
+            "vi": "Bạn là người Trung Quốc à?"
+          },
+          {
+            "zh": "他是学生吗？",
+            "vi": "Anh ấy là học sinh phải không?"
+          },
+          {
+            "zh": "我不是中国人。",
+            "vi": "Tôi không phải người Trung Quốc."
+          }
+        ]
+      },
+      "sentences": [
+        {
+          "zh": "你是学生吗？",
+          "vi": "Bạn là học sinh phải không?",
+          "blank": "吗"
+        },
+        {
+          "zh": "我不是中国人。",
+          "vi": "Tôi không phải người Trung Quốc.",
+          "blank": "不"
+        },
+        {
+          "zh": "我是学生，你呢？",
+          "vi": "Tôi là học sinh, còn bạn?",
+          "blank": "呢"
+        },
+        {
+          "zh": "我学汉语。",
+          "vi": "Tôi học tiếng Trung.",
+          "blank": "汉语"
+        }
+      ],
+      "speak": [
+        "你是中国人吗？",
+        "我学汉语。"
+      ]
+    },
+    {
+      "id": "hsk1-u1-l4",
+      "title": "Gia đình bạn có mấy người?",
+      "words": [
+        "家",
+        "有",
+        "几",
+        "口",
+        "爸爸",
+        "妈妈",
+        "和",
+        "没有"
+      ],
+      "grammar": {
+        "pattern": "有 / 没有",
+        "explanationVi": "有 nghĩa là “có”. Phủ định của 有 là 没有 (không nói 不有). Hỏi số lượng nhỏ dùng 几 + lượng từ; với số người trong gia đình dùng lượng từ 口: 几口人？",
+        "examples": [
+          {
+            "zh": "我家有三口人。",
+            "vi": "Nhà tôi có ba người."
+          },
+          {
+            "zh": "你家有几口人？",
+            "vi": "Nhà bạn có mấy người?"
+          },
+          {
+            "zh": "我没有电脑。",
+            "vi": "Tôi không có máy tính."
+          }
+        ]
+      },
+      "sentences": [
+        {
+          "zh": "你家有几口人？",
+          "vi": "Nhà bạn có mấy người?",
+          "blank": "几"
+        },
+        {
+          "zh": "我家有爸爸、妈妈和我。",
+          "vi": "Nhà tôi có bố, mẹ và tôi.",
+          "blank": "和"
+        },
+        {
+          "zh": "我没有哥哥。",
+          "vi": "Tôi không có anh trai.",
+          "blank": "没有",
+          "notOptions": [
+            "有"
+          ]
+        },
+        {
+          "zh": "我家有三口人。",
+          "vi": "Nhà tôi có ba người.",
+          "blank": "口"
+        }
+      ],
+      "speak": [
+        "我家有三口人。",
+        "你家有几口人？"
+      ]
+    }
+  ]
+}

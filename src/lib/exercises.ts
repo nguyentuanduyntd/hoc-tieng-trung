@@ -36,7 +36,25 @@ export interface GenContext {
 }
 
 /** Nhóm từ thay thế được cho nhau — không dùng làm nhiễu của nhau trong bài điền từ. */
-const INTERCHANGEABLE = [new Set(["我", "你", "您", "他", "她", "它", "我们", "你们", "他们", "她们"])];
+const INTERCHANGEABLE = [
+  new Set(["我", "你", "您", "他", "她", "它", "我们", "你们", "他们", "她们", "它们", "大家"]),
+  new Set(["这儿", "这里"]),
+  new Set(["那儿", "那里"]),
+  new Set(["哪儿", "哪里"]),
+  new Set(["块", "元"]),
+  new Set(["能", "可以", "会"]),
+  new Set(["睡", "睡觉"]),
+  new Set(["星期日", "星期天"]),
+  new Set(["分", "分钟"]),
+  new Set(["早上", "上午"]),
+  new Set(["饭店", "饭馆"]),
+  new Set(["一些", "有些", "有的", "一点儿"]),
+  new Set(["很", "非常", "太", "真"]),
+  new Set(["学", "学习"]),
+];
+
+/** Từ một chữ có thanh 1–4 (dùng cho bài chọn thanh). */
+const isToneWord = (w: Word) => [...w.hanzi].length === 1 && [1, 2, 3, 4].includes(tonesOf(w.pinyin)[0]);
 
 export function seededRandom(seed: string): () => number {
   let h = 1779033703 ^ seed.length;
@@ -137,10 +155,10 @@ export function generateLessonExercises(spec: LessonSpec, ctx: GenContext): Exer
   const order = shuffle(words, rand);
   const meaningWords = order.slice(0, Math.min(4, order.length));
   const listenWords = order.slice(4).concat(order.slice(0, 4)).slice(0, 2);
-  const toneWords = shuffle(
-    words.filter((w) => [...w.hanzi].length === 1 && [1, 2, 3, 4].includes(tonesOf(w.pinyin)[0])),
-    rand,
-  ).slice(0, 2);
+  // Bài không đủ từ một chữ có thanh -> lấy thêm từ đã học trước đó (pool), rồi từ HSK 1 khác.
+  const toneWords = shuffle(words.filter(isToneWord), rand).slice(0, 2);
+  for (const extra of [shuffle(ctx.pool.filter(isToneWord), rand), shuffle((ctx.fallbackPool ?? []).filter(isToneWord), rand)])
+    for (const w of extra) if (toneWords.length < 2 && !toneWords.includes(w)) toneWords.push(w);
   const blanks = sentences.filter((s) => s.spec.blank);
   const orderables = sentences.filter((s) => orderable(s.ref));
   const fillPick = blanks.slice(0, 2);
@@ -196,5 +214,41 @@ export function generateSkipTest(unitId: string, specs: LessonSpec[], ctx: GenCo
   sentenceSpecs.filter((s) => s.blank).slice(0, 3).forEach((s) => out.push(fillBlank(id(), s, ctx.makeSentence(s.zh, s.vi), ctx)));
   const ord = sentenceSpecs.map((s) => ctx.makeSentence(s.zh, s.vi)).filter(orderable);
   ord.slice(0, 2).forEach((s) => out.push(orderWords(id(), s, rand)));
+  return shuffle(out, rand);
+}
+
+/**
+ * Checkpoint ôn tập sau mỗi 3 bài (SPEC 3.5 v2): trộn từ và câu (ngữ pháp) của 3 bài trước.
+ * ~12 câu: chọn nghĩa ×4, nghe chọn chữ ×2, chọn thanh ×1, ghép cặp ×1, điền từ ×2, sắp xếp câu ×2.
+ */
+export function generateCheckpoint(cpId: string, specs: LessonSpec[], ctx: GenContext): Exercise[] {
+  const rand = ctx.rand;
+  const words = specs.flatMap((s) => s.words.map((h) => need(ctx, h)));
+  let n = 0;
+  const id = () => `${cpId}-e${++n}`;
+  // lấy đều từ mỗi bài
+  const perLesson = specs.map((s) => shuffle(s.words.map((h) => need(ctx, h)), rand));
+  const picked: Word[] = [];
+  for (let i = 0; picked.length < 6 && i < 8; i++) for (const l of perLesson) if (l[i] && picked.length < 6) picked.push(l[i]);
+  const out: Exercise[] = [];
+  picked.slice(0, 4).forEach((w) => out.push(chooseMeaning(id(), w, ctx)));
+  picked.slice(4, 6).forEach((w) => out.push(listenChoose(id(), w, ctx)));
+  const tone = shuffle(words.filter(isToneWord), rand)[0];
+  if (tone) out.push(chooseTone(id(), tone));
+  const pairs = shuffle(words, rand).slice(0, 5);
+  out.push({ id: id(), type: "match-pairs", prompt: { wordIds: pairs.map((w) => w.id) }, answer: pairs.map((w) => w.id) });
+  // câu: mỗi bài góp ít nhất một câu
+  const sentences = specs.map((s) => shuffle(s.sentences, rand));
+  const fills = sentences.map((l) => l.find((x) => x.blank)).filter((x): x is SentenceSpec => !!x).slice(0, 2);
+  fills.forEach((s) => out.push(fillBlank(id(), s, ctx.makeSentence(s.zh, s.vi), ctx)));
+  const used = new Set(fills.map((f) => f.zh));
+  const ords = sentences
+    .flat()
+    .filter((s) => !used.has(s.zh))
+    .map((s) => ctx.makeSentence(s.zh, s.vi))
+    .filter(orderable);
+  shuffle(ords, rand)
+    .slice(0, 2)
+    .forEach((s) => out.push(orderWords(id(), s, rand)));
   return shuffle(out, rand);
 }

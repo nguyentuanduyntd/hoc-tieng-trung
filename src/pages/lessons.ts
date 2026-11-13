@@ -3,12 +3,12 @@
 
 import { getLevelInfo } from "../config/hsk.ts";
 import { checkAnswer, shuffle, type Response } from "../lib/grading.ts";
-import { completeUnit, isUnlocked, nextLesson, passed, unitProgress } from "../lib/lessons.ts";
+import { completeUnit, findCheckpoint, isUnlocked, lessonOrder, nextLesson, passed, unitProgress } from "../lib/lessons.ts";
 import { applyTone } from "../lib/pinyin.ts";
 import { addWordCards } from "../lib/srs.ts";
 import { TONE_MARKS } from "../lib/tones.ts";
 import { loadLessons, setProgress, state } from "../state.ts";
-import type { Exercise, Lesson, Unit, Word } from "../types.ts";
+import type { Checkpoint, Exercise, Lesson, Unit, Word } from "../types.ts";
 import { esc, zhTokens, zhWord } from "../ui/html.ts";
 import { resourceHint } from "../ui/resourceHint.ts";
 import { speak, ttsSupported } from "../ui/speech.ts";
@@ -32,9 +32,27 @@ export async function mountLessonsList() {
   const done = state.progress.completedLessonIds;
   const next = nextLesson(file, done);
   const lessonById = new Map(file.lessons.map((l) => [l.id, l]));
+  // số thứ tự bài liên tục qua các unit (checkpoint đặt sau bài 3, 6, 9…)
+  const globalNo = new Map(lessonOrder(file).map((id, i) => [id, i + 1]));
+  const cpAfter = new Map((file.checkpoints ?? []).map((c) => [c.lessonIds[c.lessonIds.length - 1], c]));
+  const checkpointRow = (c: Checkpoint) => {
+    const open = isUnlocked(file, c.id, done);
+    const isDone = done.includes(c.id);
+    const from = globalNo.get(c.lessonIds[0]);
+    const to = globalNo.get(c.lessonIds[c.lessonIds.length - 1]);
+    const inner = `<span class="lesson-num cp">${isDone ? "✓" : open ? "🏁" : "🔒"}</span>
+      <span class="lesson-info"><strong>Checkpoint ${c.order}</strong>
+      <span class="small">Ôn tập bài ${from}–${to} · đạt ≥ ${Math.round(c.passRatio * 100)}% để mở bài tiếp theo</span></span>
+      ${c.id === next ? `<span class="badge accent">Tiếp theo</span>` : ""}`;
+    return `<li>${
+      open
+        ? `<a class="card lesson-item checkpoint ${isDone ? "done" : ""} ${c.id === next ? "next" : ""}" href="#/bai-hoc/${c.id}">${inner}</a>`
+        : `<div class="card lesson-item checkpoint locked" aria-disabled="true" title="Học xong các bài trước để mở">${inner}</div>`
+    }</li>`;
+  };
   root.innerHTML = `
     <h1>Lộ trình ${esc(getLevelInfo(state.progress.hskStandard, 1)?.label ?? "HSK 1")}</h1>
-    <p class="lead">Mỗi bài 5–10 phút: từ mới → ngữ pháp → bài tập trộn → tổng kết (từ mới tự vào ôn tập). Bài mở lần lượt; đã biết rồi thì “thi vượt” cả unit.</p>
+    <p class="lead">${file.units.length} unit · ${file.lessons.length} bài · ${(file.checkpoints ?? []).length} checkpoint. Mỗi bài 5–10 phút: từ mới → ngữ pháp → bài tập trộn → tổng kết (từ mới tự vào ôn tập). Cứ 3 bài có một checkpoint ôn tập. Bài mở lần lượt; đã biết rồi thì “thi vượt” cả unit.</p>
     ${file.units
       .map((u) => {
         const pr = unitProgress(u, done);
@@ -47,12 +65,12 @@ export async function mountLessonsList() {
           <div class="progress" aria-hidden="true"><span style="width:${(pr.done / pr.total) * 100}%"></span></div>
           <ol class="lesson-list">
             ${u.lessonIds
-              .map((id, i) => {
+              .map((id) => {
                 const l = lessonById.get(id)!;
                 const open = isUnlocked(file, id, done);
                 const isDone = done.includes(id);
                 const words = l.newWordIds.map((w) => state.wordsById.get(w)?.hanzi ?? "").join(" · ");
-                const inner = `<span class="lesson-num">${isDone ? "✓" : open ? i + 1 : "🔒"}</span>
+                const inner = `<span class="lesson-num">${isDone ? "✓" : open ? globalNo.get(id) : "🔒"}</span>
                   <span class="lesson-info"><strong>${esc(l.title)}</strong>
                   <span class="muted small" lang="zh-CN">${esc(words)}</span>
                   ${l.grammar ? `<span class="small">Ngữ pháp: ${esc(l.grammar.pattern)}</span>` : ""}</span>
@@ -61,14 +79,13 @@ export async function mountLessonsList() {
                   open
                     ? `<a class="card lesson-item ${isDone ? "done" : ""} ${id === next ? "next" : ""}" href="#/bai-hoc/${id}">${inner}</a>`
                     : `<div class="card lesson-item locked" aria-disabled="true" title="Học xong bài trước để mở">${inner}</div>`
-                }</li>`;
+                }</li>${cpAfter.has(id) ? checkpointRow(cpAfter.get(id)!) : ""}`;
               })
               .join("")}
           </ol>
         </section>`;
       })
-      .join("")}
-    <p class="muted small">Các unit tiếp theo của HSK 1 sẽ được bổ sung dần.</p>`;
+      .join("")}`;
 }
 
 // ---------- Trình chạy bài ----------
@@ -82,9 +99,12 @@ interface Item {
 }
 
 interface Run {
-  mode: "lesson" | "skip";
+  mode: "lesson" | "skip" | "checkpoint";
+  /** Tham số route (để làm lại). */
+  param: string;
   lesson?: Lesson;
   unit?: Unit;
+  checkpoint?: Checkpoint;
   phase: Phase;
   queue: Item[];
   pos: number;
@@ -122,21 +142,28 @@ export async function mountLessonPlayer(param: string) {
   if (skipMatch) {
     const unit = file.units.find((u) => u.unit === Number(skipMatch[1]));
     if (!unit) return void (root.innerHTML = `<div class="notice">Không có unit này.</div>`);
-    run = newRun("skip", unit.skipTest, { unit });
+    run = newRun("skip", unit.skipTest, { unit }, param);
+    run.phase = "exercises";
+  } else if (findCheckpoint(file, param)) {
+    const checkpoint = findCheckpoint(file, param)!;
+    if (!isUnlocked(file, checkpoint.id, state.progress.completedLessonIds))
+      return void (root.innerHTML = `<div class="notice">Checkpoint này chưa mở — học xong 3 bài trước đó. <a href="#/bai-hoc">Quay lại lộ trình</a></div>`);
+    run = newRun("checkpoint", checkpoint.exercises, { checkpoint }, param);
     run.phase = "exercises";
   } else {
     const lesson = file.lessons.find((l) => l.id === param);
     if (!lesson) return void (root.innerHTML = `<div class="notice">Không tìm thấy bài. <a href="#/bai-hoc">Quay lại lộ trình</a></div>`);
     if (!isUnlocked(file, lesson.id, state.progress.completedLessonIds))
-      return void (root.innerHTML = `<div class="notice">Bài này chưa mở — học xong bài trước hoặc thi vượt cả unit. <a href="#/bai-hoc">Quay lại lộ trình</a></div>`);
-    run = newRun("lesson", lesson.exercises, { lesson });
+      return void (root.innerHTML = `<div class="notice">Bài này chưa mở — học xong bài hoặc checkpoint trước đó, hoặc thi vượt cả unit. <a href="#/bai-hoc">Quay lại lộ trình</a></div>`);
+    run = newRun("lesson", lesson.exercises, { lesson }, param);
   }
   render();
 }
 
-function newRun(mode: Run["mode"], exercises: Exercise[], ctx: { lesson?: Lesson; unit?: Unit }): Run {
+function newRun(mode: Run["mode"], exercises: Exercise[], ctx: { lesson?: Lesson; unit?: Unit; checkpoint?: Checkpoint }, param: string): Run {
   return {
     mode,
+    param,
     ...ctx,
     phase: "words",
     queue: exercises.map((ex) => ({ ex, retry: false })),
@@ -158,7 +185,12 @@ const root = () => document.getElementById("player-root");
 
 function header(): string {
   if (!run) return "";
-  const title = run.mode === "skip" ? `Thi vượt Unit ${run.unit!.unit}` : `Bài ${run.lesson!.order}: ${run.lesson!.title}`;
+  const title =
+    run.mode === "skip"
+      ? `Thi vượt Unit ${run.unit!.unit}`
+      : run.mode === "checkpoint"
+        ? `Checkpoint ${run.checkpoint!.order}`
+        : `Unit ${run.lesson!.unit} · Bài ${run.lesson!.order}: ${run.lesson!.title}`;
   const doneCount = run.queue.slice(0, run.pos).filter((i) => !i.retry).length;
   const pct = run.phase === "exercises" ? (doneCount / run.total) * 100 : run.phase === "summary" ? 100 : 0;
   return `<div class="player-head">
@@ -459,13 +491,20 @@ function finishRun(r: HTMLElement) {
       }),
       { activity: "lessons", silent: true },
     );
+  } else if (R.mode === "checkpoint") {
+    const c = R.checkpoint!;
+    if (passed(R.firstTryCorrect, scored, c.passRatio))
+      setProgress(
+        (p) => ({ ...p, completedLessonIds: p.completedLessonIds.includes(c.id) ? p.completedLessonIds : [...p.completedLessonIds, c.id] }),
+        { activity: true, silent: true },
+      );
   } else if (passed(R.firstTryCorrect, scored, R.unit!.passRatio)) {
     const u = R.unit!;
     const ids = state.lessons!.lessons.filter((l) => u.lessonIds.includes(l.id)).flatMap((l) => l.newWordIds);
     setProgress(
       (p) => ({
         ...p,
-        completedLessonIds: completeUnit(u, p.completedLessonIds),
+        completedLessonIds: completeUnit(u, p.completedLessonIds, state.lessons?.checkpoints ?? []),
         cards: ids.reduce((cards, id, i) => addWordCards(cards, id, p.srsCardTypes, new Date(Date.now() + i)), p.cards),
       }),
       { activity: "lessons", silent: true },
@@ -480,6 +519,26 @@ function renderSummary(r: HTMLElement) {
   const pct = scored ? Math.round((R.firstTryCorrect / scored) * 100) : 100;
   const file = state.lessons!;
   const nxt = nextLesson(file, state.progress.completedLessonIds);
+  if (R.mode === "checkpoint") {
+    const c = R.checkpoint!;
+    const ok = passed(R.firstTryCorrect, scored, c.passRatio);
+    const lessons = c.lessonIds.map((id) => file.lessons.find((l) => l.id === id)).filter((l): l is Lesson => !!l);
+    r.innerHTML = `${header()}<div class="card summary center">
+      <h1>${ok ? "🏁 Qua checkpoint!" : "Chưa đạt"}</h1>
+      <div class="stat">${pct}%<span class="muted" style="font-size:1rem"> (cần ${Math.round(c.passRatio * 100)}%)</span></div>
+      ${
+        ok
+          ? `<p>Bạn đã nắm chắc 3 bài vừa học. Bài tiếp theo đã mở.</p>`
+          : `<p>Ôn lại các bài dưới đây rồi làm lại checkpoint nhé:</p>
+             <p>${lessons.map((l) => `<a class="btn small" href="#/bai-hoc/${l.id}">Unit ${l.unit} · Bài ${l.order}: ${esc(l.title)}</a>`).join(" ")}</p>`
+      }
+      <div class="row center">
+        <a class="btn" href="#/bai-hoc">Về lộ trình</a>
+        <button class="btn ${ok ? "" : "primary"}" data-retry-run>↻ Làm lại</button>
+        ${ok && nxt ? `<a class="btn primary" href="#/bai-hoc/${nxt}">Bài tiếp theo →</a>` : ""}
+      </div></div>`;
+    return;
+  }
   if (R.mode === "skip") {
     const ok = passed(R.firstTryCorrect, scored, R.unit!.passRatio);
     r.innerHTML = `${header()}<div class="card summary center">
@@ -512,6 +571,7 @@ export function installPlayerHandlers() {
   document.addEventListener("click", (e) => {
     if (!root() || !run) return;
     const t = e.target as HTMLElement;
+    if (t.closest("[data-retry-run]")) return void mountLessonPlayer(run.param);
     if (t.closest("[data-next], [data-continue]")) return advance();
     if (t.closest("[data-check]")) return advance();
     const opt = t.closest<HTMLElement>("[data-opt]");

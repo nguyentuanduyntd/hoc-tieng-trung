@@ -1,0 +1,91 @@
+{
+  "hskLevel": 1,
+  "unit": 4,
+  "title": "Gia đình & bạn bè",
+  "lessons": [
+    {
+      "id": "hsk1-u4-l1",
+      "title": "Anh chị em",
+      "words": ["的", "哥哥", "姐姐", "弟弟", "妹妹", "儿子", "女儿", "家人"],
+      "grammar": {
+        "pattern": "A 的 B",
+        "explanationVi": "A 的 B = B của A: 老师的书 (sách của thầy). Với người thân, bạn bè hay nơi thân thuộc thường bỏ 的: 我妈妈, 我哥哥, 我们学校. Đại từ + 的 + đồ vật thì giữ 的: 我的书.",
+        "examples": [
+          { "zh": "这是我的书。", "vi": "Đây là sách của tôi." },
+          { "zh": "我哥哥是医生。", "vi": "Anh trai tôi là bác sĩ." },
+          { "zh": "她是老师的女儿。", "vi": "Cô ấy là con gái của thầy giáo." }
+        ]
+      },
+      "sentences": [
+        { "zh": "这是我的手机。", "vi": "Đây là điện thoại của tôi.", "blank": "的" },
+        { "zh": "我姐姐是老师。", "vi": "Chị gái tôi là giáo viên.", "blank": "姐姐" },
+        { "zh": "他有一个儿子和一个女儿。", "vi": "Ông ấy có một con trai và một con gái.", "blank": "儿子" },
+        { "zh": "我弟弟八岁。", "vi": "Em trai tôi tám tuổi.", "blank": "弟弟" }
+      ],
+      "speak": ["我哥哥是医生。", "这是我的书。"]
+    },
+    {
+      "id": "hsk1-u4-l2",
+      "title": "Bạn trai, bạn gái",
+      "words": ["男", "女", "朋友", "男朋友", "女朋友", "先生", "女士", "小姐"],
+      "grammar": {
+        "pattern": "先生 / 女士 / 小姐",
+        "explanationVi": "Gọi lịch sự: họ + 先生 (ông, anh), họ + 女士 (bà, chị – trang trọng), 小姐 (cô – với phụ nữ trẻ; ở nhiều nơi nên dùng 女士 cho lịch sự). 男 = nam, 女 = nữ: 男朋友 bạn trai, 女朋友 bạn gái, 女老师 cô giáo.",
+        "examples": [
+          { "zh": "先生，您好！", "vi": "Chào ông!" },
+          { "zh": "她是我的女朋友。", "vi": "Cô ấy là bạn gái của tôi." },
+          { "zh": "这个男人是谁？", "vi": "Người đàn ông này là ai?" }
+        ]
+      },
+      "sentences": [
+        { "zh": "他是我的男朋友。", "vi": "Anh ấy là bạn trai của tôi.", "blank": "男朋友" },
+        { "zh": "我们是好朋友。", "vi": "Chúng tôi là bạn tốt.", "blank": "朋友" },
+        { "zh": "女士们，先生们，你们好！", "vi": "Thưa quý bà, quý ông, xin chào!", "blank": "先生" },
+        { "zh": "我们学校有很多女老师。", "vi": "Trường chúng tôi có nhiều cô giáo.", "blank": "女" }
+      ],
+      "speak": ["先生，您好！", "我们是好朋友。"]
+    },
+    {
+      "id": "hsk1-u4-l3",
+      "title": "Chúng tôi, các bạn",
+      "words": ["我们", "你们", "他们", "她们", "它", "它们", "们", "大家"],
+      "grammar": {
+        "pattern": "Đại từ / người + 们",
+        "explanationVi": "Thêm 们 sau đại từ hoặc danh từ chỉ người để chỉ số nhiều: 我们, 你们, 他们 (nhóm có nam), 她们 (toàn nữ), 它们 (con vật, đồ vật), 同学们. Đã có số đếm thì không thêm 们: 三个学生 (không nói 三个学生们). 大家 = mọi người.",
+        "examples": [
+          { "zh": "我们是中国人。", "vi": "Chúng tôi là người Trung Quốc." },
+          { "zh": "大家好！", "vi": "Chào mọi người!" },
+          { "zh": "我家有猫，它很小。", "vi": "Nhà tôi có mèo, nó rất nhỏ." }
+        ]
+      },
+      "sentences": [
+        { "zh": "你们好！", "vi": "Chào các bạn!", "blank": "你们" },
+        { "zh": "她们是我的同学。", "vi": "Các cô ấy là bạn học của tôi.", "blank": "她们" },
+        { "zh": "同学们，大家好！", "vi": "Các bạn học sinh, chào mọi người!", "blank": "大家" },
+        { "zh": "我爱我的猫，它很漂亮。", "vi": "Tôi yêu con mèo của tôi, nó rất đẹp.", "blank": "它" }
+      ],
+      "speak": ["大家好！", "我们是中国人。"]
+    },
+    {
+      "id": "hsk1-u4-l4",
+      "title": "Rất vui được làm quen",
+      "words": ["同学", "小朋友", "孩子", "认识", "高兴", "很", "爱", "喜欢"],
+      "grammar": {
+        "pattern": "很 + tính từ",
+        "explanationVi": "Tính từ làm vị ngữ trực tiếp, KHÔNG cần 是: 我很高兴 (không nói 我是高兴). 很 ở đây thường chỉ để câu tự nhiên, nghĩa “rất” khá nhẹ. Phủ định: 不 + tính từ: 我不忙. 喜欢 / 爱 + danh từ hoặc động từ: 我喜欢看书.",
+        "examples": [
+          { "zh": "认识你很高兴。", "vi": "Rất vui được làm quen với bạn." },
+          { "zh": "她的孩子很漂亮。", "vi": "Con của cô ấy rất xinh." },
+          { "zh": "我喜欢我的同学。", "vi": "Tôi thích các bạn học của tôi." }
+        ]
+      },
+      "sentences": [
+        { "zh": "很高兴认识你。", "vi": "Rất vui được làm quen với bạn.", "blank": "认识" },
+        { "zh": "我很喜欢猫。", "vi": "Tôi rất thích mèo.", "blank": "喜欢", "notOptions": ["爱"] },
+        { "zh": "小朋友们很高兴。", "vi": "Các bạn nhỏ rất vui.", "blank": "高兴" },
+        { "zh": "我爱我的孩子。", "vi": "Tôi yêu con của tôi.", "blank": "爱", "notOptions": ["喜欢"] }
+      ],
+      "speak": ["认识你很高兴。", "很高兴认识你。"]
+    }
+  ]
+}

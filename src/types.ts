@@ -106,10 +106,27 @@ export interface Unit {
   passRatio: number;
 }
 
+/** Checkpoint ôn tập sau mỗi 3 bài (SPEC 3.5 v2): đạt ≥ passRatio mới mở bài tiếp theo. */
+export interface Checkpoint {
+  id: string;
+  hskLevel: number;
+  /** Số thứ tự checkpoint (1, 2, …). */
+  order: number;
+  /** Unit chứa bài cuối cùng mà checkpoint ôn lại (để hiển thị trong lộ trình). */
+  unit: number;
+  title: string;
+  /** 3 bài được ôn; checkpoint đứng ngay sau bài cuối. */
+  lessonIds: string[];
+  exercises: Exercise[];
+  passRatio: number;
+}
+
 export interface LessonsFile {
   meta: { generatedAt: string; description: string };
   units: Unit[];
   lessons: Lesson[];
+  /** Có thể thiếu ở dữ liệu cũ. */
+  checkpoints?: Checkpoint[];
 }
 
 export interface ReadingSentence {

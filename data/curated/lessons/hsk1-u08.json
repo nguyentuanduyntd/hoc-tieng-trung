@@ -1,0 +1,112 @@
+{
+  "hskLevel": 1,
+  "unit": 8,
+  "title": "Trường học & công việc",
+  "lessons": [
+    {
+      "id": "hsk1-u8-l1",
+      "title": "Đi học",
+      "words": ["学校", "学习", "学", "上学", "上课", "下课", "课"],
+      "grammar": {
+        "pattern": "在 + nơi + động từ",
+        "explanationVi": "Nói làm việc gì ở đâu: chủ ngữ + 在 + nơi chốn + động từ: 我在学校学习. Cụm 在 … đứng TRƯỚC động từ (khác tiếng Việt “học ở trường”).",
+        "examples": [
+          { "zh": "我在学校学习汉语。", "vi": "Tôi học tiếng Trung ở trường." },
+          { "zh": "我们八点上课。", "vi": "Chúng tôi vào học lúc 8 giờ." },
+          { "zh": "下课了，我们回家吧。", "vi": "Tan học rồi, chúng ta về nhà thôi." }
+        ]
+      },
+      "sentences": [
+        { "zh": "他在大学学习。", "vi": "Anh ấy học ở trường đại học.", "blank": "学习", "notOptions": ["学", "上课"] },
+        { "zh": "我们今天没有课。", "vi": "Hôm nay chúng tôi không có tiết học.", "blank": "课", "notOptions": ["学习", "学"] },
+        { "zh": "你几点下课？", "vi": "Mấy giờ bạn tan học?", "blank": "下课" },
+        { "zh": "孩子们七点去上学。", "vi": "Bọn trẻ đi học lúc 7 giờ.", "blank": "上学" }
+      ],
+      "speak": ["我在学校学习汉语。", "你几点下课？"]
+    },
+    {
+      "id": "hsk1-u8-l2",
+      "title": "Đọc và viết chữ Hán",
+      "words": ["会", "书", "读", "读书", "写", "字", "汉字", "中文"],
+      "grammar": {
+        "pattern": "会 + động từ",
+        "explanationVi": "会 + động từ = biết làm (nhờ học, luyện mà biết): 我会说汉语, 他会写汉字. Phủ định: 不会. Hỏi: 你会…吗？ 会 còn có nghĩa “sẽ” (明天会下雨) — học ở Unit 10.",
+        "examples": [
+          { "zh": "你会写汉字吗？", "vi": "Bạn biết viết chữ Hán không?" },
+          { "zh": "我会说一点儿中文。", "vi": "Tôi biết nói một chút tiếng Trung." },
+          { "zh": "他不会读这个字。", "vi": "Anh ấy không biết đọc chữ này." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我会写我的中文名字。", "vi": "Tôi biết viết tên tiếng Trung của mình.", "blank": "会" },
+        { "zh": "这本书很好看。", "vi": "Quyển sách này rất hay.", "blank": "书" },
+        { "zh": "这个字怎么读？", "vi": "Chữ này đọc thế nào?", "blank": "读" },
+        { "zh": "我喜欢写汉字。", "vi": "Tôi thích viết chữ Hán.", "blank": "写" }
+      ],
+      "speak": ["你会写汉字吗？", "我会说一点儿中文。"]
+    },
+    {
+      "id": "hsk1-u8-l3",
+      "title": "Tiểu học, trung học, đại học",
+      "words": ["小学", "中学", "大学", "小学生", "中学生", "大学生", "书店"],
+      "grammar": {
+        "pattern": "在 + 小学 / 中学 / 大学 + 上学",
+        "explanationVi": "Nói ai học ở cấp nào: 在 + 小学 / 中学 / 大学 + 上学 (hoặc 学习). Danh từ chỉ người: 小学生 (học sinh tiểu học), 中学生 (học sinh trung học), 大学生 (sinh viên).",
+        "examples": [
+          { "zh": "我弟弟在小学上学。", "vi": "Em trai tôi học tiểu học." },
+          { "zh": "她是大学生。", "vi": "Cô ấy là sinh viên." },
+          { "zh": "学校前面有一个书店。", "vi": "Trước trường có một hiệu sách." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我妹妹是中学生。", "vi": "Em gái tôi là học sinh trung học.", "blank": "中学生" },
+        { "zh": "他在北京上大学。", "vi": "Anh ấy học đại học ở Bắc Kinh.", "blank": "大学" },
+        { "zh": "我去书店买书。", "vi": "Tôi đi hiệu sách mua sách.", "blank": "书店" },
+        { "zh": "这个小学很大。", "vi": "Trường tiểu học này rất to.", "blank": "小学" }
+      ],
+      "speak": ["我弟弟在小学上学。", "她是大学生。"]
+    },
+    {
+      "id": "hsk1-u8-l4",
+      "title": "Đi làm",
+      "words": ["工作", "公司", "上班", "下班", "忙", "休息", "正在"],
+      "grammar": {
+        "pattern": "正在 + động từ (+ 呢)",
+        "explanationVi": "正在 / 在 + động từ = đang làm gì (hành động đang diễn ra): 我正在工作. Cuối câu có thể thêm 呢: 他正在休息呢.",
+        "examples": [
+          { "zh": "爸爸正在工作。", "vi": "Bố đang làm việc." },
+          { "zh": "我正在休息呢。", "vi": "Tôi đang nghỉ ngơi đây." },
+          { "zh": "你在做什么？", "vi": "Bạn đang làm gì?" }
+        ]
+      },
+      "sentences": [
+        { "zh": "我妈妈在公司工作。", "vi": "Mẹ tôi làm việc ở công ty.", "blank": "公司" },
+        { "zh": "我今天很忙。", "vi": "Hôm nay tôi rất bận.", "blank": "忙" },
+        { "zh": "你几点下班？", "vi": "Mấy giờ bạn tan làm?", "blank": "下班" },
+        { "zh": "他们正在休息。", "vi": "Họ đang nghỉ ngơi.", "blank": "休息" }
+      ],
+      "speak": ["爸爸正在工作。", "我今天很忙。"]
+    },
+    {
+      "id": "hsk1-u8-l5",
+      "title": "Xin hỏi…",
+      "words": ["问", "问题", "请问", "知道", "对", "说", "说话"],
+      "grammar": {
+        "pattern": "知道 và 认识",
+        "explanationVi": "知道 = biết một sự việc, thông tin: 我知道他的名字. 认识 = quen biết người (hoặc biết mặt chữ): 我认识他. Không dùng 知道 với nghĩa “quen biết ai”.",
+        "examples": [
+          { "zh": "我知道。", "vi": "Tôi biết." },
+          { "zh": "你知道他叫什么名字吗？", "vi": "Bạn có biết anh ấy tên là gì không?" },
+          { "zh": "请问，这是哪儿？", "vi": "Xin hỏi, đây là đâu?" }
+        ]
+      },
+      "sentences": [
+        { "zh": "我可以问你一个问题吗？", "vi": "Tôi có thể hỏi bạn một câu được không?", "blank": "问题" },
+        { "zh": "请问，火车站在哪儿？", "vi": "Xin hỏi, ga tàu ở đâu?", "blank": "请问" },
+        { "zh": "对，我是老师。", "vi": "Đúng, tôi là giáo viên.", "blank": "对" },
+        { "zh": "我不知道。", "vi": "Tôi không biết.", "blank": "知道", "notOptions": ["认识"] }
+      ],
+      "speak": ["我知道。", "请问，这是哪儿？"]
+    }
+  ]
+}

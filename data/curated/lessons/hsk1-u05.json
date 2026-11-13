@@ -1,0 +1,91 @@
+{
+  "hskLevel": 1,
+  "unit": 5,
+  "title": "Ăn uống",
+  "lessons": [
+    {
+      "id": "hsk1-u5-l1",
+      "title": "Ăn gì, uống gì?",
+      "words": ["吃", "喝", "饭", "米饭", "菜", "茶", "水"],
+      "grammar": {
+        "pattern": "Động từ + 什么？",
+        "explanationVi": "Câu hỏi với 什么 giữ nguyên trật tự câu trần thuật, chỉ thay phần muốn hỏi bằng 什么: 你吃什么？ – 我吃米饭. Không đưa 什么 lên đầu câu.",
+        "examples": [
+          { "zh": "你吃什么？", "vi": "Bạn ăn gì?" },
+          { "zh": "我喝茶，你喝什么？", "vi": "Tôi uống trà, bạn uống gì?" },
+          { "zh": "中国菜很好吃。", "vi": "Món Trung Quốc rất ngon." }
+        ]
+      },
+      "sentences": [
+        { "zh": "你喝什么？", "vi": "Bạn uống gì?", "blank": "喝" },
+        { "zh": "我吃米饭。", "vi": "Tôi ăn cơm.", "blank": "米饭", "notOptions": ["饭"] },
+        { "zh": "我想喝水。", "vi": "Tôi muốn uống nước.", "blank": "水" },
+        { "zh": "这个菜很好吃。", "vi": "Món này rất ngon.", "blank": "菜" }
+      ],
+      "speak": ["你吃什么？", "我喝茶，你喝什么？"]
+    },
+    {
+      "id": "hsk1-u5-l2",
+      "title": "Tôi muốn ăn sủi cảo",
+      "words": ["想", "包子", "饺子", "面条儿", "面包", "鸡蛋", "牛奶"],
+      "grammar": {
+        "pattern": "想 + động từ",
+        "explanationVi": "想 + động từ = muốn làm gì (mong muốn, nói nhẹ nhàng): 我想吃饺子. Phủ định: 不想: 我不想喝牛奶. 想 + người = nhớ ai: 我想妈妈.",
+        "examples": [
+          { "zh": "我想吃饺子。", "vi": "Tôi muốn ăn sủi cảo." },
+          { "zh": "你想喝什么？", "vi": "Bạn muốn uống gì?" },
+          { "zh": "我不想吃面包。", "vi": "Tôi không muốn ăn bánh mì." }
+        ]
+      },
+      "sentences": [
+        { "zh": "早上我吃面包，喝牛奶。", "vi": "Buổi sáng tôi ăn bánh mì, uống sữa.", "blank": "牛奶" },
+        { "zh": "我想吃包子。", "vi": "Tôi muốn ăn bánh bao.", "blank": "想", "notOptions": ["要"] },
+        { "zh": "妈妈做了很多饺子。", "vi": "Mẹ đã làm rất nhiều sủi cảo.", "blank": "饺子" },
+        { "zh": "我不想吃鸡蛋。", "vi": "Tôi không muốn ăn trứng.", "blank": "鸡蛋" }
+      ],
+      "speak": ["我想吃饺子。", "我不想吃面包。"]
+    },
+    {
+      "id": "hsk1-u5-l3",
+      "title": "Bữa sáng, trưa, tối",
+      "words": ["太", "苹果", "水果", "好吃", "早饭", "午饭", "晚饭", "做饭"],
+      "grammar": {
+        "pattern": "太……了",
+        "explanationVi": "太 + tính từ + 了 diễn tả mức độ cao, thường kèm cảm xúc: 太好了！(tuyệt quá), 太贵了 (đắt quá). Phủ định 不太 + tính từ = không … lắm: 不太好吃.",
+        "examples": [
+          { "zh": "太好吃了！", "vi": "Ngon quá!" },
+          { "zh": "这个苹果太大了。", "vi": "Quả táo này to quá." },
+          { "zh": "今天的晚饭不太好吃。", "vi": "Bữa tối hôm nay không ngon lắm." }
+        ]
+      },
+      "sentences": [
+        { "zh": "妈妈在做饭。", "vi": "Mẹ đang nấu cơm.", "blank": "做饭" },
+        { "zh": "我早上七点吃早饭。", "vi": "Tôi ăn sáng lúc 7 giờ.", "blank": "早饭" },
+        { "zh": "中午我们在学校吃午饭。", "vi": "Buổi trưa chúng tôi ăn trưa ở trường.", "blank": "午饭" },
+        { "zh": "我很喜欢吃水果。", "vi": "Tôi rất thích ăn hoa quả.", "blank": "水果" }
+      ],
+      "speak": ["太好吃了！", "这个苹果太大了。"]
+    },
+    {
+      "id": "hsk1-u5-l4",
+      "title": "Ở nhà hàng",
+      "words": ["饭店", "饭馆", "杯子", "要", "一点儿", "请"],
+      "grammar": {
+        "pattern": "要 + món · 请 + động từ",
+        "explanationVi": "Gọi món, mua hàng: 我要 + số lượng + món: 我要一个包子. 请 + động từ = mời / xin vui lòng: 请坐, 请喝茶. 一点儿 đứng SAU động từ hoặc tính từ = một chút: 喝一点儿水.",
+        "examples": [
+          { "zh": "我要两个包子。", "vi": "Tôi lấy hai cái bánh bao." },
+          { "zh": "请坐，请喝茶。", "vi": "Mời ngồi, mời uống trà." },
+          { "zh": "你吃一点儿吧。", "vi": "Bạn ăn một chút đi." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我们去饭店吃饭吧。", "vi": "Chúng ta đi nhà hàng ăn cơm nhé.", "blank": "饭店" },
+        { "zh": "请喝一点儿水。", "vi": "Mời uống chút nước.", "blank": "一点儿" },
+        { "zh": "这个杯子是我的。", "vi": "Cái cốc này là của tôi.", "blank": "杯子" },
+        { "zh": "你要什么？", "vi": "Bạn lấy gì?", "blank": "要", "notOptions": ["想"] }
+      ],
+      "speak": ["我要两个包子。", "请坐，请喝茶。"]
+    }
+  ]
+}

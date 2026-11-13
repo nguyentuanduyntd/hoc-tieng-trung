@@ -1,0 +1,91 @@
+{
+  "hskLevel": 1,
+  "unit": 7,
+  "title": "Nơi chốn & đồ vật",
+  "lessons": [
+    {
+      "id": "hsk1-u7-l1",
+      "title": "Trên, dưới, trong, ngoài",
+      "words": ["在", "里", "上", "下", "外", "前", "后"],
+      "grammar": {
+        "pattern": "Vật + 在 + nơi + 上 / 下 / 里",
+        "explanationVi": "Chỉ vị trí bằng danh từ + từ phương vị: 房间里 (trong phòng), 桌子上 (trên bàn), 椅子下 (dưới ghế). Mẫu câu: vật + 在 + nơi chốn: 书在桌子上. Tên địa danh, tên nước không cần 里: 在北京.",
+        "examples": [
+          { "zh": "书在桌子上。", "vi": "Sách ở trên bàn." },
+          { "zh": "猫在椅子下。", "vi": "Con mèo ở dưới ghế." },
+          { "zh": "妈妈在房间里。", "vi": "Mẹ ở trong phòng." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我的手机在桌子上。", "vi": "Điện thoại của tôi ở trên bàn.", "blank": "上" },
+        { "zh": "他们在学校里。", "vi": "Họ ở trong trường.", "blank": "里" },
+        { "zh": "狗在外边。", "vi": "Con chó ở bên ngoài.", "blank": "在" },
+        { "zh": "学校前有很多车。", "vi": "Trước trường có nhiều xe.", "blank": "前" }
+      ],
+      "speak": ["书在桌子上。", "妈妈在房间里。"]
+    },
+    {
+      "id": "hsk1-u7-l2",
+      "title": "Phía trước, phía sau",
+      "words": ["边", "这边", "那边", "外边", "前面", "后面"],
+      "grammar": {
+        "pattern": "A 在 B 前面 / 后面",
+        "explanationVi": "Từ phương vị hai âm tiết (前面, 后面, 外边, 这边, 那边) có thể đứng một mình: 前面有一个商店. Mẫu: A 在 B 前面 (A ở trước B), A 在 B 后面 (A ở sau B).",
+        "examples": [
+          { "zh": "超市在学校后面。", "vi": "Siêu thị ở phía sau trường." },
+          { "zh": "前面有一个饭馆。", "vi": "Phía trước có một quán ăn." },
+          { "zh": "请到这边来。", "vi": "Mời đến bên này." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我家在医院后面。", "vi": "Nhà tôi ở phía sau bệnh viện.", "blank": "后面" },
+        { "zh": "外边很冷。", "vi": "Bên ngoài rất lạnh.", "blank": "外边" },
+        { "zh": "火车站在那边。", "vi": "Ga tàu ở bên kia.", "blank": "那边" },
+        { "zh": "前面有一个超市。", "vi": "Phía trước có một siêu thị.", "blank": "前面" }
+      ],
+      "speak": ["超市在学校后面。", "前面有一个饭馆。"]
+    },
+    {
+      "id": "hsk1-u7-l3",
+      "title": "Bạn sống ở đâu?",
+      "words": ["这儿", "那儿", "哪儿", "这里", "那里", "哪里", "住"],
+      "grammar": {
+        "pattern": "… 在哪儿？· 住在 …",
+        "explanationVi": "哪儿 / 哪里 = ở đâu (哪儿 khẩu ngữ phía Bắc, 哪里 trung tính). 这儿 / 这里 = ở đây; 那儿 / 那里 = ở đó. Hỏi chỗ ở: 你住在哪儿？ – 我住在北京.",
+        "examples": [
+          { "zh": "你住在哪儿？", "vi": "Bạn sống ở đâu?" },
+          { "zh": "我在这儿。", "vi": "Tôi ở đây." },
+          { "zh": "那里有很多人。", "vi": "Ở đó có rất nhiều người." }
+        ]
+      },
+      "sentences": [
+        { "zh": "你家在哪儿？", "vi": "Nhà bạn ở đâu?", "blank": "哪儿" },
+        { "zh": "我住在学校里。", "vi": "Tôi sống trong trường.", "blank": "住" },
+        { "zh": "请在这里写名字。", "vi": "Xin viết tên ở đây.", "blank": "这里" },
+        { "zh": "那儿有一个电影院。", "vi": "Ở đó có một rạp chiếu phim.", "blank": "那儿" }
+      ],
+      "speak": ["你住在哪儿？", "我在这儿。"]
+    },
+    {
+      "id": "hsk1-u7-l4",
+      "title": "Trong phòng có gì?",
+      "words": ["桌子", "椅子", "房间", "北京", "有的", "有些", "一些"],
+      "grammar": {
+        "pattern": "Nơi chốn + 有 + vật",
+        "explanationVi": "Nói ở đâu có gì: nơi chốn + 有 + (số lượng) + vật: 桌子上有一本书. 有的…，有的… = có cái / có người … có cái / có người …. 一些 / 有些 = một số, một ít.",
+        "examples": [
+          { "zh": "桌子上有一本书。", "vi": "Trên bàn có một quyển sách." },
+          { "zh": "房间里有一些椅子。", "vi": "Trong phòng có mấy cái ghế." },
+          { "zh": "有的人喜欢喝茶，有的人喜欢喝水。", "vi": "Có người thích uống trà, có người thích uống nước." }
+        ]
+      },
+      "sentences": [
+        { "zh": "北京有很多人。", "vi": "Bắc Kinh có rất nhiều người.", "blank": "北京" },
+        { "zh": "我的房间很小。", "vi": "Phòng của tôi rất nhỏ.", "blank": "房间" },
+        { "zh": "我买了一些水果。", "vi": "Tôi đã mua một ít hoa quả.", "blank": "一些", "notOptions": ["有些"] },
+        { "zh": "有些学生在外边。", "vi": "Một số học sinh ở bên ngoài.", "blank": "有些", "notOptions": ["一些", "有的"] }
+      ],
+      "speak": ["桌子上有一本书。", "我的房间很小。"]
+    }
+  ]
+}

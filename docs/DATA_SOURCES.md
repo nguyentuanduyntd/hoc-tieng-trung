@@ -7,7 +7,7 @@
 | Âm Hán Việt (`hanViet`) | Dự án tự soạn | Thuộc dự án | 301 từ HSK 1 | **Bản nháp, cần duyệt** |
 | Nghĩa tiếng Việt (`meaningVi`) | Dự án tự soạn (không dịch máy từ CC-CEDICT) | Thuộc dự án | 301 từ HSK 1 | **Bản nháp, cần duyệt** |
 | Câu ví dụ (`examples`) | Dự án tự soạn (`data/curated/examples-hsk1.tsv`) | Thuộc dự án | 70 câu, chỉ dùng từ HSK 1 | Bản nháp, cần duyệt |
-| Bài học Unit 1 (ngữ pháp, câu luyện tập) | Dự án tự soạn (`data/curated/lessons-hsk1.json`) | Thuộc dự án | 4 bài, 16 câu luyện + 12 ví dụ ngữ pháp | Bản nháp, cần duyệt |
+| Bài học HSK 1 (ngữ pháp, câu luyện tập) | Dự án tự soạn (`data/curated/lessons/hsk1-u01…u10.json`) | Thuộc dự án | 43 bài, 172 câu luyện + 129 ví dụ ngữ pháp | Bản nháp, cần duyệt |
 | Bài đọc HSK 1 (6 bài + câu hỏi) | Dự án tự soạn (`data/curated/readings-hsk1.json`) | Thuộc dự án | Thư viện bài đọc, chế độ nghe | Bản nháp, cần duyệt |
 | Đề thi thử HSK 1 (3.0) số 1 | Dự án tự soạn (`data/curated/exams/`), hình = emoji | Thuộc dự án | Thi thử | Bản nháp, cần duyệt |
 | Cấu trúc đề HSK 3.0 cấp 1 | Tổng hợp bên thứ ba: hsklord.com, khanjischool.com, hskmock.com (13/11/2026); thời lượng & thang điểm theo HSK 2.0 cấp 1 (chinesetest.cn) | — | `src/config/exams.ts` | **Chưa xác minh** |

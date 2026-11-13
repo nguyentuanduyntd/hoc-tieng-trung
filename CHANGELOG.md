@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.9.0] — 2026-11-13 — Bước B1–B2: lộ trình HSK 1 đầy đủ + checkpoint
+
+### Thêm
+- **Lộ trình HSK 1 đầy đủ: 10 unit · 43 bài · 301/301 từ** (kế hoạch đã duyệt: `docs/plan-hsk1-units.md`). Mỗi từ dạy đúng một lần; mỗi bài 5–8 từ + 1 điểm ngữ pháp (giải thích tiếng Việt, 3 ví dụ) + 4 câu luyện tập + 2 câu nói theo. 39 bài mới cho Unit 2–10 (số đếm & ngày tháng, thời gian, gia đình, ăn uống, mua sắm, nơi chốn, trường học & công việc, đi lại, sức khỏe & giải trí) — dự án tự soạn, chỉ dùng từ HSK 1.
+- Nội dung bài học tách thành mỗi unit một file: `data/curated/lessons/hsk1-u01.json` … `hsk1-u10.json`.
+- **Checkpoint ôn tập sau mỗi 3 bài** (SPEC 3.5 v2), đánh số liên tục qua các unit (bài 3, 6, …, 42 → 14 checkpoint): ~12 câu trộn từ và câu của 3 bài trước (chọn nghĩa, nghe chọn chữ, chọn thanh, ghép cặp, điền từ, sắp xếp câu). Đạt ≥ 80% mới mở bài tiếp theo; chưa đạt thì gợi ý 3 bài cần ôn + nút **↻ Làm lại**. Hiện trong lộ trình ngay sau bài cuối; thi vượt unit cũng đánh dấu các checkpoint của unit đó.
+- Lộ trình đánh số bài liên tục (1–43); tiêu đề bài hiện “Unit · Bài”.
+
+### Thay đổi
+- Phương án nhiễu bài điền từ loại thêm các nhóm thay thế được cho nhau (这儿/这里, 块/元, 能/可以/会, 很/非常/太/真, 一些/有些/有的…). Bài thiếu từ một chữ có thanh thì bài chọn thanh lấy từ đã học trước.
+- Migration: người đã học xong bài 4 trước khi có checkpoint vẫn giữ bài 4 và mở được bài 5 (checkpoint 1 chỉ hiện là “Tiếp theo”).
+- Test: 221.
+
 ## [0.8.0] — 2026-11-13 — Bước A: sửa lỗi (giọng đọc, menu điện thoại, thanh phát, link)
 
 ### Sửa

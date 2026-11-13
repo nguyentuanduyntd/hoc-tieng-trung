@@ -90,7 +90,8 @@ export function runCheck(root: string): LinkIssue[] {
   const lessons = json("public/data/lessons/hsk1.json");
   const ctx: LinkContext = {
     routes: parseRoutes(readFileSync(resolve(root, "src/main.ts"), "utf8")),
-    lessonIds: new Set(lessons.lessons.map((l: { id: string }) => l.id)),
+    // bài học + checkpoint (cùng route #/bai-hoc/<id>)
+    lessonIds: new Set([...lessons.lessons, ...(lessons.checkpoints ?? [])].map((l: { id: string }) => l.id)),
     unitNumbers: new Set(lessons.units.map((u: { unit: number }) => String(u.unit))),
     readingIds: new Set(json("public/data/readings/hsk1.json").readings.map((r: { id: string }) => r.id)),
     examIds: new Set(json("public/data/exams/hsk1.json").exams.map((e: { id: string }) => e.id)),

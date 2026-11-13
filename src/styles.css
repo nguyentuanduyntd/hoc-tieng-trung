@@ -2161,3 +2161,12 @@ a.reading-card:hover {
     font-weight: 600;
   }
 }
+
+/* Checkpoint trong lộ trình */
+.lesson-item.checkpoint {
+  border-style: dashed;
+}
+
+.lesson-num.cp {
+  background: var(--accent-soft);
+}

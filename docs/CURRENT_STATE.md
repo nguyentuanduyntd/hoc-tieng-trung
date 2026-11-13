@@ -1,4 +1,4 @@
-# Hiện trạng dự án (cập nhật sau Bước A vòng 2 — v0.8.0, 13/11/2026)
+# Hiện trạng dự án (cập nhật sau Bước B1–B2 vòng 2 — v0.9.0, 13/11/2026)
 
 > SPEC trong repo đã được thay bằng **v2.1** (có Mục 1b, 3.12–3.19).
 
@@ -63,7 +63,7 @@ src/lib/exercises.ts, grading.ts    sinh bài tập, chấm bài, chấm nói
 src/lib/tones.ts, lessons.ts        thanh điệu & biến điệu; mở khóa bài
 src/ui/speakWidget.ts, speechInput.ts  nói & chấm (nhận dạng / ghi âm)
 scripts/build-lessons.ts            sinh public/data/lessons/hsk1.json
-data/curated/lessons-hsk1.json      nội dung bài học (tự soạn)
+data/curated/lessons/hsk1-uNN.json  nội dung bài học, mỗi unit một file (tự soạn)
 src/main.ts, src/styles.css         router + các trang còn lại
 tests/                              unit test (pinyin, dữ liệu, tìm kiếm, tiến độ)
 ```
@@ -76,7 +76,7 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 | 3.2 Pop-up từ điển | **Đã có** | Bấm chữ Hán ở mọi trang (danh sách từ, ví dụ, mặt sau thẻ ôn) → pop-up đầy đủ + thứ tự nét. Ô tìm kiếm ở trang Từ vựng |
 | 3.3 SRS | **Đã có** | FSRS-4.5, 4 loại thẻ, giới hạn thẻ mới/ngày, trang `#/on-tap` |
 | 3.4 Xuất Anki | **Đã có** | .txt Tab + header; lọc tất cả / đã học / hay sai, theo cấp. Xuất/nhập JSON giữ nguyên |
-| 3.5 Lộ trình bài học | **Đã có (Unit 1)** | 4 bài, 29 từ, đủ 8 dạng bài, thi vượt. Còn ~265 từ HSK 1 chưa có bài |
+| 3.5 Lộ trình bài học | **Đã có (HSK 1 đầy đủ)** | 10 unit, 43 bài, 301/301 từ, 8 dạng bài, thi vượt, 14 checkpoint (sau mỗi 3 bài, ≥ 80%) |
 | 3.6 Phát âm & thanh điệu | **Đã có** | TTS zh-CN, chấm nói (SpeechRecognition, cần đồng ý) + fallback ghi âm, luyện thanh đơn/cặp thanh, trang biến điệu |
 | 3.7 Bài đọc phân cấp | **Đã có** | 6 bài HSK 1 (3 văn, 3 hội thoại), ruby pinyin, dịch từng câu, tô màu từ, đọc hiểu |
 | 3.8 Nghe & shadowing | **Đã có** | Tốc độ 0.5–1.25x, lặp câu, trước/sau, shadowing + ghi âm, phụ đề 3 lớp. Video ngoài: chỉ dẫn link |
@@ -103,7 +103,9 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 | A2 Thanh tab dưới đáy (< 768px) | **Xong** |
 | A3 Thanh phát trình đọc trên điện thoại | **Xong** |
 | A4 Quét link trong npm test | **Xong** |
-| B Nội dung HSK 1 | Chưa làm — cần duyệt kế hoạch unit trước khi soạn |
+| B1 Kế hoạch unit | **Xong, đã duyệt** (`docs/plan-hsk1-units.md`) |
+| B2 Soạn bài + checkpoint | **Xong** — 39 bài mới, 14 checkpoint |
+| B3–B6 (ví dụ 116 từ, từ loại, file duyệt, +6 bài đọc) | Chưa làm |
 | C Thi thử (rà config, +2 đề) | Chưa làm |
 | D Tính năng 3.12–3.19 | Chưa làm |
 

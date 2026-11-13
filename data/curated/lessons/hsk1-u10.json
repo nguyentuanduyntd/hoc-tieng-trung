@@ -1,0 +1,112 @@
+{
+  "hskLevel": 1,
+  "unit": 10,
+  "title": "Sức khỏe, thời tiết & giải trí",
+  "lessons": [
+    {
+      "id": "hsk1-u10-l1",
+      "title": "Thời tiết hôm nay",
+      "words": ["天气", "冷", "热", "下雨", "雨", "雪"],
+      "grammar": {
+        "pattern": "…了 (thay đổi trạng thái)",
+        "explanationVi": "了 ở cuối câu báo một tình huống mới / sự thay đổi: 下雨了 (trời mưa rồi — trước đó chưa mưa), 天气冷了 (trời lạnh rồi). Khác với 了 sau động từ (hành động đã xong). 会 + động từ còn có nghĩa “sẽ”: 明天会下雨.",
+        "examples": [
+          { "zh": "下雨了！", "vi": "Trời mưa rồi!" },
+          { "zh": "天气热了。", "vi": "Trời nóng lên rồi." },
+          { "zh": "北京下雪了。", "vi": "Bắc Kinh có tuyết rồi." }
+        ]
+      },
+      "sentences": [
+        { "zh": "今天天气怎么样？", "vi": "Hôm nay thời tiết thế nào?", "blank": "天气" },
+        { "zh": "外边太冷了。", "vi": "Bên ngoài lạnh quá.", "blank": "冷" },
+        { "zh": "明天会下雨。", "vi": "Ngày mai trời sẽ mưa.", "blank": "下雨" },
+        { "zh": "今天很热。", "vi": "Hôm nay rất nóng.", "blank": "热" }
+      ],
+      "speak": ["下雨了！", "今天天气怎么样？"]
+    },
+    {
+      "id": "hsk1-u10-l2",
+      "title": "Tôi bị ốm",
+      "words": ["病", "生病", "看病", "医生", "医院", "怎么样"],
+      "grammar": {
+        "pattern": "…，怎么样？",
+        "explanationVi": "怎么样 đứng cuối câu để hỏi tình trạng hoặc xin ý kiến: 你怎么样？ (bạn thế nào?), 这个菜怎么样？ Đề nghị: 我们去医院，怎么样？ (… được không?).",
+        "examples": [
+          { "zh": "你现在怎么样？", "vi": "Bây giờ bạn thế nào rồi?" },
+          { "zh": "我生病了，要去医院。", "vi": "Tôi bị ốm, phải đi bệnh viện." },
+          { "zh": "明天去看病，怎么样？", "vi": "Mai đi khám bệnh, được không?" }
+        ]
+      },
+      "sentences": [
+        { "zh": "他是医生。", "vi": "Anh ấy là bác sĩ.", "blank": "医生" },
+        { "zh": "我妈妈生病了。", "vi": "Mẹ tôi bị ốm rồi.", "blank": "生病", "notOptions": ["病"] },
+        { "zh": "医院在哪儿？", "vi": "Bệnh viện ở đâu?", "blank": "医院" },
+        { "zh": "你觉得怎么样？", "vi": "Bạn thấy thế nào?", "blank": "怎么样", "notOptions": ["怎么"] }
+      ],
+      "speak": ["你现在怎么样？", "我生病了，要去医院。"]
+    },
+    {
+      "id": "hsk1-u10-l3",
+      "title": "Xem phim, nghe nhạc",
+      "words": ["看", "见", "看见", "听", "听见", "电视", "电影", "电影院"],
+      "grammar": {
+        "pattern": "看 / 听 + 见",
+        "explanationVi": "看 = nhìn, xem (hành động); 看见 = nhìn thấy (kết quả). 听 = nghe; 听见 = nghe thấy. Phủ định kết quả dùng 没: 我没看见他. 见 = gặp: 明天见！",
+        "examples": [
+          { "zh": "我看见他了。", "vi": "Tôi nhìn thấy anh ấy rồi." },
+          { "zh": "你听见了吗？", "vi": "Bạn nghe thấy chưa?" },
+          { "zh": "我们去电影院看电影吧。", "vi": "Chúng ta đi rạp xem phim nhé." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我喜欢看电视。", "vi": "Tôi thích xem tivi.", "blank": "电视" },
+        { "zh": "我没听见。", "vi": "Tôi không nghe thấy.", "blank": "听见", "notOptions": ["看见"] },
+        { "zh": "你在听什么？", "vi": "Bạn đang nghe gì?", "blank": "听" },
+        { "zh": "明天见！", "vi": "Mai gặp nhé!", "blank": "见" }
+      ],
+      "speak": ["我看见他了。", "你听见了吗？"]
+    },
+    {
+      "id": "hsk1-u10-l4",
+      "title": "Chơi vui quá!",
+      "words": ["玩", "好玩儿", "好看", "好听", "唱", "歌", "猫", "狗"],
+      "grammar": {
+        "pattern": "好 + động từ (好吃 / 好看 / 好听 / 好玩儿)",
+        "explanationVi": "好 + động từ giác quan tạo thành tính từ “dễ chịu khi …”: 好吃 (ngon), 好看 (đẹp, hay – để xem), 好听 (hay – để nghe), 好玩儿 (vui – để chơi). Dùng như tính từ: 这个歌很好听.",
+        "examples": [
+          { "zh": "这个歌很好听。", "vi": "Bài hát này rất hay." },
+          { "zh": "北京很好玩儿。", "vi": "Bắc Kinh chơi rất vui." },
+          { "zh": "她喜欢唱歌。", "vi": "Cô ấy thích hát." }
+        ]
+      },
+      "sentences": [
+        { "zh": "这个电影很好看。", "vi": "Bộ phim này rất hay.", "blank": "好看" },
+        { "zh": "孩子们在外边玩。", "vi": "Bọn trẻ đang chơi bên ngoài.", "blank": "玩" },
+        { "zh": "我喜欢猫，不喜欢狗。", "vi": "Tôi thích mèo, không thích chó.", "blank": "狗" },
+        { "zh": "我们唱歌吧。", "vi": "Chúng ta hát đi.", "blank": "唱" }
+      ],
+      "speak": ["这个歌很好听。", "北京很好玩儿。"]
+    },
+    {
+      "id": "hsk1-u10-l5",
+      "title": "A lô, ai đấy?",
+      "words": ["电话", "打电话", "手机", "电脑", "喂", "谁"],
+      "grammar": {
+        "pattern": "谁 – hỏi người",
+        "explanationVi": "谁 thay cho người muốn hỏi, giữ nguyên trật tự câu: 他是谁？ (anh ấy là ai?), 谁是你的老师？ Nghe điện thoại: 喂，你好！ Gọi cho ai: 给 + người + 打电话.",
+        "examples": [
+          { "zh": "喂，你是谁？", "vi": "A lô, ai đấy?" },
+          { "zh": "谁是你的老师？", "vi": "Ai là thầy giáo của bạn?" },
+          { "zh": "我给妈妈打电话。", "vi": "Tôi gọi điện cho mẹ." }
+        ]
+      },
+      "sentences": [
+        { "zh": "这是谁的手机？", "vi": "Đây là điện thoại của ai?", "blank": "谁" },
+        { "zh": "我的电脑是新的。", "vi": "Máy tính của tôi là máy mới.", "blank": "电脑" },
+        { "zh": "晚上给我打电话吧。", "vi": "Tối gọi điện cho tôi nhé.", "blank": "打电话" },
+        { "zh": "喂，你在哪儿？", "vi": "A lô, bạn đang ở đâu?", "blank": "喂" }
+      ],
+      "speak": ["喂，你是谁？", "我给妈妈打电话。"]
+    }
+  ]
+}

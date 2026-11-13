@@ -1,0 +1,91 @@
+{
+  "hskLevel": 1,
+  "unit": 6,
+  "title": "Mua sắm",
+  "lessons": [
+    {
+      "id": "hsk1-u6-l1",
+      "title": "Đi siêu thị",
+      "words": ["去", "买", "卖", "商店", "超市", "店", "东西"],
+      "grammar": {
+        "pattern": "去 + nơi + làm gì",
+        "explanationVi": "Các động từ nối tiếp nhau theo thứ tự hành động: 我去商店买东西 (đi cửa hàng để mua đồ). Mẫu: chủ ngữ + 去 + nơi chốn + động từ (+ tân ngữ).",
+        "examples": [
+          { "zh": "我去超市买东西。", "vi": "Tôi đi siêu thị mua đồ." },
+          { "zh": "她去商店买水果。", "vi": "Cô ấy đi cửa hàng mua hoa quả." },
+          { "zh": "你去哪儿买书？", "vi": "Bạn đi đâu mua sách?" }
+        ]
+      },
+      "sentences": [
+        { "zh": "我们去超市吧。", "vi": "Chúng ta đi siêu thị nhé.", "blank": "超市" },
+        { "zh": "你想买什么？", "vi": "Bạn muốn mua gì?", "blank": "买" },
+        { "zh": "这个店卖水果。", "vi": "Cửa hàng này bán hoa quả.", "blank": "卖" },
+        { "zh": "我去商店买东西。", "vi": "Tôi đi cửa hàng mua đồ.", "blank": "东西" }
+      ],
+      "speak": ["我去超市买东西。", "你想买什么？"]
+    },
+    {
+      "id": "hsk1-u6-l2",
+      "title": "Đắt quá!",
+      "words": ["贵", "便宜", "多", "少", "衣服", "穿", "有点儿"],
+      "grammar": {
+        "pattern": "有点儿 + tính từ",
+        "explanationVi": "有点儿 + tính từ = hơi …, thường mang ý không hài lòng: 有点儿贵 (hơi đắt). Khác với 一点儿 đứng SAU tính từ hoặc động từ: 便宜一点儿 (rẻ hơn một chút).",
+        "examples": [
+          { "zh": "这件衣服有点儿贵。", "vi": "Bộ quần áo này hơi đắt." },
+          { "zh": "有便宜一点儿的吗？", "vi": "Có cái nào rẻ hơn một chút không?" },
+          { "zh": "今天有点儿冷。", "vi": "Hôm nay hơi lạnh." }
+        ]
+      },
+      "sentences": [
+        { "zh": "这个太贵了！", "vi": "Cái này đắt quá!", "blank": "贵" },
+        { "zh": "超市的东西很便宜。", "vi": "Đồ ở siêu thị rất rẻ.", "blank": "便宜" },
+        { "zh": "你穿这件衣服很漂亮。", "vi": "Bạn mặc bộ đồ này rất đẹp.", "blank": "穿" },
+        { "zh": "我们学校的学生很多。", "vi": "Trường chúng tôi có rất nhiều học sinh.", "blank": "多" }
+      ],
+      "speak": ["这件衣服有点儿贵。", "超市的东西很便宜。"]
+    },
+    {
+      "id": "hsk1-u6-l3",
+      "title": "Cái này, cái kia, cái nào?",
+      "words": ["这", "那", "哪", "这些", "那些", "哪些", "些"],
+      "grammar": {
+        "pattern": "这 / 那 / 哪 + lượng từ + danh từ",
+        "explanationVi": "这 (này), 那 (kia), 哪 (nào) đứng trước lượng từ: 这个人, 那本书, 哪件衣服？ Có số thì số đứng sau 这/那: 这两本书. Số nhiều không đếm: 这些 / 那些 / 哪些 + danh từ.",
+        "examples": [
+          { "zh": "这个人是谁？", "vi": "Người này là ai?" },
+          { "zh": "我要那件衣服。", "vi": "Tôi lấy bộ quần áo kia." },
+          { "zh": "你喜欢哪些水果？", "vi": "Bạn thích những loại hoa quả nào?" }
+        ]
+      },
+      "sentences": [
+        { "zh": "这些书是你的吗？", "vi": "Những quyển sách này là của bạn à?", "blank": "这些" },
+        { "zh": "那个人是我老师。", "vi": "Người kia là thầy giáo của tôi.", "blank": "那" },
+        { "zh": "你要哪个？", "vi": "Bạn lấy cái nào?", "blank": "哪" },
+        { "zh": "那些东西很贵。", "vi": "Những đồ kia rất đắt.", "blank": "那些" }
+      ],
+      "speak": ["这个人是谁？", "你要哪个？"]
+    },
+    {
+      "id": "hsk1-u6-l4",
+      "title": "To, nhỏ, mới, đẹp",
+      "words": ["给", "找", "新", "大", "小", "真", "漂亮"],
+      "grammar": {
+        "pattern": "真 + tính từ · 给 + người + vật",
+        "explanationVi": "真 + tính từ = thật là …, dùng để cảm thán: 真漂亮！ 给 + người + vật = đưa / cho ai cái gì: 妈妈给我一个苹果. 找 + tiền = thối lại tiền thừa: 找你五块.",
+        "examples": [
+          { "zh": "你的衣服真漂亮！", "vi": "Quần áo của bạn đẹp thật!" },
+          { "zh": "妈妈给我一本新书。", "vi": "Mẹ cho tôi một quyển sách mới." },
+          { "zh": "给你钱，找我五块。", "vi": "Gửi bạn tiền, thối lại tôi năm đồng." }
+        ]
+      },
+      "sentences": [
+        { "zh": "这个房间真大。", "vi": "Phòng này thật to.", "blank": "真" },
+        { "zh": "我买了一个新手机。", "vi": "Tôi đã mua một cái điện thoại mới.", "blank": "新" },
+        { "zh": "你在找什么？", "vi": "Bạn đang tìm gì?", "blank": "找" },
+        { "zh": "请给我一个苹果。", "vi": "Làm ơn cho tôi một quả táo.", "blank": "给" }
+      ],
+      "speak": ["你的衣服真漂亮！", "请给我一个苹果。"]
+    }
+  ]
+}

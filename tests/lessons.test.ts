@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { pickDistractors, seededRandom } from "../src/lib/exercises.ts";
 import { SPEAK_PASS, checkAnswer, scoreSpeech, shuffleDifferent } from "../src/lib/grading.ts";
-import { completeUnit, isUnlocked, lessonOrder, nextLesson, passed, validateLessons } from "../src/lib/lessons.ts";
+import { completeUnit, findCheckpoint, isUnlocked, lessonOrder, nextLesson, passed, pathOrder, validateLessons } from "../src/lib/lessons.ts";
 import { applySandhi, tonesOf } from "../src/lib/tones.ts";
 import type { Exercise, LessonsFile, VocabFile } from "../src/types.ts";
 
@@ -137,10 +137,11 @@ describe("lộ trình & mở khóa", () => {
     expect(isUnlocked(lessons, order[1], [order[0]])).toBe(true);
     expect(isUnlocked(lessons, "khong-co", [])).toBe(false);
   });
-  it("bài tiếp theo", () => {
+  it("bài tiếp theo (gồm cả checkpoint)", () => {
     expect(nextLesson(lessons, [])).toBe(order[0]);
     expect(nextLesson(lessons, [order[0]])).toBe(order[1]);
-    expect(nextLesson(lessons, order)).toBeUndefined();
+    expect(nextLesson(lessons, order.slice(0, 3))).toBe("hsk1-cp1");
+    expect(nextLesson(lessons, pathOrder(lessons))).toBeUndefined();
   });
   it("thi vượt hoàn thành cả unit, không trùng", () => {
     const done = completeUnit(lessons.units[0], [order[0]]);
@@ -173,5 +174,52 @@ describe("bài luyện thanh", async () => {
       expect(opts.map((o) => o.join("-"))).toContain("3-3");
       expect(new Set(opts.map((o) => o.join("-"))).size).toBe(4);
     }
+  });
+});
+
+describe("lộ trình HSK 1 đầy đủ & checkpoint", () => {
+  const order = lessonOrder(lessons);
+  const path = pathOrder(lessons);
+  it("10 unit, 43 bài, phủ đủ 301 từ HSK 1, mỗi từ dạy đúng một lần", () => {
+    expect(lessons.units).toHaveLength(10);
+    expect(lessons.lessons).toHaveLength(43);
+    const taught = lessons.lessons.flatMap((l) => l.newWordIds);
+    expect(new Set(taught).size).toBe(taught.length);
+    expect(new Set(taught)).toEqual(new Set(vocab.words.map((w) => w.id)));
+  });
+  it("checkpoint sau mỗi 3 bài, đánh số liên tục qua các unit (bài 3, 6, …, 42)", () => {
+    const cps = lessons.checkpoints ?? [];
+    expect(cps).toHaveLength(14);
+    cps.forEach((c, i) => {
+      expect(c.lessonIds).toEqual(order.slice(i * 3, i * 3 + 3));
+      expect(path.indexOf(c.id)).toBe(path.indexOf(c.lessonIds[2]) + 1);
+      expect(c.passRatio).toBe(0.8);
+    });
+  });
+  it("checkpoint trộn từ & câu của cả 3 bài", () => {
+    const c = findCheckpoint(lessons, "hsk1-cp2")!;
+    const words = new Set(c.lessonIds.flatMap((id) => lessons.lessons.find((l) => l.id === id)!.newWordIds));
+    const asked = c.exercises.flatMap((e) => ("wordId" in e.prompt ? [e.prompt.wordId as string] : []));
+    expect(asked.every((id) => words.has(id))).toBe(true);
+    const types = new Set(c.exercises.map((e) => e.type));
+    for (const t of ["choose-meaning", "listen-choose-hanzi", "fill-blank", "order-words", "match-pairs"]) expect(types.has(t as never), t).toBe(true);
+  });
+  it("bài sau checkpoint chỉ mở khi qua checkpoint", () => {
+    const first3 = order.slice(0, 3);
+    expect(isUnlocked(lessons, "hsk1-cp1", first3)).toBe(true);
+    expect(isUnlocked(lessons, order[3], first3)).toBe(false);
+    expect(isUnlocked(lessons, order[3], [...first3, "hsk1-cp1"])).toBe(true);
+    expect(isUnlocked(lessons, "hsk1-cp1", order.slice(0, 2))).toBe(false);
+  });
+  it("migration: người đã học xong bài 4 trước khi có checkpoint vẫn giữ được bài 4 và mở bài 5", () => {
+    const oldDone = order.slice(0, 4);
+    expect(isUnlocked(lessons, order[3], oldDone)).toBe(true);
+    expect(isUnlocked(lessons, order[4], oldDone)).toBe(true);
+  });
+  it("thi vượt unit đánh dấu cả checkpoint nằm sau bài của unit đó", () => {
+    const u2 = lessons.units.find((u) => u.unit === 2)!;
+    const done = completeUnit(u2, order.slice(0, 4), lessons.checkpoints);
+    expect(done).toContain("hsk1-cp2"); // checkpoint sau bài 6 (Unit 2 bài 2)
+    expect(isUnlocked(lessons, lessons.units.find((u) => u.unit === 3)!.lessonIds[0], done)).toBe(true);
   });
 });

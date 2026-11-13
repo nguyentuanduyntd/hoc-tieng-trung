@@ -1,23 +1,33 @@
 // Logic lộ trình: mở khóa tuần tự, thi vượt, kiểm tra dữ liệu bài học.
 
-import type { Exercise, LessonsFile, Unit } from "../types.ts";
+import type { Checkpoint, Exercise, LessonsFile, Unit } from "../types.ts";
 
 /** Thứ tự tuyến tính của mọi bài (unit 1 bài 1, unit 1 bài 2, …). */
 export function lessonOrder(file: LessonsFile): string[] {
   return [...file.units].sort((a, b) => a.unit - b.unit).flatMap((u) => u.lessonIds);
 }
 
-/** Bài được mở nếu là bài đầu tiên, bài trước đã xong, hoặc chính nó đã xong. */
-export function isUnlocked(file: LessonsFile, lessonId: string, completed: string[]): boolean {
-  const order = lessonOrder(file);
-  const i = order.indexOf(lessonId);
-  if (i < 0) return false;
-  return i === 0 || completed.includes(lessonId) || completed.includes(order[i - 1]);
+/** Lộ trình đầy đủ: bài học xen checkpoint (checkpoint đứng ngay sau bài cuối nó ôn). */
+export function pathOrder(file: LessonsFile): string[] {
+  const after = new Map((file.checkpoints ?? []).map((c) => [c.lessonIds[c.lessonIds.length - 1], c.id]));
+  return lessonOrder(file).flatMap((id) => (after.has(id) ? [id, after.get(id)!] : [id]));
 }
 
-/** Bài tiếp theo nên học (bài đầu tiên chưa xong). */
+export function findCheckpoint(file: LessonsFile, id: string): Checkpoint | undefined {
+  return file.checkpoints?.find((c) => c.id === id);
+}
+
+/** Bài / checkpoint được mở nếu là mục đầu tiên, mục trước đã xong, hoặc chính nó đã xong. */
+export function isUnlocked(file: LessonsFile, itemId: string, completed: string[]): boolean {
+  const order = pathOrder(file);
+  const i = order.indexOf(itemId);
+  if (i < 0) return false;
+  return i === 0 || completed.includes(itemId) || completed.includes(order[i - 1]);
+}
+
+/** Mục tiếp theo nên học (bài học hoặc checkpoint đầu tiên chưa xong). */
 export function nextLesson(file: LessonsFile, completed: string[]): string | undefined {
-  return lessonOrder(file).find((id) => !completed.includes(id));
+  return pathOrder(file).find((id) => !completed.includes(id));
 }
 
 export function unitProgress(unit: Unit, completed: string[]) {
@@ -25,9 +35,15 @@ export function unitProgress(unit: Unit, completed: string[]) {
   return { done, total: unit.lessonIds.length };
 }
 
-/** Thi vượt đạt -> đánh dấu xong mọi bài của unit (giữ nguyên thứ tự, không trùng). */
-export function completeUnit(unit: Unit, completed: string[]): string[] {
-  return [...completed, ...unit.lessonIds.filter((id) => !completed.includes(id))];
+/**
+ * Thi vượt đạt -> đánh dấu xong mọi bài của unit và các checkpoint đứng sau bài của unit đó
+ * (để mở được bài tiếp theo). Giữ thứ tự, không trùng.
+ */
+export function completeUnit(unit: Unit, completed: string[], checkpoints: Checkpoint[] = []): string[] {
+  const inUnit = new Set(unit.lessonIds);
+  const cps = checkpoints.filter((c) => inUnit.has(c.lessonIds[c.lessonIds.length - 1])).map((c) => c.id);
+  const add = [...unit.lessonIds, ...cps].filter((id) => !completed.includes(id));
+  return [...completed, ...add];
 }
 
 export function passed(correct: number, total: number, ratio: number): boolean {
@@ -70,6 +86,12 @@ export function validateLessons(file: LessonsFile, wordIds: Set<string>): string
     for (const t of ["choose-meaning", "listen-choose-hanzi", "match-pairs", "order-words", "fill-blank", "choose-tone", "write-stroke", "speak"])
       if (!types.has(t as Exercise["type"])) errs.push(`${l.id}: thiếu dạng bài ${t}`);
     errs.push(...l.exercises.flatMap((e) => validateExercise(e, wordIds)));
+  }
+  for (const c of file.checkpoints ?? []) {
+    if (c.lessonIds.length !== 3) errs.push(`${c.id}: checkpoint cần ôn đúng 3 bài`);
+    for (const id of c.lessonIds) if (!seenLesson.has(id)) errs.push(`${c.id}: bài ${id} không tồn tại`);
+    if (c.exercises.length < 8) errs.push(`${c.id}: checkpoint quá ngắn`);
+    errs.push(...c.exercises.flatMap((e) => validateExercise(e, wordIds)));
   }
   for (const u of file.units) {
     for (const id of u.lessonIds) if (!seenLesson.has(id)) errs.push(`unit ${u.unit}: bài ${id} không tồn tại`);

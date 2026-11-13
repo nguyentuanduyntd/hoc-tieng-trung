@@ -1,0 +1,112 @@
+{
+  "hskLevel": 1,
+  "unit": 9,
+  "title": "Đi lại & sinh hoạt",
+  "lessons": [
+    {
+      "id": "hsk1-u9-l1",
+      "title": "Đi bằng gì?",
+      "words": ["车", "开车", "出租车", "火车", "飞机", "坐", "火车站"],
+      "grammar": {
+        "pattern": "坐 + phương tiện + 去 + nơi",
+        "explanationVi": "Đi bằng phương tiện: 坐 + phương tiện + 去 + nơi: 我坐飞机去北京. Tự lái xe: 开车去. Hỏi cách đi: 你怎么去？",
+        "examples": [
+          { "zh": "我坐飞机去北京。", "vi": "Tôi đi máy bay đến Bắc Kinh." },
+          { "zh": "爸爸开车去公司。", "vi": "Bố lái xe đến công ty." },
+          { "zh": "我们坐出租车去火车站吧。", "vi": "Chúng ta đi taxi ra ga tàu nhé." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我们坐火车去吧。", "vi": "Chúng ta đi tàu hỏa nhé.", "blank": "火车" },
+        { "zh": "妈妈会开车。", "vi": "Mẹ biết lái xe.", "blank": "开车" },
+        { "zh": "这是我的新车。", "vi": "Đây là xe mới của tôi.", "blank": "车" },
+        { "zh": "他坐出租车回家。", "vi": "Anh ấy đi taxi về nhà.", "blank": "坐" }
+      ],
+      "speak": ["我坐飞机去北京。", "爸爸开车去公司。"]
+    },
+    {
+      "id": "hsk1-u9-l2",
+      "title": "Đến và về",
+      "words": ["到", "来", "回", "国", "怎么", "开", "事"],
+      "grammar": {
+        "pattern": "怎么 + động từ",
+        "explanationVi": "怎么 + động từ hỏi cách thức: 怎么去？ (đi bằng cách nào), 这个字怎么写？ (chữ này viết thế nào). 回 = trở về: 回家, 回国. 来 = đến (về phía người nói), 去 = đi (xa người nói).",
+        "examples": [
+          { "zh": "你怎么去学校？", "vi": "Bạn đến trường bằng cách nào?" },
+          { "zh": "他明天回国。", "vi": "Ngày mai anh ấy về nước." },
+          { "zh": "你有什么事？", "vi": "Bạn có việc gì?" }
+        ]
+      },
+      "sentences": [
+        { "zh": "这个字怎么写？", "vi": "Chữ này viết thế nào?", "blank": "怎么" },
+        { "zh": "我五点到家。", "vi": "Tôi về đến nhà lúc 5 giờ.", "blank": "到" },
+        { "zh": "商店九点开。", "vi": "Cửa hàng mở cửa lúc 9 giờ.", "blank": "开" },
+        { "zh": "你什么时候来中国？", "vi": "Khi nào bạn đến Trung Quốc?", "blank": "来", "notOptions": ["去", "回"] }
+      ],
+      "speak": ["你怎么去学校？", "他明天回国。"]
+    },
+    {
+      "id": "hsk1-u9-l3",
+      "title": "Cũng, đều, còn",
+      "words": ["也", "都", "还", "只", "一半", "再"],
+      "grammar": {
+        "pattern": "也 / 都 / 还 + động từ",
+        "explanationVi": "也 (cũng), 都 (đều), 还 (còn, vẫn) là phó từ, luôn đứng TRƯỚC động từ / tính từ, sau chủ ngữ: 我也是学生, 我们都喜欢茶, 他还在睡觉. Có cả 也 và 都 thì 也 đứng trước: 我们也都去.",
+        "examples": [
+          { "zh": "我也是学生。", "vi": "Tôi cũng là học sinh." },
+          { "zh": "我们都喜欢喝茶。", "vi": "Chúng tôi đều thích uống trà." },
+          { "zh": "他还没起床。", "vi": "Anh ấy vẫn chưa dậy." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我只有十块钱。", "vi": "Tôi chỉ có mười đồng.", "blank": "只" },
+        { "zh": "他们都是中国人。", "vi": "Họ đều là người Trung Quốc.", "blank": "都", "notOptions": ["也"] },
+        { "zh": "我吃了一半。", "vi": "Tôi đã ăn một nửa.", "blank": "一半" },
+        { "zh": "明天再来吧。", "vi": "Mai lại đến nhé.", "blank": "再" }
+      ],
+      "speak": ["我也是学生。", "我们都喜欢喝茶。"]
+    },
+    {
+      "id": "hsk1-u9-l4",
+      "title": "Có thể không?",
+      "words": ["能", "可以", "不要", "吧", "没", "非常"],
+      "grammar": {
+        "pattern": "能 / 可以 + động từ · 不要 + động từ",
+        "explanationVi": "能 = có khả năng / điều kiện cho phép; 可以 = được phép: 这里可以坐吗？ 不要 + động từ = đừng (khuyên, cấm): 不要说话. 吧 cuối câu = đề nghị nhẹ nhàng: 我们回家吧.",
+        "examples": [
+          { "zh": "我可以坐这儿吗？", "vi": "Tôi ngồi đây được không?" },
+          { "zh": "明天我不能来。", "vi": "Ngày mai tôi không đến được." },
+          { "zh": "上课的时候不要说话。", "vi": "Trong giờ học đừng nói chuyện." }
+        ]
+      },
+      "sentences": [
+        { "zh": "这里不可以开车。", "vi": "Ở đây không được lái xe.", "blank": "可以" },
+        { "zh": "不要喝太多。", "vi": "Đừng uống nhiều quá.", "blank": "不要" },
+        { "zh": "我们去看电影吧。", "vi": "Chúng ta đi xem phim nhé.", "blank": "吧" },
+        { "zh": "今天我非常高兴。", "vi": "Hôm nay tôi vô cùng vui.", "blank": "非常", "notOptions": ["很", "太", "真"] }
+      ],
+      "speak": ["我可以坐这儿吗？", "明天我不能来。"]
+    },
+    {
+      "id": "hsk1-u9-l5",
+      "title": "Hôm qua tôi đã…",
+      "words": ["了", "觉得", "做", "对不起", "没关系"],
+      "grammar": {
+        "pattern": "Động từ + 了 · 没 + động từ",
+        "explanationVi": "了 sau động từ cho biết hành động đã xảy ra / hoàn thành: 我买了三本书. Phủ định dùng 没(有) và bỏ 了: 我没买书. 觉得 = cảm thấy, cho rằng: 我觉得这个很好.",
+        "examples": [
+          { "zh": "我昨天买了一个手机。", "vi": "Hôm qua tôi đã mua một cái điện thoại." },
+          { "zh": "我没去学校。", "vi": "Tôi đã không đi học." },
+          { "zh": "你觉得这个电影怎么样？", "vi": "Bạn thấy bộ phim này thế nào?" }
+        ]
+      },
+      "sentences": [
+        { "zh": "对不起！没关系。", "vi": "Xin lỗi! – Không sao.", "blank": "没关系" },
+        { "zh": "我觉得这个菜很好吃。", "vi": "Tôi thấy món này rất ngon.", "blank": "觉得" },
+        { "zh": "你在做什么？", "vi": "Bạn đang làm gì?", "blank": "做" },
+        { "zh": "我吃了两个包子。", "vi": "Tôi đã ăn hai cái bánh bao.", "blank": "了" }
+      ],
+      "speak": ["我昨天买了一个手机。", "对不起！没关系。"]
+    }
+  ]
+}

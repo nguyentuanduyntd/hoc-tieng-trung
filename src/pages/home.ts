@@ -5,7 +5,7 @@ import { HSK_STANDARDS } from "../config/hsk.ts";
 import { RESOURCES } from "../config/resources.ts";
 import { getExamConfig } from "../config/exams.ts";
 import { emptyDay, goalRatio, isResourceReady, lastDays, learnerStats, levelProgress, pickNextReading, todayPlan } from "../lib/dashboard.ts";
-import { nextLesson } from "../lib/lessons.ts";
+import { findCheckpoint, nextLesson } from "../lib/lessons.ts";
 import { localDate } from "../lib/srs.ts";
 import { state } from "../state.ts";
 import type { ReadingsFile } from "../types.ts";
@@ -26,12 +26,17 @@ export function homePage(readings: ReadingsFile | null, standardPicker: string):
   const lessonsFile = state.lessons;
   const nlId = lessonsFile ? nextLesson(lessonsFile, p.completedLessonIds) : undefined;
   const nl = nlId ? lessonsFile!.lessons.find((l) => l.id === nlId) : undefined;
+  const ncp = nlId && lessonsFile ? findCheckpoint(lessonsFile, nlId) : undefined;
   const nr = readings ? pickNextReading(readings.readings, p.readingResults) : undefined;
   const plan = todayPlan({
     due,
     fresh,
     totalCards: p.cards.length,
-    nextLesson: nl && { id: nl.id, title: `Unit ${nl.unit} · Bài ${nl.order}: ${nl.title}` },
+    nextLesson: nl
+      ? { id: nl.id, title: `Unit ${nl.unit} · Bài ${nl.order}: ${nl.title}` }
+      : ncp
+        ? { id: ncp.id, title: `Checkpoint ${ncp.order} — ôn tập 3 bài vừa học` }
+        : undefined,
     nextReading: nr && { id: nr.id, title: `${nr.titleZh ?? ""} · ${nr.title}` },
     today: log,
   });

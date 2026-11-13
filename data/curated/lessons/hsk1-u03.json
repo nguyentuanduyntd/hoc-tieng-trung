@@ -1,0 +1,91 @@
+{
+  "hskLevel": 1,
+  "unit": 3,
+  "title": "Thời gian trong ngày",
+  "lessons": [
+    {
+      "id": "hsk1-u3-l1",
+      "title": "Hôm qua, hôm nay, ngày mai",
+      "words": ["今天", "明天", "昨天", "今年", "明年", "去年", "天"],
+      "grammar": {
+        "pattern": "Thời gian + động từ",
+        "explanationVi": "Từ chỉ thời gian (今天, 明天, 去年…) đứng TRƯỚC động từ, có thể đứng trước hoặc sau chủ ngữ: 我明天去北京 = 明天我去北京. Tiếng Trung không chia thì; thời gian do từ chỉ thời gian (và 了) thể hiện.",
+        "examples": [
+          { "zh": "我明天去北京。", "vi": "Ngày mai tôi đi Bắc Kinh." },
+          { "zh": "昨天我在家。", "vi": "Hôm qua tôi ở nhà." },
+          { "zh": "她去年去了中国。", "vi": "Năm ngoái cô ấy đã đi Trung Quốc." }
+        ]
+      },
+      "sentences": [
+        { "zh": "今天我不去学校。", "vi": "Hôm nay tôi không đến trường.", "blank": "今天" },
+        { "zh": "昨天是星期天。", "vi": "Hôm qua là Chủ nhật.", "blank": "昨天" },
+        { "zh": "我明年去中国。", "vi": "Năm sau tôi đi Trung Quốc.", "blank": "明年" },
+        { "zh": "她去年八岁，今年九岁。", "vi": "Năm ngoái cô bé tám tuổi, năm nay chín tuổi.", "blank": "今年" }
+      ],
+      "speak": ["我明天去北京。", "昨天是星期天。"]
+    },
+    {
+      "id": "hsk1-u3-l2",
+      "title": "Bây giờ mấy giờ?",
+      "words": ["现在", "点", "分", "分钟", "半", "小时", "时间"],
+      "grammar": {
+        "pattern": "…点…分 / …点半",
+        "explanationVi": "Giờ: số + 点 (三点 = 3 giờ). Phút: số + 分 (三点十分 = 3 giờ 10). 半 = rưỡi (三点半 = 3 giờ rưỡi). Hỏi giờ: 现在几点？ Nói khoảng thời gian dùng 分钟 (phút) và 小时 (tiếng): 十分钟 = mười phút, 两个小时 = hai tiếng.",
+        "examples": [
+          { "zh": "现在几点？现在三点。", "vi": "Bây giờ mấy giờ? – Bây giờ 3 giờ." },
+          { "zh": "我七点半起床。", "vi": "Tôi dậy lúc 7 giờ rưỡi." },
+          { "zh": "我学习了两个小时。", "vi": "Tôi đã học hai tiếng." }
+        ]
+      },
+      "sentences": [
+        { "zh": "现在八点十分。", "vi": "Bây giờ là 8 giờ 10 phút.", "blank": "分" },
+        { "zh": "我们下午两点半上课。", "vi": "Chúng tôi vào học lúc 2 giờ rưỡi chiều.", "blank": "半" },
+        { "zh": "我没有时间。", "vi": "Tôi không có thời gian.", "blank": "时间" },
+        { "zh": "我看了十分钟电视。", "vi": "Tôi đã xem tivi mười phút.", "blank": "分钟" }
+      ],
+      "speak": ["现在几点？现在三点。", "我没有时间。"]
+    },
+    {
+      "id": "hsk1-u3-l3",
+      "title": "Sáng, trưa, chiều, tối",
+      "words": ["早上", "上午", "中午", "下午", "晚上", "白天", "时候"],
+      "grammar": {
+        "pattern": "……的时候",
+        "explanationVi": "……的时候 = “lúc / khi …”, đặt trước vế chính: 我在家的时候看电视 (khi ở nhà tôi xem tivi). Hỏi “khi nào”: 什么时候？ Các buổi: 早上 (sáng sớm), 上午 (buổi sáng), 中午 (trưa), 下午 (chiều), 晚上 (tối); 白天 là ban ngày.",
+        "examples": [
+          { "zh": "我在家的时候看电视。", "vi": "Khi ở nhà tôi xem tivi." },
+          { "zh": "你上午做什么？", "vi": "Buổi sáng bạn làm gì?" },
+          { "zh": "晚上我在家。", "vi": "Buổi tối tôi ở nhà." }
+        ]
+      },
+      "sentences": [
+        { "zh": "我们中午吃米饭。", "vi": "Buổi trưa chúng tôi ăn cơm.", "blank": "中午" },
+        { "zh": "下午我去商店。", "vi": "Buổi chiều tôi đi cửa hàng.", "blank": "下午" },
+        { "zh": "我晚上看书。", "vi": "Buổi tối tôi đọc sách.", "blank": "晚上" },
+        { "zh": "你什么时候去北京？", "vi": "Khi nào bạn đi Bắc Kinh?", "blank": "时候" }
+      ],
+      "speak": ["我在家的时候看电视。", "你什么时候去北京？"]
+    },
+    {
+      "id": "hsk1-u3-l4",
+      "title": "Một ngày của tôi",
+      "words": ["星期日", "星期天", "早", "晚", "起床", "睡觉", "睡"],
+      "grammar": {
+        "pattern": "几点 + động từ？",
+        "explanationVi": "Hỏi làm việc gì lúc mấy giờ: 你几点起床？ Trả lời: 我 + giờ + động từ: 我七点起床. Giờ luôn đứng TRƯỚC động từ. 早 = sớm, 晚 = muộn: 我起床很早.",
+        "examples": [
+          { "zh": "你几点睡觉？", "vi": "Mấy giờ bạn đi ngủ?" },
+          { "zh": "我早上六点起床。", "vi": "Tôi dậy lúc 6 giờ sáng." },
+          { "zh": "星期天我起床很晚。", "vi": "Chủ nhật tôi dậy rất muộn." }
+        ]
+      },
+      "sentences": [
+        { "zh": "你几点起床？", "vi": "Mấy giờ bạn thức dậy?", "blank": "起床" },
+        { "zh": "我晚上十一点睡觉。", "vi": "Tôi đi ngủ lúc 11 giờ tối.", "blank": "睡觉" },
+        { "zh": "星期日我不上班。", "vi": "Chủ nhật tôi không đi làm.", "blank": "星期日" },
+        { "zh": "你来晚了。", "vi": "Bạn đến muộn rồi.", "blank": "晚" }
+      ],
+      "speak": ["你几点睡觉？", "你几点起床？"]
+    }
+  ]
+}
