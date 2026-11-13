@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.14.0] — 2026-11-13 — Bước D3: bảng luyện viết Mễ tự cách + In PDF luyện viết (SPEC 3.16, 3.14)
+
+### Thêm
+- **Bảng luyện viết** (`#/luyen-tap/viet`, `/viet/<bài>`, `/viet/chu/<chữ>`): ô Mễ tự cách (khung + chữ thập + hai đường chéo), Hanzi Writer quiz chấm từng nét, dùng được chuột / cảm ứng / bút (`touch-action: none`).
+  - 3 chế độ: **Tô theo** (hiện chữ mờ, sai 1 lần là gợi ý), **Có gợi ý** (không chữ mờ; sai 2 lần hoặc 💡 Nét tiếp), **Tự do** (không gợi ý).
+  - Báo lỗi cụ thể: **sai thứ tự** (“đó là nét 3, cần viết nét 2 trước” — so nét vừa vẽ với đường giữa từng nét của chữ), **ngược hướng**, hoặc sai hình / vị trí.
+  - Nút Viết lại, ▶ Xem nét (hoạt ảnh rồi viết tiếp), 🔊; bảng thông tin: pinyin, Hán Việt, nghĩa, số nét, từ có chữ này. Dải chữ đánh dấu chữ đã viết (xanh = không sai).
+  - Chọn chữ: cả HSK 1 (252 chữ), từng bài học, hoặc tự gõ chữ.
+- **Phiếu in luyện viết** (`#/luyen-tap/in/<bài>`, `/in/chu/<chữ>`): mỗi chữ có pinyin · Hán Việt, số nét, dải **thứ tự nét** (nét mới tô đỏ), dòng ô Mễ tự cách gồm 1 ô mẫu + ô chữ mờ để tô + ô trống. Tùy chọn số dòng / số ô mờ / ẩn pinyin / ẩn thứ tự nét. Nút **In / Lưu PDF** (A4, ẩn menu khi in, luôn nền trắng kể cả giao diện tối). Chữ vẽ bằng dữ liệu nét có sẵn (không phụ thuộc font máy).
+- Nút **✍️ Luyện viết chữ của bài** và **🖨 In PDF luyện viết** ở bước Từ mới của mỗi bài học; nút **🖌 Luyện viết** trong pop-up từ điển.
+- Logic thuần trong `src/lib/writing.ts` (chẩn đoán nét sai, chọn chữ, SVG chữ / lưới, bố cục phiếu) — 9 test.
+- Test: 290.
+
 ## [0.13.0] — 2026-11-13 — Bước D2: chép chính tả (SPEC 3.13)
 
 ### Thêm

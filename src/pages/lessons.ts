@@ -227,6 +227,10 @@ function renderWords(r: HTMLElement) {
   r.innerHTML = `${header()}
     <h1>Từ mới</h1>
     <p class="muted">Bấm vào chữ để xem chi tiết và thứ tự nét. Nghe và đọc to từng từ.</p>
+    <div class="row lesson-tools">
+      <a class="btn small" href="#/luyen-tap/viet/${encodeURIComponent(l.id)}">✍️ Luyện viết chữ của bài</a>
+      <a class="btn small" href="#/luyen-tap/in/${encodeURIComponent(l.id)}">🖨 In PDF luyện viết</a>
+    </div>
     <div class="word-list">
       ${l.newWordIds
         .map((id) => {

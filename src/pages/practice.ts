@@ -20,6 +20,7 @@ import {
 } from "../lib/pinyinGame.ts";
 import { localDate } from "../lib/srs.ts";
 import { dictationPage, mountDictation } from "./dictation.ts";
+import { mountWorksheet, mountWriting, worksheetPage, writingPage } from "./writing.ts";
 import { loadLessons, setProgress, state } from "../state.ts";
 import type { Word } from "../types.ts";
 import { esc, zhWord } from "../ui/html.ts";
@@ -29,6 +30,8 @@ import { speakAsync, stopSpeaking, ttsSupported } from "../ui/speech.ts";
 export function practicePage(param: string): string {
   if (param === "go-pinyin") return `<div id="game-root"><p class="muted">Đang tải dữ liệu…</p></div>`;
   if (param === "chinh-ta" || param.startsWith("chinh-ta/")) return dictationPage();
+  if (param === "viet" || param.startsWith("viet/")) return writingPage();
+  if (param === "in" || param.startsWith("in/")) return worksheetPage();
   return `
     <h1>Luyện tập</h1>
     <p class="lead">Các bài luyện ngắn, chơi lúc nào cũng được. Từ bạn hay sai sẽ tự vào ôn tập.</p>
@@ -44,6 +47,11 @@ export function practicePage(param: string): string {
         <a class="btn primary" href="#/luyen-tap/chinh-ta">Luyện</a>
       </div>
       <div class="card">
+        <h2>🖌 Luyện viết Mễ tự cách</h2>
+        <p>Viết từng nét trên ô 米, máy chấm và báo sai thứ tự / sai hướng. Ba mức: tô theo, có gợi ý, tự do. In được phiếu luyện viết theo bài.</p>
+        <a class="btn primary" href="#/luyen-tap/viet">Luyện viết</a>
+      </div>
+      <div class="card">
         <h2>🗣 Phát âm & thanh điệu</h2>
         <p>Nghe phân biệt thanh, cặp thanh, biến điệu và nói theo câu.</p>
         <a class="btn" href="#/phat-am">Mở</a>
@@ -54,6 +62,8 @@ export function practicePage(param: string): string {
 export function mountPractice(param: string) {
   if (param === "go-pinyin") void mountGame();
   else if (param === "chinh-ta" || param.startsWith("chinh-ta/")) void mountDictation(param.slice("chinh-ta/".length));
+  else if (param === "viet" || param.startsWith("viet/")) void mountWriting(param.slice("viet/".length));
+  else if (param === "in" || param.startsWith("in/")) void mountWorksheet(param.slice("in/".length));
 }
 
 // ---------- Cài đặt ván ----------

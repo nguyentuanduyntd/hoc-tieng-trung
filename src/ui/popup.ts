@@ -93,12 +93,14 @@ export function openWordPopup(wordId: string, from?: HTMLElement | null) {
     <div class="row dict-actions">
       <button class="btn" data-speak="${esc(w.hanzi)}">🔊 Phát âm</button>
       <button class="btn" data-replay>✍️ Xem lại nét</button>
+      <a class="btn" href="#/luyen-tap/viet/chu/${encodeURIComponent(w.hanzi)}" data-close-nav>🖌 Luyện viết</a>
       <button class="btn ${added ? "" : "primary"}" data-add-srs="${esc(w.id)}" ${added ? "disabled" : ""}>
         ${added ? "✓ Đã có trong ôn tập" : "+ Thêm vào ôn tập"}</button>
     </div>`;
   const replay = mountStrokeAnimation(d.querySelector<HTMLElement>(".stroke-area")!, w.hanzi, [...w.hanzi].length > 2 ? 84 : 110);
   d.querySelector("[data-replay]")!.addEventListener("click", replay);
   d.querySelector("[data-close]")!.addEventListener("click", () => d.close());
+  d.querySelector("[data-close-nav]")?.addEventListener("click", () => d.close());
   if (!d.open) d.showModal();
   d.querySelector<HTMLElement>("[data-close]")!.focus();
 }

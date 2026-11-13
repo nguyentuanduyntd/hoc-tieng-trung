@@ -6,7 +6,7 @@ import HanziWriter, { type CharacterJson } from "hanzi-writer";
 
 const cache = new Map<string, Promise<CharacterJson>>();
 
-function loadChar(ch: string): Promise<CharacterJson> {
+export function loadChar(ch: string): Promise<CharacterJson> {
   let p = cache.get(ch);
   if (!p) {
     p = fetch(`${import.meta.env.BASE_URL}data/strokes/${encodeURIComponent(ch)}.json`).then((r) => {
@@ -24,7 +24,7 @@ function cssVar(name: string, fallback: string) {
   return v || fallback;
 }
 
-function baseOptions(size: number) {
+export function strokeOptions(size: number) {
   return {
     width: size,
     height: size,
@@ -51,7 +51,7 @@ export function mountStrokeAnimation(container: HTMLElement, text: string, size 
     box.setAttribute("aria-label", `Thứ tự nét chữ ${ch}`);
     container.appendChild(box);
     const w = HanziWriter.create(box, ch, {
-      ...baseOptions(size),
+      ...strokeOptions(size),
       showCharacter: !!reducedMotion(),
       strokeAnimationSpeed: 1.2,
       delayBetweenStrokes: 180,
@@ -92,7 +92,7 @@ export function mountWritingQuiz(
     box.setAttribute("aria-label", `Viết chữ thứ ${i + 1}/${chars.length}`);
     container.appendChild(box);
     const w = HanziWriter.create(box, chars[i], {
-      ...baseOptions(size),
+      ...strokeOptions(size),
       showCharacter: false,
       // không hiện nét mờ: người học phải tự nhớ ra chữ (gợi ý chỉ hiện sau 2 lần sai)
       showOutline: !!opts.outline,
