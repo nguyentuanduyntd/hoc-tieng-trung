@@ -6,16 +6,80 @@ import { CARD_TYPE_LABELS, addWordCards, type CardType } from "../lib/srs.ts";
 import { setProgress, setSettings, state } from "../state.ts";
 import type { HskStandard } from "../types.ts";
 import { esc } from "../ui/html.ts";
-import { onVoicesChanged, speak, ttsSupported, zhVoices } from "../ui/speech.ts";
+import { groupVoices, hasNaturalVoice, rankVoices, type VoiceInfo } from "../lib/voices.ts";
+import { onVoicesChanged, rankedVoices, speakWithVoice, ttsSupported, voicesLoaded } from "../ui/speech.ts";
 import { recognitionSupported } from "../ui/speechInput.ts";
 
-const SAMPLE = "你好，谢谢！我在学习汉语。";
+/** Câu nghe thử theo SPEC 3.19. */
+const SAMPLE = "你好！欢迎你学习中文。";
+
+/** Báo nhẹ một lần: giọng đã lưu không còn trên trình duyệt này nên đã về Tự động. */
+let fallbackNotice = "";
+export function setVoiceFallbackNotice(msg: string) {
+  fallbackNotice = msg;
+}
+
+/** Mọi giọng của trình duyệt (chưa lọc) — để đếm giọng phương ngữ. */
+function browserVoices(): SpeechSynthesisVoice[] {
+  return ttsSupported() ? speechSynthesis.getVoices() : [];
+}
+
+/** Tắt phương ngữ mà giọng đang chọn là phương ngữ -> về Tự động. */
+function stillValidWithoutDialects(uri: string | undefined): string | undefined {
+  if (!uri) return undefined;
+  return rankVoices(browserVoices()).some((x) => x.voice.voiceURI === uri) ? uri : undefined;
+}
+
+function voiceSection(): string {
+  const s = state.settings;
+  if (!ttsSupported()) return `<p class="notice">Trình duyệt này không hỗ trợ đọc văn bản (Web Speech API). Hãy dùng Edge, Chrome hoặc Safari.</p>`;
+  const ranked = rankedVoices();
+  // nhãn "Tự động" = giọng mà chế độ Tự động sẽ dùng (hạng cao nhất), không phải giọng đang chọn
+  const primary = ranked[0];
+  const groups = groupVoices(ranked);
+  const auto = !s.voiceURI;
+  const opt = (x: VoiceInfo) =>
+    `<option value="${esc(x.voice.voiceURI)}" ${!auto && x.voice.voiceURI === s.voiceURI ? "selected" : ""} title="${esc(x.voice.name)} (${esc(x.voice.lang)})">${esc(x.label)}</option>`;
+  const dialectCount = rankVoices(browserVoices(), { showDialects: true }).filter((x) => x.variant === "dialect" || x.variant === "cantonese").length;
+  const status = !voicesLoaded()
+    ? `<p class="muted small">Đang tải danh sách giọng…</p>`
+    : !ranked.length
+      ? `<p class="notice">Chưa tìm thấy giọng tiếng phổ thông. Trên Windows: Cài đặt → Thời gian & ngôn ngữ → Giọng nói → thêm giọng “Chinese (Simplified)”, rồi tải lại trang. Hoặc mở web bằng Microsoft Edge.</p>`
+      : "";
+  return `
+      <p class="muted">Web dùng giọng tiếng Trung có sẵn trong trình duyệt/hệ điều hành.${ranked.length ? ` Có ${ranked.length} giọng tiếng phổ thông dùng được.` : ""}</p>
+      ${status}
+      ${fallbackNotice ? `<p class="notice small">${esc(fallbackNotice)}</p>` : ""}
+      <div class="setting-row">
+        <label for="voice-select">Giọng:</label>
+        <select id="voice-select" ${ranked.length ? "" : "disabled"}>
+          <option value="" ${auto ? "selected" : ""}>Tự động${primary ? ` — ${esc(primary.label)}` : ""}</option>
+          ${groups.map((g) => `<optgroup label="${esc(g.label)}">${g.items.map(opt).join("")}</optgroup>`).join("")}
+        </select>
+      </div>
+      <div class="setting-row">
+        <label for="rate-input">Tốc độ:</label>
+        <input type="number" id="rate-input" min="${RATE_MIN}" max="${RATE_MAX}" step="0.05" value="${s.rate}" />
+        <button class="btn" id="voice-test" ${ranked.length ? "" : "disabled"}>▶ Nghe thử</button>
+      </div>
+      ${
+        ranked.length && !hasNaturalVoice(ranked)
+          ? `<p class="small hint">💡 Muốn giọng tự nhiên hơn (晓晓, 云希 – Natural), hãy mở web bằng <strong>Microsoft Edge</strong>: Edge có sẵn giọng Microsoft Natural miễn phí (cần mạng).</p>`
+          : ""
+      }
+      <label class="check"><input type="checkbox" id="show-dialects" ${s.showDialects ? "checked" : ""} /> Hiện giọng Quảng Đông / phương ngữ${dialectCount ? ` (${dialectCount})` : ""}</label>
+      ${
+        s.showDialects
+          ? `<p class="notice small">⚠️ Giọng Quảng Đông và phương ngữ (Liêu Ninh, Thiểm Tây…) <strong>không dùng để học tiếng phổ thông</strong>: phát âm và thanh điệu khác chuẩn HSK. Chế độ Tự động và hội thoại không bao giờ dùng các giọng này.</p>`
+          : ""
+      }
+      <p class="muted small">“Tự động” chọn giọng tốt nhất: Microsoft Natural → Huihui/Yaoyao/Kangkang → Google 普通话 → giọng zh-CN khác → zh-TW. Tốc độ là “1x” của trình đọc bài. Hội thoại: người nói thứ hai dùng giọng khác giới.</p>
+      <p class="saved-msg small" id="voice-msg" aria-live="polite"></p>`;
+}
 
 export function settingsPage(): string {
   const s = state.settings;
   const p = state.progress;
-  const voices = ttsSupported() ? zhVoices() : [];
-  const selected = s.voiceURI && voices.some((v) => v.voiceURI === s.voiceURI) ? s.voiceURI : voices[0]?.voiceURI;
   const pressed = (on: boolean) => `aria-pressed="${on}"`;
   return `
   <div class="settings">
@@ -23,26 +87,7 @@ export function settingsPage(): string {
 
     <section class="card" aria-labelledby="set-voice">
       <h2 id="set-voice">Giọng đọc</h2>
-      ${
-        !ttsSupported()
-          ? `<p class="notice">Trình duyệt này không hỗ trợ đọc văn bản (Web Speech API). Hãy dùng Chrome, Edge hoặc Safari.</p>`
-          : voices.length
-            ? `<p class="muted">Web dùng giọng tiếng Trung có sẵn trong trình duyệt/hệ điều hành. Tìm thấy ${voices.length} giọng tiếng Trung.</p>`
-            : `<p class="notice">Chưa tìm thấy giọng tiếng Trung. Trên Windows: Cài đặt → Thời gian & ngôn ngữ → Giọng nói → thêm giọng “Chinese (Simplified)”, rồi tải lại trang.</p>`
-      }
-      <div class="setting-row">
-        <label for="voice-select">Giọng:</label>
-        <select id="voice-select" ${voices.length ? "" : "disabled"}>
-          ${voices.map((v) => `<option value="${esc(v.voiceURI)}" ${v.voiceURI === selected ? "selected" : ""}>${esc(v.name)} (${esc(v.lang)})</option>`).join("")}
-        </select>
-      </div>
-      <div class="setting-row">
-        <label for="rate-input">Tốc độ:</label>
-        <input type="number" id="rate-input" min="${RATE_MIN}" max="${RATE_MAX}" step="0.05" value="${s.rate}" />
-        <button class="btn" id="voice-test" ${ttsSupported() ? "" : "disabled"}>🔊 Thử</button>
-      </div>
-      <p class="muted small">Tốc độ này là “1x” của trình đọc bài và là tốc độ mặc định ở mọi nút 🔊. Hội thoại dùng thêm các giọng khác để phân biệt người nói.</p>
-      <p class="saved-msg small" id="voice-msg" aria-live="polite"></p>
+      <div id="voice-section">${voiceSection()}</div>
     </section>
 
     <section class="card" aria-labelledby="set-ui">
@@ -111,31 +156,49 @@ export function mountSettings(rerender: () => void) {
     if (el) el.textContent = text;
   };
 
-  // Danh sách giọng có thể nạp muộn -> vẽ lại khi trình duyệt báo có giọng mới.
+  // Danh sách giọng nạp muộn -> chỉ vẽ lại khối giọng đọc, khi danh sách thực sự đổi, ở tick sau.
   unsubscribeVoices?.();
-  const shownCount = ttsSupported() ? zhVoices().length : 0;
+  const sig = () => JSON.stringify(rankedVoices().map((x) => x.voice.voiceURI));
+  let shown = sig();
+  const redrawVoice = () => {
+    const el = document.getElementById("voice-section");
+    if (!el) return;
+    el.innerHTML = voiceSection();
+    shown = sig();
+    bindVoice();
+  };
   unsubscribeVoices = onVoicesChanged(() => {
-    // chỉ vẽ lại khi số giọng thực sự đổi, và làm ở tick sau (không vẽ lại ngay trong sự kiện)
-    if (document.getElementById("voice-select") && zhVoices().length !== shownCount) setTimeout(rerender, 0);
+    if (document.getElementById("voice-section") && sig() !== shown) setTimeout(redrawVoice, 0);
   });
 
-  document.getElementById("voice-select")?.addEventListener("change", (e) => {
-    const uri = (e.target as HTMLSelectElement).value;
-    setSettings((s) => ({ ...s, voiceURI: uri }));
-    speak(SAMPLE);
-    flash("voice-msg", "Đã lưu giọng đọc.");
-  });
-  const rateInput = document.getElementById("rate-input") as HTMLInputElement;
-  rateInput.addEventListener("change", () => {
-    const r = clampRate(rateInput.value);
-    rateInput.value = String(r);
-    setSettings((s) => ({ ...s, rate: r }));
-    flash("voice-msg", `Đã lưu tốc độ ${r}.`);
-  });
-  document.getElementById("voice-test")?.addEventListener("click", () => {
-    // dùng giá trị đang nhập (kể cả khi chưa rời ô)
-    speak(SAMPLE, clampRate(rateInput.value));
-  });
+  function bindVoice() {
+    const rateInput = document.getElementById("rate-input") as HTMLInputElement | null;
+    const currentRate = () => (rateInput ? clampRate(rateInput.value) : undefined);
+    document.getElementById("voice-select")?.addEventListener("change", (e) => {
+      const uri = (e.target as HTMLSelectElement).value || undefined;
+      fallbackNotice = "";
+      setSettings((x) => ({ ...x, voiceURI: uri }));
+      speakWithVoice(SAMPLE, uri, currentRate());
+      flash("voice-msg", uri ? "Đã lưu giọng đọc." : "Đã chuyển về Tự động.");
+    });
+    rateInput?.addEventListener("change", () => {
+      const r = clampRate(rateInput.value);
+      rateInput.value = String(r);
+      setSettings((x) => ({ ...x, rate: r }));
+      flash("voice-msg", `Đã lưu tốc độ ${r}.`);
+    });
+    document.getElementById("voice-test")?.addEventListener("click", () => {
+      // dùng giọng & tốc độ đang hiển thị (kể cả khi chưa rời ô tốc độ)
+      const uri = (document.getElementById("voice-select") as HTMLSelectElement | null)?.value || undefined;
+      speakWithVoice(SAMPLE, uri, currentRate());
+    });
+    document.getElementById("show-dialects")?.addEventListener("change", (e) => {
+      const on = (e.target as HTMLInputElement).checked;
+      setSettings((x) => ({ ...x, showDialects: on, voiceURI: on ? x.voiceURI : stillValidWithoutDialects(x.voiceURI) }));
+      redrawVoice();
+    });
+  }
+  bindVoice();
 
   document.querySelectorAll<HTMLButtonElement>("[data-theme-btn]").forEach((b) =>
     b.addEventListener("click", () => {

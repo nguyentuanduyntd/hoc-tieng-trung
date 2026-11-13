@@ -10,7 +10,7 @@ import { setProgress, state } from "../state.ts";
 import type { Reading, ReadingsFile } from "../types.ts";
 import { esc, zhWord } from "../ui/html.ts";
 import { resourceHint } from "../ui/resourceHint.ts";
-import { baseRate, speakAsync, stopSpeaking, ttsSupported, zhVoiceCount, type SpeakHandle } from "../ui/speech.ts";
+import { baseRate, speakAsync, stopSpeaking, ttsSupported, type SpeakHandle } from "../ui/speech.ts";
 import { recordOnce, recorderSupported } from "../ui/speechInput.ts";
 
 // ---------- Dữ liệu ----------
@@ -218,6 +218,17 @@ function renderReader() {
       <div class="player-status small" aria-live="polite">${esc(P.status || `Câu ${P.index + 1}/${r.sentences.length}`)}</div>
       ${ttsSupported() ? "" : `<div class="small bad-text">Trình duyệt không có giọng đọc tiếng Trung — không phát được âm.</div>`}
     </div>`;
+  watchPlayerHeight(root);
+}
+
+/** Đo chiều cao thật của thanh phát (đổi khi các nút xuống dòng) để nội dung không bị che. */
+let playerObserver: ResizeObserver | null = null;
+function watchPlayerHeight(root: HTMLElement) {
+  playerObserver?.disconnect();
+  const bar = root.querySelector<HTMLElement>(".player-bar");
+  if (!bar || typeof ResizeObserver === "undefined") return;
+  playerObserver = new ResizeObserver(() => root.style.setProperty("--player-h", `${Math.ceil(bar.getBoundingClientRect().height)}px`));
+  playerObserver.observe(bar);
 }
 
 function questionsHtml(): string {
@@ -249,10 +260,11 @@ function questionsHtml(): string {
 }
 
 // ---------- Phát âm & shadowing ----------
-const voiceFor = (i: number) => {
+/** Người nói đầu tiên dùng giọng chính, người thứ hai dùng giọng khác giới (SPEC 3.19). */
+const roleFor = (i: number): "primary" | "partner" => {
   const s = P!.reading.sentences[i];
-  if (!s.speaker || zhVoiceCount() < 2) return 0;
-  return Object.keys(P!.reading.speakers ?? {}).indexOf(s.speaker);
+  if (!s.speaker) return "primary";
+  return Object.keys(P!.reading.speakers ?? {}).indexOf(s.speaker) === 1 ? "partner" : "primary";
 };
 
 function setStatus(msg: string) {
@@ -279,7 +291,7 @@ async function sayOne(i: number, token: number): Promise<number | null> {
   const s = P!.reading.sentences[i];
   // 1x = tốc độ chuẩn trong Cài đặt
   const rate = prefs.speed * baseRate();
-  const h = speakAsync(s.zh, { rate, voiceIndex: voiceFor(i), fallbackMs: estimateSpeechMs(s.zh, rate) });
+  const h = speakAsync(s.zh, { rate, role: roleFor(i), fallbackMs: estimateSpeechMs(s.zh, rate) });
   P!.handle = h;
   try {
     const ms = await h.done;

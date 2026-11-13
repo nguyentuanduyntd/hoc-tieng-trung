@@ -8,7 +8,7 @@
     "build": "npm run data && tsc --noEmit && vite build",
     "preview": "vite preview",
     "data": "node scripts/build-vocab.ts && node scripts/build-lessons.ts && node scripts/build-readings.ts && node scripts/build-exams.ts",
-    "test": "vitest run",
+    "test": "vitest run && node scripts/check-links.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

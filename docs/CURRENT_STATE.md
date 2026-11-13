@@ -1,4 +1,6 @@
-# Hiện trạng dự án (cập nhật sau Giai đoạn 6 — 13/11/2026)
+# Hiện trạng dự án (cập nhật sau Bước A vòng 2 — v0.8.0, 13/11/2026)
+
+> SPEC trong repo đã được thay bằng **v2.1** (có Mục 1b, 3.12–3.19).
 
 ## Khảo sát ban đầu (Mục 0)
 
@@ -44,6 +46,9 @@ src/pages/exam.ts                   danh sách đề, phòng thi, kết quả
 src/pages/home.ts                   dashboard trang chủ
 src/pages/settings.ts               trang Cài đặt (giọng đọc, giao diện, cỡ chữ Hán, học tập, quyền riêng tư)
 src/lib/settings.ts                 cài đặt theo thiết bị (localStorage riêng)
+src/lib/voices.ts                   lọc / xếp hạng / gắn nhãn giọng trình duyệt, giọng người nói thứ hai, chia câu dài
+src/ui/speech.ts                    module phát âm dùng chung (speak / speakAsync)
+scripts/check-links.ts              quét link nội bộ (chạy trong npm test)
 src/lib/dashboard.ts                nhật ký học, việc hôm nay, tiến độ theo cấp, gợi ý nguồn
 src/ui/charts.ts, activity.ts       biểu đồ SVG + tooltip; đo thời gian học
 src/ui/resourceHint.ts              khối gợi ý nguồn theo ngữ cảnh
@@ -89,3 +94,17 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 - Xuất Anki mới được kiểm tra bằng unit test theo đặc tả header của Anki — **chưa thử nhập vào Anki thật**.
 - 116/301 từ chưa có câu ví dụ (cột ViDu trong file Anki để trống).
 - Font tải từ Google Fonts (lộ IP người dùng cho Google). Nếu muốn tuyệt đối không có request ra ngoài thì tự host font.
+
+## Tiến độ theo SPEC v2.1 (vòng 2)
+
+| Bước | Trạng thái |
+|---|---|
+| A1 Giọng đọc trình duyệt (3.19) | **Xong** — lọc zh-CN chuẩn/zh-TW, Tự động, xếp hạng, optgroup, khác giới cho hội thoại, fallback giọng mất. Phần **giọng Microsoft Neural dựng sẵn** (nguồn giọng, build-audio) thuộc Bước D4 |
+| A2 Thanh tab dưới đáy (< 768px) | **Xong** |
+| A3 Thanh phát trình đọc trên điện thoại | **Xong** |
+| A4 Quét link trong npm test | **Xong** |
+| B Nội dung HSK 1 | Chưa làm — cần duyệt kế hoạch unit trước khi soạn |
+| C Thi thử (rà config, +2 đề) | Chưa làm |
+| D Tính năng 3.12–3.19 | Chưa làm |
+
+Việc người dùng cần tự kiểm tra: nhập file xuất vào Anki thật; chấm nói bằng micro thật trên Chrome và Edge; nghe thử giọng sau Bước A trên Edge, Chrome và điện thoại.

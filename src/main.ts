@@ -11,10 +11,12 @@ import { installPlayerHandlers, lessonPlayerPage, lessonsListPage, mountLessonPl
 import { mountPronunciation, pronunciationPage } from "./pages/pronunciation.ts";
 import { examListPage, examRunPage, installExamHandlers, mountExamList, mountExamRun } from "./pages/exam.ts";
 import { homePage } from "./pages/home.ts";
-import { mountSettings, settingsPage } from "./pages/settings.ts";
+import { mountSettings, setVoiceFallbackNotice, settingsPage } from "./pages/settings.ts";
+import { onVoicesChanged, savedVoiceMissing } from "./ui/speech.ts";
+import { toast } from "./ui/toast.ts";
 import { installReaderHandlers, loadReadings, mountReader, mountReadingList, readerPage, readingListPage } from "./pages/reading.ts";
 import { mountReviewPage, reviewCounts, reviewPage } from "./pages/review.ts";
-import { applyDeviceSettings, loadLessons, loadVocab, setProgress, state, subscribe } from "./state.ts";
+import { applyDeviceSettings, setSettings, loadLessons, loadVocab, setProgress, state, subscribe } from "./state.ts";
 import type { HskStandard, ReadingsFile, Word } from "./types.ts";
 import { installActivityTracker } from "./ui/activity.ts";
 import { installChartTooltip } from "./ui/charts.ts";
@@ -295,18 +297,44 @@ const currentRoute = () => parseHash().route;
 let renderedBeforeData = false;
 
 function updateNav(route: string) {
-  document.querySelectorAll<HTMLAnchorElement>(".nav a").forEach((a) => {
+  document.querySelectorAll<HTMLAnchorElement>(".nav a, .tabbar a, .more-panel a").forEach((a) => {
     const on = a.dataset.route === route;
     a.classList.toggle("active", on);
     if (on) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
   });
-  const badge = document.getElementById("due-badge");
-  if (badge) {
-    const { due, fresh } = reviewCounts();
-    badge.textContent = String(due + fresh);
-    badge.hidden = due + fresh === 0;
-  }
+  // nút "Thêm" sáng lên khi đang ở một mục nằm trong danh sách "Thêm"
+  const more = document.getElementById("more-btn");
+  more?.classList.toggle("active", (more.dataset.moreRoutes ?? "").split(" ").includes(route));
+  const { due, fresh } = reviewCounts();
+  document.querySelectorAll<HTMLElement>("[data-due-badge]").forEach((b) => {
+    b.textContent = String(due + fresh);
+    b.hidden = due + fresh === 0;
+  });
+}
+
+/** Danh sách "Thêm" của thanh tab điện thoại. */
+function installMoreSheet() {
+  const btn = document.getElementById("more-btn");
+  const sheet = document.getElementById("more-sheet");
+  if (!btn || !sheet) return;
+  const setOpen = (open: boolean) => {
+    sheet.hidden = !open;
+    btn.setAttribute("aria-expanded", String(open));
+    if (open) sheet.querySelector<HTMLElement>("a")?.focus();
+  };
+  btn.addEventListener("click", () => setOpen(sheet.hidden));
+  sheet.addEventListener("click", (e) => {
+    // bấm ra ngoài khung hoặc chọn một mục -> đóng
+    if (e.target === sheet || (e.target as HTMLElement).closest("a")) setOpen(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !sheet.hidden) {
+      setOpen(false);
+      btn.focus();
+    }
+  });
+  window.addEventListener("hashchange", () => setOpen(false));
 }
 
 function render() {
@@ -326,6 +354,23 @@ function render() {
 applyDeviceSettings();
 installPopupHandlers();
 installPlayerHandlers();
+installMoreSheet();
+
+// Giọng đã lưu không còn (đổi máy / đổi trình duyệt) -> về Tự động, báo nhẹ.
+// Chờ danh sách giọng ổn định (Edge nạp giọng Natural online sau giọng trên máy).
+let voiceCheckTimer: number | undefined;
+const scheduleVoiceCheck = () => {
+  window.clearTimeout(voiceCheckTimer);
+  voiceCheckTimer = window.setTimeout(() => {
+    if (!savedVoiceMissing()) return;
+    setSettings((x) => ({ ...x, voiceURI: undefined }));
+    const msg = "Giọng đọc đã chọn không có trên trình duyệt này — đã chuyển về Tự động.";
+    setVoiceFallbackNotice(msg);
+    toast(msg);
+  }, 3000);
+};
+onVoicesChanged(scheduleVoiceCheck);
+scheduleVoiceCheck();
 installReaderHandlers();
 installExamHandlers();
 subscribe(() => {

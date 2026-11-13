@@ -1094,7 +1094,8 @@ a.reading-card:hover {
 .reader {
   max-width: 820px;
   margin: 0 auto;
-  padding-bottom: 120px; /* chừa chỗ cho thanh phát cố định */
+  /* chừa chỗ cho thanh phát cố định: chiều cao đo thật (--player-h, đặt trong reading.ts) */
+  padding-bottom: calc(var(--player-h, 120px) + 24px);
 }
 
 .reader-head {
@@ -1269,7 +1270,7 @@ a.reading-card:hover {
 .player-bar {
   position: fixed;
   left: 50%;
-  bottom: 12px;
+  bottom: calc(12px + var(--tabbar-h, 0px));
   transform: translateX(-50%);
   width: min(820px, calc(100vw - 24px));
   z-index: 20;
@@ -1327,12 +1328,11 @@ a.reading-card:hover {
   }
   .player-bar {
     padding: 6px 8px;
-    bottom: 6px;
   }
+  /* các nút xuống dòng thay vì cuộn ngang (không còn nút nào bị cắt) */
   .player-bar .row {
     gap: 4px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    flex-wrap: wrap;
   }
   .player-bar .row > * {
     flex: none;
@@ -2032,4 +2032,132 @@ a.reading-card:hover {
 .saved-msg {
   color: var(--ok);
   min-height: 1.2em;
+}
+
+/* ---------- Thông báo nhẹ ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(20px + var(--tabbar-h, 0px));
+  transform: translate(-50%, 20px);
+  z-index: 60;
+  max-width: min(520px, calc(100vw - 32px));
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+.hint {
+  color: var(--muted);
+}
+
+/* ---------- Thanh tab dưới đáy trên điện thoại (< 768px) ---------- */
+.tabbar,
+.more-sheet {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --tabbar-h: calc(58px + env(safe-area-inset-bottom, 0px));
+  }
+  .topbar .nav {
+    display: none;
+  }
+  body {
+    padding-bottom: var(--tabbar-h);
+  }
+  /* thanh trên chỉ còn logo -> các thanh dính theo chiều cao mới */
+  .reader-toolbar,
+  .exam-bar {
+    top: 58px !important;
+  }
+  .tabbar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    height: var(--tabbar-h);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+  }
+  .tabbar a,
+  .tabbar button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-width: 0;
+    padding: 4px 2px;
+    border: none;
+    background: none;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.72rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .tabbar .ti {
+    position: relative;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+  .tabbar .active {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .tab-badge {
+    position: absolute;
+    top: -6px;
+    left: 60%;
+    margin: 0;
+    font-size: 0.65rem;
+  }
+  .more-sheet:not([hidden]) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 29;
+    background: rgba(0, 0, 0, 0.45);
+  }
+  .more-panel {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: calc(var(--tabbar-h) + 8px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 10px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .more-panel a {
+    padding: 12px;
+    border-radius: 10px;
+    background: var(--surface-2);
+    text-decoration: none;
+  }
+  .more-panel a.active {
+    color: var(--accent);
+    font-weight: 600;
+  }
 }

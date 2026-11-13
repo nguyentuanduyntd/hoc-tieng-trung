@@ -31,7 +31,7 @@
         <a href="#/bai-hoc" data-route="bai-hoc">Bài học</a>
         <a href="#/doc" data-route="doc">Bài đọc</a>
         <a href="#/tu-vung" data-route="tu-vung">Từ vựng</a>
-        <a href="#/on-tap" data-route="on-tap">Ôn tập <span id="due-badge" class="nav-badge" hidden></span></a>
+        <a href="#/on-tap" data-route="on-tap">Ôn tập <span id="due-badge" class="nav-badge" data-due-badge hidden></span></a>
         <a href="#/phat-am" data-route="phat-am">Phát âm</a>
         <a href="#/thi-thu" data-route="thi-thu">Thi thử</a>
         <a href="#/nguon" data-route="nguon">Nguồn miễn phí</a>
@@ -40,6 +40,28 @@
       </nav>
     </header>
     <main id="app" tabindex="-1"></main>
+    <!-- Điện thoại (< 768px): thanh tab dưới đáy thay cho menu trên -->
+    <nav class="tabbar" aria-label="Điều hướng chính">
+      <a href="#/" data-route="home"><span class="ti" aria-hidden="true">🏠</span><span>Trang chủ</span></a>
+      <a href="#/bai-hoc" data-route="bai-hoc"><span class="ti" aria-hidden="true">📘</span><span>Bài học</span></a>
+      <a href="#/on-tap" data-route="on-tap"
+        ><span class="ti" aria-hidden="true">🔁<span class="nav-badge tab-badge" data-due-badge hidden></span></span><span>Ôn tập</span></a
+      >
+      <a href="#/doc" data-route="doc"><span class="ti" aria-hidden="true">📖</span><span>Bài đọc</span></a>
+      <button type="button" id="more-btn" aria-expanded="false" aria-controls="more-sheet" data-more-routes="tu-vung phat-am thi-thu nguon tien-do cai-dat">
+        <span class="ti" aria-hidden="true">☰</span><span>Thêm</span>
+      </button>
+    </nav>
+    <div id="more-sheet" class="more-sheet" hidden>
+      <div class="more-panel" role="menu" aria-label="Các mục khác">
+        <a role="menuitem" href="#/tu-vung" data-route="tu-vung">📚 Từ vựng</a>
+        <a role="menuitem" href="#/phat-am" data-route="phat-am">🗣 Phát âm</a>
+        <a role="menuitem" href="#/thi-thu" data-route="thi-thu">📝 Thi thử</a>
+        <a role="menuitem" href="#/nguon" data-route="nguon">🔗 Nguồn miễn phí</a>
+        <a role="menuitem" href="#/tien-do" data-route="tien-do">📈 Tiến độ</a>
+        <a role="menuitem" href="#/cai-dat" data-route="cai-dat">⚙️ Cài đặt</a>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

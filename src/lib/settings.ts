@@ -5,12 +5,14 @@ export type Theme = "dark" | "light";
 export type ZhSize = "normal" | "large" | "xlarge";
 
 export interface DeviceSettings {
-  /** voiceURI của giọng đã chọn; undefined = tự chọn giọng zh-CN đầu tiên. */
+  /** voiceURI của giọng đã chọn; undefined = "Tự động" (giọng hạng cao nhất, xem src/lib/voices.ts). */
   voiceURI?: string;
   /** Tốc độ đọc chuẩn (1x của trình đọc = tốc độ này). */
   rate: number;
   theme: Theme;
   zhSize: ZhSize;
+  /** Hiện cả giọng Quảng Đông & phương ngữ trong danh sách (mặc định ẩn). */
+  showDialects: boolean;
 }
 
 export const SETTINGS_KEY = "htt.settings.v1";
@@ -20,7 +22,7 @@ export const RATE_MAX = 1.5;
 export const ZH_SCALE: Record<ZhSize, number> = { normal: 1, large: 1.2, xlarge: 1.45 };
 export const ZH_SIZE_LABELS: Record<ZhSize, string> = { normal: "Bình thường", large: "Lớn", xlarge: "Rất lớn" };
 
-export const defaultSettings = (): DeviceSettings => ({ rate: 0.85, theme: "dark", zhSize: "normal" });
+export const defaultSettings = (): DeviceSettings => ({ rate: 0.85, theme: "dark", zhSize: "normal", showDialects: false });
 
 export function clampRate(v: unknown): number {
   const n = typeof v === "number" ? v : Number(v);
@@ -37,6 +39,8 @@ export function sanitizeSettings(input: unknown): DeviceSettings {
     rate: o.rate === undefined ? d.rate : clampRate(o.rate),
     theme: o.theme === "light" || o.theme === "dark" ? o.theme : d.theme,
     zhSize: o.zhSize === "large" || o.zhSize === "xlarge" || o.zhSize === "normal" ? o.zhSize : d.zhSize,
+    // migration: cài đặt v0.7 chưa có trường này -> mặc định ẩn phương ngữ
+    showDialects: o.showDialects === true,
   };
 }
 
@@ -57,13 +61,6 @@ export function saveSettings(s: DeviceSettings, storage: Pick<Storage, "setItem"
   } catch {
     return false;
   }
-}
-
-/** Sắp giọng: giọng đã chọn đứng đầu, rồi các giọng zh-CN, rồi giọng tiếng Trung khác. */
-export function orderVoices<V extends { voiceURI: string; lang: string }>(voices: V[], preferredURI?: string): V[] {
-  const zh = voices.filter((v) => /^zh/i.test(v.lang) || /^cmn/i.test(v.lang));
-  const rank = (v: V) => (v.voiceURI === preferredURI ? 0 : /zh[-_]CN/i.test(v.lang) || /cmn/i.test(v.lang) ? 1 : 2);
-  return [...zh].sort((a, b) => rank(a) - rank(b));
 }
 
 function safeStorage(): Storage | undefined {

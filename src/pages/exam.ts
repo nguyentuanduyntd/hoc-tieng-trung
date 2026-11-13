@@ -9,7 +9,7 @@ import { setProgress, state } from "../state.ts";
 import type { Exam, ExamOption, ExamQuestion, ExamSentence, ExamsFile } from "../types.ts";
 import { esc, zhWord } from "../ui/html.ts";
 import { resourceHint } from "../ui/resourceHint.ts";
-import { speakAsync, stopSpeaking, ttsSupported, zhVoiceCount, type SpeakHandle } from "../ui/speech.ts";
+import { speakAsync, stopSpeaking, ttsSupported, type SpeakHandle } from "../ui/speech.ts";
 
 let examsPromise: Promise<ExamsFile | null> | null = null;
 export function loadExams(): Promise<ExamsFile | null> {
@@ -295,11 +295,12 @@ function setListenStatus(msg: string) {
   if (el) el.textContent = msg;
 }
 
-const voiceFor = (speaker?: string) => (zhVoiceCount() >= 2 && speaker === "男" ? 1 : 0);
+/** 男 -> giọng nam, 女 -> giọng nữ (chọn trong giọng đã lọc, không bao giờ Quảng Đông/phương ngữ). */
+const genderOf = (speaker?: string) => (speaker === "男" ? "male" : speaker === "女" ? "female" : undefined);
 
 async function sayLine(text: string, speaker: string | undefined, token: number): Promise<boolean> {
   if (!ttsSupported()) return S?.token === token;
-  const h = speakAsync(text, { voiceIndex: voiceFor(speaker), fallbackMs: 300 * [...text].length });
+  const h = speakAsync(text, { gender: genderOf(speaker), fallbackMs: 300 * [...text].length });
   S!.handle = h;
   try {
     await h.done;

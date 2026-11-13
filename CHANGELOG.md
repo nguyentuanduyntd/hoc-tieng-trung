@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.8.0] — 2026-11-13 — Bước A: sửa lỗi (giọng đọc, menu điện thoại, thanh phát, link)
+
+### Sửa
+- **Giọng đọc (SPEC 3.19, phần giọng trình duyệt)** — `src/lib/voices.ts` (thay `orderVoices`):
+  - Mặc định chỉ giữ zh-CN chuẩn và zh-TW. Quảng Đông (zh-HK, yue) và phương ngữ (`zh-CN-liaoning`, `zh-CN-shaanxi`… — trước đây bị regex `/zh[-_]CN/` nhận nhầm là zh-CN) ẩn sau công tắc “Hiện giọng Quảng Đông / phương ngữ” kèm cảnh báo.
+  - Xếp hạng: Microsoft Online (Natural) zh-CN → Huihui/Yaoyao/Kangkang → Google 普通话 → zh-CN khác → zh-TW. Thêm lựa chọn **Tự động** (mặc định) = giọng hạng cao nhất.
+  - Hội thoại: người nói thứ hai dùng giọng **khác giới** tốt nhất (ưu tiên cặp 晓晓 + 云希), không bao giờ là Quảng Đông/phương ngữ; đề thi chọn giọng theo 男/女.
+  - Dropdown chia `<optgroup>` (Đề xuất · Microsoft Natural (cần mạng) · Giọng cài trên máy · Phổ thông Đài Loan), tên gọn kiểu `晓晓 · Nữ · Natural · cần mạng`, nút ▶ Nghe thử (`你好！欢迎你学习中文。`), gợi ý mở bằng Edge khi không có giọng Natural.
+  - Giọng đã lưu không còn (đổi máy/trình duyệt) → tự về Tự động, báo nhẹ (chờ danh sách giọng ổn định 3 giây vì Edge nạp giọng Natural muộn).
+  - Module phát âm dùng chung: câu dài chia theo dấu câu; giọng online lỗi/mất mạng → đọc lại bằng giọng trên máy.
+  - Test với đúng 20 giọng Edge (zh-CN, zh-TW, zh-HK, zh-CN-liaoning, zh-CN-shaanxi, local + Online Natural).
+- **Menu trên điện thoại** (< 768px): thay menu cuộn ngang bằng **thanh tab dưới đáy** (Trang chủ · Bài học · Ôn tập + số thẻ đến hạn · Bài đọc · Thêm). “Thêm” mở danh sách còn lại (Từ vựng, Phát âm, Thi thử, Nguồn, Tiến độ, Cài đặt), đóng bằng Esc / bấm ra ngoài. Desktop giữ nguyên.
+- **Thanh phát trình đọc trên điện thoại**: các nút xuống dòng (không còn nút Shadowing bị cắt), thanh nằm trên thanh tab, nội dung chừa đúng chiều cao thanh phát (đo bằng ResizeObserver) nên không che dòng cuối.
+- Chuẩn hóa xuống dòng LF cho toàn repo + `.gitattributes` (trước đó `core.autocrlf` làm file lẫn CRLF/LF).
+
+### Thêm
+- `scripts/check-links.ts` trong `npm test`: fail nếu có `href="#"`/rỗng, route không tồn tại, hoặc link tĩnh tới bài học/bài đọc/đề thi không có trong dữ liệu.
+- Cài đặt thiết bị thêm `showDialects` (migration: bản cũ chưa có → mặc định ẩn). Thông báo nhẹ (`src/ui/toast.ts`).
+- Test: 215 (+18 giọng đọc, +8 link, +1 migration).
+
 ## [0.7.0] — 2026-11-13 — Trang Cài đặt
 
 ### Thêm
