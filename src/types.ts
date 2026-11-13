@@ -25,6 +25,10 @@ export interface Word {
   hsk2Level?: number;
   /** Cấp theo HSK 3.0 (1–7; 7 = HSK 7–9). */
   hsk3Level?: number;
+  /** Từ loại (mã, xem src/lib/pos.ts), theo cách dùng ở cấp đang học. */
+  pos?: string[];
+  /** Từng nghĩa tiếng Việt riêng (tách từ meaningVi). */
+  senses?: string[];
   examples: Example[];
   audioUrl?: string;
   /** "draft" = dữ liệu tiếng Việt do dự án tự soạn, chưa có người duyệt. */
@@ -146,6 +150,8 @@ export interface Reading {
   hskLevel: number;
   title: string;
   titleZh?: string;
+  /** Unit cùng chủ đề trong lộ trình bài học. */
+  unit?: number;
   kind: "text" | "dialogue";
   speakers?: Record<string, string>;
   sentences: ReadingSentence[];

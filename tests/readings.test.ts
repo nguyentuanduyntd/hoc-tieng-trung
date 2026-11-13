@@ -136,3 +136,12 @@ describe("nghe & shadowing", () => {
     expect(nextSentenceIndex(1, 3, true)).toBe(1);
   });
 });
+
+describe("bài đọc gắn theo unit", () => {
+  it("đủ 12 bài HSK 1, bài nào cũng gắn với một unit có trong lộ trình", () => {
+    const lessons = JSON.parse(readFileSync(new URL("../public/data/lessons/hsk1.json", import.meta.url), "utf8"));
+    const units = new Set(lessons.units.map((u: { unit: number }) => u.unit));
+    expect(file.readings).toHaveLength(12);
+    for (const r of file.readings) expect(units.has(r.unit), `${r.id}: unit ${r.unit}`).toBe(true);
+  });
+});

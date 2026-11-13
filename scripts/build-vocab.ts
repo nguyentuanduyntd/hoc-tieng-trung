@@ -3,10 +3,11 @@
 //   - data/curated/hsk1.tsv — âm Hán Việt + nghĩa tiếng Việt do dự án soạn
 // Chạy: npm run data   (Node >= 22.18 chạy trực tiếp file .ts)
 
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { markedToNumbered, numberedToMarked } from "../src/lib/pinyin.ts";
+import { isPosCode, splitSenses } from "../src/lib/pos.ts";
 import { createSegmenter, unknownHanzi } from "../src/lib/segment.ts";
 import { sentencePinyin } from "../src/lib/sentence.ts";
 import { validateWordList, levelCoverage } from "../src/data/validate.ts";
@@ -15,7 +16,9 @@ import type { VocabFile, Word } from "../src/types.ts";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const RAW = resolve(root, "data/raw/complete-hsk-vocabulary/complete.json");
 const CURATED = resolve(root, "data/curated/hsk1.tsv");
+const POS_FILE = resolve(root, "data/curated/pos-hsk1.tsv");
 const EXAMPLES = resolve(root, "data/curated/examples-hsk1.tsv");
+const LESSONS_DIR = resolve(root, "data/curated/lessons");
 const OUT = resolve(root, "public/data/vocab/hsk1.json");
 
 interface RawForm {
@@ -43,12 +46,24 @@ const raw: RawEntry[] = JSON.parse(readFileSync(RAW, "utf8"));
 const bySimplified = new Map(raw.map((e) => [e.simplified, e]));
 
 const errors: string[] = [];
+
+// ---------- Từ loại (data/curated/pos-hsk1.tsv) ----------
+const posMap = new Map<string, string[]>();
+for (const [lineNo, line] of readFileSync(POS_FILE, "utf8").split(/\r?\n/).entries()) {
+  if (!line.trim() || line.startsWith("#")) continue;
+  const [hanzi, codes] = line.split("\t").map((x) => x?.trim());
+  const list = (codes ?? "").split(",").map((x) => x.trim()).filter(Boolean);
+  const bad = list.filter((c) => !isPosCode(c));
+  if (!hanzi || !list.length || bad.length) errors.push(`pos-hsk1.tsv:${lineNo + 1}: mã từ loại không hợp lệ "${codes}"`);
+  if (posMap.has(hanzi)) errors.push(`pos-hsk1.tsv:${lineNo + 1}: "${hanzi}" bị trùng`);
+  posMap.set(hanzi, list);
+}
 const words: Word[] = [];
 const curatedHanzi = new Set<string>();
 
 for (const [lineNo, line] of readFileSync(CURATED, "utf8").split(/\r?\n/).entries()) {
   if (!line.trim() || line.startsWith("#")) continue;
-  const [hanzi, override, hanViet, meaningVi] = line.split("\t").map((s) => s?.trim());
+  const [hanzi, override, hanViet, meaningVi, status] = line.split("\t").map((s) => s?.trim());
   const where = `hsk1.tsv:${lineNo + 1} (${hanzi})`;
   curatedHanzi.add(hanzi);
   const entry = bySimplified.get(hanzi);
@@ -97,7 +112,10 @@ for (const [lineNo, line] of readFileSync(CURATED, "utf8").split(/\r?\n/).entrie
     hsk2Level: levelOf(entry, "old"),
     hsk3Level: levelOf(entry, "newest"),
     examples: [],
-    reviewStatus: "draft",
+    // cột 5 của hsk1.tsv: "reviewed" khi đã duyệt (scripts/import-review.ts), trống = bản nháp
+    reviewStatus: status === "reviewed" ? "reviewed" : "draft",
+    pos: posMap.get(hanzi),
+    senses: splitSenses(meaningVi ?? ""),
   });
 }
 
@@ -109,32 +127,62 @@ for (const e of raw) {
 }
 
 // ---------- Câu ví dụ: tách từ sẵn, sinh pinyin, gắn vào từ ----------
+// Nguồn: (1) data/curated/examples-hsk1.tsv (câu ví dụ soạn riêng cho từ điển),
+//        (2) câu luyện tập + ví dụ ngữ pháp trong các bài học (data/curated/lessons/*.json).
+// Mỗi từ lấy tối đa 2 câu, ưu tiên: câu từ điển -> câu của chính bài dạy từ đó -> câu khác; cùng hạng thì câu ngắn trước.
 const MAX_EXAMPLES_PER_WORD = 2;
 const segmenter = createSegmenter(new Map(words.map((w) => [w.hanzi, w.id])));
 const byId = new Map(words.map((w) => [w.id, w]));
-let exampleCount = 0;
+interface Candidate { zh: string; vi: string; where: string; source: "dict" | "lesson"; lessonWords?: Set<string> }
+const candidates: Candidate[] = [];
 for (const [lineNo, line] of readFileSync(EXAMPLES, "utf8").split(/\r?\n/).entries()) {
   if (!line.trim() || line.startsWith("#")) continue;
-  const [zh, vi] = line.split("\t").map((s) => s?.trim());
+  const [zh, vi] = line.split("\t").map((x) => x?.trim());
   const where = `examples-hsk1.tsv:${lineNo + 1}`;
   if (!zh || !vi) {
     errors.push(`${where}: thiếu cột`);
     continue;
   }
-  const tokens = segmenter.segment(zh);
+  candidates.push({ zh, vi, where, source: "dict" });
+}
+for (const file of readdirSync(LESSONS_DIR).filter((x) => x.endsWith(".json")).sort()) {
+  const unit = JSON.parse(readFileSync(resolve(LESSONS_DIR, file), "utf8")) as {
+    lessons: { id: string; words: string[]; sentences: { zh: string; vi: string }[]; grammar?: { examples: { zh: string; vi: string }[] } }[];
+  };
+  for (const l of unit.lessons) {
+    const lessonWords = new Set(l.words);
+    for (const x of [...l.sentences, ...(l.grammar?.examples ?? [])]) candidates.push({ zh: x.zh, vi: x.vi, where: `${file} ${l.id}`, source: "lesson", lessonWords });
+  }
+}
+const seenZh = new Set<string>();
+const perWord = new Map<string, { rank: number; len: number; ex: Word["examples"][number] }[]>();
+let exampleCount = 0;
+for (const c of candidates) {
+  if (seenZh.has(c.zh)) continue;
+  seenZh.add(c.zh);
+  const tokens = segmenter.segment(c.zh);
   const unknown = unknownHanzi(tokens);
   if (unknown.length) {
-    errors.push(`${where}: chữ ngoài từ điển HSK1: ${unknown.join(", ")}`);
+    errors.push(`${c.where}: "${c.zh}" có chữ ngoài từ điển HSK1: ${unknown.join(", ")}`);
     continue;
   }
   const pinyin = sentencePinyin(tokens, (id) => byId.get(id)?.pinyin);
   exampleCount++;
   for (const id of new Set(tokens.map((t) => t.wordId).filter((x): x is string => !!x))) {
     const w = byId.get(id)!;
-    if (w.examples.length < MAX_EXAMPLES_PER_WORD) w.examples.push({ zh, pinyin, vi, tokens });
+    const rank = c.source === "dict" ? 0 : c.lessonWords?.has(w.hanzi) ? 1 : 2;
+    const list = perWord.get(id) ?? [];
+    list.push({ rank, len: [...c.zh].length, ex: { zh: c.zh, pinyin, vi: c.vi, tokens } });
+    perWord.set(id, list);
   }
 }
+for (const w of words) {
+  const list = (perWord.get(w.id) ?? []).sort((x, y) => x.rank - y.rank || x.len - y.len);
+  w.examples = list.slice(0, MAX_EXAMPLES_PER_WORD).map((x) => x.ex);
+}
 
+for (const w of words) if (!w.pos) errors.push(`thiếu từ loại cho "${w.hanzi}" trong pos-hsk1.tsv`);
+for (const h of posMap.keys()) if (!words.some((w) => w.hanzi === h)) errors.push(`pos-hsk1.tsv: "${h}" không có trong hsk1.tsv`);
 for (const i of validateWordList(words)) errors.push(`${i.wordId} [${i.field}]: ${i.message}`);
 
 if (errors.length) {

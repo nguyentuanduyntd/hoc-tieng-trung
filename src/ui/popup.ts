@@ -4,6 +4,7 @@ import { getLevelInfo } from "../config/hsk.ts";
 import { addWordCards } from "../lib/srs.ts";
 import { setProgress, state } from "../state.ts";
 import type { Word } from "../types.ts";
+import { posLabel } from "../lib/pos.ts";
 import { esc, zhTokens, zhWord } from "./html.ts";
 import { speak } from "./speech.ts";
 import { mountStrokeAnimation } from "./strokes.ts";
@@ -65,7 +66,12 @@ export function openWordPopup(wordId: string, from?: HTMLElement | null) {
       <button class="btn icon-btn" data-close aria-label="Đóng">✕</button>
     </div>
     <div class="dict-hv">${esc(w.hanViet ?? "")}</div>
-    <div class="dict-meaning">${esc(w.meaningVi)}</div>
+    ${w.pos?.length ? `<div class="pos-row">${w.pos.map((c) => `<span class="pos-tag">${esc(posLabel(c))}</span>`).join("")}</div>` : ""}
+    ${
+      (w.senses?.length ?? 0) > 1
+        ? `<ol class="dict-senses">${w.senses!.map((s) => `<li>${esc(s)}</li>`).join("")}</ol>`
+        : `<div class="dict-meaning">${esc(w.meaningVi)}</div>`
+    }
     ${w.meaningEn ? `<div class="muted small">EN: ${esc(w.meaningEn)}</div>` : ""}
     <div class="row" style="margin:10px 0">${levelBadges(w)}${w.reviewStatus === "draft" ? `<span class="badge warn" title="Hán Việt & nghĩa Việt chưa được duyệt">nháp</span>` : ""}</div>
     ${charBreakdown(w)}

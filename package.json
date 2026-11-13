@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "data": "node scripts/build-vocab.ts && node scripts/build-lessons.ts && node scripts/build-readings.ts && node scripts/build-exams.ts",
     "test": "vitest run && node scripts/check-links.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "review:export": "node scripts/export-review.ts",
+    "review:import": "node scripts/import-review.ts"
   },
   "devDependencies": {
     "@types/node": "^22.20.5",

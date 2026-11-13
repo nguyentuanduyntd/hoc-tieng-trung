@@ -67,16 +67,18 @@ export async function mountReadingList() {
   const results = state.progress.readingResults;
   el.innerHTML = `
     <h1>Bài đọc & nghe</h1>
-    <p class="lead">Bài ngắn theo cấp HSK, chỉ dùng từ trong cấp. Bật/tắt pinyin và bản dịch, nghe từng câu, chỉnh tốc độ, luyện shadowing.</p>
+    <p class="lead">${file.readings.length} bài ngắn theo cấp HSK, chỉ dùng từ trong cấp, sắp theo unit của lộ trình. Bật/tắt pinyin và bản dịch, nghe từng câu, chỉnh tốc độ, luyện shadowing.</p>
     <h2>HSK 1</h2>
     <div class="grid">
-      ${file.readings
+      ${[...file.readings]
+        .sort((a, b) => (a.unit ?? 99) - (b.unit ?? 99))
         .map((r) => {
           const res = results[r.id];
           return `<a class="card reading-card" href="#/doc/${r.id}">
             <div class="reading-zh" lang="zh-CN">${esc(r.titleZh ?? "")}</div>
             <h3>${esc(r.title)}</h3>
             <div class="row">
+              ${r.unit ? `<span class="badge">Unit ${r.unit}</span>` : ""}
               <span class="badge">${r.kind === "dialogue" ? "Hội thoại" : "Bài văn"}</span>
               <span class="badge">${r.stats.hanzi} chữ · ${r.sentences.length} câu</span>
               ${res ? `<span class="badge accent">✓ Đọc hiểu ${Math.round(res.score * 100)}%</span>` : ""}

@@ -1,142 +1,1056 @@
 {
-  "$comment": "Bài đọc HSK 1 do dự án tự soạn. Mỗi câu một dòng (zh + vi). Chỉ dùng từ trong hsk1.tsv; từ ngoài HSK 1 phải ≤ 5% và khai báo trong extraWords. Build: scripts/build-readings.ts.",
+  "$comment": "Bài đọc HSK 1 do dự án tự soạn. Mỗi câu một dòng (zh + vi). Chỉ dùng từ trong hsk1.tsv; từ ngoài HSK 1 phải ≤ 5% và khai báo trong extraWords. unit = unit có chủ đề tương ứng trong lộ trình. Build: scripts/build-readings.ts.",
   "hskLevel": 1,
   "readings": [
     {
       "id": "hsk1-r1",
+      "unit": 4,
       "title": "Gia đình tôi",
       "titleZh": "我的家",
       "kind": "text",
       "sentences": [
-        { "zh": "我家有四口人：爸爸、妈妈、姐姐和我。", "vi": "Nhà tôi có bốn người: bố, mẹ, chị gái và tôi." },
-        { "zh": "爸爸是医生，他在医院工作。", "vi": "Bố là bác sĩ, bố làm việc ở bệnh viện." },
-        { "zh": "妈妈是老师，她在一个小学工作。", "vi": "Mẹ là giáo viên, mẹ làm việc ở một trường tiểu học." },
-        { "zh": "姐姐是大学生，她在北京上大学。", "vi": "Chị gái là sinh viên, chị học đại học ở Bắc Kinh." },
-        { "zh": "我是中学生，我喜欢学习汉语。", "vi": "Tôi là học sinh trung học, tôi thích học tiếng Trung." },
-        { "zh": "我很喜欢猫和狗。", "vi": "Tôi rất thích mèo và chó." },
-        { "zh": "星期天我们在家休息，妈妈做饭，爸爸看书。", "vi": "Chủ nhật cả nhà nghỉ ở nhà, mẹ nấu cơm, bố đọc sách." },
-        { "zh": "我很爱我的家人。", "vi": "Tôi rất yêu gia đình mình." }
+        {
+          "zh": "我家有四口人：爸爸、妈妈、姐姐和我。",
+          "vi": "Nhà tôi có bốn người: bố, mẹ, chị gái và tôi."
+        },
+        {
+          "zh": "爸爸是医生，他在医院工作。",
+          "vi": "Bố là bác sĩ, bố làm việc ở bệnh viện."
+        },
+        {
+          "zh": "妈妈是老师，她在一个小学工作。",
+          "vi": "Mẹ là giáo viên, mẹ làm việc ở một trường tiểu học."
+        },
+        {
+          "zh": "姐姐是大学生，她在北京上大学。",
+          "vi": "Chị gái là sinh viên, chị học đại học ở Bắc Kinh."
+        },
+        {
+          "zh": "我是中学生，我喜欢学习汉语。",
+          "vi": "Tôi là học sinh trung học, tôi thích học tiếng Trung."
+        },
+        {
+          "zh": "我很喜欢猫和狗。",
+          "vi": "Tôi rất thích mèo và chó."
+        },
+        {
+          "zh": "星期天我们在家休息，妈妈做饭，爸爸看书。",
+          "vi": "Chủ nhật cả nhà nghỉ ở nhà, mẹ nấu cơm, bố đọc sách."
+        },
+        {
+          "zh": "我很爱我的家人。",
+          "vi": "Tôi rất yêu gia đình mình."
+        }
       ],
       "questions": [
-        { "q": "Nhà bạn ấy có mấy người?", "options": ["3 người", "4 người", "5 người", "6 người"], "answer": 1 },
-        { "q": "Mẹ bạn ấy làm nghề gì?", "options": ["Bác sĩ", "Giáo viên", "Sinh viên", "Không đi làm"], "answer": 1 },
-        { "q": "Chị gái học đại học ở đâu?", "options": ["Bắc Kinh", "Trường tiểu học", "Bệnh viện", "Ở nhà"], "answer": 0 }
+        {
+          "q": "Nhà bạn ấy có mấy người?",
+          "options": [
+            "3 người",
+            "4 người",
+            "5 người",
+            "6 người"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Mẹ bạn ấy làm nghề gì?",
+          "options": [
+            "Bác sĩ",
+            "Giáo viên",
+            "Sinh viên",
+            "Không đi làm"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Chị gái học đại học ở đâu?",
+          "options": [
+            "Bắc Kinh",
+            "Trường tiểu học",
+            "Bệnh viện",
+            "Ở nhà"
+          ],
+          "answer": 0
+        }
       ]
     },
     {
       "id": "hsk1-r2",
+      "unit": 5,
       "title": "Ở nhà hàng",
       "titleZh": "在饭店",
       "kind": "dialogue",
-      "speakers": { "A": "Nhân viên", "B": "Khách" },
+      "speakers": {
+        "A": "Nhân viên",
+        "B": "Khách"
+      },
       "sentences": [
-        { "speaker": "A", "zh": "你好！请坐。你想吃什么？", "vi": "Xin chào! Mời ngồi. Anh muốn ăn gì?" },
-        { "speaker": "B", "zh": "你好！我想吃米饭和鸡蛋。", "vi": "Chào chị! Tôi muốn ăn cơm và trứng." },
-        { "speaker": "A", "zh": "你想喝什么？", "vi": "Anh muốn uống gì?" },
-        { "speaker": "B", "zh": "我喝茶。你们这儿有饺子吗？", "vi": "Tôi uống trà. Ở đây có sủi cảo không?" },
-        { "speaker": "A", "zh": "有。我们的饺子很好吃。", "vi": "Có. Sủi cảo của chúng tôi rất ngon." },
-        { "speaker": "B", "zh": "太好了！我也要饺子。", "vi": "Tuyệt quá! Tôi cũng lấy sủi cảo." },
-        { "speaker": "B", "zh": "今天的饺子真好吃！多少钱？", "vi": "Sủi cảo hôm nay ngon thật! Bao nhiêu tiền?" },
-        { "speaker": "A", "zh": "三十五块。", "vi": "Ba mươi lăm tệ." },
-        { "speaker": "B", "zh": "给你钱。谢谢！明天我和朋友再来。", "vi": "Gửi chị tiền. Cảm ơn! Mai tôi sẽ lại đến cùng bạn." },
-        { "speaker": "A", "zh": "不客气。再见！", "vi": "Không có gì. Tạm biệt!" }
+        {
+          "speaker": "A",
+          "zh": "你好！请坐。你想吃什么？",
+          "vi": "Xin chào! Mời ngồi. Anh muốn ăn gì?"
+        },
+        {
+          "speaker": "B",
+          "zh": "你好！我想吃米饭和鸡蛋。",
+          "vi": "Chào chị! Tôi muốn ăn cơm và trứng."
+        },
+        {
+          "speaker": "A",
+          "zh": "你想喝什么？",
+          "vi": "Anh muốn uống gì?"
+        },
+        {
+          "speaker": "B",
+          "zh": "我喝茶。你们这儿有饺子吗？",
+          "vi": "Tôi uống trà. Ở đây có sủi cảo không?"
+        },
+        {
+          "speaker": "A",
+          "zh": "有。我们的饺子很好吃。",
+          "vi": "Có. Sủi cảo của chúng tôi rất ngon."
+        },
+        {
+          "speaker": "B",
+          "zh": "太好了！我也要饺子。",
+          "vi": "Tuyệt quá! Tôi cũng lấy sủi cảo."
+        },
+        {
+          "speaker": "B",
+          "zh": "今天的饺子真好吃！多少钱？",
+          "vi": "Sủi cảo hôm nay ngon thật! Bao nhiêu tiền?"
+        },
+        {
+          "speaker": "A",
+          "zh": "三十五块。",
+          "vi": "Ba mươi lăm tệ."
+        },
+        {
+          "speaker": "B",
+          "zh": "给你钱。谢谢！明天我和朋友再来。",
+          "vi": "Gửi chị tiền. Cảm ơn! Mai tôi sẽ lại đến cùng bạn."
+        },
+        {
+          "speaker": "A",
+          "zh": "不客气。再见！",
+          "vi": "Không có gì. Tạm biệt!"
+        }
       ],
       "questions": [
-        { "q": "Khách uống gì?", "options": ["Trà", "Sữa", "Nước", "Không uống gì"], "answer": 0 },
-        { "q": "Khách trả bao nhiêu tiền?", "options": ["25 tệ", "35 tệ", "53 tệ", "30 tệ"], "answer": 1 },
-        { "q": "Khách thấy sủi cảo thế nào?", "options": ["Đắt quá", "Rất ngon", "Không ngon", "Không ăn"], "answer": 1 }
+        {
+          "q": "Khách uống gì?",
+          "options": [
+            "Trà",
+            "Sữa",
+            "Nước",
+            "Không uống gì"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Khách trả bao nhiêu tiền?",
+          "options": [
+            "25 tệ",
+            "35 tệ",
+            "53 tệ",
+            "30 tệ"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Khách thấy sủi cảo thế nào?",
+          "options": [
+            "Đắt quá",
+            "Rất ngon",
+            "Không ngon",
+            "Không ăn"
+          ],
+          "answer": 1
+        }
       ]
     },
     {
       "id": "hsk1-r3",
+      "unit": 3,
       "title": "Một ngày của tôi",
       "titleZh": "我的一天",
       "kind": "text",
       "sentences": [
-        { "zh": "今天是星期一。", "vi": "Hôm nay là thứ Hai." },
-        { "zh": "我早上七点起床，八点去学校。", "vi": "Tôi dậy lúc 7 giờ sáng, 8 giờ đến trường." },
-        { "zh": "上午我们上四个小时的课。", "vi": "Buổi sáng chúng tôi học bốn tiếng." },
-        { "zh": "中午我和同学在学校吃午饭。", "vi": "Buổi trưa tôi và bạn học ăn trưa ở trường." },
-        { "zh": "下午四点下课。", "vi": "Bốn giờ chiều tan học." },
-        { "zh": "下课了，我坐车回家。", "vi": "Tan học rồi, tôi đi xe về nhà." },
-        { "zh": "晚上我在家吃晚饭，看一点儿电视。", "vi": "Buổi tối tôi ăn tối ở nhà, xem tivi một chút." },
-        { "zh": "我晚上十点睡觉。", "vi": "Tôi đi ngủ lúc 10 giờ tối." },
-        { "zh": "我觉得今天很好！", "vi": "Tôi thấy hôm nay thật tốt!" }
+        {
+          "zh": "今天是星期一。",
+          "vi": "Hôm nay là thứ Hai."
+        },
+        {
+          "zh": "我早上七点起床，八点去学校。",
+          "vi": "Tôi dậy lúc 7 giờ sáng, 8 giờ đến trường."
+        },
+        {
+          "zh": "上午我们上四个小时的课。",
+          "vi": "Buổi sáng chúng tôi học bốn tiếng."
+        },
+        {
+          "zh": "中午我和同学在学校吃午饭。",
+          "vi": "Buổi trưa tôi và bạn học ăn trưa ở trường."
+        },
+        {
+          "zh": "下午四点下课。",
+          "vi": "Bốn giờ chiều tan học."
+        },
+        {
+          "zh": "下课了，我坐车回家。",
+          "vi": "Tan học rồi, tôi đi xe về nhà."
+        },
+        {
+          "zh": "晚上我在家吃晚饭，看一点儿电视。",
+          "vi": "Buổi tối tôi ăn tối ở nhà, xem tivi một chút."
+        },
+        {
+          "zh": "我晚上十点睡觉。",
+          "vi": "Tôi đi ngủ lúc 10 giờ tối."
+        },
+        {
+          "zh": "我觉得今天很好！",
+          "vi": "Tôi thấy hôm nay thật tốt!"
+        }
       ],
       "questions": [
-        { "q": "Bạn ấy dậy lúc mấy giờ?", "options": ["6 giờ", "7 giờ", "8 giờ", "10 giờ"], "answer": 1 },
-        { "q": "Buổi trưa bạn ấy ăn ở đâu?", "options": ["Ở nhà", "Ở trường", "Ở nhà hàng", "Không ăn"], "answer": 1 },
-        { "q": "Bạn ấy đi ngủ lúc mấy giờ?", "options": ["8 giờ", "9 giờ", "10 giờ", "11 giờ"], "answer": 2 },
-        { "q": "Hôm nay là thứ mấy?", "options": ["Thứ Hai", "Thứ Ba", "Thứ Bảy", "Chủ nhật"], "answer": 0 }
+        {
+          "q": "Bạn ấy dậy lúc mấy giờ?",
+          "options": [
+            "6 giờ",
+            "7 giờ",
+            "8 giờ",
+            "10 giờ"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Buổi trưa bạn ấy ăn ở đâu?",
+          "options": [
+            "Ở nhà",
+            "Ở trường",
+            "Ở nhà hàng",
+            "Không ăn"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Bạn ấy đi ngủ lúc mấy giờ?",
+          "options": [
+            "8 giờ",
+            "9 giờ",
+            "10 giờ",
+            "11 giờ"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Hôm nay là thứ mấy?",
+          "options": [
+            "Thứ Hai",
+            "Thứ Ba",
+            "Thứ Bảy",
+            "Chủ nhật"
+          ],
+          "answer": 0
+        }
       ]
     },
     {
       "id": "hsk1-r4",
+      "unit": 6,
       "title": "Đi mua đồ",
       "titleZh": "买东西",
       "kind": "dialogue",
-      "speakers": { "A": "Khách", "B": "Người bán" },
+      "speakers": {
+        "A": "Khách",
+        "B": "Người bán"
+      },
       "sentences": [
-        { "speaker": "A", "zh": "你好！这件衣服多少钱？", "vi": "Chào chị! Bộ quần áo này bao nhiêu tiền?" },
-        { "speaker": "B", "zh": "两百块。", "vi": "Hai trăm tệ." },
-        { "speaker": "A", "zh": "太贵了！有便宜一点儿的吗？", "vi": "Đắt quá! Có cái nào rẻ hơn một chút không?" },
-        { "speaker": "B", "zh": "有。那件一百块，也很漂亮。", "vi": "Có. Bộ kia một trăm tệ, cũng rất đẹp." },
-        { "speaker": "A", "zh": "我可以看看吗？", "vi": "Tôi xem thử được không?" },
-        { "speaker": "B", "zh": "可以，请看。", "vi": "Được, mời xem." },
-        { "speaker": "A", "zh": "这件真好看。我要这件。", "vi": "Bộ này đẹp thật. Tôi lấy bộ này." },
-        { "speaker": "B", "zh": "好。你还想买什么？", "vi": "Vâng. Chị còn muốn mua gì nữa không?" },
-        { "speaker": "A", "zh": "我还想买一个杯子。", "vi": "Tôi còn muốn mua một cái cốc." },
-        { "speaker": "B", "zh": "杯子在那边，有很多。你看看。", "vi": "Cốc ở bên kia, có nhiều lắm. Chị xem thử đi." },
-        { "speaker": "A", "zh": "谢谢！我去看看。", "vi": "Cảm ơn! Tôi đi xem thử." }
+        {
+          "speaker": "A",
+          "zh": "你好！这件衣服多少钱？",
+          "vi": "Chào chị! Bộ quần áo này bao nhiêu tiền?"
+        },
+        {
+          "speaker": "B",
+          "zh": "两百块。",
+          "vi": "Hai trăm tệ."
+        },
+        {
+          "speaker": "A",
+          "zh": "太贵了！有便宜一点儿的吗？",
+          "vi": "Đắt quá! Có cái nào rẻ hơn một chút không?"
+        },
+        {
+          "speaker": "B",
+          "zh": "有。那件一百块，也很漂亮。",
+          "vi": "Có. Bộ kia một trăm tệ, cũng rất đẹp."
+        },
+        {
+          "speaker": "A",
+          "zh": "我可以看看吗？",
+          "vi": "Tôi xem thử được không?"
+        },
+        {
+          "speaker": "B",
+          "zh": "可以，请看。",
+          "vi": "Được, mời xem."
+        },
+        {
+          "speaker": "A",
+          "zh": "这件真好看。我要这件。",
+          "vi": "Bộ này đẹp thật. Tôi lấy bộ này."
+        },
+        {
+          "speaker": "B",
+          "zh": "好。你还想买什么？",
+          "vi": "Vâng. Chị còn muốn mua gì nữa không?"
+        },
+        {
+          "speaker": "A",
+          "zh": "我还想买一个杯子。",
+          "vi": "Tôi còn muốn mua một cái cốc."
+        },
+        {
+          "speaker": "B",
+          "zh": "杯子在那边，有很多。你看看。",
+          "vi": "Cốc ở bên kia, có nhiều lắm. Chị xem thử đi."
+        },
+        {
+          "speaker": "A",
+          "zh": "谢谢！我去看看。",
+          "vi": "Cảm ơn! Tôi đi xem thử."
+        }
       ],
       "questions": [
-        { "q": "Bộ quần áo đầu tiên giá bao nhiêu?", "options": ["100 tệ", "200 tệ", "20 tệ", "2 tệ"], "answer": 1 },
-        { "q": "Khách mua bộ nào?", "options": ["Bộ 200 tệ", "Bộ 100 tệ", "Không mua", "Cả hai bộ"], "answer": 1 },
-        { "q": "Khách còn muốn mua gì?", "options": ["Cái cốc", "Cái bàn", "Hoa quả", "Điện thoại"], "answer": 0 }
+        {
+          "q": "Bộ quần áo đầu tiên giá bao nhiêu?",
+          "options": [
+            "100 tệ",
+            "200 tệ",
+            "20 tệ",
+            "2 tệ"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Khách mua bộ nào?",
+          "options": [
+            "Bộ 200 tệ",
+            "Bộ 100 tệ",
+            "Không mua",
+            "Cả hai bộ"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Khách còn muốn mua gì?",
+          "options": [
+            "Cái cốc",
+            "Cái bàn",
+            "Hoa quả",
+            "Điện thoại"
+          ],
+          "answer": 0
+        }
       ]
     },
     {
       "id": "hsk1-r5",
+      "unit": 10,
       "title": "Thời tiết cuối tuần",
       "titleZh": "天气",
       "kind": "text",
       "sentences": [
-        { "zh": "今天是星期六，天气很好，不冷也不热。", "vi": "Hôm nay là thứ Bảy, thời tiết rất đẹp, không lạnh cũng không nóng." },
-        { "zh": "我和朋友去外边玩。", "vi": "Tôi và bạn ra ngoài chơi." },
-        { "zh": "我们去了商店，买了很多东西。", "vi": "Chúng tôi đã đi cửa hàng, mua rất nhiều đồ." },
-        { "zh": "中午我们在饭店吃饭。", "vi": "Buổi trưa chúng tôi ăn ở nhà hàng." },
-        { "zh": "饭店的菜很好吃，也不贵。", "vi": "Đồ ăn ở nhà hàng rất ngon, cũng không đắt." },
-        { "zh": "朋友说：“明天会下雨，你想做什么？”", "vi": "Bạn tôi nói: “Ngày mai trời sẽ mưa, cậu muốn làm gì?”" },
-        { "zh": "我说：“下雨了，我们在家看电影吧。”", "vi": "Tôi nói: “Trời mưa thì chúng mình ở nhà xem phim nhé.”" },
-        { "zh": "朋友说：“好！”", "vi": "Bạn tôi nói: “Được!”" }
+        {
+          "zh": "今天是星期六，天气很好，不冷也不热。",
+          "vi": "Hôm nay là thứ Bảy, thời tiết rất đẹp, không lạnh cũng không nóng."
+        },
+        {
+          "zh": "我和朋友去外边玩。",
+          "vi": "Tôi và bạn ra ngoài chơi."
+        },
+        {
+          "zh": "我们去了商店，买了很多东西。",
+          "vi": "Chúng tôi đã đi cửa hàng, mua rất nhiều đồ."
+        },
+        {
+          "zh": "中午我们在饭店吃饭。",
+          "vi": "Buổi trưa chúng tôi ăn ở nhà hàng."
+        },
+        {
+          "zh": "饭店的菜很好吃，也不贵。",
+          "vi": "Đồ ăn ở nhà hàng rất ngon, cũng không đắt."
+        },
+        {
+          "zh": "朋友说：“明天会下雨，你想做什么？”",
+          "vi": "Bạn tôi nói: “Ngày mai trời sẽ mưa, cậu muốn làm gì?”"
+        },
+        {
+          "zh": "我说：“下雨了，我们在家看电影吧。”",
+          "vi": "Tôi nói: “Trời mưa thì chúng mình ở nhà xem phim nhé.”"
+        },
+        {
+          "zh": "朋友说：“好！”",
+          "vi": "Bạn tôi nói: “Được!”"
+        }
       ],
       "questions": [
-        { "q": "Hôm nay là thứ mấy?", "options": ["Thứ Hai", "Thứ Sáu", "Thứ Bảy", "Chủ nhật"], "answer": 2 },
-        { "q": "Thời tiết hôm nay thế nào?", "options": ["Rất lạnh", "Rất nóng", "Không lạnh cũng không nóng", "Trời mưa"], "answer": 2 },
-        { "q": "Ngày mai họ định làm gì?", "options": ["Đi siêu thị", "Ở nhà xem phim", "Đi máy bay", "Đi học"], "answer": 1 }
+        {
+          "q": "Hôm nay là thứ mấy?",
+          "options": [
+            "Thứ Hai",
+            "Thứ Sáu",
+            "Thứ Bảy",
+            "Chủ nhật"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Thời tiết hôm nay thế nào?",
+          "options": [
+            "Rất lạnh",
+            "Rất nóng",
+            "Không lạnh cũng không nóng",
+            "Trời mưa"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Ngày mai họ định làm gì?",
+          "options": [
+            "Đi siêu thị",
+            "Ở nhà xem phim",
+            "Đi máy bay",
+            "Đi học"
+          ],
+          "answer": 1
+        }
       ]
     },
     {
       "id": "hsk1-r6",
+      "unit": 1,
       "title": "Làm quen bạn mới",
       "titleZh": "新朋友",
       "kind": "dialogue",
-      "speakers": { "A": "Lan", "B": "Bạn mới" },
+      "speakers": {
+        "A": "Lan",
+        "B": "Bạn mới"
+      },
       "sentences": [
-        { "speaker": "A", "zh": "你好！你是新同学吗？", "vi": "Chào bạn! Bạn là bạn học mới à?" },
-        { "speaker": "B", "zh": "是。我是中国人，我是大学生。你呢？", "vi": "Đúng vậy. Mình là người Trung Quốc, mình là sinh viên. Còn bạn?" },
-        { "speaker": "A", "zh": "我不是中国人。我在中国学习汉语。", "vi": "Mình không phải người Trung Quốc. Mình học tiếng Trung ở Trung Quốc." },
-        { "speaker": "B", "zh": "你的汉语很好！", "vi": "Tiếng Trung của bạn tốt quá!" },
-        { "speaker": "A", "zh": "谢谢！我会说一点儿汉语。你住在哪儿？", "vi": "Cảm ơn! Mình nói được một chút tiếng Trung. Bạn sống ở đâu?" },
-        { "speaker": "B", "zh": "我住在学校里。你呢？", "vi": "Mình sống trong trường. Còn bạn?" },
-        { "speaker": "A", "zh": "我也住在这儿。我们是朋友了！", "vi": "Mình cũng sống ở đây. Chúng mình là bạn rồi nhé!" },
-        { "speaker": "B", "zh": "太好了！明天见！", "vi": "Tuyệt quá! Mai gặp nhé!" },
-        { "speaker": "A", "zh": "明天见！", "vi": "Mai gặp!" }
+        {
+          "speaker": "A",
+          "zh": "你好！你是新同学吗？",
+          "vi": "Chào bạn! Bạn là bạn học mới à?"
+        },
+        {
+          "speaker": "B",
+          "zh": "是。我是中国人，我是大学生。你呢？",
+          "vi": "Đúng vậy. Mình là người Trung Quốc, mình là sinh viên. Còn bạn?"
+        },
+        {
+          "speaker": "A",
+          "zh": "我不是中国人。我在中国学习汉语。",
+          "vi": "Mình không phải người Trung Quốc. Mình học tiếng Trung ở Trung Quốc."
+        },
+        {
+          "speaker": "B",
+          "zh": "你的汉语很好！",
+          "vi": "Tiếng Trung của bạn tốt quá!"
+        },
+        {
+          "speaker": "A",
+          "zh": "谢谢！我会说一点儿汉语。你住在哪儿？",
+          "vi": "Cảm ơn! Mình nói được một chút tiếng Trung. Bạn sống ở đâu?"
+        },
+        {
+          "speaker": "B",
+          "zh": "我住在学校里。你呢？",
+          "vi": "Mình sống trong trường. Còn bạn?"
+        },
+        {
+          "speaker": "A",
+          "zh": "我也住在这儿。我们是朋友了！",
+          "vi": "Mình cũng sống ở đây. Chúng mình là bạn rồi nhé!"
+        },
+        {
+          "speaker": "B",
+          "zh": "太好了！明天见！",
+          "vi": "Tuyệt quá! Mai gặp nhé!"
+        },
+        {
+          "speaker": "A",
+          "zh": "明天见！",
+          "vi": "Mai gặp!"
+        }
       ],
       "questions": [
-        { "q": "Bạn mới là người nước nào?", "options": ["Việt Nam", "Trung Quốc", "Không nói", "Hàn Quốc"], "answer": 1 },
-        { "q": "Lan học gì ở Trung Quốc?", "options": ["Tiếng Trung", "Tiếng Anh", "Y học", "Toán"], "answer": 0 },
-        { "q": "Bạn mới sống ở đâu?", "options": ["Trong trường", "Ở Bắc Kinh", "Ở nhà bố mẹ", "Ở khách sạn"], "answer": 0 }
+        {
+          "q": "Bạn mới là người nước nào?",
+          "options": [
+            "Việt Nam",
+            "Trung Quốc",
+            "Không nói",
+            "Hàn Quốc"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Lan học gì ở Trung Quốc?",
+          "options": [
+            "Tiếng Trung",
+            "Tiếng Anh",
+            "Y học",
+            "Toán"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Bạn mới sống ở đâu?",
+          "options": [
+            "Trong trường",
+            "Ở Bắc Kinh",
+            "Ở nhà bố mẹ",
+            "Ở khách sạn"
+          ],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": "hsk1-r7",
+      "unit": 2,
+      "title": "Hôm nay ngày mấy?",
+      "titleZh": "今天几号",
+      "kind": "dialogue",
+      "speakers": {
+        "A": "Lan",
+        "B": "Minh"
+      },
+      "sentences": [
+        {
+          "speaker": "A",
+          "zh": "今天几月几号？",
+          "vi": "Hôm nay là ngày mấy tháng mấy?"
+        },
+        {
+          "speaker": "B",
+          "zh": "今天十月九号。",
+          "vi": "Hôm nay là ngày 9 tháng 10."
+        },
+        {
+          "speaker": "A",
+          "zh": "星期几？",
+          "vi": "Thứ mấy?"
+        },
+        {
+          "speaker": "B",
+          "zh": "星期三。你问这个做什么？",
+          "vi": "Thứ Tư. Bạn hỏi cái này làm gì?"
+        },
+        {
+          "speaker": "A",
+          "zh": "明天我妹妹八岁了。",
+          "vi": "Ngày mai em gái mình tròn tám tuổi."
+        },
+        {
+          "speaker": "B",
+          "zh": "是吗？你想给她买什么？",
+          "vi": "Thật à? Bạn muốn mua gì cho em ấy?"
+        },
+        {
+          "speaker": "A",
+          "zh": "我想给她买一本书，还想买一些水果。",
+          "vi": "Mình muốn mua cho em một quyển sách, còn muốn mua ít hoa quả."
+        },
+        {
+          "speaker": "B",
+          "zh": "一本书多少钱？",
+          "vi": "Một quyển sách bao nhiêu tiền?"
+        },
+        {
+          "speaker": "A",
+          "zh": "二十块钱。",
+          "vi": "Hai mươi đồng."
+        },
+        {
+          "speaker": "B",
+          "zh": "我也想去，好吗？",
+          "vi": "Mình cũng muốn đi, được không?"
+        },
+        {
+          "speaker": "A",
+          "zh": "好！我们下午三点去吧。",
+          "vi": "Được! Ba giờ chiều chúng mình đi nhé."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Hôm nay là ngày mấy?",
+          "options": [
+            "Ngày 9 tháng 10",
+            "Ngày 10 tháng 9",
+            "Ngày 8 tháng 10",
+            "Ngày 3 tháng 10"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Em gái của Lan bao nhiêu tuổi?",
+          "options": [
+            "Bảy tuổi",
+            "Tám tuổi",
+            "Chín tuổi",
+            "Mười tuổi"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Một quyển sách giá bao nhiêu?",
+          "options": [
+            "2 đồng",
+            "12 đồng",
+            "20 đồng",
+            "200 đồng"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "hsk1-r8",
+      "unit": 8,
+      "title": "Trường của tôi",
+      "titleZh": "我的学校",
+      "kind": "text",
+      "sentences": [
+        {
+          "zh": "我是大学生，我在北京的一个大学学习汉语。",
+          "vi": "Tôi là sinh viên, tôi học tiếng Trung ở một trường đại học tại Bắc Kinh."
+        },
+        {
+          "zh": "我们学校很大，有很多学生，也有很多中国老师。",
+          "vi": "Trường chúng tôi rất rộng, có nhiều sinh viên, cũng có nhiều thầy cô người Trung Quốc."
+        },
+        {
+          "zh": "我们上午八点上课，十二点下课。",
+          "vi": "Chúng tôi vào học lúc 8 giờ sáng, tan học lúc 12 giờ."
+        },
+        {
+          "zh": "中午我和同学在学校吃饭。",
+          "vi": "Buổi trưa tôi và bạn học ăn cơm ở trường."
+        },
+        {
+          "zh": "下午我们没有课，我去书店看书。",
+          "vi": "Buổi chiều chúng tôi không có tiết, tôi đến hiệu sách đọc sách."
+        },
+        {
+          "zh": "晚上我在房间里写汉字。",
+          "vi": "Buổi tối tôi viết chữ Hán trong phòng."
+        },
+        {
+          "zh": "我觉得学习汉语很好玩儿。",
+          "vi": "Tôi thấy học tiếng Trung rất vui."
+        },
+        {
+          "zh": "我很喜欢我的学校。",
+          "vi": "Tôi rất thích trường của mình."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Bạn ấy học gì?",
+          "options": [
+            "Tiếng Anh",
+            "Tiếng Trung",
+            "Y học",
+            "Toán"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Buổi sáng mấy giờ vào học?",
+          "options": [
+            "7 giờ",
+            "8 giờ",
+            "10 giờ",
+            "12 giờ"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Buổi chiều bạn ấy làm gì?",
+          "options": [
+            "Đi học",
+            "Đi làm",
+            "Đến hiệu sách đọc sách",
+            "Ngủ"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "hsk1-r9",
+      "unit": 10,
+      "title": "Đi khám bệnh",
+      "titleZh": "看病",
+      "kind": "dialogue",
+      "speakers": {
+        "A": "Bác sĩ",
+        "B": "Minh"
+      },
+      "sentences": [
+        {
+          "speaker": "B",
+          "zh": "医生，您好！",
+          "vi": "Chào bác sĩ!"
+        },
+        {
+          "speaker": "A",
+          "zh": "你好！你怎么了？",
+          "vi": "Chào cậu! Cậu bị sao thế?"
+        },
+        {
+          "speaker": "B",
+          "zh": "我有点儿冷，不想吃饭。",
+          "vi": "Cháu hơi lạnh, không muốn ăn cơm."
+        },
+        {
+          "speaker": "A",
+          "zh": "你病了几天了？",
+          "vi": "Cậu ốm mấy ngày rồi?"
+        },
+        {
+          "speaker": "B",
+          "zh": "两天了。",
+          "vi": "Hai ngày rồi ạ."
+        },
+        {
+          "speaker": "A",
+          "zh": "你吃饭了吗？",
+          "vi": "Cậu ăn cơm chưa?"
+        },
+        {
+          "speaker": "B",
+          "zh": "没有，我只喝了一点儿水。",
+          "vi": "Chưa ạ, cháu chỉ uống một chút nước."
+        },
+        {
+          "speaker": "A",
+          "zh": "你昨天几点睡觉？",
+          "vi": "Hôm qua mấy giờ cậu đi ngủ?"
+        },
+        {
+          "speaker": "B",
+          "zh": "晚上十二点。",
+          "vi": "Mười hai giờ đêm ạ."
+        },
+        {
+          "speaker": "A",
+          "zh": "太晚了！你要多休息，多喝水。",
+          "vi": "Muộn quá! Cậu phải nghỉ ngơi nhiều, uống nhiều nước."
+        },
+        {
+          "speaker": "B",
+          "zh": "我明天可以去上班吗？",
+          "vi": "Ngày mai cháu đi làm được không ạ?"
+        },
+        {
+          "speaker": "A",
+          "zh": "明天不要去，在家休息吧。",
+          "vi": "Ngày mai đừng đi, ở nhà nghỉ đi."
+        },
+        {
+          "speaker": "B",
+          "zh": "好的，谢谢医生！",
+          "vi": "Vâng, cảm ơn bác sĩ!"
+        }
+      ],
+      "questions": [
+        {
+          "q": "Minh bị ốm mấy ngày rồi?",
+          "options": [
+            "Một ngày",
+            "Hai ngày",
+            "Ba ngày",
+            "Một tuần"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Bác sĩ khuyên Minh làm gì?",
+          "options": [
+            "Nghỉ ngơi, uống nhiều nước",
+            "Đi làm bình thường",
+            "Ăn thật nhiều",
+            "Đi ngủ muộn"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Ngày mai Minh có được đi làm không?",
+          "options": [
+            "Có",
+            "Không",
+            "Buổi chiều thì có",
+            "Bác sĩ không nói"
+          ],
+          "answer": 1
+        }
+      ]
+    },
+    {
+      "id": "hsk1-r10",
+      "unit": 7,
+      "title": "Phòng của tôi",
+      "titleZh": "我的房间",
+      "kind": "text",
+      "sentences": [
+        {
+          "zh": "这是我的房间。",
+          "vi": "Đây là phòng của tôi."
+        },
+        {
+          "zh": "我的房间不大，我很喜欢它。",
+          "vi": "Phòng của tôi không rộng, nhưng tôi rất thích nó."
+        },
+        {
+          "zh": "房间里有一个桌子和两个椅子。",
+          "vi": "Trong phòng có một cái bàn và hai cái ghế."
+        },
+        {
+          "zh": "桌子上有一个电脑和很多书。",
+          "vi": "Trên bàn có một cái máy tính và rất nhiều sách."
+        },
+        {
+          "zh": "我的猫在椅子下睡觉。",
+          "vi": "Con mèo của tôi ngủ dưới gầm ghế."
+        },
+        {
+          "zh": "我家前面有一个超市，后面有一个医院。",
+          "vi": "Phía trước nhà tôi có một siêu thị, phía sau có một bệnh viện."
+        },
+        {
+          "zh": "超市里的东西很便宜。",
+          "vi": "Đồ trong siêu thị rất rẻ."
+        },
+        {
+          "zh": "我很喜欢我的房间，也很喜欢我的家。",
+          "vi": "Tôi rất thích phòng của mình, cũng rất thích nhà mình."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Trong phòng có mấy cái ghế?",
+          "options": [
+            "Một",
+            "Hai",
+            "Ba",
+            "Không có"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Con mèo ở đâu?",
+          "options": [
+            "Trên bàn",
+            "Dưới ghế",
+            "Ngoài phòng",
+            "Trong siêu thị"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Phía sau nhà có gì?",
+          "options": [
+            "Siêu thị",
+            "Trường học",
+            "Bệnh viện",
+            "Nhà hàng"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "hsk1-r11",
+      "unit": 9,
+      "title": "Đi Bắc Kinh",
+      "titleZh": "去北京",
+      "kind": "text",
+      "sentences": [
+        {
+          "zh": "去年八月，我和爸爸妈妈去了北京。",
+          "vi": "Tháng 8 năm ngoái, tôi cùng bố mẹ đi Bắc Kinh."
+        },
+        {
+          "zh": "我们是坐飞机去的。",
+          "vi": "Chúng tôi đi bằng máy bay."
+        },
+        {
+          "zh": "飞机上人很多。",
+          "vi": "Trên máy bay rất đông người."
+        },
+        {
+          "zh": "到了北京，我们坐出租车去饭店。",
+          "vi": "Đến Bắc Kinh, chúng tôi đi taxi về khách sạn."
+        },
+        {
+          "zh": "北京很大，人也很多。",
+          "vi": "Bắc Kinh rất rộng, người cũng rất đông."
+        },
+        {
+          "zh": "我们在北京住了五天。",
+          "vi": "Chúng tôi ở Bắc Kinh năm ngày."
+        },
+        {
+          "zh": "我们看了很多东西，也吃了很多好吃的。",
+          "vi": "Chúng tôi đã xem nhiều thứ, cũng ăn rất nhiều món ngon."
+        },
+        {
+          "zh": "北京的饺子非常好吃！",
+          "vi": "Sủi cảo ở Bắc Kinh ngon tuyệt!"
+        },
+        {
+          "zh": "明年我还想去北京。",
+          "vi": "Năm sau tôi vẫn muốn đi Bắc Kinh."
+        }
+      ],
+      "questions": [
+        {
+          "q": "Họ đi Bắc Kinh khi nào?",
+          "options": [
+            "Tháng 8 năm nay",
+            "Tháng 8 năm ngoái",
+            "Tháng 8 năm sau",
+            "Tháng 10 năm ngoái"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Họ đến Bắc Kinh bằng gì?",
+          "options": [
+            "Tàu hỏa",
+            "Taxi",
+            "Máy bay",
+            "Ô tô riêng"
+          ],
+          "answer": 2
+        },
+        {
+          "q": "Họ ở Bắc Kinh mấy ngày?",
+          "options": [
+            "Ba ngày",
+            "Bốn ngày",
+            "Năm ngày",
+            "Tám ngày"
+          ],
+          "answer": 2
+        }
+      ]
+    },
+    {
+      "id": "hsk1-r12",
+      "unit": 10,
+      "title": "Gọi điện thoại",
+      "titleZh": "打电话",
+      "kind": "dialogue",
+      "speakers": {
+        "A": "Lan",
+        "B": "Mai"
+      },
+      "sentences": [
+        {
+          "speaker": "A",
+          "zh": "喂，你在做什么？",
+          "vi": "A lô, cậu đang làm gì đấy?"
+        },
+        {
+          "speaker": "B",
+          "zh": "我在家看电视呢。",
+          "vi": "Mình đang ở nhà xem tivi."
+        },
+        {
+          "speaker": "A",
+          "zh": "外边下雨了，你知道吗？",
+          "vi": "Bên ngoài mưa rồi, cậu biết không?"
+        },
+        {
+          "speaker": "B",
+          "zh": "知道。今天很冷。",
+          "vi": "Biết. Hôm nay lạnh lắm."
+        },
+        {
+          "speaker": "A",
+          "zh": "明天天气怎么样？",
+          "vi": "Thời tiết ngày mai thế nào?"
+        },
+        {
+          "speaker": "B",
+          "zh": "明天不下雨，很热。",
+          "vi": "Mai không mưa, trời nóng."
+        },
+        {
+          "speaker": "A",
+          "zh": "明天我们去看电影，怎么样？",
+          "vi": "Mai chúng mình đi xem phim, được không?"
+        },
+        {
+          "speaker": "B",
+          "zh": "太好了！几点去？",
+          "vi": "Tuyệt quá! Mấy giờ đi?"
+        },
+        {
+          "speaker": "A",
+          "zh": "下午两点，我们在电影院前面见。",
+          "vi": "Hai giờ chiều, chúng mình gặp nhau trước rạp chiếu phim."
+        },
+        {
+          "speaker": "B",
+          "zh": "好，明天见！",
+          "vi": "Được, mai gặp nhé!"
+        },
+        {
+          "speaker": "A",
+          "zh": "明天见！不要来晚了！",
+          "vi": "Mai gặp! Đừng đến muộn nhé!"
+        }
+      ],
+      "questions": [
+        {
+          "q": "Mai đang làm gì?",
+          "options": [
+            "Xem tivi",
+            "Đọc sách",
+            "Ngủ",
+            "Đi xem phim"
+          ],
+          "answer": 0
+        },
+        {
+          "q": "Thời tiết ngày mai thế nào?",
+          "options": [
+            "Mưa, lạnh",
+            "Không mưa, nóng",
+            "Có tuyết",
+            "Không mưa, lạnh"
+          ],
+          "answer": 1
+        },
+        {
+          "q": "Họ hẹn gặp ở đâu?",
+          "options": [
+            "Ở nhà Mai",
+            "Ở trường",
+            "Trước rạp chiếu phim",
+            "Ở siêu thị"
+          ],
+          "answer": 2
+        }
       ]
     }
   ]

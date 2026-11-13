@@ -8,6 +8,7 @@ import { applyTone } from "../lib/pinyin.ts";
 import { addWordCards } from "../lib/srs.ts";
 import { TONE_MARKS } from "../lib/tones.ts";
 import { loadLessons, setProgress, state } from "../state.ts";
+import { loadReadings } from "./reading.ts";
 import type { Checkpoint, Exercise, Lesson, Unit, Word } from "../types.ts";
 import { esc, zhTokens, zhWord } from "../ui/html.ts";
 import { resourceHint } from "../ui/resourceHint.ts";
@@ -22,7 +23,7 @@ export function lessonsListPage(): string {
 }
 
 export async function mountLessonsList() {
-  const file = await loadLessons();
+  const [file, readings] = await Promise.all([loadLessons(), loadReadings()]);
   const root = document.getElementById("lessons-root");
   if (!root) return;
   if (!file) {
@@ -63,6 +64,12 @@ export async function mountLessonsList() {
               ${pr.done < pr.total ? `<a class="btn small" href="#/bai-hoc/thi-vuot/${u.unit}">⚡ Thi vượt</a>` : `<span class="badge accent">✓ Hoàn thành</span>`}</div>
           </div>
           <div class="progress" aria-hidden="true"><span style="width:${(pr.done / pr.total) * 100}%"></span></div>
+          ${(() => {
+            const rs = (readings?.readings ?? []).filter((x) => x.unit === u.unit);
+            return rs.length
+              ? `<p class="small unit-readings">📖 Bài đọc cùng chủ đề: ${rs.map((x) => `<a href="#/doc/${x.id}" lang="zh-CN">${esc(x.titleZh ?? "")}</a> <span class="muted">(${esc(x.title)})</span>`).join(" · ")}</p>`
+              : "";
+          })()}
           <ol class="lesson-list">
             ${u.lessonIds
               .map((id) => {

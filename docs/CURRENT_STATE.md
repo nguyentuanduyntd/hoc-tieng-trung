@@ -1,4 +1,4 @@
-# Hiện trạng dự án (cập nhật sau Bước B1–B2 vòng 2 — v0.9.0, 13/11/2026)
+# Hiện trạng dự án (cập nhật sau Bước B vòng 2 — v0.10.0, 13/11/2026)
 
 > SPEC trong repo đã được thay bằng **v2.1** (có Mục 1b, 3.12–3.19).
 
@@ -46,6 +46,9 @@ src/pages/exam.ts                   danh sách đề, phòng thi, kết quả
 src/pages/home.ts                   dashboard trang chủ
 src/pages/settings.ts               trang Cài đặt (giọng đọc, giao diện, cỡ chữ Hán, học tập, quyền riêng tư)
 src/lib/settings.ts                 cài đặt theo thiết bị (localStorage riêng)
+data/curated/pos-hsk1.tsv           từ loại HSK 1 (tự soạn)
+src/lib/pos.ts, review.ts           nhãn từ loại; xuất/nhập bảng duyệt
+scripts/export-review.ts, import-review.ts  quy trình duyệt dữ liệu
 src/lib/voices.ts                   lọc / xếp hạng / gắn nhãn giọng trình duyệt, giọng người nói thứ hai, chia câu dài
 src/ui/speech.ts                    module phát âm dùng chung (speak / speakAsync)
 scripts/check-links.ts              quét link nội bộ (chạy trong npm test)
@@ -72,13 +75,13 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 
 | Mục | Trạng thái | Ghi chú |
 |---|---|---|
-| 3.1 Dữ liệu từ vựng & từ điển nội bộ | **Đã có cho HSK 1** | 301 từ (294 từ HSK 3.0 cấp 1 ∪ 150 từ HSK 2.0 cấp 1). 185/301 từ có câu ví dụ đã tách từ; `audio` chưa có (dùng TTS) |
+| 3.1 Dữ liệu từ vựng & từ điển nội bộ | **Đã có cho HSK 1** | 301 từ, đủ câu ví dụ (301/301), từ loại, nghĩa tách riêng; `audio` chưa có (dùng TTS) |
 | 3.2 Pop-up từ điển | **Đã có** | Bấm chữ Hán ở mọi trang (danh sách từ, ví dụ, mặt sau thẻ ôn) → pop-up đầy đủ + thứ tự nét. Ô tìm kiếm ở trang Từ vựng |
 | 3.3 SRS | **Đã có** | FSRS-4.5, 4 loại thẻ, giới hạn thẻ mới/ngày, trang `#/on-tap` |
 | 3.4 Xuất Anki | **Đã có** | .txt Tab + header; lọc tất cả / đã học / hay sai, theo cấp. Xuất/nhập JSON giữ nguyên |
 | 3.5 Lộ trình bài học | **Đã có (HSK 1 đầy đủ)** | 10 unit, 43 bài, 301/301 từ, 8 dạng bài, thi vượt, 14 checkpoint (sau mỗi 3 bài, ≥ 80%) |
 | 3.6 Phát âm & thanh điệu | **Đã có** | TTS zh-CN, chấm nói (SpeechRecognition, cần đồng ý) + fallback ghi âm, luyện thanh đơn/cặp thanh, trang biến điệu |
-| 3.7 Bài đọc phân cấp | **Đã có** | 6 bài HSK 1 (3 văn, 3 hội thoại), ruby pinyin, dịch từng câu, tô màu từ, đọc hiểu |
+| 3.7 Bài đọc phân cấp | **Đã có** | 12 bài HSK 1 (gắn theo unit), ruby pinyin, dịch từng câu, tô màu từ, đọc hiểu |
 | 3.8 Nghe & shadowing | **Đã có** | Tốc độ 0.5–1.25x, lặp câu, trước/sau, shadowing + ghi âm, phụ đề 3 lớp. Video ngoài: chỉ dẫn link |
 | 3.9 Thi thử | **Đã có (1 đề HSK 1 chuẩn 3.0)** | Engine đọc cấu trúc từ config; cấu trúc HSK 3.0 **chưa xác minh** với đề mẫu chính thức |
 | 3.10 Dashboard | **Đã có** | Streak, phút học/mục tiêu, việc hôm nay, từ theo cấp, lịch sử thi thử |
@@ -105,7 +108,10 @@ tests/                              unit test (pinyin, dữ liệu, tìm kiếm,
 | A4 Quét link trong npm test | **Xong** |
 | B1 Kế hoạch unit | **Xong, đã duyệt** (`docs/plan-hsk1-units.md`) |
 | B2 Soạn bài + checkpoint | **Xong** — 39 bài mới, 14 checkpoint |
-| B3–B6 (ví dụ 116 từ, từ loại, file duyệt, +6 bài đọc) | Chưa làm |
+| B3 Câu ví dụ | **Xong** — 301/301 từ (18 từ mới có 1 câu) |
+| B4 Từ loại + tách nghĩa | **Xong** (hiển thị trong thẻ từ & pop-up; trang chi tiết chữ của 3.14 chưa làm) |
+| B5 File duyệt + nhập lại | **Xong** — `npm run review:export` / `review:import` |
+| B6 +6 bài đọc | **Xong** — 12 bài, gắn unit |
 | C Thi thử (rà config, +2 đề) | Chưa làm |
 | D Tính năng 3.12–3.19 | Chưa làm |
 

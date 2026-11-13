@@ -9,6 +9,7 @@
    "hskLevel": 1,
    "title": "Gia đình tôi",
    "titleZh": "我的家",
+   "unit": 4,
    "kind": "text",
    "sentences": [
     {
@@ -527,6 +528,7 @@
    "hskLevel": 1,
    "title": "Ở nhà hàng",
    "titleZh": "在饭店",
+   "unit": 5,
    "kind": "dialogue",
    "speakers": {
     "A": "Nhân viên",
@@ -1089,6 +1091,7 @@
    "hskLevel": 1,
    "title": "Một ngày của tôi",
    "titleZh": "我的一天",
+   "unit": 3,
    "kind": "text",
    "sentences": [
     {
@@ -1585,6 +1588,7 @@
    "hskLevel": 1,
    "title": "Đi mua đồ",
    "titleZh": "买东西",
+   "unit": 6,
    "kind": "dialogue",
    "speakers": {
     "A": "Khách",
@@ -2191,6 +2195,7 @@
    "hskLevel": 1,
    "title": "Thời tiết cuối tuần",
    "titleZh": "天气",
+   "unit": 10,
    "kind": "text",
    "sentences": [
     {
@@ -2704,6 +2709,7 @@
    "hskLevel": 1,
    "title": "Làm quen bạn mới",
    "titleZh": "新朋友",
+   "unit": 1,
    "kind": "dialogue",
    "speakers": {
     "A": "Lan",
@@ -3249,6 +3255,3363 @@
    "stats": {
     "hanzi": 85,
     "words": 65,
+    "outOfLevelRatio": 0
+   }
+  },
+  {
+   "id": "hsk1-r7",
+   "hskLevel": 1,
+   "title": "Hôm nay ngày mấy?",
+   "titleZh": "今天几号",
+   "unit": 2,
+   "kind": "dialogue",
+   "speakers": {
+    "A": "Lan",
+    "B": "Minh"
+   },
+   "sentences": [
+    {
+     "zh": "今天几月几号？",
+     "tokens": [
+      {
+       "text": "今天",
+       "wordId": "今天_jin1tian1"
+      },
+      {
+       "text": "几",
+       "wordId": "几_ji3"
+      },
+      {
+       "text": "月",
+       "wordId": "月_yue4"
+      },
+      {
+       "text": "几",
+       "wordId": "几_ji3"
+      },
+      {
+       "text": "号",
+       "wordId": "号_hao4"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "jīn tiān",
+      "jǐ",
+      "yuè",
+      "jǐ",
+      "hào",
+      ""
+     ],
+     "pinyin": "Jīn tiān jǐ yuè jǐ hào?",
+     "vi": "Hôm nay là ngày mấy tháng mấy?",
+     "speaker": "A"
+    },
+    {
+     "zh": "今天十月九号。",
+     "tokens": [
+      {
+       "text": "今天",
+       "wordId": "今天_jin1tian1"
+      },
+      {
+       "text": "十",
+       "wordId": "十_shi2"
+      },
+      {
+       "text": "月",
+       "wordId": "月_yue4"
+      },
+      {
+       "text": "九",
+       "wordId": "九_jiu3"
+      },
+      {
+       "text": "号",
+       "wordId": "号_hao4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "jīn tiān",
+      "shí",
+      "yuè",
+      "jiǔ",
+      "hào",
+      ""
+     ],
+     "pinyin": "Jīn tiān shí yuè jiǔ hào.",
+     "vi": "Hôm nay là ngày 9 tháng 10.",
+     "speaker": "B"
+    },
+    {
+     "zh": "星期几？",
+     "tokens": [
+      {
+       "text": "星期",
+       "wordId": "星期_xing1qi1"
+      },
+      {
+       "text": "几",
+       "wordId": "几_ji3"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "xīng qī",
+      "jǐ",
+      ""
+     ],
+     "pinyin": "Xīng qī jǐ?",
+     "vi": "Thứ mấy?",
+     "speaker": "A"
+    },
+    {
+     "zh": "星期三。你问这个做什么？",
+     "tokens": [
+      {
+       "text": "星期",
+       "wordId": "星期_xing1qi1"
+      },
+      {
+       "text": "三",
+       "wordId": "三_san1"
+      },
+      {
+       "text": "。"
+      },
+      {
+       "text": "你",
+       "wordId": "你_ni3"
+      },
+      {
+       "text": "问",
+       "wordId": "问_wen4"
+      },
+      {
+       "text": "这",
+       "wordId": "这_zhe4"
+      },
+      {
+       "text": "个",
+       "wordId": "个_ge4"
+      },
+      {
+       "text": "做",
+       "wordId": "做_zuo4"
+      },
+      {
+       "text": "什么",
+       "wordId": "什么_shen2me5"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "xīng qī",
+      "sān",
+      "",
+      "nǐ",
+      "wèn",
+      "zhè",
+      "gè",
+      "zuò",
+      "shén me",
+      ""
+     ],
+     "pinyin": "Xīng qī sān. Nǐ wèn zhè gè zuò shén me?",
+     "vi": "Thứ Tư. Bạn hỏi cái này làm gì?",
+     "speaker": "B"
+    },
+    {
+     "zh": "明天我妹妹八岁了。",
+     "tokens": [
+      {
+       "text": "明天",
+       "wordId": "明天_ming2tian1"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "妹妹",
+       "wordId": "妹妹_mei4mei5"
+      },
+      {
+       "text": "八",
+       "wordId": "八_ba1"
+      },
+      {
+       "text": "岁",
+       "wordId": "岁_sui4"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "míng tiān",
+      "wǒ",
+      "mèi mei",
+      "bā",
+      "suì",
+      "le",
+      ""
+     ],
+     "pinyin": "Míng tiān wǒ mèi mei bā suì le.",
+     "vi": "Ngày mai em gái mình tròn tám tuổi.",
+     "speaker": "A"
+    },
+    {
+     "zh": "是吗？你想给她买什么？",
+     "tokens": [
+      {
+       "text": "是",
+       "wordId": "是_shi4"
+      },
+      {
+       "text": "吗",
+       "wordId": "吗_ma5"
+      },
+      {
+       "text": "？"
+      },
+      {
+       "text": "你",
+       "wordId": "你_ni3"
+      },
+      {
+       "text": "想",
+       "wordId": "想_xiang3"
+      },
+      {
+       "text": "给",
+       "wordId": "给_gei3"
+      },
+      {
+       "text": "她",
+       "wordId": "她_ta1"
+      },
+      {
+       "text": "买",
+       "wordId": "买_mai3"
+      },
+      {
+       "text": "什么",
+       "wordId": "什么_shen2me5"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "shì",
+      "ma",
+      "",
+      "nǐ",
+      "xiǎng",
+      "gěi",
+      "tā",
+      "mǎi",
+      "shén me",
+      ""
+     ],
+     "pinyin": "Shì ma? Nǐ xiǎng gěi tā mǎi shén me?",
+     "vi": "Thật à? Bạn muốn mua gì cho em ấy?",
+     "speaker": "B"
+    },
+    {
+     "zh": "我想给她买一本书，还想买一些水果。",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "想",
+       "wordId": "想_xiang3"
+      },
+      {
+       "text": "给",
+       "wordId": "给_gei3"
+      },
+      {
+       "text": "她",
+       "wordId": "她_ta1"
+      },
+      {
+       "text": "买",
+       "wordId": "买_mai3"
+      },
+      {
+       "text": "一",
+       "wordId": "一_yi1"
+      },
+      {
+       "text": "本",
+       "wordId": "本_ben3"
+      },
+      {
+       "text": "书",
+       "wordId": "书_shu1"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "还",
+       "wordId": "还_hai2"
+      },
+      {
+       "text": "想",
+       "wordId": "想_xiang3"
+      },
+      {
+       "text": "买",
+       "wordId": "买_mai3"
+      },
+      {
+       "text": "一些",
+       "wordId": "一些_yi1xie1"
+      },
+      {
+       "text": "水果",
+       "wordId": "水果_shui3guo3"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "xiǎng",
+      "gěi",
+      "tā",
+      "mǎi",
+      "yì",
+      "běn",
+      "shū",
+      "",
+      "hái",
+      "xiǎng",
+      "mǎi",
+      "yī xiē",
+      "shuǐ guǒ",
+      ""
+     ],
+     "pinyin": "Wǒ xiǎng gěi tā mǎi yì běn shū, hái xiǎng mǎi yī xiē shuǐ guǒ.",
+     "vi": "Mình muốn mua cho em một quyển sách, còn muốn mua ít hoa quả.",
+     "speaker": "A"
+    },
+    {
+     "zh": "一本书多少钱？",
+     "tokens": [
+      {
+       "text": "一",
+       "wordId": "一_yi1"
+      },
+      {
+       "text": "本",
+       "wordId": "本_ben3"
+      },
+      {
+       "text": "书",
+       "wordId": "书_shu1"
+      },
+      {
+       "text": "多少",
+       "wordId": "多少_duo1shao5"
+      },
+      {
+       "text": "钱",
+       "wordId": "钱_qian2"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "yì",
+      "běn",
+      "shū",
+      "duō shao",
+      "qián",
+      ""
+     ],
+     "pinyin": "Yì běn shū duō shao qián?",
+     "vi": "Một quyển sách bao nhiêu tiền?",
+     "speaker": "B"
+    },
+    {
+     "zh": "二十块钱。",
+     "tokens": [
+      {
+       "text": "二",
+       "wordId": "二_er4"
+      },
+      {
+       "text": "十",
+       "wordId": "十_shi2"
+      },
+      {
+       "text": "块",
+       "wordId": "块_kuai4"
+      },
+      {
+       "text": "钱",
+       "wordId": "钱_qian2"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "èr",
+      "shí",
+      "kuài",
+      "qián",
+      ""
+     ],
+     "pinyin": "Èr shí kuài qián.",
+     "vi": "Hai mươi đồng.",
+     "speaker": "A"
+    },
+    {
+     "zh": "我也想去，好吗？",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "也",
+       "wordId": "也_ye3"
+      },
+      {
+       "text": "想",
+       "wordId": "想_xiang3"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "好",
+       "wordId": "好_hao3"
+      },
+      {
+       "text": "吗",
+       "wordId": "吗_ma5"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "yě",
+      "xiǎng",
+      "qù",
+      "",
+      "hǎo",
+      "ma",
+      ""
+     ],
+     "pinyin": "Wǒ yě xiǎng qù, hǎo ma?",
+     "vi": "Mình cũng muốn đi, được không?",
+     "speaker": "B"
+    },
+    {
+     "zh": "好！我们下午三点去吧。",
+     "tokens": [
+      {
+       "text": "好",
+       "wordId": "好_hao3"
+      },
+      {
+       "text": "！"
+      },
+      {
+       "text": "我们",
+       "wordId": "我们_wo3men5"
+      },
+      {
+       "text": "下午",
+       "wordId": "下午_xia4wu3"
+      },
+      {
+       "text": "三",
+       "wordId": "三_san1"
+      },
+      {
+       "text": "点",
+       "wordId": "点_dian3"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "吧",
+       "wordId": "吧_ba5"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "hǎo",
+      "",
+      "wǒ men",
+      "xià wǔ",
+      "sān",
+      "diǎn",
+      "qù",
+      "ba",
+      ""
+     ],
+     "pinyin": "Hǎo! Wǒ men xià wǔ sān diǎn qù ba.",
+     "vi": "Được! Ba giờ chiều chúng mình đi nhé.",
+     "speaker": "A"
+    }
+   ],
+   "questions": [
+    {
+     "id": "hsk1-r7-q1",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Hôm nay là ngày mấy?",
+      "options": [
+       "Ngày 9 tháng 10",
+       "Ngày 10 tháng 9",
+       "Ngày 8 tháng 10",
+       "Ngày 3 tháng 10"
+      ]
+     },
+     "answer": 0
+    },
+    {
+     "id": "hsk1-r7-q2",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Em gái của Lan bao nhiêu tuổi?",
+      "options": [
+       "Bảy tuổi",
+       "Tám tuổi",
+       "Chín tuổi",
+       "Mười tuổi"
+      ]
+     },
+     "answer": 1
+    },
+    {
+     "id": "hsk1-r7-q3",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Một quyển sách giá bao nhiêu?",
+      "options": [
+       "2 đồng",
+       "12 đồng",
+       "20 đồng",
+       "200 đồng"
+      ]
+     },
+     "answer": 2
+    }
+   ],
+   "stats": {
+    "hanzi": 82,
+    "words": 69,
+    "outOfLevelRatio": 0
+   }
+  },
+  {
+   "id": "hsk1-r8",
+   "hskLevel": 1,
+   "title": "Trường của tôi",
+   "titleZh": "我的学校",
+   "unit": 8,
+   "kind": "text",
+   "sentences": [
+    {
+     "zh": "我是大学生，我在北京的一个大学学习汉语。",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "是",
+       "wordId": "是_shi4"
+      },
+      {
+       "text": "大学生",
+       "wordId": "大学生_da4xue2sheng1"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "在",
+       "wordId": "在_zai4"
+      },
+      {
+       "text": "北京",
+       "wordId": "北京_Bei3jing1"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "一",
+       "wordId": "一_yi1"
+      },
+      {
+       "text": "个",
+       "wordId": "个_ge4"
+      },
+      {
+       "text": "大学",
+       "wordId": "大学_da4xue2"
+      },
+      {
+       "text": "学习",
+       "wordId": "学习_xue2xi2"
+      },
+      {
+       "text": "汉语",
+       "wordId": "汉语_Han4yu3"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "shì",
+      "dà xué shēng",
+      "",
+      "wǒ",
+      "zài",
+      "Běi jīng",
+      "de",
+      "yí",
+      "gè",
+      "dà xué",
+      "xué xí",
+      "Hàn yǔ",
+      ""
+     ],
+     "pinyin": "Wǒ shì dà xué shēng, wǒ zài Běi jīng de yí gè dà xué xué xí Hàn yǔ.",
+     "vi": "Tôi là sinh viên, tôi học tiếng Trung ở một trường đại học tại Bắc Kinh."
+    },
+    {
+     "zh": "我们学校很大，有很多学生，也有很多中国老师。",
+     "tokens": [
+      {
+       "text": "我们",
+       "wordId": "我们_wo3men5"
+      },
+      {
+       "text": "学校",
+       "wordId": "学校_xue2xiao4"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "大",
+       "wordId": "大_da4"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "有",
+       "wordId": "有_you3"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "多",
+       "wordId": "多_duo1"
+      },
+      {
+       "text": "学生",
+       "wordId": "学生_xue2sheng5"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "也",
+       "wordId": "也_ye3"
+      },
+      {
+       "text": "有",
+       "wordId": "有_you3"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "多",
+       "wordId": "多_duo1"
+      },
+      {
+       "text": "中国",
+       "wordId": "中国_Zhong1guo2"
+      },
+      {
+       "text": "老师",
+       "wordId": "老师_lao3shi1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ men",
+      "xué xiào",
+      "hěn",
+      "dà",
+      "",
+      "yǒu",
+      "hěn",
+      "duō",
+      "xué sheng",
+      "",
+      "yě",
+      "yǒu",
+      "hěn",
+      "duō",
+      "Zhōng guó",
+      "lǎo shī",
+      ""
+     ],
+     "pinyin": "Wǒ men xué xiào hěn dà, yǒu hěn duō xué sheng, yě yǒu hěn duō Zhōng guó lǎo shī.",
+     "vi": "Trường chúng tôi rất rộng, có nhiều sinh viên, cũng có nhiều thầy cô người Trung Quốc."
+    },
+    {
+     "zh": "我们上午八点上课，十二点下课。",
+     "tokens": [
+      {
+       "text": "我们",
+       "wordId": "我们_wo3men5"
+      },
+      {
+       "text": "上午",
+       "wordId": "上午_shang4wu3"
+      },
+      {
+       "text": "八",
+       "wordId": "八_ba1"
+      },
+      {
+       "text": "点",
+       "wordId": "点_dian3"
+      },
+      {
+       "text": "上课",
+       "wordId": "上课_shang4ke4"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "十",
+       "wordId": "十_shi2"
+      },
+      {
+       "text": "二",
+       "wordId": "二_er4"
+      },
+      {
+       "text": "点",
+       "wordId": "点_dian3"
+      },
+      {
+       "text": "下课",
+       "wordId": "下课_xia4ke4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ men",
+      "shàng wǔ",
+      "bā",
+      "diǎn",
+      "shàng kè",
+      "",
+      "shí",
+      "èr",
+      "diǎn",
+      "xià kè",
+      ""
+     ],
+     "pinyin": "Wǒ men shàng wǔ bā diǎn shàng kè, shí èr diǎn xià kè.",
+     "vi": "Chúng tôi vào học lúc 8 giờ sáng, tan học lúc 12 giờ."
+    },
+    {
+     "zh": "中午我和同学在学校吃饭。",
+     "tokens": [
+      {
+       "text": "中午",
+       "wordId": "中午_zhong1wu3"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "和",
+       "wordId": "和_he2"
+      },
+      {
+       "text": "同学",
+       "wordId": "同学_tong2xue2"
+      },
+      {
+       "text": "在",
+       "wordId": "在_zai4"
+      },
+      {
+       "text": "学校",
+       "wordId": "学校_xue2xiao4"
+      },
+      {
+       "text": "吃",
+       "wordId": "吃_chi1"
+      },
+      {
+       "text": "饭",
+       "wordId": "饭_fan4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "zhōng wǔ",
+      "wǒ",
+      "hé",
+      "tóng xué",
+      "zài",
+      "xué xiào",
+      "chī",
+      "fàn",
+      ""
+     ],
+     "pinyin": "Zhōng wǔ wǒ hé tóng xué zài xué xiào chī fàn.",
+     "vi": "Buổi trưa tôi và bạn học ăn cơm ở trường."
+    },
+    {
+     "zh": "下午我们没有课，我去书店看书。",
+     "tokens": [
+      {
+       "text": "下午",
+       "wordId": "下午_xia4wu3"
+      },
+      {
+       "text": "我们",
+       "wordId": "我们_wo3men5"
+      },
+      {
+       "text": "没有",
+       "wordId": "没有_mei2you3"
+      },
+      {
+       "text": "课",
+       "wordId": "课_ke4"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "书店",
+       "wordId": "书店_shu1dian4"
+      },
+      {
+       "text": "看",
+       "wordId": "看_kan4"
+      },
+      {
+       "text": "书",
+       "wordId": "书_shu1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "xià wǔ",
+      "wǒ men",
+      "méi yǒu",
+      "kè",
+      "",
+      "wǒ",
+      "qù",
+      "shū diàn",
+      "kàn",
+      "shū",
+      ""
+     ],
+     "pinyin": "Xià wǔ wǒ men méi yǒu kè, wǒ qù shū diàn kàn shū.",
+     "vi": "Buổi chiều chúng tôi không có tiết, tôi đến hiệu sách đọc sách."
+    },
+    {
+     "zh": "晚上我在房间里写汉字。",
+     "tokens": [
+      {
+       "text": "晚上",
+       "wordId": "晚上_wan3shang5"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "在",
+       "wordId": "在_zai4"
+      },
+      {
+       "text": "房间",
+       "wordId": "房间_fang2jian1"
+      },
+      {
+       "text": "里",
+       "wordId": "里_li3"
+      },
+      {
+       "text": "写",
+       "wordId": "写_xie3"
+      },
+      {
+       "text": "汉字",
+       "wordId": "汉字_han4zi4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǎn shang",
+      "wǒ",
+      "zài",
+      "fáng jiān",
+      "lǐ",
+      "xiě",
+      "hàn zì",
+      ""
+     ],
+     "pinyin": "Wǎn shang wǒ zài fáng jiān lǐ xiě hàn zì.",
+     "vi": "Buổi tối tôi viết chữ Hán trong phòng."
+    },
+    {
+     "zh": "我觉得学习汉语很好玩儿。",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "觉得",
+       "wordId": "觉得_jue2de5"
+      },
+      {
+       "text": "学习",
+       "wordId": "学习_xue2xi2"
+      },
+      {
+       "text": "汉语",
+       "wordId": "汉语_Han4yu3"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "好玩儿",
+       "wordId": "好玩儿_hao3wan2r"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "jué de",
+      "xué xí",
+      "Hàn yǔ",
+      "hěn",
+      "hǎo wánr",
+      ""
+     ],
+     "pinyin": "Wǒ jué de xué xí Hàn yǔ hěn hǎo wánr.",
+     "vi": "Tôi thấy học tiếng Trung rất vui."
+    },
+    {
+     "zh": "我很喜欢我的学校。",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "喜欢",
+       "wordId": "喜欢_xi3huan5"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "学校",
+       "wordId": "学校_xue2xiao4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "hěn",
+      "xǐ huan",
+      "wǒ",
+      "de",
+      "xué xiào",
+      ""
+     ],
+     "pinyin": "Wǒ hěn xǐ huan wǒ de xué xiào.",
+     "vi": "Tôi rất thích trường của mình."
+    }
+   ],
+   "questions": [
+    {
+     "id": "hsk1-r8-q1",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Bạn ấy học gì?",
+      "options": [
+       "Tiếng Anh",
+       "Tiếng Trung",
+       "Y học",
+       "Toán"
+      ]
+     },
+     "answer": 1
+    },
+    {
+     "id": "hsk1-r8-q2",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Buổi sáng mấy giờ vào học?",
+      "options": [
+       "7 giờ",
+       "8 giờ",
+       "10 giờ",
+       "12 giờ"
+      ]
+     },
+     "answer": 1
+    },
+    {
+     "id": "hsk1-r8-q3",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Buổi chiều bạn ấy làm gì?",
+      "options": [
+       "Đi học",
+       "Đi làm",
+       "Đến hiệu sách đọc sách",
+       "Ngủ"
+      ]
+     },
+     "answer": 2
+    }
+   ],
+   "stats": {
+    "hanzi": 103,
+    "words": 71,
+    "outOfLevelRatio": 0
+   }
+  },
+  {
+   "id": "hsk1-r9",
+   "hskLevel": 1,
+   "title": "Đi khám bệnh",
+   "titleZh": "看病",
+   "unit": 10,
+   "kind": "dialogue",
+   "speakers": {
+    "A": "Bác sĩ",
+    "B": "Minh"
+   },
+   "sentences": [
+    {
+     "zh": "医生，您好！",
+     "tokens": [
+      {
+       "text": "医生",
+       "wordId": "医生_yi1sheng1"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "您",
+       "wordId": "您_nin2"
+      },
+      {
+       "text": "好",
+       "wordId": "好_hao3"
+      },
+      {
+       "text": "！"
+      }
+     ],
+     "tokenPinyin": [
+      "yī shēng",
+      "",
+      "nín",
+      "hǎo",
+      ""
+     ],
+     "pinyin": "Yī shēng, nín hǎo!",
+     "vi": "Chào bác sĩ!",
+     "speaker": "B"
+    },
+    {
+     "zh": "你好！你怎么了？",
+     "tokens": [
+      {
+       "text": "你",
+       "wordId": "你_ni3"
+      },
+      {
+       "text": "好",
+       "wordId": "好_hao3"
+      },
+      {
+       "text": "！"
+      },
+      {
+       "text": "你",
+       "wordId": "你_ni3"
+      },
+      {
+       "text": "怎么",
+       "wordId": "怎么_zen3me5"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "nǐ",
+      "hǎo",
+      "",
+      "nǐ",
+      "zěn me",
+      "le",
+      ""
+     ],
+     "pinyin": "Nǐ hǎo! Nǐ zěn me le?",
+     "vi": "Chào cậu! Cậu bị sao thế?",
+     "speaker": "A"
+    },
+    {
+     "zh": "我有点儿冷，不想吃饭。",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "有点儿",
+       "wordId": "有点儿_you3dian3r"
+      },
+      {
+       "text": "冷",
+       "wordId": "冷_leng3"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "不",
+       "wordId": "不_bu4"
+      },
+      {
+       "text": "想",
+       "wordId": "想_xiang3"
+      },
+      {
+       "text": "吃",
+       "wordId": "吃_chi1"
+      },
+      {
+       "text": "饭",
+       "wordId": "饭_fan4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "yǒu diǎnr",
+      "lěng",
+      "",
+      "bù",
+      "xiǎng",
+      "chī",
+      "fàn",
+      ""
+     ],
+     "pinyin": "Wǒ yǒu diǎnr lěng, bù xiǎng chī fàn.",
+     "vi": "Cháu hơi lạnh, không muốn ăn cơm.",
+     "speaker": "B"
+    },
+    {
+     "zh": "你病了几天了？",
+     "tokens": [
+      {
+       "text": "你",
+       "wordId": "你_ni3"
+      },
+      {
+       "text": "病",
+       "wordId": "病_bing4"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "几",
+       "wordId": "几_ji3"
+      },
+      {
+       "text": "天",
+       "wordId": "天_tian1"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "nǐ",
+      "bìng",
+      "le",
+      "jǐ",
+      "tiān",
+      "le",
+      ""
+     ],
+     "pinyin": "Nǐ bìng le jǐ tiān le?",
+     "vi": "Cậu ốm mấy ngày rồi?",
+     "speaker": "A"
+    },
+    {
+     "zh": "两天了。",
+     "tokens": [
+      {
+       "text": "两",
+       "wordId": "两_liang3"
+      },
+      {
+       "text": "天",
+       "wordId": "天_tian1"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "liǎng",
+      "tiān",
+      "le",
+      ""
+     ],
+     "pinyin": "Liǎng tiān le.",
+     "vi": "Hai ngày rồi ạ.",
+     "speaker": "B"
+    },
+    {
+     "zh": "你吃饭了吗？",
+     "tokens": [
+      {
+       "text": "你",
+       "wordId": "你_ni3"
+      },
+      {
+       "text": "吃",
+       "wordId": "吃_chi1"
+      },
+      {
+       "text": "饭",
+       "wordId": "饭_fan4"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "吗",
+       "wordId": "吗_ma5"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "nǐ",
+      "chī",
+      "fàn",
+      "le",
+      "ma",
+      ""
+     ],
+     "pinyin": "Nǐ chī fàn le ma?",
+     "vi": "Cậu ăn cơm chưa?",
+     "speaker": "A"
+    },
+    {
+     "zh": "没有，我只喝了一点儿水。",
+     "tokens": [
+      {
+       "text": "没有",
+       "wordId": "没有_mei2you3"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "只",
+       "wordId": "只_zhi3"
+      },
+      {
+       "text": "喝",
+       "wordId": "喝_he1"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "一点儿",
+       "wordId": "一点儿_yi1dian3r"
+      },
+      {
+       "text": "水",
+       "wordId": "水_shui3"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "méi yǒu",
+      "",
+      "wǒ",
+      "zhǐ",
+      "hē",
+      "le",
+      "yī diǎnr",
+      "shuǐ",
+      ""
+     ],
+     "pinyin": "Méi yǒu, wǒ zhǐ hē le yī diǎnr shuǐ.",
+     "vi": "Chưa ạ, cháu chỉ uống một chút nước.",
+     "speaker": "B"
+    },
+    {
+     "zh": "你昨天几点睡觉？",
+     "tokens": [
+      {
+       "text": "你",
+       "wordId": "你_ni3"
+      },
+      {
+       "text": "昨天",
+       "wordId": "昨天_zuo2tian1"
+      },
+      {
+       "text": "几",
+       "wordId": "几_ji3"
+      },
+      {
+       "text": "点",
+       "wordId": "点_dian3"
+      },
+      {
+       "text": "睡觉",
+       "wordId": "睡觉_shui4jiao4"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "nǐ",
+      "zuó tiān",
+      "jǐ",
+      "diǎn",
+      "shuì jiào",
+      ""
+     ],
+     "pinyin": "Nǐ zuó tiān jǐ diǎn shuì jiào?",
+     "vi": "Hôm qua mấy giờ cậu đi ngủ?",
+     "speaker": "A"
+    },
+    {
+     "zh": "晚上十二点。",
+     "tokens": [
+      {
+       "text": "晚上",
+       "wordId": "晚上_wan3shang5"
+      },
+      {
+       "text": "十",
+       "wordId": "十_shi2"
+      },
+      {
+       "text": "二",
+       "wordId": "二_er4"
+      },
+      {
+       "text": "点",
+       "wordId": "点_dian3"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǎn shang",
+      "shí",
+      "èr",
+      "diǎn",
+      ""
+     ],
+     "pinyin": "Wǎn shang shí èr diǎn.",
+     "vi": "Mười hai giờ đêm ạ.",
+     "speaker": "B"
+    },
+    {
+     "zh": "太晚了！你要多休息，多喝水。",
+     "tokens": [
+      {
+       "text": "太",
+       "wordId": "太_tai4"
+      },
+      {
+       "text": "晚",
+       "wordId": "晚_wan3"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "！"
+      },
+      {
+       "text": "你",
+       "wordId": "你_ni3"
+      },
+      {
+       "text": "要",
+       "wordId": "要_yao4"
+      },
+      {
+       "text": "多",
+       "wordId": "多_duo1"
+      },
+      {
+       "text": "休息",
+       "wordId": "休息_xiu1xi5"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "多",
+       "wordId": "多_duo1"
+      },
+      {
+       "text": "喝",
+       "wordId": "喝_he1"
+      },
+      {
+       "text": "水",
+       "wordId": "水_shui3"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "tài",
+      "wǎn",
+      "le",
+      "",
+      "nǐ",
+      "yào",
+      "duō",
+      "xiū xi",
+      "",
+      "duō",
+      "hē",
+      "shuǐ",
+      ""
+     ],
+     "pinyin": "Tài wǎn le! Nǐ yào duō xiū xi, duō hē shuǐ.",
+     "vi": "Muộn quá! Cậu phải nghỉ ngơi nhiều, uống nhiều nước.",
+     "speaker": "A"
+    },
+    {
+     "zh": "我明天可以去上班吗？",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "明天",
+       "wordId": "明天_ming2tian1"
+      },
+      {
+       "text": "可以",
+       "wordId": "可以_ke3yi3"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "上班",
+       "wordId": "上班_shang4ban1"
+      },
+      {
+       "text": "吗",
+       "wordId": "吗_ma5"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "míng tiān",
+      "kě yǐ",
+      "qù",
+      "shàng bān",
+      "ma",
+      ""
+     ],
+     "pinyin": "Wǒ míng tiān kě yǐ qù shàng bān ma?",
+     "vi": "Ngày mai cháu đi làm được không ạ?",
+     "speaker": "B"
+    },
+    {
+     "zh": "明天不要去，在家休息吧。",
+     "tokens": [
+      {
+       "text": "明天",
+       "wordId": "明天_ming2tian1"
+      },
+      {
+       "text": "不要",
+       "wordId": "不要_bu4yao4"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "在",
+       "wordId": "在_zai4"
+      },
+      {
+       "text": "家",
+       "wordId": "家_jia1"
+      },
+      {
+       "text": "休息",
+       "wordId": "休息_xiu1xi5"
+      },
+      {
+       "text": "吧",
+       "wordId": "吧_ba5"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "míng tiān",
+      "bù yào",
+      "qù",
+      "",
+      "zài",
+      "jiā",
+      "xiū xi",
+      "ba",
+      ""
+     ],
+     "pinyin": "Míng tiān bù yào qù, zài jiā xiū xi ba.",
+     "vi": "Ngày mai đừng đi, ở nhà nghỉ đi.",
+     "speaker": "A"
+    },
+    {
+     "zh": "好的，谢谢医生！",
+     "tokens": [
+      {
+       "text": "好",
+       "wordId": "好_hao3"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "谢谢",
+       "wordId": "谢谢_xie4xie5"
+      },
+      {
+       "text": "医生",
+       "wordId": "医生_yi1sheng1"
+      },
+      {
+       "text": "！"
+      }
+     ],
+     "tokenPinyin": [
+      "hǎo",
+      "de",
+      "",
+      "xiè xie",
+      "yī shēng",
+      ""
+     ],
+     "pinyin": "Hǎo de, xiè xie yī shēng!",
+     "vi": "Vâng, cảm ơn bác sĩ!",
+     "speaker": "B"
+    }
+   ],
+   "questions": [
+    {
+     "id": "hsk1-r9-q1",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Minh bị ốm mấy ngày rồi?",
+      "options": [
+       "Một ngày",
+       "Hai ngày",
+       "Ba ngày",
+       "Một tuần"
+      ]
+     },
+     "answer": 1
+    },
+    {
+     "id": "hsk1-r9-q2",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Bác sĩ khuyên Minh làm gì?",
+      "options": [
+       "Nghỉ ngơi, uống nhiều nước",
+       "Đi làm bình thường",
+       "Ăn thật nhiều",
+       "Đi ngủ muộn"
+      ]
+     },
+     "answer": 0
+    },
+    {
+     "id": "hsk1-r9-q3",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Ngày mai Minh có được đi làm không?",
+      "options": [
+       "Có",
+       "Không",
+       "Buổi chiều thì có",
+       "Bác sĩ không nói"
+      ]
+     },
+     "answer": 1
+    }
+   ],
+   "stats": {
+    "hanzi": 91,
+    "words": 72,
+    "outOfLevelRatio": 0
+   }
+  },
+  {
+   "id": "hsk1-r10",
+   "hskLevel": 1,
+   "title": "Phòng của tôi",
+   "titleZh": "我的房间",
+   "unit": 7,
+   "kind": "text",
+   "sentences": [
+    {
+     "zh": "这是我的房间。",
+     "tokens": [
+      {
+       "text": "这",
+       "wordId": "这_zhe4"
+      },
+      {
+       "text": "是",
+       "wordId": "是_shi4"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "房间",
+       "wordId": "房间_fang2jian1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "zhè",
+      "shì",
+      "wǒ",
+      "de",
+      "fáng jiān",
+      ""
+     ],
+     "pinyin": "Zhè shì wǒ de fáng jiān.",
+     "vi": "Đây là phòng của tôi."
+    },
+    {
+     "zh": "我的房间不大，我很喜欢它。",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "房间",
+       "wordId": "房间_fang2jian1"
+      },
+      {
+       "text": "不",
+       "wordId": "不_bu4"
+      },
+      {
+       "text": "大",
+       "wordId": "大_da4"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "喜欢",
+       "wordId": "喜欢_xi3huan5"
+      },
+      {
+       "text": "它",
+       "wordId": "它_ta1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "de",
+      "fáng jiān",
+      "bú",
+      "dà",
+      "",
+      "wǒ",
+      "hěn",
+      "xǐ huan",
+      "tā",
+      ""
+     ],
+     "pinyin": "Wǒ de fáng jiān bú dà, wǒ hěn xǐ huan tā.",
+     "vi": "Phòng của tôi không rộng, nhưng tôi rất thích nó."
+    },
+    {
+     "zh": "房间里有一个桌子和两个椅子。",
+     "tokens": [
+      {
+       "text": "房间",
+       "wordId": "房间_fang2jian1"
+      },
+      {
+       "text": "里",
+       "wordId": "里_li3"
+      },
+      {
+       "text": "有",
+       "wordId": "有_you3"
+      },
+      {
+       "text": "一",
+       "wordId": "一_yi1"
+      },
+      {
+       "text": "个",
+       "wordId": "个_ge4"
+      },
+      {
+       "text": "桌子",
+       "wordId": "桌子_zhuo1zi5"
+      },
+      {
+       "text": "和",
+       "wordId": "和_he2"
+      },
+      {
+       "text": "两",
+       "wordId": "两_liang3"
+      },
+      {
+       "text": "个",
+       "wordId": "个_ge4"
+      },
+      {
+       "text": "椅子",
+       "wordId": "椅子_yi3zi5"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "fáng jiān",
+      "lǐ",
+      "yǒu",
+      "yí",
+      "gè",
+      "zhuō zi",
+      "hé",
+      "liǎng",
+      "gè",
+      "yǐ zi",
+      ""
+     ],
+     "pinyin": "Fáng jiān lǐ yǒu yí gè zhuō zi hé liǎng gè yǐ zi.",
+     "vi": "Trong phòng có một cái bàn và hai cái ghế."
+    },
+    {
+     "zh": "桌子上有一个电脑和很多书。",
+     "tokens": [
+      {
+       "text": "桌子",
+       "wordId": "桌子_zhuo1zi5"
+      },
+      {
+       "text": "上",
+       "wordId": "上_shang4"
+      },
+      {
+       "text": "有",
+       "wordId": "有_you3"
+      },
+      {
+       "text": "一",
+       "wordId": "一_yi1"
+      },
+      {
+       "text": "个",
+       "wordId": "个_ge4"
+      },
+      {
+       "text": "电脑",
+       "wordId": "电脑_dian4nao3"
+      },
+      {
+       "text": "和",
+       "wordId": "和_he2"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "多",
+       "wordId": "多_duo1"
+      },
+      {
+       "text": "书",
+       "wordId": "书_shu1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "zhuō zi",
+      "shàng",
+      "yǒu",
+      "yí",
+      "gè",
+      "diàn nǎo",
+      "hé",
+      "hěn",
+      "duō",
+      "shū",
+      ""
+     ],
+     "pinyin": "Zhuō zi shàng yǒu yí gè diàn nǎo hé hěn duō shū.",
+     "vi": "Trên bàn có một cái máy tính và rất nhiều sách."
+    },
+    {
+     "zh": "我的猫在椅子下睡觉。",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "猫",
+       "wordId": "猫_mao1"
+      },
+      {
+       "text": "在",
+       "wordId": "在_zai4"
+      },
+      {
+       "text": "椅子",
+       "wordId": "椅子_yi3zi5"
+      },
+      {
+       "text": "下",
+       "wordId": "下_xia4"
+      },
+      {
+       "text": "睡觉",
+       "wordId": "睡觉_shui4jiao4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "de",
+      "māo",
+      "zài",
+      "yǐ zi",
+      "xià",
+      "shuì jiào",
+      ""
+     ],
+     "pinyin": "Wǒ de māo zài yǐ zi xià shuì jiào.",
+     "vi": "Con mèo của tôi ngủ dưới gầm ghế."
+    },
+    {
+     "zh": "我家前面有一个超市，后面有一个医院。",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "家",
+       "wordId": "家_jia1"
+      },
+      {
+       "text": "前面",
+       "wordId": "前面_qian2mian4"
+      },
+      {
+       "text": "有",
+       "wordId": "有_you3"
+      },
+      {
+       "text": "一",
+       "wordId": "一_yi1"
+      },
+      {
+       "text": "个",
+       "wordId": "个_ge4"
+      },
+      {
+       "text": "超市",
+       "wordId": "超市_chao1shi4"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "后面",
+       "wordId": "后面_hou4mian5"
+      },
+      {
+       "text": "有",
+       "wordId": "有_you3"
+      },
+      {
+       "text": "一",
+       "wordId": "一_yi1"
+      },
+      {
+       "text": "个",
+       "wordId": "个_ge4"
+      },
+      {
+       "text": "医院",
+       "wordId": "医院_yi1yuan4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "jiā",
+      "qián miàn",
+      "yǒu",
+      "yí",
+      "gè",
+      "chāo shì",
+      "",
+      "hòu mian",
+      "yǒu",
+      "yí",
+      "gè",
+      "yī yuàn",
+      ""
+     ],
+     "pinyin": "Wǒ jiā qián miàn yǒu yí gè chāo shì, hòu mian yǒu yí gè yī yuàn.",
+     "vi": "Phía trước nhà tôi có một siêu thị, phía sau có một bệnh viện."
+    },
+    {
+     "zh": "超市里的东西很便宜。",
+     "tokens": [
+      {
+       "text": "超市",
+       "wordId": "超市_chao1shi4"
+      },
+      {
+       "text": "里",
+       "wordId": "里_li3"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "东西",
+       "wordId": "东西_dong1xi5"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "便宜",
+       "wordId": "便宜_pian2yi5"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "chāo shì",
+      "lǐ",
+      "de",
+      "dōng xi",
+      "hěn",
+      "pián yi",
+      ""
+     ],
+     "pinyin": "Chāo shì lǐ de dōng xi hěn pián yi.",
+     "vi": "Đồ trong siêu thị rất rẻ."
+    },
+    {
+     "zh": "我很喜欢我的房间，也很喜欢我的家。",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "喜欢",
+       "wordId": "喜欢_xi3huan5"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "房间",
+       "wordId": "房间_fang2jian1"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "也",
+       "wordId": "也_ye3"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "喜欢",
+       "wordId": "喜欢_xi3huan5"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "家",
+       "wordId": "家_jia1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "hěn",
+      "xǐ huan",
+      "wǒ",
+      "de",
+      "fáng jiān",
+      "",
+      "yě",
+      "hěn",
+      "xǐ huan",
+      "wǒ",
+      "de",
+      "jiā",
+      ""
+     ],
+     "pinyin": "Wǒ hěn xǐ huan wǒ de fáng jiān, yě hěn xǐ huan wǒ de jiā.",
+     "vi": "Tôi rất thích phòng của mình, cũng rất thích nhà mình."
+    }
+   ],
+   "questions": [
+    {
+     "id": "hsk1-r10-q1",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Trong phòng có mấy cái ghế?",
+      "options": [
+       "Một",
+       "Hai",
+       "Ba",
+       "Không có"
+      ]
+     },
+     "answer": 1
+    },
+    {
+     "id": "hsk1-r10-q2",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Con mèo ở đâu?",
+      "options": [
+       "Trên bàn",
+       "Dưới ghế",
+       "Ngoài phòng",
+       "Trong siêu thị"
+      ]
+     },
+     "answer": 1
+    },
+    {
+     "id": "hsk1-r10-q3",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Phía sau nhà có gì?",
+      "options": [
+       "Siêu thị",
+       "Trường học",
+       "Bệnh viện",
+       "Nhà hàng"
+      ]
+     },
+     "answer": 2
+    }
+   ],
+   "stats": {
+    "hanzi": 91,
+    "words": 71,
+    "outOfLevelRatio": 0
+   }
+  },
+  {
+   "id": "hsk1-r11",
+   "hskLevel": 1,
+   "title": "Đi Bắc Kinh",
+   "titleZh": "去北京",
+   "unit": 9,
+   "kind": "text",
+   "sentences": [
+    {
+     "zh": "去年八月，我和爸爸妈妈去了北京。",
+     "tokens": [
+      {
+       "text": "去年",
+       "wordId": "去年_qu4nian2"
+      },
+      {
+       "text": "八",
+       "wordId": "八_ba1"
+      },
+      {
+       "text": "月",
+       "wordId": "月_yue4"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "和",
+       "wordId": "和_he2"
+      },
+      {
+       "text": "爸爸",
+       "wordId": "爸爸_ba4ba5"
+      },
+      {
+       "text": "妈妈",
+       "wordId": "妈妈_ma1ma5"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "北京",
+       "wordId": "北京_Bei3jing1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "qù nián",
+      "bā",
+      "yuè",
+      "",
+      "wǒ",
+      "hé",
+      "bà ba",
+      "mā ma",
+      "qù",
+      "le",
+      "Běi jīng",
+      ""
+     ],
+     "pinyin": "Qù nián bā yuè, wǒ hé bà ba mā ma qù le Běi jīng.",
+     "vi": "Tháng 8 năm ngoái, tôi cùng bố mẹ đi Bắc Kinh."
+    },
+    {
+     "zh": "我们是坐飞机去的。",
+     "tokens": [
+      {
+       "text": "我们",
+       "wordId": "我们_wo3men5"
+      },
+      {
+       "text": "是",
+       "wordId": "是_shi4"
+      },
+      {
+       "text": "坐",
+       "wordId": "坐_zuo4"
+      },
+      {
+       "text": "飞机",
+       "wordId": "飞机_fei1ji1"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ men",
+      "shì",
+      "zuò",
+      "fēi jī",
+      "qù",
+      "de",
+      ""
+     ],
+     "pinyin": "Wǒ men shì zuò fēi jī qù de.",
+     "vi": "Chúng tôi đi bằng máy bay."
+    },
+    {
+     "zh": "飞机上人很多。",
+     "tokens": [
+      {
+       "text": "飞机",
+       "wordId": "飞机_fei1ji1"
+      },
+      {
+       "text": "上",
+       "wordId": "上_shang4"
+      },
+      {
+       "text": "人",
+       "wordId": "人_ren2"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "多",
+       "wordId": "多_duo1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "fēi jī",
+      "shàng",
+      "rén",
+      "hěn",
+      "duō",
+      ""
+     ],
+     "pinyin": "Fēi jī shàng rén hěn duō.",
+     "vi": "Trên máy bay rất đông người."
+    },
+    {
+     "zh": "到了北京，我们坐出租车去饭店。",
+     "tokens": [
+      {
+       "text": "到",
+       "wordId": "到_dao4"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "北京",
+       "wordId": "北京_Bei3jing1"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "我们",
+       "wordId": "我们_wo3men5"
+      },
+      {
+       "text": "坐",
+       "wordId": "坐_zuo4"
+      },
+      {
+       "text": "出租车",
+       "wordId": "出租车_chu1zu1che1"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "饭店",
+       "wordId": "饭店_fan4dian4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "dào",
+      "le",
+      "Běi jīng",
+      "",
+      "wǒ men",
+      "zuò",
+      "chū zū chē",
+      "qù",
+      "fàn diàn",
+      ""
+     ],
+     "pinyin": "Dào le Běi jīng, wǒ men zuò chū zū chē qù fàn diàn.",
+     "vi": "Đến Bắc Kinh, chúng tôi đi taxi về khách sạn."
+    },
+    {
+     "zh": "北京很大，人也很多。",
+     "tokens": [
+      {
+       "text": "北京",
+       "wordId": "北京_Bei3jing1"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "大",
+       "wordId": "大_da4"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "人",
+       "wordId": "人_ren2"
+      },
+      {
+       "text": "也",
+       "wordId": "也_ye3"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "多",
+       "wordId": "多_duo1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "Běi jīng",
+      "hěn",
+      "dà",
+      "",
+      "rén",
+      "yě",
+      "hěn",
+      "duō",
+      ""
+     ],
+     "pinyin": "Běi jīng hěn dà, rén yě hěn duō.",
+     "vi": "Bắc Kinh rất rộng, người cũng rất đông."
+    },
+    {
+     "zh": "我们在北京住了五天。",
+     "tokens": [
+      {
+       "text": "我们",
+       "wordId": "我们_wo3men5"
+      },
+      {
+       "text": "在",
+       "wordId": "在_zai4"
+      },
+      {
+       "text": "北京",
+       "wordId": "北京_Bei3jing1"
+      },
+      {
+       "text": "住",
+       "wordId": "住_zhu4"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "五",
+       "wordId": "五_wu3"
+      },
+      {
+       "text": "天",
+       "wordId": "天_tian1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ men",
+      "zài",
+      "Běi jīng",
+      "zhù",
+      "le",
+      "wǔ",
+      "tiān",
+      ""
+     ],
+     "pinyin": "Wǒ men zài Běi jīng zhù le wǔ tiān.",
+     "vi": "Chúng tôi ở Bắc Kinh năm ngày."
+    },
+    {
+     "zh": "我们看了很多东西，也吃了很多好吃的。",
+     "tokens": [
+      {
+       "text": "我们",
+       "wordId": "我们_wo3men5"
+      },
+      {
+       "text": "看",
+       "wordId": "看_kan4"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "多",
+       "wordId": "多_duo1"
+      },
+      {
+       "text": "东西",
+       "wordId": "东西_dong1xi5"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "也",
+       "wordId": "也_ye3"
+      },
+      {
+       "text": "吃",
+       "wordId": "吃_chi1"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "多",
+       "wordId": "多_duo1"
+      },
+      {
+       "text": "好吃",
+       "wordId": "好吃_hao3chi1"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ men",
+      "kàn",
+      "le",
+      "hěn",
+      "duō",
+      "dōng xi",
+      "",
+      "yě",
+      "chī",
+      "le",
+      "hěn",
+      "duō",
+      "hǎo chī",
+      "de",
+      ""
+     ],
+     "pinyin": "Wǒ men kàn le hěn duō dōng xi, yě chī le hěn duō hǎo chī de.",
+     "vi": "Chúng tôi đã xem nhiều thứ, cũng ăn rất nhiều món ngon."
+    },
+    {
+     "zh": "北京的饺子非常好吃！",
+     "tokens": [
+      {
+       "text": "北京",
+       "wordId": "北京_Bei3jing1"
+      },
+      {
+       "text": "的",
+       "wordId": "的_de5"
+      },
+      {
+       "text": "饺子",
+       "wordId": "饺子_jiao3zi5"
+      },
+      {
+       "text": "非常",
+       "wordId": "非常_fei1chang2"
+      },
+      {
+       "text": "好吃",
+       "wordId": "好吃_hao3chi1"
+      },
+      {
+       "text": "！"
+      }
+     ],
+     "tokenPinyin": [
+      "Běi jīng",
+      "de",
+      "jiǎo zi",
+      "fēi cháng",
+      "hǎo chī",
+      ""
+     ],
+     "pinyin": "Běi jīng de jiǎo zi fēi cháng hǎo chī!",
+     "vi": "Sủi cảo ở Bắc Kinh ngon tuyệt!"
+    },
+    {
+     "zh": "明年我还想去北京。",
+     "tokens": [
+      {
+       "text": "明年",
+       "wordId": "明年_ming2nian2"
+      },
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "还",
+       "wordId": "还_hai2"
+      },
+      {
+       "text": "想",
+       "wordId": "想_xiang3"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "北京",
+       "wordId": "北京_Bei3jing1"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "míng nián",
+      "wǒ",
+      "hái",
+      "xiǎng",
+      "qù",
+      "Běi jīng",
+      ""
+     ],
+     "pinyin": "Míng nián wǒ hái xiǎng qù Běi jīng.",
+     "vi": "Năm sau tôi vẫn muốn đi Bắc Kinh."
+    }
+   ],
+   "questions": [
+    {
+     "id": "hsk1-r11-q1",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Họ đi Bắc Kinh khi nào?",
+      "options": [
+       "Tháng 8 năm nay",
+       "Tháng 8 năm ngoái",
+       "Tháng 8 năm sau",
+       "Tháng 10 năm ngoái"
+      ]
+     },
+     "answer": 1
+    },
+    {
+     "id": "hsk1-r11-q2",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Họ đến Bắc Kinh bằng gì?",
+      "options": [
+       "Tàu hỏa",
+       "Taxi",
+       "Máy bay",
+       "Ô tô riêng"
+      ]
+     },
+     "answer": 2
+    },
+    {
+     "id": "hsk1-r11-q3",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Họ ở Bắc Kinh mấy ngày?",
+      "options": [
+       "Ba ngày",
+       "Bốn ngày",
+       "Năm ngày",
+       "Tám ngày"
+      ]
+     },
+     "answer": 2
+    }
+   ],
+   "stats": {
+    "hanzi": 91,
+    "words": 67,
+    "outOfLevelRatio": 0
+   }
+  },
+  {
+   "id": "hsk1-r12",
+   "hskLevel": 1,
+   "title": "Gọi điện thoại",
+   "titleZh": "打电话",
+   "unit": 10,
+   "kind": "dialogue",
+   "speakers": {
+    "A": "Lan",
+    "B": "Mai"
+   },
+   "sentences": [
+    {
+     "zh": "喂，你在做什么？",
+     "tokens": [
+      {
+       "text": "喂",
+       "wordId": "喂_wei4"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "你",
+       "wordId": "你_ni3"
+      },
+      {
+       "text": "在",
+       "wordId": "在_zai4"
+      },
+      {
+       "text": "做",
+       "wordId": "做_zuo4"
+      },
+      {
+       "text": "什么",
+       "wordId": "什么_shen2me5"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "wèi",
+      "",
+      "nǐ",
+      "zài",
+      "zuò",
+      "shén me",
+      ""
+     ],
+     "pinyin": "Wèi, nǐ zài zuò shén me?",
+     "vi": "A lô, cậu đang làm gì đấy?",
+     "speaker": "A"
+    },
+    {
+     "zh": "我在家看电视呢。",
+     "tokens": [
+      {
+       "text": "我",
+       "wordId": "我_wo3"
+      },
+      {
+       "text": "在",
+       "wordId": "在_zai4"
+      },
+      {
+       "text": "家",
+       "wordId": "家_jia1"
+      },
+      {
+       "text": "看",
+       "wordId": "看_kan4"
+      },
+      {
+       "text": "电视",
+       "wordId": "电视_dian4shi4"
+      },
+      {
+       "text": "呢",
+       "wordId": "呢_ne5"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "wǒ",
+      "zài",
+      "jiā",
+      "kàn",
+      "diàn shì",
+      "ne",
+      ""
+     ],
+     "pinyin": "Wǒ zài jiā kàn diàn shì ne.",
+     "vi": "Mình đang ở nhà xem tivi.",
+     "speaker": "B"
+    },
+    {
+     "zh": "外边下雨了，你知道吗？",
+     "tokens": [
+      {
+       "text": "外边",
+       "wordId": "外边_wai4bian5"
+      },
+      {
+       "text": "下雨",
+       "wordId": "下雨_xia4yu3"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "你",
+       "wordId": "你_ni3"
+      },
+      {
+       "text": "知道",
+       "wordId": "知道_zhi1dao4"
+      },
+      {
+       "text": "吗",
+       "wordId": "吗_ma5"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "wài bian",
+      "xià yǔ",
+      "le",
+      "",
+      "nǐ",
+      "zhī dào",
+      "ma",
+      ""
+     ],
+     "pinyin": "Wài bian xià yǔ le, nǐ zhī dào ma?",
+     "vi": "Bên ngoài mưa rồi, cậu biết không?",
+     "speaker": "A"
+    },
+    {
+     "zh": "知道。今天很冷。",
+     "tokens": [
+      {
+       "text": "知道",
+       "wordId": "知道_zhi1dao4"
+      },
+      {
+       "text": "。"
+      },
+      {
+       "text": "今天",
+       "wordId": "今天_jin1tian1"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "冷",
+       "wordId": "冷_leng3"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "zhī dào",
+      "",
+      "jīn tiān",
+      "hěn",
+      "lěng",
+      ""
+     ],
+     "pinyin": "Zhī dào. Jīn tiān hěn lěng.",
+     "vi": "Biết. Hôm nay lạnh lắm.",
+     "speaker": "B"
+    },
+    {
+     "zh": "明天天气怎么样？",
+     "tokens": [
+      {
+       "text": "明天",
+       "wordId": "明天_ming2tian1"
+      },
+      {
+       "text": "天气",
+       "wordId": "天气_tian1qi4"
+      },
+      {
+       "text": "怎么样",
+       "wordId": "怎么样_zen3me5yang4"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "míng tiān",
+      "tiān qì",
+      "zěn me yàng",
+      ""
+     ],
+     "pinyin": "Míng tiān tiān qì zěn me yàng?",
+     "vi": "Thời tiết ngày mai thế nào?",
+     "speaker": "A"
+    },
+    {
+     "zh": "明天不下雨，很热。",
+     "tokens": [
+      {
+       "text": "明天",
+       "wordId": "明天_ming2tian1"
+      },
+      {
+       "text": "不",
+       "wordId": "不_bu4"
+      },
+      {
+       "text": "下雨",
+       "wordId": "下雨_xia4yu3"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "很",
+       "wordId": "很_hen3"
+      },
+      {
+       "text": "热",
+       "wordId": "热_re4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "míng tiān",
+      "bú",
+      "xià yǔ",
+      "",
+      "hěn",
+      "rè",
+      ""
+     ],
+     "pinyin": "Míng tiān bú xià yǔ, hěn rè.",
+     "vi": "Mai không mưa, trời nóng.",
+     "speaker": "B"
+    },
+    {
+     "zh": "明天我们去看电影，怎么样？",
+     "tokens": [
+      {
+       "text": "明天",
+       "wordId": "明天_ming2tian1"
+      },
+      {
+       "text": "我们",
+       "wordId": "我们_wo3men5"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "看",
+       "wordId": "看_kan4"
+      },
+      {
+       "text": "电影",
+       "wordId": "电影_dian4ying3"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "怎么样",
+       "wordId": "怎么样_zen3me5yang4"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "míng tiān",
+      "wǒ men",
+      "qù",
+      "kàn",
+      "diàn yǐng",
+      "",
+      "zěn me yàng",
+      ""
+     ],
+     "pinyin": "Míng tiān wǒ men qù kàn diàn yǐng, zěn me yàng?",
+     "vi": "Mai chúng mình đi xem phim, được không?",
+     "speaker": "A"
+    },
+    {
+     "zh": "太好了！几点去？",
+     "tokens": [
+      {
+       "text": "太",
+       "wordId": "太_tai4"
+      },
+      {
+       "text": "好",
+       "wordId": "好_hao3"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "！"
+      },
+      {
+       "text": "几",
+       "wordId": "几_ji3"
+      },
+      {
+       "text": "点",
+       "wordId": "点_dian3"
+      },
+      {
+       "text": "去",
+       "wordId": "去_qu4"
+      },
+      {
+       "text": "？"
+      }
+     ],
+     "tokenPinyin": [
+      "tài",
+      "hǎo",
+      "le",
+      "",
+      "jǐ",
+      "diǎn",
+      "qù",
+      ""
+     ],
+     "pinyin": "Tài hǎo le! Jǐ diǎn qù?",
+     "vi": "Tuyệt quá! Mấy giờ đi?",
+     "speaker": "B"
+    },
+    {
+     "zh": "下午两点，我们在电影院前面见。",
+     "tokens": [
+      {
+       "text": "下午",
+       "wordId": "下午_xia4wu3"
+      },
+      {
+       "text": "两",
+       "wordId": "两_liang3"
+      },
+      {
+       "text": "点",
+       "wordId": "点_dian3"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "我们",
+       "wordId": "我们_wo3men5"
+      },
+      {
+       "text": "在",
+       "wordId": "在_zai4"
+      },
+      {
+       "text": "电影院",
+       "wordId": "电影院_dian4ying3yuan4"
+      },
+      {
+       "text": "前面",
+       "wordId": "前面_qian2mian4"
+      },
+      {
+       "text": "见",
+       "wordId": "见_jian4"
+      },
+      {
+       "text": "。"
+      }
+     ],
+     "tokenPinyin": [
+      "xià wǔ",
+      "liǎng",
+      "diǎn",
+      "",
+      "wǒ men",
+      "zài",
+      "diàn yǐng yuàn",
+      "qián miàn",
+      "jiàn",
+      ""
+     ],
+     "pinyin": "Xià wǔ liǎng diǎn, wǒ men zài diàn yǐng yuàn qián miàn jiàn.",
+     "vi": "Hai giờ chiều, chúng mình gặp nhau trước rạp chiếu phim.",
+     "speaker": "A"
+    },
+    {
+     "zh": "好，明天见！",
+     "tokens": [
+      {
+       "text": "好",
+       "wordId": "好_hao3"
+      },
+      {
+       "text": "，"
+      },
+      {
+       "text": "明天",
+       "wordId": "明天_ming2tian1"
+      },
+      {
+       "text": "见",
+       "wordId": "见_jian4"
+      },
+      {
+       "text": "！"
+      }
+     ],
+     "tokenPinyin": [
+      "hǎo",
+      "",
+      "míng tiān",
+      "jiàn",
+      ""
+     ],
+     "pinyin": "Hǎo, míng tiān jiàn!",
+     "vi": "Được, mai gặp nhé!",
+     "speaker": "B"
+    },
+    {
+     "zh": "明天见！不要来晚了！",
+     "tokens": [
+      {
+       "text": "明天",
+       "wordId": "明天_ming2tian1"
+      },
+      {
+       "text": "见",
+       "wordId": "见_jian4"
+      },
+      {
+       "text": "！"
+      },
+      {
+       "text": "不要",
+       "wordId": "不要_bu4yao4"
+      },
+      {
+       "text": "来",
+       "wordId": "来_lai2"
+      },
+      {
+       "text": "晚",
+       "wordId": "晚_wan3"
+      },
+      {
+       "text": "了",
+       "wordId": "了_le5"
+      },
+      {
+       "text": "！"
+      }
+     ],
+     "tokenPinyin": [
+      "míng tiān",
+      "jiàn",
+      "",
+      "bù yào",
+      "lái",
+      "wǎn",
+      "le",
+      ""
+     ],
+     "pinyin": "Míng tiān jiàn! Bù yào lái wǎn le!",
+     "vi": "Mai gặp! Đừng đến muộn nhé!",
+     "speaker": "A"
+    }
+   ],
+   "questions": [
+    {
+     "id": "hsk1-r12-q1",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Mai đang làm gì?",
+      "options": [
+       "Xem tivi",
+       "Đọc sách",
+       "Ngủ",
+       "Đi xem phim"
+      ]
+     },
+     "answer": 0
+    },
+    {
+     "id": "hsk1-r12-q2",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Thời tiết ngày mai thế nào?",
+      "options": [
+       "Mưa, lạnh",
+       "Không mưa, nóng",
+       "Có tuyết",
+       "Không mưa, lạnh"
+      ]
+     },
+     "answer": 1
+    },
+    {
+     "id": "hsk1-r12-q3",
+     "type": "comprehension",
+     "prompt": {
+      "question": "Họ hẹn gặp ở đâu?",
+      "options": [
+       "Ở nhà Mai",
+       "Ở trường",
+       "Trước rạp chiếu phim",
+       "Ở siêu thị"
+      ]
+     },
+     "answer": 2
+    }
+   ],
+   "stats": {
+    "hanzi": 84,
+    "words": 58,
     "outOfLevelRatio": 0
    }
   }

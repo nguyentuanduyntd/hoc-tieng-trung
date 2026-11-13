@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.10.0] — 2026-11-13 — Bước B3–B6: ví dụ, từ loại, quy trình duyệt, 12 bài đọc
+
+### Thêm
+- **B3 – Câu ví dụ cho mọi từ: 301/301** (trước: 185/301). Nguồn ví dụ của từ điển gồm câu soạn riêng (`examples-hsk1.tsv`, +77 câu mới) và toàn bộ câu luyện tập + ví dụ ngữ pháp của 43 bài học (429 câu). Mỗi từ lấy tối đa 2 câu, ưu tiên câu từ điển → câu của chính bài dạy từ đó → câu ngắn.
+- **B4 – Từ loại & tách nghĩa (SPEC 3.14)**: `data/curated/pos-hsk1.tsv` (dự án tự soạn, 15 mã: danh từ, động từ, tính từ, phó từ, đại từ, số từ, lượng từ, giới từ, liên từ, trợ từ, thán từ, từ chỉ thời gian, từ phương vị, tên riêng, cụm từ giao tiếp) — không dùng nhãn từ loại của dữ liệu gốc vì quá nhiễu. `Word.pos`, `Word.senses` (tách nghĩa theo “;”). Thẻ từ hiện từ loại + các nghĩa; pop-up hiện nhãn từ loại và danh sách nghĩa đánh số. Build báo lỗi nếu từ nào thiếu từ loại.
+- **B5 – Quy trình duyệt dữ liệu**: `npm run review:export` → `docs/review-hsk1.tsv` (stt, hanzi, pinyin, Hán Việt, nghĩa, từ loại, ví dụ, trạng thái, cột “duyet”, ghi chú; có BOM để mở bằng Excel). `npm run review:import [-- --dry-run]` đọc lại: áp sửa Hán Việt / nghĩa / từ loại, cột “duyet” = ok → `reviewed` (cột 5 của `hsk1.tsv`), sửa mà không “ok” → về nháp; kiểm tra số âm Hán Việt và từ loại trước khi ghi. Từ đã duyệt không còn nhãn “nháp” trong pop-up.
+- **B6 – 12 bài đọc HSK 1** (+6: 今天几号, 我的学校, 看病, 我的房间, 去北京, 打电话), 82–103 chữ, 0% từ ngoài cấp. Mỗi bài gắn `unit` cùng chủ đề; thư viện sắp theo unit, lộ trình hiện “📖 Bài đọc cùng chủ đề” ở đầu mỗi unit.
+- Test: 231.
+
 ## [0.9.0] — 2026-11-13 — Bước B1–B2: lộ trình HSK 1 đầy đủ + checkpoint
 
 ### Thêm

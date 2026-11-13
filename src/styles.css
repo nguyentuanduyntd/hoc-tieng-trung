@@ -2170,3 +2170,37 @@ a.reading-card:hover {
 .lesson-num.cp {
   background: var(--accent-soft);
 }
+
+/* Từ loại & nghĩa (SPEC 3.14) */
+.pos-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 2px;
+}
+
+.pos-tag {
+  display: inline-block;
+  padding: 0 7px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  vertical-align: 1px;
+}
+
+.dict-senses {
+  margin: 4px 0;
+  padding-left: 1.4em;
+  font-size: 1.02rem;
+}
+
+.dict-senses li {
+  margin: 1px 0;
+}
+
+.unit-readings {
+  margin: 8px 0 0;
+}

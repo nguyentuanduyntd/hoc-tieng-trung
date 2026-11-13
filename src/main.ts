@@ -5,6 +5,7 @@ import { getExamConfig } from "./config/exams.ts";
 import { isResourceReady, learnerStats } from "./lib/dashboard.ts";
 import { buildAnkiTxt, selectWords, type AnkiFilter } from "./lib/anki.ts";
 import { exportProgressJson, importProgressJson } from "./lib/progress.ts";
+import { posLabel } from "./lib/pos.ts";
 import { searchWords } from "./lib/search.ts";
 import { addWordCards } from "./lib/srs.ts";
 import { installPlayerHandlers, lessonPlayerPage, lessonsListPage, mountLessonPlayer, mountLessonsList } from "./pages/lessons.ts";
@@ -73,7 +74,7 @@ function wordCard(w: Word): string {
     <div>
       <div class="pinyin">${esc(w.pinyin)}</div>
       <div class="hv">${esc(w.hanViet ?? "")}</div>
-      <div class="meaning">${esc(w.meaningVi)}</div>
+      <div class="meaning">${w.pos?.length ? `<span class="pos-tag">${esc(w.pos.map(posLabel).join(", "))}</span> ` : ""}${esc((w.senses ?? [w.meaningVi]).join(" · "))}</div>
     </div>
     <div class="word-btns">
       <button class="btn icon-btn" data-speak="${esc(w.hanzi)}" aria-label="Phát âm ${esc(w.hanzi)}" title="Phát âm">🔊</button>

@@ -9,6 +9,7 @@ export interface ReadingSpec {
   id: string;
   title: string;
   titleZh?: string;
+  unit?: number;
   kind: "text" | "dialogue";
   speakers?: Record<string, string>;
   sentences: { zh: string; vi: string; speaker?: string }[];
@@ -57,6 +58,7 @@ export function buildReading(
     hskLevel,
     title: spec.title,
     ...(spec.titleZh ? { titleZh: spec.titleZh } : {}),
+    ...(spec.unit !== undefined ? { unit: spec.unit } : {}),
     kind: spec.kind,
     ...(spec.speakers ? { speakers: spec.speakers } : {}),
     sentences,
@@ -73,6 +75,7 @@ export function validateReading(r: Reading): string[] {
   if (r.stats.hanzi < L.minHanzi || r.stats.hanzi > L.maxHanzi) e.push(`${r.id}: ${r.stats.hanzi} chữ Hán (cần ${L.minHanzi}–${L.maxHanzi})`);
   if (r.stats.outOfLevelRatio > L.maxOutOfLevel) e.push(`${r.id}: ${(r.stats.outOfLevelRatio * 100).toFixed(1)}% từ ngoài cấp (tối đa 5%)`);
   if (r.questions.length < L.minQuestions || r.questions.length > L.maxQuestions) e.push(`${r.id}: cần 3–5 câu hỏi đọc hiểu`);
+  if (r.unit !== undefined && (!Number.isInteger(r.unit) || r.unit < 1)) e.push(`${r.id}: unit không hợp lệ`);
   for (const q of r.questions) {
     if (q.type !== "comprehension") continue;
     if (q.prompt.options.length < 2) e.push(`${q.id}: cần ≥ 2 phương án`);

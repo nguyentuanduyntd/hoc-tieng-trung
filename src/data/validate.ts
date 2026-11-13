@@ -2,6 +2,7 @@
 
 import { HSK_STANDARDS, maxLevel } from "../config/hsk.ts";
 import type { Word } from "../types.ts";
+import { isPosCode } from "../lib/pos.ts";
 import { hasToneMarks, isHanzi, markedToNumbered, stripTones, syllableCount } from "../lib/pinyin.ts";
 
 export interface ValidationIssue {
@@ -42,6 +43,8 @@ export function validateWord(w: Word): ValidationIssue[] {
     if (n !== [...w.hanzi].length) add("hanViet", `số âm Hán Việt (${n}) khác số chữ Hán (${[...w.hanzi].length})`);
   }
   if (!w.meaningVi?.trim()) add("meaningVi", "thiếu nghĩa tiếng Việt");
+  if (w.pos !== undefined && (!w.pos.length || w.pos.some((c) => !isPosCode(c)))) add("pos", `từ loại không hợp lệ: ${w.pos.join(",")}`);
+  if (w.senses !== undefined && !w.senses.length) add("senses", "thiếu nghĩa sau khi tách");
 
   const checkLevel = (field: "hsk2Level" | "hsk3Level", max: number) => {
     const v = w[field];
